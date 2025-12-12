@@ -1,17 +1,13 @@
-# Projects
+# GUI : Projektai
 
-Chloros allows you to create projects which can be reopened in the future.
+Chloros leidžia kurti projektus, kuriuos galima atidaryti ateityje.
 
-## New Project
+## Naujas projektas
 
-<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>Pagrindiniame meniu pasirinkite „Naujas projektas“ ir įveskite unikalų projekto pavadinimą.
 
-Select "New Project" from the main menu and enter a unique name for your project.
+## Atidaryti projektą
 
-## Open Project
+<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>Pasirinkite „Atidaryti projektą“, kad pamatytumėte esamų projektų sąrašą projekto aplanke. Jei projektų nėra, antrinis šoninis meniu neatsidarys. Viršutinėje nuotraukoje matote keletą GUI sukurtų projektų (t1, t2, t3). DATE\_TIME projektai buvo sukurti CLI naudojant numatytąją projektų pavadinimų schemą. Spustelėję bet kurį projekto pavadinimą, jį atidarysite.
 
-<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>
-
-Select "Open Project" to see a list of existing projects in the Project Folder. If no projects exist the secondary side menu will not open. You can see some GUI created projects (t1, t2, t3) listed in the above photo. The DATE\_TIME projects were created by the CLI using the default project naming scheme. Clicking any project name will open it.
-
-Clicking the "Open Project Folder" button opens your computer's file explorer at the project path. You can adjust the project path in the [Project Settings](project-settings/page-2.md).
+Spustelėjus mygtuką „Atidaryti projekto aplanką“ atidarys kompiuterio failų naršyklę projekto kelyje. Projekto kelią galite koreguoti [Projekto nustatymai](project-settings/project-settings.md).

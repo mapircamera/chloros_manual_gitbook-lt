@@ -1,247 +1,247 @@
-# Opening an Image Full Screen
+# Vaizdo atidarymas per visą ekraną
 
-The Chloros Image Viewer provides a dedicated full-screen interface for viewing, analyzing, and manipulating your multispectral images. Whether viewing original images or processed outputs, the Image Viewer offers powerful tools for inspection and analysis.
+Chloros vaizdo peržiūros programa suteikia specialią visą ekraną užimančią sąsają, skirtą daugiaspektrių vaizdų peržiūrai, analizei ir redagavimui. Nepriklausomai nuo to, ar peržiūrite originalius vaizdus, ar apdorotus rezultatus, vaizdo peržiūros programa siūlo galingus įrankius tikrinimui ir analizei.
 
-## Accessing the Image Viewer
+## Prieiga prie Image Viewer
 
-### From the File Browser
+### Iš failų naršyklės
 
-The most common way to open an image in the Image Viewer:
+Dažniausias būdas atidaryti vaizdą Image Viewer:
 
-1. Ensure you're in the **File Browser** tab <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Click any **image thumbnail** in the image grid
-3. The image opens in the **main preview area** (center of screen)
-4. The image is now loaded and ready for full-screen viewing
+1. Įsitikinkite, kad esate **Failų naršyklės** skirtuke <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
+2. Spustelėkite bet kurį **vaizdo miniatiūrą** vaizdų tinklelyje
+3. Vaizdas atsidaro **pagrindinėje peržiūros srityje** (ekrano centre)
+4. Vaizdas dabar įkeltas ir paruoštas peržiūrai visame ekrane
 
-### Opening the Image Viewer Tab
+### Image Viewer skirtuko atidarymas
 
-Once an image is loaded in the preview area:
+Kai vaizdas įkeltas į peržiūros sritį:
 
-1. Click the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> icon in the left sidebar
-2. The Image Viewer tab opens, displaying the selected image full-screen
-3. Advanced viewing and analysis tools become available in the left sidebar
-
-***
-
-## Image Viewer Interface Overview
-
-### Main Display Area
-
-The largest portion of the screen shows your image:
-
-* **Full resolution**: Images displayed at native resolution
-* **Zoomable**: Use controls or mouse wheel to zoom
-* **Pannable**: Click and drag to move around when zoomed
-* **Aspect ratio maintained**: Images scale proportionally
+1. Spustelėkite **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje
+2. Atsidarys vaizdų peržiūros skirtukas, kuriame pasirinktas vaizdas bus rodomas visame ekrane
+3. Kairėje šoninėje juostoje bus prieinami išplėstiniai peržiūros ir analizės įrankiai
 
 ***
 
-## Viewing Options
+## Vaizdų peržiūros sąsajos apžvalga
 
-### Basic Image Navigation
+### Pagrindinė rodymo sritis
 
-#### Browse Through Images
+Didžiausia ekrano dalis rodo jūsų vaizdą:
 
-Navigate through your image set using keyboard shortcuts or buttons:
-
-* **Next image**: Click → button or press **→** (Right Arrow) key
-* **Previous image**: Click ← button or press **←** (Left Arrow) key
-* **Jump to specific image**: Return to File Browser and click desired thumbnail
-
-#### Zoom Controls
-
-Adjust magnification to inspect image details:
-
-**Zoom In:**
-
-* Click **+** (Plus) button
-* Press **+** or **=** key
-* Scroll mouse wheel **up**
-
-**Zoom Out:**
-
-* Click **−** (Minus) button
-* Press **−** (Minus) key
-* Scroll mouse wheel **down**
-
-**Fit to Screen:**
-
-* Click **↔** (Fit) button
-* Press **0** (Zero) key
-* Double-click on image
-
-#### Pan When Zoomed
-
-When zoomed in beyond screen size:
-
-1. Move mouse cursor over image
-2. Click and **hold left mouse button**
-3. **Drag** to move image around
-4. Release to stop panning
-
-**Alternative**: Use arrow keys to pan in small increments
+* **Pilna skiriamoji geba**: vaizdai rodomi natūralia skiriamąja geba
+* **Zoomable**: Naudokite valdiklius arba pelės ratuką, kad padidintumėte vaizdą
+* **Pannable**: Spustelėkite ir vilkite, kad perkelti vaizdą, kai jis padidintas
+* **Aspect ratio maintained**: Vaizdai proporcingai masteliuojami
 
 ***
 
-## Pixel Value Inspection
+## Peržiūros parinktys
 
-### Viewing Pixel Values at Cursor
+### Pagrindinė vaizdų navigacija
 
-As you move your mouse cursor over the image, pixel values display in real-time:
+#### Vaizdų peržiūra
 
-**Value display location:**
+Naršykite vaizdų rinkinį naudodami klavišų kombinacijas arba mygtukus:
 
-* **Floating number and red line in right side index LUT gradient legend**
-* **When zoomed in further, floating value near cursor and highlighted pixel**
-* Shows values for pixel **under cursor or highlighted**
-* Updates as you move mouse
+* **Kitas vaizdas**: spustelėkite mygtuką → arba paspauskite klavišą **→** (dešinė rodyklė)
+* **Ankstesnis vaizdas**: spustelėkite mygtuką ← arba paspauskite klavišą **←** (kairė rodyklė)
+* **Perėjimas prie konkretaus vaizdo**: grįžkite į failų naršyklę ir spustelėkite norimą miniatiūrą
 
-***
+#### Padidinimo valdikliai
 
-## Image Types You Can View
+Reguliuokite padidinimą, kad galėtumėte peržiūrėti vaizdo detales:
 
-### Original Images (Pre-Processing)
+**Padidinti:**
 
-**RAW + JPG images from camera:**
+* Spustelėkite mygtuką **+** (pliusas)
+* Paspauskite klavišą **+** arba **=**
+* Pasukite pelės ratuką **aukštyn**
 
-* Display RAW data as previewed
-* Show original, uncorrected values
-* Useful for checking image quality before processing
+**Sumažinti:**
 
-### Calibrated Reflectance Images
+* Spustelėkite mygtuką **−** (minusas)
+* Paspauskite klavišą **−** (minusas)
+* Pasukite pelės ratuką **žemyn**
 
-**After processing:**
+**Pritaikyti prie ekrano:**
 
-* Vignette corrected
-* Reflectance calibrated
-* Multi-band TIFF (Red, Green, NIR, etc.)
-* Scientific data ready for analysis
+* Spustelėkite mygtuką **↔** (Pritaikyti)
+* Paspauskite klavišą **0** (Nulis)
+* Dukart spustelėkite vaizdą
 
-### Index Images
+#### Peržiūra padidinus
 
-**NDVI, NDRE, GNDVI, etc. (\_NDVI.tif files):**
+Kai padidinama daugiau nei ekrano dydis:
 
-* Single-band grayscale images
-* Pixel values represent index calculation results
-* Range typically -1 to +1 for normalized indices
-* Can apply color LUTs for visualization
+1. Perkelkite pelės žymeklį ant vaizdo
+2. Spustelėkite ir **laikykite nuspaudę kairįjį pelės mygtuką**
+3. **Vilkite**, kad perkelti vaizdą
+4. Atleiskite, kad sustabdyti perkelimą
 
-***
-
-## Index and LUT Application
-
-Apply multispectral indices and color Look-Up Tables:
-
-1. Locate **Index/LUT Sandbox** in **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar
-2. Select vegetation index (NDVI, NDRE, etc.)
-3. Select multispectral formula, or create your own custom one (Chloros+ only)
-4. Apply color LUT gradient for visualization
-5. Adjust value ranges and thresholds
-
-See [Index/LUT Sandbox](index-lut-sandbox.md) for detailed instructions.
+**Alternatyva**: Naudokite rodyklių klavišus, kad perkelti mažais žingsniais
 
 ***
 
-## Keyboard Shortcuts
+## Pikselių vertės tikrinimas
 
-### Navigation
+### Pikselių verčių peržiūra prie žymeklio
 
-* **→** (Right Arrow): Next image
-* **←** (Left Arrow): Previous image
-* **Home**: First image in list
-* **End**: Last image in list
+Kai pelės žymeklį perkelite ant vaizdo, pikselių vertės rodomos realiuoju laiku:
 
-### Zoom
+**Vertės rodymo vieta:**
 
-* **+** or **=**: Zoom in
-* **−**: Zoom out
-* **0** (Zero): Fit to screen
-* **Mouse Wheel**: Zoom in/out
-
-### View Controls
-
-* **P**: Toggle pixel percent mode
-* **L**: Toggle layers panel
-* **Esc**: Close full-screen or return to File Browser
-
-### Other
-
-* **Ctrl+S**: Save current image
-* **F**: Full-screen mode (if available)
+* **Plaukiojantis skaičius ir raudona linija dešinėje pusėje esančioje indeksų LUT gradiento legendoje**
+* **Padidinus vaizdą, plaukiojanti vertė rodomas šalia žymeklio ir paryškintos pikselės**
+* Rodo pikselių, esančių **po žymekliu arba paryškintų**, vertes
+* Atnaujinama, kai judinate pelę
 
 ***
 
-### Verifying Index Calculations
+## Vaizdų tipai, kuriuos galite peržiūrėti
 
-Check that indices calculated correctly:
+### Originalūs vaizdai (prieš apdorojimą)
 
-1. Open NDVI or other index image
-2. Check vegetation areas:
-   * **NDVI**: Should show 0.4-0.9 for healthy plants
-   * **NDRE**: Higher values for vigorous growth
-   * **GNDVI**: Similar to NDVI but chlorophyll-sensitive
-3. Check non-vegetation:
-   * **Soil**: Near 0 or slightly negative
-   * **Water**: Negative values (-0.5 to 0)
+**RAW + JPG vaizdai iš fotoaparato:**
 
-***
+* Rodo RAW duomenis kaip peržiūrą
+* Rodo originalias, nekoryguotas vertes
+* Naudinga vaizdo kokybei patikrinti prieš apdorojimą
 
-## Troubleshooting Viewing Issues
+### Kalibruoti atspindžio vaizdai
 
-### Image Won't Open
+**Po apdorojimo:**
 
-**Possible causes:**
+* Koreguota vinjetė
+* Kalibruotas atspindys
+* Daugialypės juostos TIFF (Red, Green, NIR ir kt.)
+* Moksliniai duomenys paruošti analizės
 
-* File corrupted during processing
-* Unsupported file format
-* Insufficient memory for large image
+### Indekso vaizdai
 
-**Solutions:**
+**NDVI, NDRE, GNDVI ir kt. (\_NDVI.tif failai):**
 
-1. Try opening in external viewer to verify file integrity
-2. Check file format matches expected type
-3. Close other applications to free memory
-4. Try smaller/different image
-
-### Black or White Image Display
-
-**Possible causes:**
-
-* Value range outside display capability
-* 32-bit float image with unusual values
-* Index calculation error
-
-**Solutions:**
-
-1. Check pixel values - if all very low or very high, adjust display range
-2. Try opening in QGIS or similar with auto-range adjustment
-3. Check Debug Log from processing for errors
-
-### Pixel Values Seem Wrong
-
-**Possible causes:**
-
-* Viewing wrong image (original vs processed)
-* Calibration didn't apply correctly
-* Light sensor data wasn't included in input
-* Percent mode toggled incorrectly
-
-**Solutions:**
-
-1. Verify you're viewing processed output (check filename suffix)
-2. Check percent mode button state
-3. Compare with known-good images from same dataset
+* Vienos juostos pilkosios skalės vaizdai
+* Pikselių vertės atspindi indekso skaičiavimo rezultatus
+* Normalizuotų indeksų diapazonas paprastai yra nuo -1 iki +1
+* Vizualizavimui galima taikyti spalvų LUT
 
 ***
 
-## Next Steps
+## Indekso ir LUT taikymas
 
-Now that you can view images full-screen:
+Taikykite daugiaspektrinius indeksus ir spalvų paieškos lenteles:
 
-* [**Image Layers**](image-layers.md) - Learn about multi-band visualization
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Apply custom indices and color mapping
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Understand available indices
+1. **Image Viewer** šoninėje juostoje raskite **Index/LUT Sandbox** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninėje juostoje
+2. Pasirinkite augmenijos indeksą (NDVI, NDRE ir kt.)
+3. Pasirinkite daugiaspektrę formulę arba sukurkite savo (tik Chloros+)
+4. Vizualizavimui taikykite spalvų LUT gradientą
+5. Nustatykite verčių intervalus ir ribas
 
-For processing workflow, see:
+Išsamias instrukcijas rasite [Indekso/LUT smėlio dėžėje](index-lut-sandbox.md).
 
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Complete processing guide
+***
+
+## Klavišų kombinacijos
+
+### Navigacija
+
+* **→** (dešinė rodyklė): Kitas vaizdas
+* **←** (kairė rodyklė): Ankstesnis vaizdas
+* **Pagrindinis**: Pirmasis vaizdas sąraše
+* **End**: paskutinis vaizdas sąraše
+
+### Padidinimas
+
+* **+** arba **=**: padidinti
+* **−**: sumažinti
+* **0** (nulis): pritaikyti prie ekrano
+* **Peles ratukas**: padidinti/sumažinti
+
+### Peržiūros valdikliai
+
+* **P**: Perjungti pikselių procentų režimą
+* **L**: Perjungti sluoksnių skydelį
+* **Esc**: Uždaryti visą ekraną arba grįžti į failų naršyklę
+
+### Kita
+
+* **Ctrl+S**: Išsaugoti dabartinį vaizdą
+* **F**: Visas ekranas (jei galima)
+
+***
+
+### Indeksų skaičiavimo tikrinimas
+
+Patikrinkite, ar indeksai apskaičiuoti teisingai:
+
+1. Atidarykite NDVI arba kitą indekso vaizdą.
+2. Patikrinkite augmenijos plotus:
+   * **NDVI**: Sveikiems augalams turėtų rodyti 0,4–0,9.
+   * **NDRE**: didesni skaičiai rodo spartų augimą
+   * **GNDVI**: panašus į NDVI, bet jautrus chlorofilui
+3. Patikrinkite neaugmenį:
+   * **Dirvožemis**: artimas 0 arba šiek tiek neigiamas
+   * **Vanduo**: neigiamos vertės (-0,5 iki 0)
+
+***
+
+## Vaizdo peržiūros problemų sprendimas
+
+### Vaizdas neatsidaro
+
+**Galimos priežastys:**
+
+* Failas sugadintas apdorojimo metu
+* Nepalaikomas failo formatas
+* Nepakankama atmintis dideliam vaizdui
+
+**Sprendimai:**
+
+1. Pabandykite atidaryti išorinėje peržiūros programoje, kad patikrintumėte failo vientisumą
+2. Patikrinkite, ar failo formatas atitinka tikėtiną tipą
+3. Uždarykite kitas programas, kad atlaisvintumėte atmintį
+4. Pabandykite mažesnį / kitokį vaizdą
+
+### Juodas arba baltas vaizdas
+
+**Galimos priežastys:**
+
+* Vertės diapazonas viršija ekrano galimybes
+* 32 bitų plūduriuojantis vaizdas su neįprastomis vertėmis
+* Indekso skaičiavimo klaida
+
+**Sprendimai:**
+
+1. Patikrinkite pikselių vertes – jei visos labai mažos arba labai didelės, sureguliuokite ekrano diapazoną.
+2. Pabandykite atidaryti QGIS arba panašioje programoje su automatiniu diapazono reguliavimu.
+3. Patikrinkite apdorojimo klaidų žurnalą, ar nėra klaidų.
+
+### Pikselių vertės atrodo neteisingos
+
+**Galimos priežastys:**
+
+* Peržiūrimas neteisingas vaizdas (originalus, o ne apdorotas)
+* Kalibravimas nebuvo taikytas teisingai
+* Įvesties duomenys nebuvo įtraukti į šviesos jutiklio duomenis
+* Procentinis režimas buvo perjungtas neteisingai
+
+**Sprendimai:**
+
+1. Patikrinkite, ar žiūrite apdorotą rezultatą (patikrinkite failo pavadinimo galūnę)
+2. Patikrinkite procentinio režimo mygtuko būseną
+3. Palyginkite su žinomais gerais vaizdais iš to paties duomenų rinkinio
+
+***
+
+## Tolimesni veiksmai
+
+Dabar, kai galite peržiūrėti vaizdus visame ekrane:
+
+* [**Vaizdų sluoksniai**](image-layers.md) – sužinokite apie daugiabandę vizualizaciją
+* [**Indeksas/LUT smėlio dėžė**](index-lut-sandbox.md) – taikykite pasirinktinius indeksus ir spalvų atitikmenis
+* [**Daugiaspektrinės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Sužinokite apie galimus indeksus
+
+Dėl apdorojimo darbo eigos žr.:
+
+* [**Vaizdų apdorojimas (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – Išsamus apdorojimo vadovas

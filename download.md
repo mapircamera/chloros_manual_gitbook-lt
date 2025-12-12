@@ -4,169 +4,165 @@ metaLinks:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
 
-# Download
+# Atsisiųsti
 
-Download the latest version of Chloros for Windows to get started with multispectral image processing.
+Atsisiųskite naujausią Chloros versiją, skirtą Windows, kad galėtumėte pradėti dirbti su daugiaspektrinių vaizdų apdorojimu.
 
-### System Requirements
+### Sistemos reikalavimai
 
-| Requirement          | Minimum                         | Recommended                     |
+| Reikalavimas          | Minimalūs                         | Rekomenduojami                     |
 | -------------------- | ------------------------------- | ------------------------------- |
-| **Operating System** | Windows 10 (64-bit)             | Windows 11 (64-bit)             |
-| **Processor**        | Intel Core i5 or equivalent     | Intel Core i7 or better         |
-| **Memory (RAM)**     | 8GB                             | 16GB or more                    |
-| **Graphics Card**    | DirectX 11 compatible           | NVIDIA GPU with 4GB+ VRAM       |
-| **Storage**          | 2GB free space                  | SSD with 10GB+ free space       |
-| **Display**          | 1920x1080                       | 2560x1440 or higher             |
-| **Internet**         | Required for license activation | Required for license activation |
+| **Operacinė sistema** | Windows 10 (64 bitai)             | Windows 11 (64 bitai)             |
+| **Procesorius**        | Intel Core i5 arba lygiavertis     | Intel Core i7 arba geresnis         |
+| **Atmintis (RAM)**     | 8 GB                             | 16 GB arba daugiau                    |
+| **Vaizdo plokštė**    | Suderinama su DirectX 11           | NVIDIA GPU su 4 GB+ VRAM       |
+| **Saugykla**          | 2 GB laisvos vietos                  | SSD su 10 GB+ laisvos vietos       |
+| **Ekranas**          | 1920x1080                       | 2560x1440 arba didesnė             |
+| **Internetas**         | Reikalingas licencijos aktyvavimui | Reikalingas licencijos aktyvavimui |
 
-{% hint style="info" %}
-**GPU Acceleration**: Chloros+ users with NVIDIA GPUs (4GB+ VRAM) can use CUDA acceleration for significantly faster processing.
+{% hint style=&quot;info&quot; %}
+**GPU pagreitinimas**: Chloros+ vartotojai su NVIDIA GPU (4 GB+ VRAM) gali naudoti CUDA pagreitinimą, kad apdorojimas būtų žymiai spartesnis.
 {% endhint %}
 
 ***
 
-## Download Chloros
+## Atsisiųskite Chloros
 
-### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Download Chloros Here</a>
+### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Atsisiųskite Chloros čia</a>
 
-### Latest Stable Release
+### Naujausia stabili versija
 
-**Chloros Installer for Windows**
+**Chloros diegimo programa Windows**
 
-* **Version**: 1.0.3
-* **Release Date**: December ?, 2025
-* **File Size**: 1.6GB
-* **File Type**: .exe (Windows Installer)
+* **Versija**: 1.0.3
+* **Išleidimo data**: 2025 m. gruodžio mėn.
+* **Failo dydis**: 1,6 GB
+* **Failo tipas**: .exe (Windows diegimo programa)
 
-#### **Installation Steps:**
+#### **Diegimo veiksmai:**
 
-1. Download the `CHLOROS INSTALLER - CURRENT VERSION.exe` file
-2. Double-click the installer to begin installation
-3. Follow the installation wizard prompts
-4. Choose installation directory (default: `C:\Program Files\Chloros\`)
-5. Complete installation and launch Chloros
-6. Sign in with your MAPIR Cloud Chloros+ account (or continue with free version)
+1. Atsisiųskite `CHLOROS INSTALLER - CURRENT VERSION.exe` failą.
+2. Norėdami pradėti diegimą, dukart spustelėkite diegimo programą.
+3. Vadovaukitės diegimo vedlio nurodymais.
+4. Pasirinkite diegimo katalogą (numatyta: `C:\Program Files\Chloros\`).
+5. Baigite diegimą ir paleiskite Chloros.
+6. Prisijunkite naudodami savo MAPIR Cloud Chloros+ paskyrą (arba tęskite naudodami nemokamą versiją).
 
-{% hint style="success" %}
-The installer automatically adds `chloros-cli` to your system PATH for command-line access.
+{% hint style=&quot;success&quot; %}
+Diegimo programa automatiškai įtraukia `chloros-cli` į jūsų sistemos PATH, kad būtų galima naudotis komandų eilute.
 {% endhint %}
 
 ***
 
-## Additional Resources
+## Papildomi ištekliai
 
 ### Python SDK
 
-For developers and automation workflows, install the Chloros Python SDK:
+Kūrėjams ir automatizavimo darbo eigoms įdiekite Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Documentation**: [API: Python SDK](api-python-sdk.md)
+**Dokumentacija**: [API: Python SDK](api-python-sdk.md)
 
-**Requirements**: Chloros Desktop must be installed, Chloros+ license required
-
-***
-
-## What's Included
-
-The Chloros installation includes:
-
-* ✅ **Chloros Desktop GUI** - Full-featured graphical interface
-* ✅ **Chloros (Browser)** - Web-based interface for lower-spec systems
-* ✅ **Chloros CLI** - Command-line interface (requires Chloros+ license)
-* ✅ **Backend Engine** - Image processing pipeline
-* ✅ **Camera Profiles** - Pre-configured MAPIR camera templates
+**Reikalavimai**: Chloros Desktop turi būti įdiegtas, reikalinga Chloros+ licencija.
 
 ***
 
-## Upgrade to Chloros+
+## Kas įtraukta
 
-Unlock advanced features with a Chloros+ subscription:
+Chloros diegimas apima:
 
-* 🚀 **Multi-threaded Processing** - Process images in parallel
-* ⚡ **GPU (CUDA) Acceleration** - Leverage NVIDIA GPU power
-* 💻 **CLI Access** - Automate with command-line tools
-* 🐍 **Python SDK** - Programmatic API access
-* 📱 **Multiple Devices** - Use on 2-10+ devices (plan dependent)
-* 🧮 **Custom Formulas** - Create custom multispectral indices
-
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">View Chloros+ Plans &#x26; Pricing</a></p>
+* ✅ **Chloros Desktop GUI** – visapusiška grafinė sąsaja
+* ✅ **Chloros (naršyklė)** – žiniatinklio sąsaja, skirta mažesnės specifikacijos sistemoms
+* ✅ **Chloros CLI** – komandinės eilutės sąsaja (reikalinga Chloros+ licencija)
+* ✅ **Backend Engine** – vaizdų apdorojimo sistema
+* ✅ **Camera Profiles** - Iš anksto sukonfigūruoti MAPIR kameros šablonai
 
 ***
 
-## Installation Help
+## Atnaujinkite į Chloros+
 
-### Troubleshooting
+Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
-**Installation fails with error message:**
+* 🚀 **Daugiasiūlis apdorojimas** – vaizdų apdorojimas lygiagrečiai
+* ⚡ **GPU (CUDA) pagreitinimas** – išnaudokite NVIDIA GPU galią
+* 💻 **CLI prieiga** – automatizuokite naudodami komandinės eilutės įrankius
+* 🐍 **Python SDK** – Programinis API prieiga
+* 📱 **Keli įrenginiai** – Naudokite 2–10+ įrenginiuose (priklausomai nuo plano)
+* 🧮 **Pasirinktinės formulės** – Sukurkite pasirinktinius multispektrinius indeksus
 
-* Ensure you have administrator rights
-* Temporarily disable antivirus software
-* Check that you meet minimum system requirements
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėkite Chloros+ planus ir kainas</a></p>***
 
-**Application won't start:**
+## Pagalba diegiant
 
-* Try Chloros (Browser) version
-* Verify Windows 10/11 (64-bit) is installed
-* Update graphics drivers
-* Check Windows Event Viewer for error details
-* Contact support with error logs
+### Trikčių šalinimas
 
-**License activation issues:**
+**Diegimas nepavyksta ir rodomas klaidos pranešimas:**
 
-* Ensure internet connection is active
-* Verify credentials at [https://cloud.mapir.camera](https://cloud.mapir.camera)
-* Check firewall isn't blocking Chloros
-* See [Chloros+ Login](chloros+-login.md) for detailed instructions
+* Įsitikinkite, kad turite administratoriaus teises
+* Laikinai išjunkite antivirusinę programinę įrangą
+* Patikrinkite, ar atitinkate minimalius sistemos reikalavimus
 
-### Getting Support
+**Programa nepaleidžiama:**
 
-Need help with installation or setup?
+* Išbandykite Chloros (naršyklės) versiją
+* Patikrinkite, ar įdiegta Windows 10/11 (64 bitų)
+* Atnaujinkite grafikos tvarkykles
+* Patikrinkite Windows įvykių peržiūrą, kad sužinotumėte klaidos detales
+* Susisiekite su pagalbos tarnyba ir pateikite klaidų žurnalus
 
-* 📧 **Email**: info@mapir.camera
-* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Documentation**: [Getting Started](./)
-* ❓ **FAQ**: [Frequently Asked Questions](faq.md)
+**Licencijos aktyvavimo problemos:**
+
+* Įsitikinkite, kad interneto ryšys veikia
+* Patikrinkite prisijungimo duomenis [https://cloud.mapir.camera](https://cloud.mapir.camera)
+* Patikrinkite, ar ugniasienė neblokuoja Chloros
+* Išsamias instrukcijas rasite [Chloros+ Prisijungimas](chloros+-login.md)
+
+### Pagalba
+
+Reikia pagalbos dėl įdiegimo ar nustatymo?
+
+* 📧 **El. paštas**: info@mapir.camera
+* 🌐 **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **Dokumentacija**: [Pradžia](./)
+* ❓ **DUK**: [Dažnai užduodami klausimai](faq.md)
 
 ***
 
-## Change Log
+## Keitimų žurnalas
 
 <details>
 
-<summary>Version 1.0.3</summary>
+<summary>Versija 1.0.3</summary>
 
-### **Release Date**: December ?, 2025
+### **Išleidimo data**: 2025 m. gruodžio ? d.
 
-#### New Features
+#### Naujos funkcijos
 
-* Initial Launch
+* Pirminis paleidimas
 
-#### Improvements
+#### Patobulinimai
 
-* Initial Launch
+* Pirminis paleidimas
 
-#### Bug Fixes
+#### Klaidų taisymai
 
-* Initial Launch
+* Pirminis paleidimas
 
-#### Known Issues
+#### Žinomos problemos
 
-* Initial Launch
+* Pirminis paleidimas
 
-</details>
+</details>***
 
-***
+## Licencinė sutartis
 
-## License Agreement
+**Nuosavybinė programinė įranga** – Autorinės teisės (c) 2025 MAPIR Inc.
 
-**Proprietary Software** - Copyright (c) 2025 MAPIR Inc.
+Neteisėtas naudojimas, platinimas ar modifikavimas yra draudžiamas.
 
-Unauthorized use, distribution, or modification is prohibited.
+**Nemokama versija**: galima naudoti asmeniniams ir komerciniams tikslams su funkcionalumo apribojimais.
 
-**Free Version**: Available for personal and commercial use with feature limitations
-
-**Chloros+**: Subscription-based license for advanced features and commercial deployments
+**Chloros+**: prenumerata pagrįsta licencija, suteikianti prieigą prie išplėstinių funkcijų ir komercinio naudojimo.

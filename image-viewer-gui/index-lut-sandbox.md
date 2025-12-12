@@ -1,86 +1,86 @@
-# Index/LUT Sandbox
+# Indeksas/LUT smėlio dėžė
 
-The Index/LUT Sandbox is an interactive workspace within the Chloros Image Viewer that allows you to experiment with multispectral index calculations and color visualizations in real-time. This powerful tool helps you test different indices, refine value ranges, and create publication-ready visualizations without reprocessing your entire dataset.
+Indeksas/LUT smėlio dėžė yra interaktyvi darbo erdvė Chloros vaizdų peržiūros programoje, kurioje galite eksperimentuoti su daugiaspektrinių indeksų skaičiavimais ir spalvų vizualizacijomis realiuoju laiku. Šis galingas įrankis padeda išbandyti skirtingus indeksus, patobulinti verčių diapazonus ir sukurti publikavimui parengtas vizualizacijas be viso duomenų rinkinio perdirbimo.
 
-## What is the Index/LUT Sandbox?
+## Kas yra indeksas/LUT smėlio dėžė?
 
-### Purpose
+### Tikslas
 
-The Sandbox provides:
+Smėlio dėžė suteikia:
 
-* **Real-time index calculation** - Apply any vegetation index instantly
-* **Interactive LUT adjustment** - Fine-tune color gradients and ranges
-* **Workflow optimization** - Determine best settings before batch processing
+* **Indekso skaičiavimą realiuoju laiku** – bet kokį augmenijos indeksą galima taikyti iš karto.
+* **Interaktyvų LUT koregavimą** – spalvų gradientų ir diapazonų tikslinimą.
+* **Darbo eigos optimizavimą** – geriausių nustatymų nustatymą prieš partijos apdorojimą.
 
-### Sandbox vs. Project Processing
+### Sandbox ir projektų apdorojimas
 
-**Index/LUT Sandbox (Interactive):**
+**Index/LUT Sandbox (interaktyvus):**
 
-* Single image at a time
-* Instant feedback
-* Experimental and iterative
-* No permanent changes to files
-* Perfect for exploring and testing
+* Vienas vaizdas vienu metu
+* Momentinis grįžtamasis ryšys
+* Eksperimentinis ir iteracinis
+* Nėra nuolatinių failų pakeitimų
+* Puikiai tinka tyrinėjimui ir testavimui
 
-**Project Processing (Batch):**
+**Projektų apdorojimas (partijos):**
 
-* Entire dataset at once
-* Pre-configured settings
-* Permanent output files
-* Time-intensive
-* Best when settings are finalized
+* Visas duomenų rinkinys vienu metu
+* Iš anksto sukonfigūruoti nustatymai
+* Nuolatiniai išvesties failai
+* Laiko intensyvus
+* Geriausias, kai nustatymai yra galutiniai
 
-{% hint style="success" %}
-**Best Workflow**: Use the Sandbox to experiment and find optimal index and LUT settings, then apply those settings during Project Processing for your entire dataset.
+{% hint style=&quot;success&quot; %}
+**Geriausias darbo srautas**: naudokite „Sandbox“, kad eksperimentuotumėte ir rastumėte optimalius indeksų ir LUT nustatymus, tada taikyti tuos nustatymus projekto apdorojimo metu visam duomenų rinkiniui.
 {% endhint %}
 
 ***
 
-## Working with the Index/LUT Sandbox
+## Darbas su indeksų/LUT „Sandbox“
 
-### Understanding Pre-Calculated Indices
+### Iš anksto apskaičiuotų indeksų supratimas
 
-In Chloros, indices can be applied during project processing. To determine which index and LUT settings you want to apply to exports it is easiest to use the image viewer sandbox.
+Chloros indeksai gali būti taikomi projekto apdorojimo metu. Norint nustatyti, kokius indeksų ir LUT nustatymus norite taikyti eksportui, paprasčiausia naudoti vaizdų peržiūros sandbox.
 
-The sandbox allows you to:
+Sandbox leidžia:
 
-* **Apply new index and color gradients (LUTs)** to visualize the data
-* **Adjust visualization settings** interactively
-* **View** already-calculated index images
-* **Inspect** pixel values at all zoom levels
+* **Taikyti naujus indeksus ir spalvų gradientus (LUT)**, kad vizualizuotumėte duomenis.
+* **Interaktyviai reguliuoti vizualizacijos nustatymus**.
+* **Peržiūrėti** jau apskaičiuotus indeksų vaizdus.
+* **Tikrinti** pikselių vertes visais mastelio lygiuose.
 
-### Opening the Sandbox
+### Sandbox atidarymas
 
-The Index/LUT Sandbox is accessed in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar tab:
+Indeksų/LUT sandbox pasiekiamas **vaizdo peržiūros programos** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninės juostos skirtuke:
 
-1. Click an image in the file browser image grid, it opens in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab
-2. Click **the Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab to open the left pop-out sidebar if it's not already open
+1. Spustelėkite vaizdą failų naršyklės vaizdų tinklelyje, jis atsidarys **vaizdų peržiūros programos** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> skirtuke
+2. Spustelėkite **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , kad atidarytumėte kairėje pusėje esantį iššokantį šoninį meniu, jei jis dar nėra atidarytas
 
-### Selecting an Image to Apply an Index/LUT to
+### Vaizdo pasirinkimas, kuriam bus taikomas indeksas/LUT
 
-To work with an index in the Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Norėdami dirbti su indeksu Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
 
-1. **Open an image** from the main image grid by clicking on it
-2. The **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab will then open
-3. Click the **Layer dropdown** (top-right of viewer)
-4. Select the layer from the dropdown:
-   * RAW (Reflectance)
+1. **Atidarykite vaizdą** iš pagrindinio vaizdų tinklelio, spustelėdami jį.
+2. Tuomet atsidarys **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kortelė
+3. Spustelėkite **Sluoksnio išskleidžiamąjį meniu** (dešinėje peržiūros lango viršuje)
+4. Išskleidžiamajame meniu pasirinkite sluoksnį:
+   * RAW (atspindys)
 
-### Applying an Index to an Image
+### Indekso taikymas vaizdui
 
-Once the image is fullscreen and the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar is open:
+Kai vaizdas rodomas visame ekrane ir **Vaizdo peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> atidarytas:
 
-1. Check the Index box at the top of the sidebar
-2. Choose your camera's filter from the left dropdown
-3. Choose the desired index formula from the right dropdown
-4. Drag the filter channel color circles to the locations in the index formula below
-5. Once the formula is valid the image will update and show the index values
-6. Move your mouse cursor around to see the values at the cursor's location
-7. Zoom in to see individual pixels and their associated values
+1. Pažymėkite langelį „Indeksas“ šoninės juostos viršuje.
+2. Iš kairėje esančio išskleidžiamojo meniu pasirinkite savo fotoaparato filtrą.
+3. Iš dešinėje esančio išskleidžiamojo meniu pasirinkite norimą indekso formulę.
+4. Filtro kanalo spalvų apskritimus perkelkite į indekso formulės vietas žemiau.
+5. Kai formulė bus galiojanti, vaizdas bus atnaujintas ir parodys indekso vertes.
+6. Pajudinkite pelės žymeklį, kad pamatytumėte vertes žymeklio vietoje.
+7. Padidinkite vaizdą, kad pamatytumėte atskirus pikselius ir su jais susijusias vertes.
 
-Each index has a specific value range and meaning:
+Kiekvienas indeksas turi konkretų verčių diapazoną ir reikšmę:
 
-#### NDVI Example
+#### NDVI pavyzdys
 
 ```
 Formula: (NIR - Red) / (NIR + Red)
@@ -96,293 +96,293 @@ Bare soil: 0.0 to 0.2
 Water: -0.1 to 0.1
 ```
 
-For complete index formula documentation, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+Išsamią indeksų formulių dokumentaciją rasite [Daugiaspektrinių indeksų formulės](../project-settings/multispectral-index-formulas.md).
 
 ***
 
-## Working with LUTs (Look-Up Tables)
+## Darbas su LUT (paieškos lentelėmis)
 
-### What is a LUT?
+### Kas yra LUT?
 
-A **Look-Up Table (LUT)** maps numerical index values to colors for visualization:
+**Paieškos lentelė (LUT)** susieja skaitmenines indekso vertes su spalvomis vizualizavimui:
 
-* **Input**: Index pixel value (e.g., NDVI 0.65)
-* **Output**: RGB color (e.g., bright green)
-* **Purpose**: Make patterns easier to see and interpret
+* **Įvestis**: indekso pikselio vertė (pvz., NDVI 0,65)
+* **Išvestis**: RGB spalva (pvz., ryškiai žalia)
+* **Tikslas**: Padaryti modelius lengviau matomus ir interpretuojamus
 
-**Grayscale vs. Color LUT:**
+**Pilkosios skalės ir spalvų LUT:**
 
-* Grayscale: Scientific and neutral, shows raw data
-* Color LUT: Intuitive and impactful, highlights patterns and differences
+* Pilkosios skalės: Mokslinės ir neutralios, rodo neapdorotus duomenis
+* Spalvų LUT: Intuityvios ir įspūdingos, išryškina modelius ir skirtumus
 
-{% hint style="success" %}
-**Visualization Power**: Applying a color LUT to a grayscale index image makes it dramatically easier to identify patterns, anomalies, and areas of interest at a glance.
+{% hint style=&quot;success&quot; %}
+**Vizualizacijos galia**: spalvų LUT taikymas pilkosios skalės indeksiniam vaizdui leidžia žymiai lengviau iš pirmo žvilgsnio atpažinti modelius, anomalijas ir dominančias sritis.
 {% endhint %}
 
-### Applying a LUT to an Index Image
+### LUT taikymas indeksiniam vaizdui
 
-Once you have an index image showing
+Kai turite indeksinį vaizdą, rodantį
 
-1. Click the <img src="../.gitbook/assets/image.png" alt="" data-size="line"> "+Add LUT" button
-2. Select the color gradient
-3. Adjust the clipping min/max end points
-4. Adjust the Clipping Mode
-5. Check the Index box in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar to apply the LUT
+1. Spustelėkite <img src="../.gitbook/assets/image.png" alt="" data-size="line"> „+Pridėti LUT“ mygtuką
+2. Pasirinkite spalvų gradientą
+3. Nustatykite apkarpymo minimalius/maksimalius galinius taškus
+4. Nustatykite apkarpymo režimą
+5. Pažymėkite langelį „Indeksas“ **vaizdo peržiūros programos** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> skirtuke, kad pritaikytumėte LUT.
 
-### Choosing a Color Gradient
+### Spalvų gradiento pasirinkimas
 
-**Selecting a gradient:**
+**Gradiento pasirinkimas:**
 
-1. In the LUT panel, locate the **colored gradient bar**
-2. Hover your mouse over it to view available gradient presets
-3. Select desired gradient
-4. The image **updates immediately** with new colors when the Index box is checked
+1. LUT skydelyje raskite **spalvų gradiento juostą**.
+2. Užveskite pelę ant jos, kad peržiūrėtumėte galimus gradiento nustatymus.
+3. Pasirinkite norimą gradientą.
+4. Pažymėjus langelį „Indeksas“, vaizdas **iš karto atnaujinamas** naujomis spalvomis.
 
-{% hint style="success" %}
-**Best Practice**: For vegetation indices like NDVI, the Red-Yellow-Green gradient is most intuitive because it aligns with natural color associations (green=healthy, yellow=moderate, red=stressed).
+{% hint style=&quot;success&quot; %}
+**Geriausia praktika**: augmenijos indeksams, pvz., NDVI, Red-Yellow-Green gradientas yra intuityviausias, nes atitinka natūralias spalvų asociacijas (žalia = sveika, geltona = vidutinė, raudona = stresuota).
 {% endhint %}
 
-### Adjusting Color Classes
+### Spalvų klasių koregavimas
 
-The **Classes control** determines how many discrete color steps appear in your gradient:
+**Klasės kontrolė** nustato, kiek atskirų spalvų pakopų bus jūsų gradiente:
 
-**Class count options:**
+**Klasės skaičiaus parinktys:**
 
-* **2-5 classes**: Very broad categories, distinct zones
-* **6-10 classes**: Balanced, good for classification
-* **11-20 classes**: Smooth gradients, continuous appearance
-* **20+ classes**: Near-continuous, maximum smoothness
+* **2–5 klasės**: labai plačios kategorijos, aiškios zonos
+* **6–10 klasės**: subalansuotos, tinkamos klasifikavimui
+* **11–20 klasės**: sklandūs gradientai, ištisinis vaizdas
+* **20+ klasės**: beveik ištisinis, maksimalus sklandumas
 
-**How to adjust:**
+**Kaip reguliuoti:**
 
-1. In the LUT panel, locate the **color swatch squares below the gradient bar**
-2. Adjust the number of classes by adding with the + button
-3. Remove the number of classes by double clicking on a color swatch
-4. The gradient updates **in real-time** on the image
+1. LUT skydelyje raskite **spalvų pavyzdžių kvadratėlius po gradientų juosta**.
+2. Reguliuokite klasių skaičių, spausdami mygtuką „+“.
+3. Pašalinkite klasių skaičių, dukart spustelėdami spalvų pavyzdį.
+4. Gradientas atnaujinamas **realaus laiko** režimu vaizde.
 
-**Effect on visualization:**
+**Poveikis vizualizacijai:**
 
-* **Fewer classes** (3-5): Creates distinct zones, simplified classification, easier to distinguish categories
-* **Medium classes** (6-10): Balanced approach, good for most applications
-* **More classes** (15-20): Smooth transitions, detailed variation, photographic appearance
+* **Mažiau klasių** (3–5): sukuria aiškias zonas, supaprastina klasifikaciją, lengviau atskirti kategorijas.
+* **Vidutinis klasių skaičius** (6–10): subalansuotas požiūris, tinkamas daugumai taikymų.
+* **Daug klasių** (15–20): sklandūs perėjimai, išsamūs pokyčiai, fotografijos išvaizda.
 
-**When to use:**
+**Kada naudoti:**
 
-* **Few classes (3-5)**: Presentation slides, classification maps, simple reports
-* **Medium classes (6-10)**: General analysis, balanced detail, standard reports
-* **Many classes (15-20)**: Scientific analysis, detailed inspection, publication-quality outputs
+* **Mažai klasių (3–5)**: prezentacijų skaidrės, klasifikavimo žemėlapiai, paprastos ataskaitos.
+* **Vidutinis klasių skaičius (6–10)**: bendra analizė, subalansuotos detalės, standartinės ataskaitos.
+* **Daug klasių (15–20)**: mokslinė analizė, išsamus tikrinimas, leidinių kokybės rezultatai.
 
-### Fine-Tuning Value Ranges
+### Vertės intervalų tikslinimas
 
-The **value range controls** determine which index values map to which colors in your gradient:
+**Vertės diapazono valdikliai** nustato, kurios indekso vertės atitinka kokias spalvas jūsų gradiente:
 
-**Range controls in LUT panel:**
+**Diapazono valdikliai LUT skydelyje:**
 
-* **Minimum value**: Lower bound of the color scale
-* **Maximum value**: Upper bound of the color scale
-* **Intermediate values**: Automatically distributed between min and max (based on class count)
+* **Minimali vertė**: spalvų skalės apatinė riba
+* **Maksimali vertė**: spalvų skalės viršutinė riba
+* **Tarpinės vertės**: automatiškai paskirstomos tarp minimalios ir maksimalios vertės (pagal klasės skaičių)
 
-#### Adjusting Min/Max Values
+#### Minimalaus/maksimalaus verčių reguliavimas
 
-**To adjust value ranges:**
+**Vertės diapazonų reguliavimas:**
 
-1. In the LUT panel, locate the **Min Value** and **Max Value** input fields
-2. Click the **Min Value** field
-3. Type the desired minimum value (e.g., `0.2`)
-4. Press **Enter** or click outside the field
-5. Repeat for **Max Value** field (e.g., `0.9`)
-6. The visualization **updates immediately**
+1. LUT skydelyje raskite įvesties laukelius **Minimali vertė** ir **Maksimali vertė**.
+2. Spustelėkite laukelį **Minimali vertė**.
+3. Įveskite norimą minimalią vertę (pvz., `0.2`).
+4. Paspauskite **Enter** arba spustelėkite už lauko ribų.
+5. Pakartokite tą patį su lauku **Maks. vertė** (pvz., `0.9`).
+6. Vizualizacija **atnaujinama iš karto**.
 
-{% hint style="info" %}
-**Auto-Scaling**: When you first apply a LUT, Chloros automatically sets the min/max to the actual data range in the image. You can then narrow this range to focus on specific value ranges of interest.
+{% hint style=&quot;info&quot; %}
+**Automatinis mastelio keitimas**: Kai pirmą kartą taikote LUT, Chloros automatiškai nustato minimalią/maksimalią vertę pagal faktinį duomenų diapazoną vaizde. Tada galite susiaurinti šį diapazoną, kad sutelktumėte dėmesį į konkrečius jus dominančius verčių diapazonus.
 {% endhint %}
 
-**Example NDVI range adjustments:**
+**Pavyzdys NDVI diapazono koregavimai:**
 
-* **Full range**: `-1.0` to `1.0` (show all possible values)
-* **Vegetation-focused**: `0.2` to `0.9` (exclude bare soil and water)
-* **Healthy vegetation only**: `0.5` to `0.9` (highlight only vigorous plants)
-* **Stress detection**: `0.2` to `0.5` (emphasize problem areas)
-* **Custom range**: Adjust based on your observed pixel values
+* **Visas diapazonas**: `-1.0` iki `1.0` (rodo visas galimas vertes)
+* **Sutelktas į augmeniją**: nuo `0.2` iki `0.9` (neįtraukia plikos žemės ir vandens)
+* **Tik sveika augmenija**: nuo `0.5` iki `0.9` (išskiria tik stiprius augalus)
+* **Streso aptikimas**: `0.2` iki `0.5` (pabrėžti problemines sritis)
+* **Pasirinktinis diapazonas**: reguliuoti pagal stebėtus pikselių vertes
 
-**Why adjust ranges?**
+**Kodėl reguliuoti diapazonus?**
 
-* **Increase contrast** in your area of interest
-* **Exclude irrelevant values** (e.g., water bodies, bare soil)
-* **Standardize visualization** across multiple images or dates
-* **Emphasize subtle differences** within a narrow value range
+* **Padidinti kontrastą** dominančioje srityje
+* **Pašalinkite nereikšmingas vertes** (pvz., vandens telkinius, pliką dirvą)
+* **Standartizuokite vizualizaciją** keliuose vaizduose ar datose
+* **Pabrėžkite subtilius skirtumus** siaurame verčių diapazone
 
-### Clipping Out-of-Range Values
+### Ribojimas už diapazono ribų esančių verčių
 
-When pixel values fall outside your defined min/max range, you can control how they're displayed using **clipping modes**.
+Kai pikselių vertės nepatenka į jūsų nustatytą minimalų/maksimalų diapazoną, galite kontroliuoti, kaip jos rodomos, naudodami **ribojimo režimus**.
 
-#### **Available clipping mode options:**
+#### **Galimi apkarpymo režimo variantai:**
 
-#### 1. Minimum and Maximum
+#### 1. Mažiausia ir didžiausia
 
-* Pixels **below minimum** → display using the **first color** in gradient (e.g., red)
-* Pixels **above maximum** → display using the **last color** in gradient (e.g., green)
-* **Use case**: Emphasize extremes, show full data range with saturated colors at limits
-* **Example**: NDVI values below 0.2 all appear red, values above 0.9 all appear green
+* Pikseliai, **mažesni už mažiausią** → rodomi naudojant **pirmąją spalvą** gradientu (pvz., raudoną)
+* Pikseliai, **didesni už didžiausią** → rodomi naudojant **paskutinę spalvą** gradientu (pvz., žalią)
+* **Naudojimo atvejis**: Pabrėžti kraštutinius atvejus, rodyti visą duomenų intervalą su prisotintomis spalvomis ribose
+* **Pavyzdys**: NDVI reikšmės, mažesnės nei 0,2, rodomos raudonos, reikšmės, didesnės nei 0,9, rodomos žalios
 
-#### 2. Transparent Background
+#### 2. Skaidrus fonas
 
-* Pixels **outside the range** become **fully transparent**
-* Only pixels **within range** show color gradient
-* **Use case**: GIS overlay, isolating specific value ranges, highlighting only areas of interest
-* **Example**: Show only NDVI 0.4-0.7 in color, everything else transparent
+* Pikseliai, **esantys už intervalo ribų**, tampa **visiškai skaidrūs**
+* Tik pikseliai, **esantys intervale**, rodo spalvų gradientą
+* **Naudojimo atvejis**: GIS perdanga, izoliuojant konkrečius verčių intervalus, pabrėžiant tik dominančias sritis
+* **Pavyzdys**: Rodyti tik NDVI 0,4–0,7 spalvomis, visa kita – skaidriai
 
-{% hint style="warning" %}
-**Transparency Limitation**: Transparent pixels will appear as the background color in the viewer. When exported during processing, transparency is preserved in PNG format but not in JPG.
+{% hint style=&quot;warning&quot; %}
+**Skaidrumo apribojimas**: skaidrūs pikseliai žiūrovui bus rodomi kaip fono spalva. Eksportuojant apdorojimo metu, skaidrumas išsaugomas PNG formatu, bet ne JPG formatu.
 {% endhint %}
 
-#### 3. Index Background
+#### 3. Indekso fonas
 
-* Pixels **outside range** display in **grayscale** (showing raw index values)
-* Pixels **within range** show **color gradient**
-* **Use case**: Subtle highlighting, maintain context while emphasizing areas of interest
-* **Example**: Color-highlight stressed vegetation (NDVI 0.3-0.5) while showing healthy areas in gray
+* Pikseliai **už ribų** rodomi **pilkos spalvos** (rodo neapdorotus indekso vertes)
+* Pikseliai **ribose** rodomi **spalvų gradientu**
+* **Naudojimo atvejis**: subtilus paryškinimas, konteksto išlaikymas, pabrėžiant dominančias sritis
+* **Pavyzdys**: spalvomis paryškinti pabrėžti augalai (NDVI 0,3–0,5), o sveikos sritys rodomos pilka spalva
 
-#### 4. Original Background
+#### 4. Originalus fonas
 
-* Pixels **outside range** display the **original multispectral image**
-* Pixels **within range** show **color gradient**
-* **Use case**: Most intuitive - combines natural image context with analytical color overlay
-* **Example**: See the actual field/crop appearance with color-coded stress areas overlaid
+* Pikseliai, esantys **už ribų**, rodomi **originalioje daugiaspektrinėje nuotraukoje**
+* Pikseliai **diapazone** rodo **spalvų gradientą**
+* **Naudojimo atvejis**: labiausiai intuityvus – derina natūralų vaizdo kontekstą su analitiniu spalvų sluoksniu
+* **Pavyzdys**: matykite tikrąjį lauko/pasėlių išvaizdą su spalvomis pažymėtomis stresą patiriančiomis sritimis
 
-### Choosing the Right Clipping Mode
+### Tinkamo apkarpymo režimo pasirinkimas
 
-| Clipping Mode              | Best For                                   | Visualization Style          |
+| Apkarpymo režimas              | Tinkamiausias                                   | Vizualizacijos stilius          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum and Maximum**    | Full data display, scientific analysis     | All pixels colored           |
-| **Transparent Background** | GIS overlays, isolating specific ranges    | Color on range, blank beyond |
-| **Index Background**       | Subtle emphasis, maintaining data context  | Color on range, gray beyond  |
-| **Original Background**    | Reports, presentations, intuitive analysis | Color on range, photo beyond |
+| **Minimalus ir maksimalus**    | Visų duomenų rodymas, mokslinė analizė     | Visi pikseliai spalvoti           |
+| **Skaidrus fonas** | GIS perdangos, izoliuojantys konkrečius diapazonus    | Spalva diapazone, tuščia už jo ribų |
+| **Indekso fonas**       | Subtilus pabrėžimas, duomenų konteksto išlaikymas  | Spalva diapazone, pilka už jo ribų  |
+| **Originalus fonas**    | Ataskaitos, pristatymai, intuityvi analizė | Spalva diapazone, nuotrauka už jo ribų |
 
-### Creating Custom LUT Colors
+### Individualizuotų LUT spalvų kūrimas
 
-For full control over your visualization, you can create **custom color gradients** by editing individual color stops.
+Norėdami visiškai kontroliuoti vizualizaciją, galite kurti **individualizuotus spalvų gradientus**, redaguodami atskirus spalvų sustojimus.
 
-**To create a custom gradient:**
+**Norėdami sukurti pasirinktinį gradientą:**
 
-1. In the LUT panel, locate the **gradient preview bar**
-2. Look for **color swatch squares** below the gradient
-3. **Click a color stop** to select it
-4. A **color picker** opens
-5. Choose a new color using:
-   * **Color wheel**: Visual color selection
-   * **RGB/HSV sliders**: Precise color control
-   * **Hex code entry**: Exact color specification (e.g., `#FF0000` for red)
-6. Click off the color picker **to apply the new color**
-7. The gradient **updates immediately** on the image
+1. LUT skydelyje raskite **gradiento peržiūros juostą**
+2. Paieškokite **spalvų pavyzdžių kvadratėlius** po gradientu
+3. **Spustelėkite spalvų sustojimą**, kad jį pasirinkite
+4. Atsidarys **spalvų pasirinkimo langas**
+5. Pasirinkite naują spalvą naudodami:
+   * **Spalvų ratą**: vizualus spalvų pasirinkimas
+   * **RGB/HSV slankiklius**: tikslus spalvų valdymas
+   * **Šešioliktainio kodo įvedimą**: tiksli spalvų specifikacija (pvz., `#FF0000` raudonai)
+6. Spustelėkite spalvų pasirinkimo langą **, kad pritaikytumėte naują spalvą**
+7. Gradientas **iš karto atnaujinamas** paveikslėlyje
 
-**Adding or removing color stops:**
+**Spalvų sustojimų pridėjimas arba pašalinimas:**
 
-* **Add a stop**: Click the + icon to add a new swatch at the end
-* **Remove a stop**: Double click the color square to remove the swatch
+* **Pridėti sustojimą**: spustelėkite piktogramą „+“, kad pridėtumėte naują pavyzdį gale
+* **Pašalinti sustojimą**: dukart spustelėkite spalvų kvadratą, kad pašalintumėte pavyzdį
 
-**Customization strategies:**
+**Pritaikymo strategijos:**
 
-* **Invert gradient**: Flip color order to reverse the meaning (e.g., green=low, red=high)
-* **Brand colors**: Match your organization's color palette for reports
-* **Colorblind-friendly**: Use orange-blue or purple-yellow combinations
-* **Print optimization**: Choose colors that work in both color and grayscale printing
-* **Multi-threshold**: Use distinct colors at specific value thresholds for classification
+* **Invertuoti gradientą**: apverskite spalvų tvarką, kad pakeistumėte reikšmę (pvz., žalia = žema, raudona = aukšta)
+* **Prekės ženklo spalvos**: suderinkite savo organizacijos spalvų paletę ataskaitoms
+* **Tinkamas spalvų akliesiems**: naudokite oranžinės-mėlynos arba violetinės-geltonos spalvų derinius
+* **Spausdinimo optimizavimas**: pasirinkite spalvas, kurios tinka tiek spalvotam, tiek pilkosios skalės spausdinimui
+* **Daugialypė riba**: naudokite skirtingas spalvas tam tikroms vertės riboms klasifikuoti
 
-{% hint style="info" %}
-**Saving Custom Gradients**: Custom gradients can be saved and reused. Click the save icon in the LUT panel to preserve your custom color schemes for future use.
+{% hint style=&quot;info&quot; %}
+**Pasirinktinių gradientų išsaugojimas**: Pasirinktinius gradientus galima išsaugoti ir naudoti pakartotinai. Spustelėkite išsaugojimo piktogramą LUT skydelyje, kad išsaugotumėte pasirinktines spalvų schemas naudoti ateityje.
 {% endhint %}
 
 ***
 
-## Interactive Workflow
+## Interaktyvus darbo srautas
 
-### Real-Time Updates
+### Atnaujinimai realiuoju laiku
 
-All LUT adjustments in the sandbox update the image **instantly and interactively**:
+Visi LUT koregavimai smėlio dėžėje atnaujina vaizdą **akimirksniu ir interaktyviai**:
 
-* **Switch layer** → Image changes immediately
-* **Select gradient** → Colors update instantly
-* **Adjust value range** → Contrast changes in real-time
-* **Change classes** → Gradient smoothness updates immediately
-* **Modify clipping** → Background display changes instantly
-* **Edit colors** → Custom gradient applies immediately
+* **Pakeisti sluoksnį** → Vaizdas keičiasi iš karto
+* **Pasirinkti gradientą** → Spalvos atnaujinamos akimirksniu
+* **Koreguoti verčių diapazoną** → Kontrastas keičiasi realiuoju laiku
+* **Keičiamos klasės** → Gradiento sklandumas atnaujinamas iš karto
+* **Modifikuojamas apkarpymas** → Fono rodymas keičiamas iš karto
+* **Redaguojamos spalvos** → Pasirinktinis gradientas taikomas iš karto
 
-**No "Apply" button needed** - all changes are live and interactive!
+**Nereikia „Taikyti“ mygtuko** – visi pakeitimai yra tiesioginiai ir interaktyvūs!
 
-{% hint style="success" %}
-**Live Feedback**: The instant visual feedback allows you to rapidly experiment with different settings until you find the optimal visualization for your analysis needs.
+{% hint style=&quot;success&quot; %}
+**Tiesioginis grįžtamasis ryšys**: Tiesioginis vizualinis grįžtamasis ryšys leidžia greitai eksperimentuoti su įvairiais nustatymais, kol rasite optimalų vizualizavimą savo analizės poreikiams.
 {% endhint %}
 
-### Iterative Refinement Workflow
+### Iteracinis tobulinimo darbo srautas
 
-**Typical LUT optimization workflow:**
+**Tipinis LUT optimizavimo darbo srautas:**
 
-1. **Select index layer** (e.g., RAW (Reflectance))
-2. **Apply index** - Choose camera filter and index formula, drag colored circles to appropriate location in the index formula
-3. **Apply LUT gradient** - Start with Red-Yellow-Green preset
-4. **Inspect pixel values** - Move cursor around, note value ranges
-5. **Adjust min/max** - Narrow to focus on vegetation (e.g., 0.2 to 0.9)
-6. **Choose clipping** - Try "Original Background" for context
-7. **Refine colors** - Customize gradient if needed for specific emphasis
-8. **Finalize settings** - Document settings and copy to Project Settings for export processing
+1. **Pasirinkite indeksų sluoksnį** (pvz., RAW (atspindys))
+2. **Taikykite indeksą** – pasirinkite kameros filtrą ir indekso formulę, spalvotus apskritimus vilkite į tinkamą vietą indekso formulėje
+3. **Taikykite LUT gradientą** – pradėkite nuo Red-Yellow-Green nustatymų
+4. **Patikrinkite pikselių vertes** – perkelkite žymeklį, atkreipkite dėmesį į verčių diapazonus
+5. **Nustatykite min/maks** – susiaurinkite, kad sutelktumėte dėmesį į augmeniją (pvz., nuo 0,2 iki 0,9)
+6. **Pasirinkite apkarpymą** – išbandykite „Original Background“ (Originalus fonas) kontekstui
+7. **Patobulinkite spalvas** – jei reikia, pritaikykite gradientą, kad pabrėžtumėte tam tikrus elementus
+8. **Užbaigkite nustatymus** – užfiksuokite nustatymus ir nukopijuokite juos į projekto nustatymus eksporto apdorojimui
 
-### Pixel Value Inspection
+### Pikselių verčių tikrinimas
 
-Understanding actual pixel values is crucial for setting effective LUT ranges:
+Norint nustatyti veiksmingus LUT intervalus, labai svarbu suprasti tikrąsias pikselių vertes:
 
-**How to inspect values:**
+**Kaip tikrinti vertes:**
 
-1. Pixel values show when the image has either the Index, or both the Index and LUT **boxes checked**.
-2. **Move your cursor** over different areas of the image
-3. **Observe pixel values** displayed in the legend as you hover
-4. Zoom in to see individual pixels highlighted with a floating value
-5. **Take notes** of value ranges for different features:
-   * **Healthy vegetation**: e.g., NDVI 0.55-0.85
-   * **Stressed vegetation**: e.g., NDVI 0.30-0.50
-   * **Bare soil**: e.g., NDVI 0.05-0.25
-   * **Water** (if present): e.g., NDVI -0.05 to 0.10
+1. Pikselių vertės rodomos, kai vaizde yra pažymėta langelis „Index“ arba langeliai „Index“ ir „LUT“.
+2. **Pereikite pelės žymekliu** per skirtingas vaizdo sritis
+3. **Stebėkite pikselių vertes**, rodomas legendoje, kai pelės žymeklį laikote virš jų
+4. Padidinkite vaizdą, kad matytumėte atskirus pikselius, pažymėtus plaukiojančia verte
+5. **Užsirašykite** skirtingų savybių verčių diapazonus:
+   * **Sveika augmenija**: pvz., NDVI 0,55–0,85
+   * **Stresą patyrusi augmenija**: pvz., NDVI 0,30–0,50
+   * **Plika dirva**: pvz., NDVI 0,05–0,25
+   * **Vanduo** (jei yra): pvz., NDVI -0,05 iki 0,10
 
-**Using pixel values to set LUT ranges:**
+**Pikselių verčių naudojimas LUT diapazonams nustatyti:**
 
-After inspecting pixel values, adjust your LUT min/max accordingly:
+Patikrinę pikselių vertes, atitinkamai sureguliuokite LUT min/maks:
 
-**Example scenario:**
+**Pavyzdinis scenarijus:**
 
-* **Observation**: Soil values = 0.05-0.25, Stressed = 0.25-0.50, Healthy = 0.50-0.85
-* **Goal**: Visualize only plant health (exclude soil)
-* **LUT settings**: Min = `0.25`, Max = `0.85`
-* **Clipping**: "Original Background" to see soil in natural color
-* **Result**: Color gradient only applies to vegetation, soil shows as original image
+* **Stebėjimas**: Dirvožemio vertės = 0,05–0,25, Stresas = 0,25–0,50, Sveikata = 0,50–0,85
+* **Tikslas**: Vizualizuoti tik augalų sveikatą (išskyrus dirvožemį)
+* **LUT nustatymai**: Min = `0.25`, Maks = `0.85`
+* **Apkarpymas**: „Originalus fonas“, kad dirvožemis būtų matomas natūraliomis spalvomis
+* **Rezultatas**: spalvų gradientas taikomas tik augmenijai, dirvožemis rodomas kaip originalus vaizdas
 
-{% hint style="info" %}
-**Dynamic Range**: Different crops, seasons, and growth stages will have different value ranges. Always inspect pixel values in your specific dataset before setting LUT ranges.
+{% hint style=&quot;info&quot; %}
+**Dinaminis diapazonas**: skirtingiems pasėliams, sezonams ir augimo etapams bus taikomi skirtingi vertės diapazonai. Prieš nustatydami LUT diapazonus, visada patikrinkite pikselių vertes savo konkrečiame duomenų rinkinyje.
 {% endhint %}
 
 ***
 
-## Custom Indices (Chloros+)
+## Pasirinktiniai indeksai (Chloros+)
 
-### Creating Custom Index Formulas
+### Pasirinktinių indeksų formulių kūrimas
 
-{% hint style="info" %}
-**Where to Create**: Custom indices can be configured in **Project Settings** before processing, as well as in the Image Viewer sandbox sidebar.
+{% hint style=&quot;info&quot; %}
+**Kur kurti**: Pasirinktinius indeksus galima konfigūruoti **Projekto nustatymuose** prieš apdorojimą, taip pat vaizdo peržiūros programos smėlio dėžės šoninėje juostoje.
 {% endhint %}
 
-**To create a custom index:**
+**Norėdami sukurti pasirinktinį indeksą:**
 
-1. **Open Project Settings** (before processing) or Image Viewer sandbox sidebar
-2. Navigate to the **Index formula dropdown**
-3. Look for **"Custom"** option (must be logged in with Chloros+ license)
-4. **Define your formula** using band variables:
-   * Band names: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, etc.
-   * Operators: `+`, `-`, `*`, `/`, `^` (exponent)
-   * Functions: `sqrt()`, `abs()`, etc. (if supported)
-   * Parentheses: `()` for order of operations
-5. **Name your index** (e.g., "MyIndex" or "CustomNDVI")
-6. **Save the configuration**
+1. **Atidarykite „Projekto nustatymus“** (prieš apdorojimą) arba „Image Viewer“ smėlio dėžės šoninę juostą
+2. Pereikite prie **„Indekso formulės išskleidžiamojo meniu“**
+3. Suraskite **„Pasirinktinis“** parinktį (būtina prisijungti su Chloros+ licencija)
+4. **Apibrėžkite formulę** naudodami juostos kintamuosius:
+   * Juostų pavadinimai: `NIR`, `Red`, `Green`, `Blue`, `RedEdge` ir kt.
+   * Operatoriai: `+`, `-`, `*`, `/`, `^` (eksponentas)
+   * Funkcijos: `sqrt()`, `abs()` ir kt. (jei palaikoma)
+   * Skliausteliai: `()` operacijų tvarkai
+5. **Pavadinkite savo indeksą** (pvz., „MyIndex“ arba „CustomNDVI“)
+6. **Išsaugokite konfigūraciją**
 
-**Example custom formulas:**
+**Pavyzdinės pasirinktinės formulės:**
 
 ```
 Modified NDVI with offset:
@@ -398,22 +398,22 @@ Exponential index:
 (NIR / Red) ^ 2
 ```
 
-{% hint style="warning" %}
-**Formula Validation**: Ensure your formula uses bands available in your camera. For example, RedEdge is only available on cameras with a RedEdge filter.
+{% hint style=&quot;warning&quot; %}
+**Formulės patvirtinimas**: įsitikinkite, kad jūsų formulė naudoja jūsų fotoaparate esančias juostas. Pavyzdžiui, RedEdge yra prieinama tik fotoaparatuose su RedEdge filtru.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Tolimesni veiksmai
 
-Now that you understand the Index/LUT Sandbox:
+Dabar, kai supratote indeksų / LUT smėlio dėžę:
 
-* **Apply to processing**: Use discovered settings in [Project Settings](../project-settings/page-2.md)
-* **Batch process**: Apply optimized indices to full datasets
-* **Learn more**: Read [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md)
+* **Taikykite apdorojimui**: naudokite nustatymus, kuriuos radote [Projekto nustatymuose](../project-settings/project-settings.md)
+* **Paketinis apdorojimas**: optimizuotus indeksus pritaikykite visam duomenų rinkiniui
+* **Daugiau informacijos**: perskaitykite [Daugiaspektrinių indeksų formulės](../project-settings/multispectral-index-formulas.md)
 
-Related documentation:
+Susijusi dokumentacija:
 
-* [**Image Layers**](image-layers.md) - Layer management and visualization
-* [**Opening an Image Full Screen**](page-3.md) - Image Viewer basics
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Full processing workflow
+* [**Vaizdo sluoksniai**](image-layers.md) – sluoksnių valdymas ir vizualizavimas
+* [**Vaizdo atidarymas visame ekrane**](opening-an-image-full-screen.md) – Vaizdo peržiūros pagrindai
+* [**Vaizdų apdorojimas (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – Visas apdorojimo darbo srautas

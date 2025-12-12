@@ -1,255 +1,255 @@
-# Project Settings
+# Projekto nustatymai
 
-The Project Settings <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> sidebar in Chloros allows you to configure all aspects of image processing, calibration target detection, multispectral index calculations, and export options for your project. These settings are saved with your project and can be saved as templates for reuse across multiple projects.
+Projekto nustatymai <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> šoninėje juostoje Chloros galite konfigūruoti visus vaizdo apdorojimo, kalibravimo tikslo nustatymo, daugiaspektrinių indeksų skaičiavimo ir eksporto parinktis savo projektui. Šie nustatymai išsaugomi kartu su projektu ir gali būti išsaugoti kaip šablonai, kad būtų galima juos pakartotinai naudoti keliuose projektuose.
 
-## Accessing Project Settings
+## Prieiga prie projekto nustatymų
 
-To access Project Settings:
+Norėdami pasiekti projekto nustatymus:
 
-1. Open a project in Chloros
-2. Click the **Project Settings**  <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> tab in the left sidebar
-3. The settings panel will display all available configuration options organized by category
-
-***
-
-## Target Detection
-
-These settings control how Chloros detects and processes calibration targets in your images.
-
-### Minimum calibration sample area (px)
-
-* **Type**: Number
-* **Range**: 0 to 10,000 pixels
-* **Default**: 25 pixels
-* **Description**: Sets the minimum area (in pixels) required for a detected region to be considered a valid calibration target sample. Smaller values will detect smaller targets but may increase false positives. Larger values require bigger, clearer target regions for detection.
-* **When to adjust**:
-  * Increase if you're getting false detections on small image artifacts
-  * Decrease if your calibration targets appear small in your images and are not being detected
-
-### Minimum Target Clustering (0-100)
-
-* **Type**: Number
-* **Range**: 0 to 100
-* **Default**: 60
-* **Description**: Controls the clustering threshold for grouping similar colored regions when detecting calibration targets. Higher values require more similar colors to be grouped together, resulting in more conservative target detection. Lower values allow more color variation within a target group.
-* **When to adjust**:
-  * Increase if calibration targets are being split into multiple detections
-  * Decrease if calibration targets with color variation are not being fully detected
+1. Atidarykite projektą Chloros
+2. Spustelėkite **Projekto nustatymai**  <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> skirtuką kairėje šoninėje juostoje
+3. Nustatymų skydelyje bus rodomos visos galimos konfigūracijos parinktys, suskirstytos pagal kategorijas
 
 ***
 
-## Processing
+## Tikslo aptikimas
 
-These settings control how Chloros processes and calibrates your images.
+Šie nustatymai kontroliuoja, kaip Chloros aptinka ir apdoroja kalibravimo tikslus jūsų vaizduose.
 
-### Vignette correction
+### Minimalus kalibravimo mėginio plotas (px)
 
-* **Type**: Checkbox
-* **Default**: Enabled (checked)
-* **Description**: Applies vignette correction to compensate for lens darkening at the edges of images. Vignetting is a common optical phenomenon where the corners and edges of an image appear darker than the center due to lens characteristics.
-* **When to disable**: Only disable if your camera/lens combination has already applied vignette correction, or if you want to manually correct vignetting in post-processing.
+* **Tipas**: skaičius
+* **Diapazonas**: nuo 0 iki 10 000 pikselių
+* **Numatytasis**: 25 pikseliai
+* **Aprašymas**: nustato minimalų plotą (pikseliais), reikalingą, kad aptiktas regionas būtų laikomas tinkamu kalibravimo tikslo pavyzdžiu. Mažesnės vertės aptiks mažesnius tikslus, bet gali padidinti klaidingų teigiamų rezultatų skaičių. Didesnės vertės reikalauja didesnių, aiškesnių tikslų regionų aptikimui.
+* **Kada reguliuoti**:
+  * Padidinkite, jei gaunate klaidingus aptikimus mažose vaizdo artefaktose.
+  * Sumažinkite, jei jūsų kalibravimo tikslai atrodo maži vaizduose ir nėra aptinkami.
 
-### Reflectance calibration / white balance
+### Minimalus tikslų grupuojimas (0–100)
 
-* **Type**: Checkbox
-* **Default**: Enabled (checked)
-* **Description**: Enables automatic reflectance calibration using detected calibration targets in your images. This normalizes the reflectance values across your dataset and ensures consistent measurements regardless of lighting conditions.
-* **When to disable**: Disable only if you want to process raw, uncalibrated images or if you're using a different calibration workflow.
-
-### Debayer method
-
-* **Type**: Dropdown selection
-* **Options**:
-  * High Quality (Faster) - Currently the only option available
-* **Default**: High Quality (Faster)
-* **Description**: Selects the demosaicing algorithm used to convert raw Bayer pattern sensor data into full-color images. The "High Quality (Faster)" method provides an optimal balance between processing speed and image quality.
-* **Note**: Additional debayer methods may be added in future versions of Chloros.
-
-### Minimum recalibration interval
-
-* **Type**: Number
-* **Range**: 0 to 3,600 seconds
-* **Default**: 0 seconds
-* **Description**: Sets the minimum time interval (in seconds) between using calibration targets. When set to 0, Chloros will use every detected calibration target. When set to a higher value, Chloros will only use calibration targets that are separated by at least this many seconds, reducing processing time for datasets with frequent calibration target captures.
-* **When to adjust**:
-  * Set to 0 for maximum calibration accuracy when lighting conditions vary
-  * Increase (e.g., to 60-300 seconds) for faster processing when lighting is consistent and you have frequent calibration target images
-
-### Light sensor timezone offset
-
-* **Type**: Number
-* **Range**: -12 to +12 hours
-* **Default**: 0 hours
-* **Description**: Specifies the timezone offset (in hours from UTC) for light sensor data timestamps. This is used when processing PPK (Post-Processed Kinematic) data files to ensure correct time synchronization between image captures and GPS data.
-* **When to adjust**: Set this to your local timezone offset if your PPK data uses local time instead of UTC. For example:
-  * Pacific Time: -8 or -7 (depending on DST)
-  * Eastern Time: -5 or -4 (depending on DST)
-  * Central European Time: +1 or +2 (depending on DST)
-
-### Apply PPK corrections
-
-* **Type**: Checkbox
-* **Default**: Disabled (unchecked)
-* **Description**: Enables the use of Post-Processed Kinematic (PPK) corrections from MAPIR DAQ recorders containing a GPS (GNSS). When enabled, Chloros will use any .daq log files containing exposure pin data in your project directory and apply precise geolocation corrections to your images.
-* **Requirement**: .daq log file with exposure pin entries must be present in your project directory
-* **When to enable**: It is recommended to always enable PPK correction if you have exposure feedback entries in your .daq log file.
-
-### Exposure Pin 1
-
-* **Type**: Dropdown selection
-* **Visibility**: Only visible when "Apply PPK corrections" is enabled AND exposure data is available for Pin 1
-* **Options**:
-  * Camera model names detected in the project
-  * "Do Not Use" - Ignore this exposure pin
-* **Default**: Auto-selected based on project configuration
-* **Description**: Assigns a specific camera to Exposure Pin 1 for PPK time synchronization. The exposure pin records the exact timing when the camera shutter is triggered, which is critical for accurate PPK geolocation.
-* **Auto-selection behavior**:
-  * Single camera + single pin: Automatically selects the camera
-  * Single camera + two pins: Pin 1 automatically assigned to the camera
-  * Multiple cameras: Manual selection required
-
-### Exposure Pin 2
-
-* **Type**: Dropdown selection
-* **Visibility**: Only visible when "Apply PPK corrections" is enabled AND exposure data is available for Pin 2
-* **Options**:
-  * Camera model names detected in the project
-  * "Do Not Use" - Ignore this exposure pin
-* **Default**: Auto-selected based on project configuration
-* **Description**: Assigns a specific camera to Exposure Pin 2 for PPK time synchronization when using a dual-camera setup.
-* **Auto-selection behavior**:
-  * Single camera + single pin: Pin 2 automatically set to "Do Not Use"
-  * Single camera + two pins: Pin 2 automatically set to "Do Not Use"
-  * Multiple cameras: Manual selection required
-* **Note**: The same camera cannot be assigned to both Pin 1 and Pin 2 simultaneously.
+* **Tipas**: skaičius
+* **Diapazonas**: nuo 0 iki 100
+* **Numatytasis**: 60
+* **Aprašymas**: kontroliuoja klasterizavimo slenkstį, skirtą panašių spalvų regionų grupuojimui aptinkant kalibravimo tikslus. Didesnės vertės reikalauja, kad būtų grupuojamos panašesnės spalvos, todėl tikslų aptikimas tampa konservatyvesnis. Mažesnės vertės leidžia didesnį spalvų įvairovę tikslo grupėje.
+* **Kada reguliuoti**:
+  * Padidinkite, jei kalibravimo tikslai yra suskaidomi į kelis aptikimus.
+  * Sumažinkite, jei kalibravimo tikslai su spalvų variacijomis nėra visiškai aptinkami.
 
 ***
 
-## Index
+## Apdorojimas
 
-These settings allow you to configure multispectral indices for analysis and visualization.
+Šie nustatymai kontroliuoja, kaip Chloros apdoroja ir kalibruoja jūsų vaizdus.
 
-### Add index
+### Vignette korekcija
 
-* **Type**: Special index configuration panel
-* **Description**: Opens an interactive panel where you can select and configure multispectral vegetation indices (NDVI, NDRE, EVI, etc.) to calculate during image processing. You can add multiple indices, each with its own visualization settings.
-* **Available indices**: The system includes 30+ pre-defined multispectral indices including:
-  * NDVI (Normalized Difference Vegetation Index)
-  * NDRE (Normalized Difference RedEdge)
-  * EVI (Enhanced Vegetation Index)
+* **Tipas**: žymės langelis
+* **Numatytasis**: įjungta (pažymėta)
+* **Aprašymas**: Taiko vinjetės korekciją, kad kompensuotų objektyvo patamsėjimą vaizdų kraštuose. Vinjetė yra dažnas optinis reiškinys, kai vaizdo kampai ir kraštai atrodo tamsesni nei centras dėl objektyvo savybių.
+* **Kada išjungti**: Išjunkite tik tuo atveju, jei jūsų fotoaparato ir objektyvo kombinacija jau taiko vinjetės korekciją arba jei norite rankiniu būdu koreguoti vinjetę apdorojimo metu.
+
+### Atspindžio kalibravimas / baltos spalvos balansas
+
+* **Tipas**: žymės langelis
+* **Numatytasis**: įjungta (pažymėta)
+* **Aprašymas**: įjungia automatinį atspindžio kalibravimą, naudojant vaizduose aptiktus kalibravimo tikslus. Tai normalizuoja atspindžio vertes visame duomenų rinkinyje ir užtikrina nuoseklius matavimus nepriklausomai nuo apšvietimo sąlygų.
+* **Kada išjungti**: išjunkite tik tuo atveju, jei norite apdoroti neapdorotus, nekalibruotus vaizdus arba jei naudojate kitą kalibravimo darbo eigą.
+
+### Debayer metodas
+
+* **Tipas**: išskleidžiamas meniu
+* **Parinktys**:
+  * Aukšta kokybė (greičiau) – šiuo metu vienintelė galima parinktis
+* **Numatytasis**: Aukšta kokybė (greičiau)
+* **Aprašymas**: Pasirenkamas demosaicing algoritmas, naudojamas neapdorotiems Bayer modelio jutiklio duomenims konvertuoti į spalvotus vaizdus. „Aukšta kokybė (greičiau)“ metodas užtikrina optimalų apdorojimo greičio ir vaizdo kokybės balansą.
+* **Pastaba**: Ateityje Chloros versijose gali būti pridėti papildomi debayer metodai.
+
+### Minimalus pakalibravimo intervalas
+
+* **Tipas**: skaičius
+* **Diapazonas**: nuo 0 iki 3600 sekundžių
+* **Numatytasis**: 0 sekundės
+* **Aprašymas**: nustato minimalų laiko intervalą (sekundėmis) tarp kalibravimo tikslų naudojimo. Nustačius 0, Chloros naudos kiekvieną aptiktą kalibravimo tikslą. Nustačius didesnę vertę, Chloros naudos tik kalibravimo tikslus, kurie yra atskirti bent jau šiuo sekundžių skaičiumi, taip sumažindamas duomenų rinkinių, kuriuose dažnai fiksuojami kalibravimo tikslai, apdorojimo laiką.
+* **Kada reguliuoti**:
+  * Nustatykite 0, kad būtų pasiektas maksimalus kalibravimo tikslumas, kai apšvietimo sąlygos kinta.
+  * Padidinkite (pvz., iki 60–300 sekundžių), kad apdorojimas būtų greitesnis, kai apšvietimas yra pastovus ir turite dažnus kalibravimo tikslų vaizdus.
+
+### Šviesos jutiklio laiko juostos nuokrypis
+
+* **Tipas**: skaičius
+* **Diapazonas**: nuo -12 iki +12 valandų
+* **Numatytasis**: 0 valandos
+* **Aprašymas**: Nurodo laiko juostos poslinkį (valandomis nuo UTC) šviesos jutiklio duomenų laiko žymėms. Tai naudojama apdorojant PPK (Post-Processed Kinematic) duomenų failus, siekiant užtikrinti teisingą laiko sinchronizaciją tarp vaizdų užfiksavimo ir GPS duomenų.
+* **Kada koreguoti**: Nustatykite savo vietos laiko juostos nuokrypį, jei jūsų PPK duomenys naudoja vietos laiką, o ne UTC. Pavyzdžiui:
+  * Ramiojo vandenyno laikas: -8 arba -7 (priklausomai nuo vasaros laiko)
+  * Rytų laikas: -5 arba -4 (priklausomai nuo vasaros laiko)
+  * Vidurio Europos laikas: +1 arba +2 (priklausomai nuo vasaros laiko)
+
+### Taikyti PPK pataisas
+
+* **Tipas**: žymės langelis
+* **Numatytasis**: išjungta (nepažymėta)
+* **Aprašymas**: įjungia galimybę naudoti post-processed kinematic (PPK) pataisas iš MAPIR DAQ įrašymo įrenginių, turinčių GPS (GNSS). Kai įjungta, Chloros naudos visus .daq žurnalo failus, kuriuose yra ekspozicijos kaiščio duomenys jūsų projekto kataloge, ir taikys tikslias geografinės vietos korekcijas jūsų vaizdams.
+* **Reikalavimas**: .daq žurnalo failas su ekspozicijos kaiščio įrašais turi būti jūsų projekto kataloge
+* **Kada įjungti**: Rekomenduojama visada įjungti PPK korekciją, jei jūsų .daq žurnalo faile yra ekspozicijos grįžtamojo ryšio įrašai.
+
+### Ekspozicijos kontaktas 1
+
+* **Tipas**: išskleidžiamas meniu
+* **Matomumas**: matomas tik tada, kai įjungta funkcija „Taikyti PPK pataisas“ IR yra ekspozicijos duomenys kontaktui 1
+* **Parinktys**:
+  * Projekto aptikti fotoaparato modelių pavadinimai
+  * „Nenaudoti“ – ignoruoti šį ekspozicijos kontaktą
+* **Numatytasis**: automatiškai parenkamas pagal projekto konfigūraciją
+* **Aprašymas**: Priskiria konkrečią kamerą ekspozicijos kontaktui 1 PPK laiko sinchronizavimui. Ekspozicijos kontaktas įrašo tikslų laiką, kai suveikia kameros užraktas, o tai yra labai svarbu tiksliai PPK geografinės vietos nustatymui.
+* **Automatinio pasirinkimo veikimas**:
+  * Viena kamera + vienas kontaktas: Automatiškai pasirenka kamerą
+  * Viena kamera + du kaiščiai: 1 kaištis automatiškai priskiriamas kamerai
+  * Kelios kameros: Reikia pasirinkti rankiniu būdu
+
+### Ekspozicijos kaištis 2
+
+* **Tipas**: Pasirinkimas iš išskleidžiamojo meniu
+* **Matomumas**: Matomas tik tada, kai įjungta funkcija „Taikyti PPK pataisas“ IR kai ekspozicijos duomenys yra prieinami 2 kaiščiui
+* **Parinktys**:
+  * Projekto metu aptikti kamerų modelių pavadinimai
+  * „Nenaudoti“ – ignoruoti šį ekspozicijos kontaktą
+* **Numatytasis**: automatiškai pasirenkamas pagal projekto konfigūraciją
+* **Aprašymas**: priskiria konkretų fotoaparatą ekspozicijos kontaktui 2 PPK laiko sinchronizavimui, kai naudojama dviejų fotoaparatų konfigūracija.
+* **Automatinio pasirinkimo elgsena**:
+  * Vienas fotoaparatas + vienas kontaktas: kontaktas 2 automatiškai nustatomas kaip „Nenaudoti“
+  * Viena kamera + du kaiščiai: 2 kaištis automatiškai nustatomas kaip „Nenaudoti“
+  * Kelios kameros: reikalingas rankinis pasirinkimas
+* **Pastaba**: ta pati kamera negali būti priskirta ir 1, ir 2 kaiščiams tuo pačiu metu.
+
+***
+
+## Indeksas
+
+Šie nustatymai leidžia konfigūruoti daugiaspektrinius indeksus analizės ir vizualizavimo tikslais.
+
+### Pridėti indeksą
+
+* **Tipas**: specialus indeksų konfigūracijos skydelis
+* **Aprašymas**: Atidaro interaktyvų skydelį, kuriame galite pasirinkti ir konfigūruoti daugiaspektrinius augmenijos indeksus (NDVI, NDRE, EVI ir kt.), kurie bus apskaičiuojami vaizdo apdorojimo metu. Galite pridėti kelis indeksus, kiekvienam iš jų nustatydami savo vizualizavimo parametrus.
+* **Galimi indeksai**: Sistema apima daugiau nei 30 iš anksto nustatytų daugiaspektrinių indeksų, įskaitant:
+  * NDVI (normalizuotas augmenijos skirtumo indeksas)
+  * NDRE (normalizuotas skirtumas RedEdge)
+  * EVI (patobulintas augmenijos indeksas)
   * GNDVI, SAVI, OSAVI, MSAVI2
-  * And many more (see [Multispectral Index Formulas](multispectral-index-formulas.md) for complete list)
-* **Features**:
-  * Select from pre-defined index formulas
-  * Configure visualization color gradients (LUT - Look-Up Tables)
-  * Set threshold values for analysis
-  * Create custom index formulas
+  * Ir daugelis kitų (visą sąrašą rasite [Daugiaspektrinių indeksų formulės](multispectral-index-formulas.md))
+* **Savybės**:
+  * Pasirinkite iš iš anksto nustatytų indeksų formulių
+  * Konfigūruokite vizualizacijos spalvų gradientus (LUT – paieškos lentelės)
+  * Nustatykite analizės ribines vertes
+  * Sukurkite pasirinktines indeksų formules
 
-### Custom Formulas (Chloros+ Feature)
+### Pasirinktinės formulės (Chloros+ funkcija)
 
-* **Type**: Array of custom formula definitions
-* **Description**: Allows you to create and save custom multispectral index formulas using band math. Custom formulas are saved with your project settings and can be used just like built-in indices.
-* **How to create**:
-  1. In the Index configuration panel, look for the custom formula option
-  2. Define your formula using band identifiers (e.g., NIR, Red, Green, Blue)
-  3. Save the formula with a descriptive name
-* **Formula syntax**: Standard mathematical operations are supported, including:
-  * Arithmetic: `+`, `-`, `*`, `/`
-  * Parentheses for order of operations
-  * Band references: NIR, Red, Green, Blue, RedEdge, Cyan, Orange, NIR1, NIR2
-
-***
-
-## Export
-
-These settings control the format and quality of exported processed images.
-
-### Calibrated image format
-
-* **Type**: Dropdown selection
-* **Options**:
-  * **TIFF (16-bit)** - Uncompressed 16-bit TIFF format
-  * **TIFF (32-bit, Percent)** - 32-bit floating-point TIFF with reflectance values as percentages
-  * **PNG (8-bit)** - Compressed 8-bit PNG format
-  * **JPG (8-bit)** - Compressed 8-bit JPEG format
-* **Default**: TIFF (16-bit)
-* **Description**: Selects the file format for saving processed and calibrated images.
-* **Format recommendations**:
-  * **TIFF (16-bit)**: Recommended for scientific analysis and professional workflows. Preserves maximum data quality with no compression artifacts. Best for multispectral analysis and further processing in GIS software.
-  * **TIFF (32-bit, Percent)**: Best for workflows that require reflectance values as percentages (0-100%). Offers maximum precision for radiometric measurements.
-  * **PNG (8-bit)**: Good for web viewing and general visualization. Smaller file sizes with lossless compression, but reduced dynamic range.
-  * **JPG (8-bit)**: Smallest file sizes, best for previews and web display only. Uses lossy compression which is not suitable for scientific analysis.
+* **Tipas**: Pasirinktinių formulių apibrėžimų masyvas
+* **Aprašymas**: Leidžia kurti ir išsaugoti pasirinktines multispektrinių indeksų formules naudojant juostų matematiką. Pasirinktinės formulės išsaugomos su jūsų projekto nustatymais ir gali būti naudojamos kaip įdiegtieji indeksai.
+* **Kaip sukurti**:
+  1. Indekso konfigūracijos skydelyje ieškokite pasirinktinės formulės parinkties.
+  2. Apibrėžkite formulę naudodami juostų identifikatorius (pvz., NIR, Red, Green, Blue).
+  3. Išsaugokite formulę su aprašomuoju pavadinimu.
+* **Formulės sintaksė**: Palaikomos standartinės matematinės operacijos, įskaitant:
+  * Aritmetika: `+`, `-`, `*`, `/`
+  * Skaičiavimo operacijų eiliškumo skliausteliai
+  * Juostos nuorodos: NIR, Red, Green, Blue, RedEdge, Cyan, Orange, NIR1, NIR2
 
 ***
 
-## Save Project Template
+## Eksportavimas
 
-This feature allows you to save your current project settings as a reusable template.
+Šie nustatymai kontroliuoja eksportuojamų apdorotų vaizdų formatą ir kokybę.
 
-* **Type**: Text input + Save button
-* **Description**: Enter a descriptive name for your settings template and click the save icon. The template will store all your current project settings (target detection, processing options, indices, and export format) for easy reuse in future projects.
-* **Use cases**:
-  * Create templates for different camera systems (RGB, multispectral, NIR)
-  * Save standard configurations for specific crop types or analysis workflows
-  * Share consistent settings across a team
-* **How to use**:
-  1. Configure all your desired project settings
-  2. Enter a template name (e.g., "RedEdge Survey3 NDVI Standard")
-  3. Click the save icon
-  4. The template can now be loaded when creating new projects
+### Kalibruotas vaizdo formatas
 
-***
-
-## Save Project Folder
-
-This setting specifies where new projects are saved by default.
-
-* **Type**: Directory path display + Edit button
-* **Default**: `C:\Users\[Username]\Chloros Projects`
-* **Description**: Shows the current default directory where new Chloros projects are created. Click the edit icon to select a different directory.
-* **When to change**:
-  * Set to a network drive for team collaboration
-  * Change to a drive with more storage space for large datasets
-  * Organize projects by year, client, or project type in different folders
-* **Note**: Changing this setting only affects NEW projects. Existing projects remain in their original locations.
+* **Tipas**: išskleidžiamas meniu
+* **Parinktys**:
+  * **TIFF (16 bitų)** – nesuspaustas 16 bitų TIFF formatas
+  * **TIFF (32 bitai, procentai)** – 32 bitų slankiojo kablelio TIFF su atspindžio vertėmis procentais
+  * **PNG (8 bitai)** - Suspaustas 8 bitų PNG formatas
+  * **JPG (8 bitai)** - Suspaustas 8 bitų JPEG formatas
+* **Numatytasis**: TIFF (16 bitų)
+* **Aprašymas**: Pasirenkamas failo formatas, kuriuo bus išsaugoti apdoroti ir kalibruoti vaizdai.
+* **Rekomenduojami formatai**:
+  * **TIFF (16 bitų)**: Rekomenduojamas moksliniams tyrimams ir profesionaliems darbo procesams. Išsaugo maksimalią duomenų kokybę be suspaudimo artefaktų. Geriausiai tinka daugiaspektrinei analizei ir tolesniam apdorojimui GIS programinėje įrangoje.
+  * **TIFF (32 bitai, procentai)**: geriausiai tinka darbo eigai, kuriai reikalingos atspindžio vertės procentais (0–100 %). Užtikrina maksimalų radiometrinių matavimų tikslumą.
+  * **PNG (8 bitai)**: tinka peržiūrai internete ir bendrai vizualizacijai. Mažesni failų dydžiai su be nuostolių suspaudimu, bet sumažintas dinaminis diapazonas.
+  * **JPG (8 bitai)**: Mažiausi failų dydžiai, geriausiai tinka tik peržiūrai ir rodymui internete. Naudoja suspaudimą su nuostoliais, kuris netinka moksliniams tyrimams.
 
 ***
 
-## Settings Persistence
+## Projekto šablono išsaugojimas
 
-All project settings are automatically saved with your project file (`.mapir` project format). When you reopen a project, all settings are restored exactly as you left them.
+Ši funkcija leidžia išsaugoti dabartinius projekto nustatymus kaip pakartotinai naudojamą šabloną.
 
-### Settings Hierarchy
-
-Settings are applied in the following order:
-
-1. **System defaults** - Built-in defaults defined by Chloros
-2. **Template settings** - If you load a template when creating a project
-3. **Saved project settings** - Settings saved with the project file
-4. **Manual adjustments** - Any changes you make during the current session
-
-### Settings and Image Processing
-
-Most settings changes (especially in Processing and Export categories) will trigger reprocessing of images to reflect the new settings. However, some settings are "export-only" and don't require immediate reprocessing:
-
-* Save Project Template
-* Working Directory
-* Calibrated image format (applies when exporting)
+* **Tipas**: Teksto įvedimas + mygtukas „Išsaugoti“
+* **Aprašymas**: Įveskite aprašomąjį pavadinimą savo nustatymų šablonui ir spustelėkite išsaugojimo piktogramą. Šablonas išsaugos visus dabartinius projekto nustatymus (tikslo aptikimas, apdorojimo parinktys, indeksai ir eksporto formatas), kad juos būtų galima lengvai pakartotinai naudoti būsimuose projektuose.
+* **Naudojimo atvejai**:
+  * Sukurkite šablonus skirtingoms kamerų sistemoms (RGB, multispektrinė, NIR)
+  * Išsaugokite standartines konfigūracijas konkretiems pasėlių tipams ar analizės darbo eigai
+  * Dalinkitės nuosekliais nustatymais su visa komanda
+* **Kaip naudoti**:
+  1. Nustatykite visus norimus projekto nustatymus
+  2. Įveskite šablono pavadinimą (pvz., „RedEdge Survey3 NDVI Standartinis“)
+  3. Spustelėkite išsaugojimo piktogramą
+  4. Dabar šabloną galima įkelti kuriant naujus projektus
 
 ***
 
-## Best Practices
+## Projekto aplanko išsaugojimas
 
-1. **Start with defaults**: The default settings work well for most MAPIR camera systems and typical workflows.
-2. **Create templates**: Once you've optimized settings for a specific workflow or camera, save them as a template to ensure consistency across projects.
-3. **Test before full processing**: When experimenting with new settings, test on a small subset of images before processing your entire dataset.
-4. **Document your settings**: Use descriptive template names that indicate the camera system, processing type, and intended use (e.g., "Survey3\_RGB\_NDVI\_Agriculture").
-5. **Export format selection**: Choose your export format based on your end use:
-   * Scientific analysis → TIFF (16-bit or 32-bit)
-   * GIS processing → TIFF (16-bit)
-   * Quick visualization → PNG (8-bit)
-   * Web sharing → JPG (8-bit)
+Šis nustatymas nurodo, kur nauji projektai yra išsaugomi pagal numatytuosius nustatymus.
+
+* **Tipas**: Katalogų kelio rodymas + redagavimo mygtukas
+* **Numatytasis**: `C:\Users\[Username]\Chloros Projects`
+* **Aprašymas**: Rodo dabartinį numatytąjį katalogą, kuriame yra kuriamos naujos Chloros projektai. Spustelėkite redagavimo piktogramą, kad pasirinkite kitą katalogą.
+* **Kada keisti**:
+  * Nustatykite tinklo diską komandiniam bendradarbiavimui.
+  * Keiskite į diską su daugiau saugojimo vietos dideliems duomenų rinkiniams.
+  * Tvarkykite projektus pagal metus, klientą ar projekto tipą skirtingose aplankose.
+* **Pastaba**: Šio parametro keitimas turi įtakos tik NAUJIEMS projektams. Esami projektai lieka savo pradinėse vietose.
 
 ***
 
-For more information on multispectral indices in Chloros, see [Multispectral Index Formulas](multispectral-index-formulas.md) page.
+## Parametrų išsaugojimas
+
+Visi projekto nustatymai automatiškai išsaugomi su jūsų projekto failu (`.mapir` projekto formatas). Kai vėl atidarote projektą, visi nustatymai atkurti tiksliai taip, kaip juos palikote.
+
+### Nustatymų hierarchija
+
+Nustatymai taikomi tokia tvarka:
+
+1. **Sistemos numatyti nustatymai** – įdiegtieji numatyti nustatymai, apibrėžti Chloros
+2. **Šablono nustatymai** – jei kurdami projektą įkeliate šabloną
+3. **Išsaugoti projekto nustatymai** – su projekto failu išsaugoti nustatymai
+4. **Rankiniai koregavimai** – bet kokie pakeitimai, kuriuos atliekate per esamą sesiją
+
+### Nustatymai ir vaizdų apdorojimas
+
+Dauguma nustatymų pakeitimų (ypač kategorijose „Apdorojimas“ ir „Eksportavimas“) sukels vaizdų perdirbimą, kad būtų atspindėti nauji nustatymai. Tačiau kai kurie nustatymai yra „tik eksportavimo“ ir nereikalauja nedelsiamo pakartotinio apdorojimo:
+
+* Išsaugoti projekto šabloną
+* Darbinis katalogas
+* Kalibruotas vaizdo formatas (taikoma eksportuojant)
+
+***
+
+## Geriausia praktika
+
+1. **Pradėkite nuo numatytųjų nustatymų**: numatytieji nustatymai puikiai tinka daugumai MAPIR kamerų sistemų ir tipiniams darbo srautams.
+2. **Sukurkite šablonus**: kai optimizavote nustatymus konkrečiam darbo srautui ar kamerai, išsaugokite juos kaip šabloną, kad užtikrintumėte nuoseklumą visuose projektuose.
+3. **Išbandykite prieš visą apdorojimą**: kai bandote naujus nustatymus, išbandykite juos nedidelėje vaizdų dalyje, prieš apdorodami visą duomenų rinkinį.
+4. **Užrašykite savo nustatymus**: naudokite aprašomuosius šablonų pavadinimus, kurie nurodo kameros sistemą, apdorojimo tipą ir numatytą naudojimą (pvz., „Survey3\_RGB\_NDVI\_Agriculture“).
+5. **Eksporto formato pasirinkimas**: Pasirinkite eksporto formatą pagal galutinę paskirtį:
+   * Mokslinė analizė → TIFF (16 bitų arba 32 bitų)
+   * GIS apdorojimas → TIFF (16 bitų)
+   * Greitas vizualizavimas → PNG (8 bitai)
+   * Dalijimasis internete → JPG (8 bitai)
+
+***
+
+Daugiau informacijos apie daugiaspektrinius indeksus Chloros rasite puslapyje [Daugiaspektrinių indeksų formulės](multispectral-index-formulas.md).

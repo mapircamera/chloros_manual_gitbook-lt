@@ -1,366 +1,366 @@
-# Starting the Processing
+# Apdorojimo pradžia
 
-Once you've imported your images, marked your calibration targets, and configured your project settings, you're ready to begin processing. This page guides you through initiating the Chloros processing pipeline.
+Kai importavote vaizdus, pažymėjote kalibravimo tikslus ir konfigūravote projekto nustatymus, galite pradėti apdorojimą. Šiame puslapyje pateikiami nurodymai, kaip pradėti Chloros apdorojimo procesą.
 
-## Pre-Processing Checklist
+## Apdorojimo prieš apdorojimą kontrolinis sąrašas
 
-Before clicking the Start button, verify that everything is ready:
+Prieš spustelėdami mygtuką „Pradėti“, patikrinkite, ar viskas paruošta:
 
-* [ ] **Files imported** - All images appear in File Browser
-* [ ] **Target images marked** - Target column checked for calibration images
-* [ ] **Camera models detected** - Camera Model column shows correct cameras
-* [ ] **Settings configured** - Project Settings reviewed and adjusted
-* [ ] **Indices selected** - Desired multispectral indices added (if needed)
-* [ ] **Export format chosen** - Output format appropriate for your workflow
+* [ ] **Importuoti failai** – visi vaizdai rodomi failų naršyklėje
+* [ ] **Pažymėti tiksliniai vaizdai** – tikslinėje skiltyje pažymėti kalibravimo vaizdai
+* [ ] **Aptikti fotoaparatų modeliai** – stulpelyje „Fotoaparato modelis“ rodomi teisingi fotoaparatai
+* [ ] **Konfigūruoti nustatymai** – peržiūrėti ir pakoreguoti projekto nustatymai
+* [ ] **Pasirinkti indeksai** – pridėti norimi multispektriniai indeksai (jei reikia)
+* [ ] **Pasirinktas eksporto formatas** – jūsų darbo eigai tinkamas išvesties formatas
 
-{% hint style="info" %}
-**Tip**: Click through a few images in the File Browser to verify they loaded correctly before processing.
+{% hint style=&quot;info&quot; %}
+**Patarimas**: Prieš apdorojimą spustelėkite keletą vaizdų failų naršyklėje, kad patikrintumėte, ar jie įkelti teisingai.
 {% endhint %}
 
 ***
 
-## Starting the Processing
+## Apdorojimo pradžia
 
-### Locate the Start Button
+### Raskite paleidimo mygtuką
 
-The Start/Play button is located in the top header bar of Chloros:
+Paleidimo/grojimo mygtukas yra viršutinėje Chloros juostoje:
 
-* Position: Top center of the window
-* Icon: **Play/Start button** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
-* Status: Button is enabled (bright) when ready to process
+* Vieta: lango viršutinė vidurinė dalis
+* Piktograma: **Paleidimo/grojimo mygtukas** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
+* Būklė: mygtukas įjungtas (šviesus), kai paruoštas apdorojimui
 
-### Click to Start
+### Spustelėkite, kad pradėtumėte
 
-1. Click the **Play/Start button** in the top header
-2. Processing begins immediately
-3. The button becomes disabled (grayed out) during processing
-4. Progress bar updates, showing processing status
+1. Spustelėkite **Paleisti/Pradėti mygtuką** viršutinėje juostoje
+2. Apdorojimas prasideda iš karto
+3. Apdorojimo metu mygtukas tampa išjungtas (pilkos spalvos)
+4. Atnaujinama pažangos juosta, rodanti apdorojimo būklę
 
-{% hint style="success" %}
-**Processing Started**: Once clicked, Chloros automatically handles all processing steps - target detection, debayering, calibration, index calculation, and export.
+{% hint style=&quot;success&quot; %}
+**Apdorojimas pradėtas**: Paspaudus, Chloros automatiškai atlieka visus apdorojimo veiksmus – tikslo aptikimą, debayeringą, kalibravimą, indekso skaičiavimą ir eksportavimą.
 {% endhint %}
 
 ***
 
-## Understanding Processing Modes
+## Apdorojimo režimų supratimas
 
-Chloros operates in two different processing modes depending on your license:
+Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų licencijos:
 
-### Free Mode (Sequential Processing)
+### Nemokamas režimas (eilinis apdorojimas)
 
-**Available to all users**
+**Prieinamas visiems vartotojams**
 
-**How it works:**
+**Kaip veikia:**
 
-* Processes images one at a time, sequentially
-* Single-threaded operation
-* Lower memory usage
+* Apdoroja vaizdus po vieną, nuosekliai
+* Vienos sriegio veikimas
+* Mažesnis atminties naudojimas
 
-**Progress bar shows 2 stages:**
+**Pažangos juosta rodo 2 etapus:**
 
-1. **Target Detect** - Scanning for calibration targets
-2. **Processing** - Applying calibration and exporting images
+1. **Tikslo aptikimas** – kalibravimo tikslų nuskaitymas
+2. **Apdorojimas** – kalibravimo taikymas ir vaizdų eksportavimas
 
-**Processing time:**
+**Apdorojimo laikas:**
 
-* Much slower than Chloros+ parallel mode
-* Suitable for small to medium datasets (< 200 images)
+* Daug lėtesnis nei Chloros+ lygiagretus režimas
+* Tinka mažoms ir vidutinio dydžio duomenų rinkiniams (&lt; 200 vaizdų)
 
-### Chloros+ Mode (Parallel Processing)
+### Chloros+ režimas (lygiagretus apdorojimas)
 
-**Requires Chloros+ license**
+**Reikalinga Chloros+ licencija**
 
-**How it works:**
+**Kaip veikia:**
 
-* Processes multiple images simultaneously
-* Multi-threaded operation (up to 16 parallel workers)
-* Utilizes multiple CPU cores
-* Optional GPU (CUDA) acceleration with NVIDIA graphics cards
+* Vienu metu apdoroja kelis vaizdus
+* Daugiasiūlis veikimas (iki 16 lygiagrečių procesų)
+* Naudoja kelis CPU branduolius
+* Pasirenkamas GPU (CUDA) pagreitinimas su NVIDIA grafikos plokštėmis
 
-**Progress bar shows 4 stages:**
+**Pažangos juosta rodo 4 etapus:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining image metadata and preparing pipeline
-3. **Calibrating** - Applying corrections and calibrations
-4. **Exporting** - Saving processed images and indices
+1. **Aptikimas** – kalibravimo tikslų paieška
+2. **Analizė** – vaizdo metaduomenų tikrinimas ir duomenų srauto paruošimas
+3. **Kalibravimas** – koregavimų ir kalibravimų taikymas
+4. **Eksportavimas** – apdorotų vaizdų ir indeksų išsaugojimas
 
-**Progress bar interaction:**
+**Progreso juostos sąveika:**
 
-* **Hover mouse** over bar to see detailed 4-stage dropdown panel
-* **Click** progress bar to freeze the dropdown panel in place
-* **Click again** to unfreeze and hide panel
+* **Pereikite pelės žymekliu** per juostą, kad pamatytumėte išsamų 4 etapų išskleidžiamąjį skydelį
+* **Spustelėkite** progreso juostą, kad išskleidžiamasis skydelis liktų toje vietoje
+* **Spustelėkite dar kartą**, kad skydelis būtų atšaldytas ir paslėptas
 
-**Processing time:**
+**Apdorojimo laikas:**
 
-* Significantly faster than free mode
-* Scales with CPU core count
-* GPU acceleration further improves speed
+* Žymiai greitesnis nei nemokamas režimas
+* Prisitaiko prie CPU branduolių skaičiaus
+* GPU pagreitinimas dar labiau padidina greitį
 
-{% hint style="info" %}
-**Chloros+ Speed**: Parallel processing can be 5-10x faster than sequential mode for large datasets. A 500-image project that takes 2 hours in free mode may complete in 15-20 minutes with Chloros+.
+{% hint style=&quot;info&quot; %}
+**Chloros+ Greitis**: Lygiagretus apdorojimas gali būti 5–10 kartų greitesnis nei nuoseklusis režimas dideliems duomenų rinkiniams. 500 vaizdų projektas, kuris nemokamu režimu trunka 2 valandas, su Chloros+ gali būti užbaigtas per 15–20 minučių.
 {% endhint %}
 
 ***
 
-## What Happens During Processing
+## Kas vyksta apdorojimo metu
 
-### Stage 1: Target Detection
+### 1 etapas: Tikslo aptikimas
 
-**What Chloros does:**
+**Ką daro Chloros:**
 
-* Scans marked target images (or all images if none marked)
-* Identifies the 4 calibration panels in each target
-* Extracts reflectance values from target panels
-* Records target timestamps for calibration scheduling
+* Nuskaito pažymėtus tikslo vaizdus (arba visus vaizdus, jei nėra pažymėtų)
+* Identifikuoja 4 kalibravimo skydelius kiekviename tiksle
+* Išskiria atspindžio vertes iš tikslo skydelių
+* Įrašo tikslo laiko žymes kalibravimo planavimui
 
-**Duration:** 1-30 seconds (with marked targets), 5-30+ minutes (unmarked)
+**Trukmė:** 1–30 sekundžių (su pažymėtais tikslais), 5–30+ minučių (nepažymėtais)
 
-### Stage 2: Debayering (RAW Conversion)
+### 2 etapas: Debayering (RAW konversija)
 
-**What Chloros does:**
+**Ką daro Chloros:**
 
-* Converts RAW Bayer pattern data to full RGB images
-* Applies high-quality demosaicing algorithm
-* Preserves maximum image quality and detail
+* Konvertuoja RAW Bayer modelio duomenis į pilnus RGB vaizdus
+* Taiko aukštos kokybės demosaicing algoritmą
+* Išsaugo maksimalią vaizdo kokybę ir detales
 
-**Duration:** Varies by image count and CPU speed
+**Trukmė:** priklauso nuo vaizdų skaičiaus ir CPU greičio
 
-### Stage 3: Calibration
+### 3 etapas: Kalibravimas
 
-**What Chloros does:**
+**Ką daro Chloros:**
 
-* **Vignette correction**: Removes lens darkening at edges
-* **Reflectance calibration**: Normalizes using target reflectance values
-* Applies corrections across all bands/channels
-* Uses appropriate calibration target for each image based on timestamp
+* **Vignette korekcija**: pašalina objektyvo patamsėjimą kraštuose
+* **Atspindžio kalibravimas**: normalizuoja naudojant tikslinio atspindžio vertes
+* Taiko korekcijas visose juostose/kanaluose
+* Naudoja tinkamą kalibravimo tikslą kiekvienam vaizdui pagal laiko žymą
 
-**Duration:** Majority of processing time
+**Trukmė:** didžioji dalis apdorojimo laiko
 
-### Stage 4: Index Calculation
+### 4 etapas: indekso skaičiavimas
 
-**What Chloros does:**
+**Ką daro Chloros:**
 
-* Calculates configured multispectral indices (NDVI, NDRE, etc.)
-* Applies band math to calibrated images
-* Generates index images for each selected index
+* Apskaičiuoja sukonfigūruotus multispektrinius indeksus (NDVI, NDRE ir kt.)
+* Taiko juostų matematiką kalibruotiems vaizdams
+* Sukuria indeksų vaizdus kiekvienam pasirinktam indeksui
 
-**Duration:** A few seconds per image
+**Trukmė:** Kelios sekundės vienam vaizdui
 
-### Stage 5: Export
+### 5 etapas: Eksportavimas
 
-**What Chloros does:**
+**Ką daro Chloros:**
 
-* Saves calibrated images in selected format
-* Exports index images with configured LUT colors
-* Writes files to camera model subfolders
-* Preserves original filenames with suffixes
+* Išsaugo kalibruotus vaizdus pasirinktu formatu
+* Eksportuoja indeksų vaizdus su konfigūruotomis LUT spalvomis
+* Rašo failus į kameros modelio pakatalogius
+* Išsaugo originalius failų pavadinimus su priesagomis
 
-**Duration:** Varies by export format and file size
+**Trukmė:** priklauso nuo eksporto formato ir failo dydžio
 
 ***
 
-## Processing Behavior
+## Apdorojimo elgsena
 
-### Automatic Processing Pipeline
+### Automatinis apdorojimo procesas
 
-Once started, the entire pipeline runs automatically:
+Pradėjus, visas procesas vyksta automatiškai:
 
-* No user interaction needed
-* All configured steps execute in sequence
-* Progress updates shown in real-time
+* Nereikia jokio vartotojo įsikišimo
+* Visi sukonfigūruoti veiksmai vykdomi paeiliui
+* Pažanga atnaujinama realiuoju laiku
 
-### Computer Usage During Processing
+### Kompiuterio naudojimas apdorojimo metu
 
-**Free Mode:**
+**Laisvasis režimas:**
 
-* Relatively low CPU usage (single-threaded)
-* Computer remains responsive for other tasks
-* Safe to minimize Chloros and work in other applications
+* Santykinai mažas procesoriaus naudojimas (vienos grandinės)
+* Kompiuteris lieka reaguojantis kitoms užduotims
+* Saugu sumažinti Chloros ir dirbti kitose programose
 
-**Chloros+ Parallel Mode:**
+**Chloros+ Lygiagretus režimas:**
 
-* High CPU usage (multi-threaded, up to 16 cores)
-* With GPU acceleration: High GPU usage
-* Computer may be less responsive during processing
-* Avoid starting other CPU-intensive tasks
+* Didelis CPU naudojimas (daugiagijis, iki 16 branduolių)
+* Su GPU pagreičiu: didelis GPU naudojimas
+* Kompiuteris apdorojimo metu gali būti mažiau reaguojantis
+* Venkite pradėti kitas CPU intensyvias užduotis
 
-{% hint style="warning" %}
-**Performance Tip**: For best Chloros+ performance, close other applications and let Chloros use full system resources.
+{% hint style=&quot;warning&quot; %}
+**Našumo patarimas**: Norėdami pasiekti geriausią Chloros+ našumą, uždarykite kitas programas ir leiskite Chloros naudoti visus sistemos išteklius.
 {% endhint %}
 
-### Processing Cannot Be Paused
+### Apdorojimo negalima sustabdyti
 
-**Important limitations:**
+**Svarbūs apribojimai:**
 
-* Once started, processing cannot be paused
-* You can cancel processing, but progress is lost
-* Partial results are not saved
-* Must restart from beginning if canceled
+* Pradėjus apdorojimą, jo negalima sustabdyti
+* Apdorojimą galima atšaukti, bet pažanga bus prarasta
+* Daliniai rezultatai nėra išsaugomi
+* Atšaukus apdorojimą, reikia pradėti iš naujo
 
-**Planning tip:** For very large projects, consider processing in batches or using CLI for better control.
-
-***
-
-## Monitoring Your Processing
-
-While processing runs, you can:
-
-* **Watch progress bar** - See overall completion percentage
-* **View current stage** - Detect, Analyze, Calibrate, or Export
-* **Check log tab** - See detailed processing messages and warnings
-* **Preview completed images** - Some export files may appear during processing
-
-For detailed information on monitoring, see [Monitoring the Processing](monitoring-the-processing.md).
+**Planavimo patarimas:** labai dideliems projektams apsvarstykite apdorojimą partijomis arba CLI naudojimą, kad galėtumėte geriau kontroliuoti.
 
 ***
 
-## Canceling Processing
+## Apdorojimo stebėjimas
 
-If you need to stop processing:
+Kol vyksta apdorojimas, galite:
 
-### How to Cancel
+* **Stebėti pažangos juostą** – matyti bendrą užbaigtumo procentą
+* **Peržiūrėti dabartinį etapą** – aptikti, analizuoti, kalibruoti arba eksportuoti
+* **Patikrinti žurnalo skirtuką** – peržiūrėti išsamius apdorojimo pranešimus ir įspėjimus
+* **Peržiūrėti užbaigtus vaizdus** – kai kurie eksportuojami failai gali pasirodyti apdorojimo metu
 
-1. Locate the **Stop/Cancel button** (replaces Start button during processing)
-2. Click the Stop button
-3. Processing halts immediately
-4. Partial results are discarded
+Išsami informacija apie stebėjimą pateikta skyriuje [Apdorojimo stebėjimas](monitoring-the-processing.md).
 
-### When to Cancel
+***
 
-**Valid reasons to cancel:**
+## Apdorojimo atšaukimas
 
-* Realized incorrect settings were used
-* Forgot to mark target images
-* Wrong images imported
-* System running too slow or unresponsive
+Jei reikia sustabdyti apdorojimą:
 
-**After canceling:**
+### Kaip atšaukti
 
-* Review and fix any issues
-* Adjust settings as needed
-* Restart processing from the beginning
-* For the cleanest experience, completely close Chloros and restart
+1. Raskite **Sustabdyti/Atšaukti mygtuką** (apdorojimo metu pakeičia Pradėti mygtuką)
+2. Spustelėkite Sustabdyti mygtuką
+3. Apdorojimas bus nedelsiant sustabdytas
+4. Daliniai rezultatai bus atmesti
 
-{% hint style="warning" %}
-**No Partial Results**: Canceling discards all progress. Chloros does not save partially processed images.
+### Kada atšaukti
+
+**Pagrįstos priežastys atšaukti:**
+
+* Supratote, kad buvo naudoti neteisingi nustatymai
+* Pamiršote pažymėti tikslinį vaizdą
+* Importuoti neteisingi vaizdai
+* Sistema veikia per lėtai arba nereaguoja
+
+**Atšaukus:**
+
+* Peržiūrėkite ir ištaisykite visas problemas
+* Pritaikykite nustatymus pagal poreikį
+* Pradėkite apdorojimą iš naujo
+* Norėdami užtikrinti sklandžiausią veikimą, visiškai uždarykite Chloros ir paleiskite iš naujo
+
+{% hint style=&quot;warning&quot; %}
+**Nėra dalinių rezultatų**: Atšaukus visos pažangos duomenys bus ištrinti. Chloros neišsaugo iš dalies apdorotų vaizdų.
 {% endhint %}
 
 ***
 
-## Processing Time Estimates
+## Apdorojimo laiko įvertinimai
 
-Actual processing time varies greatly based on:
+Faktinis apdorojimo laikas labai skiriasi priklausomai nuo:
 
-* Number of images
-* Image resolution
-* RAW vs JPG input format
-* Processing mode (Free vs Chloros+)
-* CPU speed and core count
-* GPU availability (Chloros+ only)
-* Number of indices to calculate
-* Export format complexity
+* Vaizdų skaičiaus
+* Vaizdų skiriamosios gebos
+* RAW ir JPG įvesties formato
+* Apdorojimo režimo (nemokamas ir Chloros+)
+* CPU greičio ir branduolių skaičiaus
+* GPU prieinamumo (tik Chloros+)
+* Apskaičiuotinų indeksų skaičiaus
+* Eksporto formato sudėtingumo
 
-### Rough Estimates (Chloros+, 12MP images, modern CPU)
+### Apytikriai apskaičiuotas laikas (Chloros+, 12 MP vaizdai, modernus procesorius)
 
-| Image Count | Free Mode | Chloros+ (CPU) | Chloros+ (GPU) |
+| Vaizdų skaičius | Nemokamas režimas | Chloros+ (procesorius) | Chloros+ (grafikos procesorius) |
 | ----------- | --------- | -------------- | -------------- |
-| 50 images   | 15-20 min | 5-8 min        | 3-5 min        |
-| 100 images  | 30-40 min | 10-15 min      | 5-8 min        |
-| 200 images  | 1-1.5 hrs | 20-30 min      | 10-15 min      |
-| 500 images  | 2-3 hrs   | 45-60 min      | 20-30 min      |
-| 1000 images | 4-6 hrs   | 1.5-2 hrs      | 40-60 min      |
+| 50 vaizdų   | 15–20 min. | 5–8 min.        | 3–5 min.        |
+| 100 vaizdų  | 30–40 min. | 10–15 min.      | 5–8 min.        |
+| 200 vaizdų  | 1–1,5 val. | 20–30 min.      | 10–15 min.      |
+| 500 nuotraukų  | 2–3 val.   | 45–60 min.      | 20–30 min.      |
+| 1000 nuotraukų | 4–6 val.   | 1,5–2 val.      | 40–60 min.      |
 
-{% hint style="info" %}
-**First Run**: Initial processing may take longer as Chloros builds caches and profiles. Subsequent processing of similar datasets will be faster.
+{% hint style=&quot;info&quot; %}
+**Pirmasis paleidimas**: Pirminis apdorojimas gali užtrukti ilgiau, nes Chloros kuria talpyklas ir profilius. Vėlesnis panašių duomenų rinkinių apdorojimas bus greitesnis.
 {% endhint %}
 
 ***
 
-## Common Issues at Start
+## Dažnos problemos paleidžiant
 
-### Start Button Disabled (Grayed Out)
+### Paleidimo mygtukas neveikia (pilkos spalvos)
 
-**Possible causes:**
+**Galimos priežastys:**
 
-* No images imported
-* Backend not fully started
-* Previous processing still running
-* Project not fully loaded
+* Neimportuoti vaizdai
+* Backend nepradėjo veikti
+* Ankstesnis apdorojimas vis dar vyksta
+* Projektas nepilnai įkeltas
 
-**Solutions:**
+**Sprendimai:**
 
-1. Wait for backend to fully initialize (check main menu icon)
-2. Verify images are imported in File Browser
-3. Restart Chloros if button remains disabled
-4. Check Debug Log for error messages
+1. Palaukite, kol užpakalinė dalis bus visiškai inicializuota (patikrinkite pagrindinio meniu piktogramą)
+2. Patikrinkite, ar vaizdai importuoti failų naršyklėje
+3. Jei mygtukas lieka išjungtas, paleiskite Chloros iš naujo
+4. Patikrinkite, ar Debug Log nėra klaidų pranešimų
 
-### Processing Starts Then Immediately Fails
+### Apdorojimas prasideda, bet iš karto žlunga
 
-**Possible causes:**
+**Galimos priežastys:**
 
-* No valid images in project
-* Corrupted image files
-* Insufficient disk space
-* Insufficient memory (RAM)
+* Projekte nėra tinkamų vaizdų
+* Sugadinti vaizdų failai
+* Nepakankama disko vieta
+* Nepakankama atmintis (RAM)
 
-**Solutions:**
+**Sprendimai:**
 
-1. Check Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> for error messages
-2. Verify disk space available
-3. Try processing a smaller subset of images
-4. Verify images are not corrupted
+1. Patikrinkite Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> , ar nėra klaidų pranešimų
+2. Patikrinkite, ar yra pakankamai vietos diske
+3. Pabandykite apdoroti mažesnį vaizdų rinkinį
+4. Patikrinkite, ar vaizdai nėra sugadinti
 
-### "No Targets Detected" Warning
+### Įspėjimas „Nerasta tikslų“
 
-**Possible causes:**
+**Galimos priežastys:**
 
-* Forgot to mark target images
-* Target images don't contain visible targets
-* Target detection settings too strict
+* Pamiršote pažymėti tikslinius vaizdus
+* Tiksliniai vaizdai neturi matomų tikslų
+* Tikslo aptikimo nustatymai yra pernelyg griežti
 
-**Solutions:**
+**Sprendimai:**
 
-1. Review [Choosing Target Images](choosing-target-images.md)
-2. Mark appropriate images in Target column
-3. Verify targets are visible in marked images
-4. Adjust target detection settings if needed
-
-***
-
-## Tips for Successful Processing
-
-### Before Starting
-
-1. **Test with small subset first** - Process 10-20 images to verify settings
-2. **Check available disk space** - Ensure 2-3x dataset size free
-3. **Close unnecessary applications** - Free up system resources
-4. **Verify target images** - Preview marked targets to ensure quality
-5. **Save project** - Project auto-saves, but good practice to save manually
-
-### During Processing
-
-1. **Avoid system sleep** - Disable power saving modes
-2. **Keep Chloros in foreground** - Or at least visible in taskbar
-3. **Monitor progress occasionally** - Check for warnings or errors
-4. **Don't load other heavy applications** - Especially with Chloros+ parallel mode
-
-### Chloros+ GPU Acceleration
-
-If using NVIDIA GPU acceleration:
-
-1. Update NVIDIA drivers to latest version
-2. Ensure GPU has 4GB+ VRAM
-3. Close GPU-intensive applications (games, video editing)
-4. Monitor GPU temperature (ensure adequate cooling)
+1. Peržiūrėkite [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
+2. Pažymėkite tinkamas nuotraukas stulpelyje „Tikslas“
+3. Patikrinkite, ar tikslai matomi pažymėtose nuotraukose
+4. Prireikus pakoreguokite tikslo aptikimo nustatymus
 
 ***
 
-## Next Steps
+## Patarimai sėkmingam apdorojimui
 
-Once processing has started:
+### Prieš pradedant
 
-1. **Monitor the progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-2. **Wait for completion** - Processing runs automatically
-3. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
+1. **Pirmiausia išbandykite su nedideliu duomenų rinkiniu** – apdorokite 10–20 vaizdus, kad patikrintumėte nustatymus.
+2. **Patikrinkite laisvą disko vietą** – užtikrinkite, kad būtų 2–3 kartus daugiau laisvos vietos nei duomenų rinkinio dydis.
+3. **Uždarykite nereikalingas programas** – atlaisvinkite sistemos išteklius.
+4. **Patikrinkite tikslinius vaizdus** – peržiūrėkite pažymėtus tikslinius vaizdus, kad užtikrintumėte kokybę.
+5. **Išsaugokite projektą** – projektas išsaugomas automatiškai, bet geriausia išsaugoti rankiniu būdu.
 
-For information about what to do during processing, see [Monitoring the Processing](monitoring-the-processing.md).
+### Apdorojimo metu
+
+1. **Venkite sistemos miego režimo** – išjunkite energijos taupymo režimus.
+2. **Laikykite Chloros pirmame plane** – arba bent jau matomą užduočių juostoje.
+3. **Kartais stebėkite pažangą** – tikrinkite, ar nėra įspėjimų ar klaidų.
+4. **Nekraukite kitų sunkių programų** – ypač Chloros+ lygiagretaus režimo atveju
+
+### Chloros+ GPU pagreitinimas
+
+Jei naudojate NVIDIA GPU pagreitinimą:
+
+1. Atnaujinkite NVIDIA tvarkykles iki naujausios versijos
+2. Įsitikinkite, kad GPU turi 4 GB+ VRAM
+3. Uždarykite GPU intensyvias programas (žaidimus, vaizdo redagavimą)
+4. Stebėkite GPU temperatūrą (užtikrinkite tinkamą aušinimą)
+
+***
+
+## Tolimesni veiksmai
+
+Pradėjus apdorojimą:
+
+1. **Stebėkite pažangą** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
+2. **Palaukite, kol apdorojimas bus baigtas** – apdorojimas vyksta automatiškai.
+3. **Peržiūrėkite rezultatus** – žr. [Apdorojimo užbaigimas](finishing-the-processing.md).
+
+Informaciją apie tai, ką daryti apdorojimo metu, rasite [Apdorojimo stebėjimas](monitoring-the-processing.md).

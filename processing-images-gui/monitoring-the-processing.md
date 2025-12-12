@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# Apdorojimo stebėjimas
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+Pradėjus apdorojimą, Chloros siūlo keletą būdų stebėti pažangą, tikrinti problemas ir suprasti, kas vyksta su jūsų duomenų rinkiniu. Šiame puslapyje paaiškinama, kaip stebėti apdorojimą ir interpretuoti Chloros teikiamą informaciją.
 
-## Progress Bar Overview
+## Pažangos juostos apžvalga
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Pažangos juosta viršutiniame antraštės skyriuje rodo apdorojimo būseną ir užbaigtumo procentą realiuoju laiku.
 
-### Free Mode Progress Bar
+### Laisvojo režimo pažangos juosta
 
-For users without Chloros+ license:
+Vartotojams, neturintiems Chloros+ licencijos:
 
-**2-Stage Progress Display:**
+**2 etapų pažangos rodymas:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Tikslo aptikimas** – kalibravimo tikslų paieška vaizduose
+2. **Apdorojimas** – koregavimų taikymas ir eksportavimas
 
-**Progress bar shows:**
+**Pažangos juosta rodo:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Bendrą užbaigtumo procentą (0–100 %)
+* Dabartinio etapo pavadinimą
+* Paprastą horizontalią juostą
 
-### Chloros+ Progress Bar
+### Chloros+ pažangos juosta
 
-For users with Chloros+ license:
+Vartotojams, turintiems Chloros+ licenciją:
 
-**4-Stage Progress Display:**
+**4 etapų pažangos rodymas:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Aptikimas** – kalibravimo tikslų paieška
+2. **Analizė** – vaizdų tikrinimas ir ruošimas
+3. **Kalibravimas** – vinjetės ir atspindžio korekcijų taikymas
+4. **Eksportavimas** – apdorotų failų išsaugojimas
 
-**Interactive Features:**
+**Interaktyvios funkcijos:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **Pereikite pelės žymekliu per** pažangos juostą, kad pamatytumėte išplėstą 4 etapų skydelį
+* **Spustelėkite** pažangos juostą, kad sustabdytumėte / pritvirtintumėte išplėstą skydelį
+* **Spustelėkite dar kartą**, kad atšildytumėte ir automatiškai paslėptumėte, kai nuimsite pelę
+* Kiekvienas etapas rodo individualią pažangą (0–100 %)
 
 ***
 
-## Debug Log Tab
+## Kiekvieno apdorojimo etapo supratimas
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### 1 etapas: aptikimas (tikslo aptikimas)
 
-### Accessing the Debug Log
+**Kas vyksta:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros nuskaito vaizdus, pažymėtus žymės langeliu „Tikslas“
+* Kompiuterinio matymo algoritmai identifikuoja 4 kalibravimo skydelius
+* Iš kiekvieno skydelio išgautos atspindžio vertės
+* Tikslo laiko žymos įrašomos tinkamam kalibravimo planavimui
 
-### Understanding Log Messages
+**Trukmė:**
 
-#### Information Messages (White/Gray)
+* Su pažymėtais tikslais: 10–60 sekundžių
+* Be pažymėtų tikslų: 5–30+ minučių (nuskaito visus vaizdus)
 
-Normal processing updates:
+**Pažangos indikatorius:**
+
+* Aptikimas: 0 % → 100 %
+* Nuskaitytų vaizdų skaičius
+* Rasti tikslai
+
+**Į ką reikia atkreipti dėmesį:**
+
+* Turėtų būti baigta greitai, jei tikslai pažymėti tinkamai
+* Jei trunka per ilgai, tikslai gali būti nepažymėti
+* Patikrinkite „Debug Log“ (Debug žurnalą) dėl pranešimų „Target found“ (Rastas tikslas)
+
+### 2 etapas: Analizė
+
+**Kas vyksta:**
+
+* Skaityti vaizdo EXIF metaduomenis (laiko žymes, ekspozicijos nustatymus)
+* Nustatyti kalibravimo strategiją pagal tikslų laiko žymes
+* Tvarkyti vaizdų apdorojimo eilę
+* Parengti lygiagretaus apdorojimo darbuotojus (tik Chloros+)
+
+**Trukmė:** 5–30 sekundžių
+
+**Pažangos indikatorius:**
+
+* Analizė: 0 % → 100 %
+* Greitas etapas, paprastai baigiamas greitai
+
+**Į ką atkreipti dėmesį:**
+
+* Turėtų vykti tolygiai, be pertraukų
+* Įspėjimai apie trūkstamus metaduomenis bus rodomi Debug Log
+
+### 3 etapas: Kalibravimas
+
+**Kas vyksta:**
+
+* **Debayering**: RAW Bayer modelio konvertavimas į 3 kanalus
+* **Vignette korekcija**: objektyvo kraštų patamsėjimo pašalinimas
+* **Atspindžio kalibravimas**: normalizavimas pagal tikslinės vertės
+* **Indekso skaičiavimas**: daugiaspektrinių indeksų skaičiavimas
+* Kiekvieno vaizdo apdorojimas per visą procesą
+
+**Trukmė:** didžioji dalis viso apdorojimo laiko (60–80 %)
+
+**Pažangos indikatorius:**
+
+* Kalibravimas: 0 % → 100 %
+* Šiuo metu apdorojamas vaizdas
+* Užbaigti vaizdai / Visi vaizdai
+
+**Apdorojimo elgsena:**
+
+* **Laisvasis režimas**: apdoroja po vieną vaizdą iš eilės
+* **Chloros+ režimas**: apdoroja iki 16 vaizdų vienu metu
+* **GPU pagreitinimas**: žymiai pagreitina šį etapą
+
+**Į ką atkreipti dėmesį:**
+
+* Pastovi pažanga pagal vaizdų skaičių
+* Patikrinkite „Debug Log“ (Debug žurnalą) dėl pranešimų apie kiekvieno vaizdo apdorojimo pabaigą
+* Įspėjimai apie vaizdo kokybės ar kalibravimo problemas
+
+### 4 etapas: Eksportavimas
+
+**Kas vyksta:**
+
+* Kalibruotų vaizdų rašymas į diską pasirinktu formatu
+* Daugiaspektrinių indeksų vaizdų eksportavimas su LUT spalvomis
+* Kameros modelio pakatalogių kūrimas
+* Originalių failų vardų išsaugojimas su atitinkamais priesagais
+
+**Trukmė:** 10–20 % viso apdorojimo laiko
+
+**Pažangos indikatorius:**
+
+* Eksportavimas: 0 % → 100 %
+* Rašomi failai
+* Eksporto formatas ir paskirties vieta
+
+**Į ką reikia atkreipti dėmesį:**
+
+* Įspėjimai apie disko vietos trūkumą
+* Failų rašymo klaidos
+* Visų sukonfigūruotų išvesties užbaigimas
+
+***
+
+## Debug Log (Debugavimo žurnalas) skirtukas
+
+Debug Log (Debugavimo žurnalas) pateikia išsamią informaciją apie apdorojimo pažangą ir visas iškilusias problemas.
+
+### Prieiga prie Debug Log (Debugavimo žurnalo)
+
+1. Spustelėkite **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje.
+2. Atsidarys žurnalo langas, kuriame bus rodomi apdorojimo pranešimai realiuoju laiku.
+3. Automatiškai slinks, kad būtų rodomi naujausi pranešimai.
+
+### Žurnalo pranešimų supratimas
+
+#### Informaciniai pranešimai (balti/pilki)
+
+Įprasti apdorojimo atnaujinimai:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Įspėjamieji pranešimai (geltoni)
 
-Non-critical issues that don't stop processing:
+Nekritinės problemos, kurios nesustabdo apdorojimo:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Veiksmas:** Peržiūrėkite įspėjimus po apdorojimo, bet nepertraukite jo.
 
-#### Error Messages (Red)
+#### Klaidų pranešimai (Red)
 
-Critical issues that may cause processing to fail:
+Kritinės problemos, dėl kurių apdorojimas gali žlugti:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Veiksmas:** Sustabdyti apdorojimą, išspręsti klaidą, paleisti iš naujo.
 
-### Common Log Messages
+### Įprasti žurnalo pranešimai
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Pranešimas                          | Reikšmė                                | Reikalingas veiksmas                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| „Tikslas aptiktas \[filename]“ | Kalibravimo tikslas sėkmingai rastas  | Nėra – normalu                                         |
+| „Apdorojamas vaizdas X iš Y“        | Dabartinės pažangos atnaujinimas                | Nėra – normalu                                         |
+| „Tikslai nerasti“               | Kalibravimo tikslai nerasti        | Pažymėkite tikslo vaizdus arba išjunkite atspindžio kalibravimą |
+| „Nepakankama disko vieta“        | Nepakanka vietos išvesties failams          | Atlaisvinkite disko vietą                                    |
+| „Pereiti prie sugadinto failo“        | Vaizdo failas sugadintas                  | Pakartotinai nukopijuokite failą iš SD kortelės                             |
+| „PPK duomenys pritaikyti“               | Pritaikyti GPS pataisymai iš .daq failo | Nėra – normalu                                         |
 
-### Copying Log Data
+### Žurnalo duomenų kopijavimas
 
-To copy log for troubleshooting or support:
+Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
-
-***
-
-## System Resource Monitoring
-
-### CPU Usage
-
-**Free Mode:**
-
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
-
-**Chloros+ Parallel Mode:**
-
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
-
-**To monitor:**
-
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
-
-### Memory (RAM) Usage
-
-**Typical usage:**
-
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
-
-**If memory is low:**
-
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
-
-### GPU Usage (Chloros+ with CUDA)
-
-When GPU acceleration is enabled:
-
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
-
-**To monitor:**
-
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
-
-### Disk I/O
-
-**What to expect:**
-
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
-
-**Performance tip:**
-
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
+1. Atidarykite „Debug Log“ (Debug žurnalas) skydelį.
+2. Spustelėkite mygtuką „Copy Log“ (Kopijuoti žurnalą) (arba dešiniuoju pelės mygtuku spustelėkite → „Select All“ (Pasirinkti viską)).
+3. Įklijuokite į tekstinį failą arba el. laišką.
+4. Prireikus nusiųskite MAPIR pagalbai.
 
 ***
 
-## Detecting Problems During Processing
+## Sistemos išteklių stebėjimas
 
-### Warning Signs
+### CPU naudojimas
 
-**Progress stalls (no change for 5+ minutes):**
+**Laisvasis režimas:**
 
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
+* 1 CPU branduolys ~100 %
+* Kiti branduoliai neveikia arba yra laisvi
+* Sistema išlieka reaguojanti
 
-**Error messages appear frequently:**
+**Chloros+ lygiagretusis režimas:**
 
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
+* Keli branduoliai 80–100 % (iki 16 branduolių)
+* Didelis bendras CPU naudojimas
+* Sistema gali atrodyti mažiau reaguojanti
 
-**System becomes unresponsive:**
+**Stebėti:**
 
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
+* Windows užduočių tvarkyklė (Ctrl+Shift+Esc)
+* Skirtukas „Našumas“ → skyrius „CPU“
+* Ieškokite procesų „Chloros“ arba „chloros-backend“
 
-### When to Stop Processing
+### Atminties (RAM) naudojimas
 
-Stop processing if you see:
+**Tipinis naudojimas:**
 
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
+* Maži projektai (&lt; 100 vaizdų): 2–4 GB
+* Vidutiniai projektai (100–500 vaizdų): 4–8 GB
+* Dideliai projektai (500+ vaizdų): 8–16 GB
+* Chloros+ lygiagretusis režimas naudoja daugiau RAM
 
-**How to stop:**
+**Jei atminties mažai:**
 
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Apdorokite mažesnes partijas
+* Uždarykite kitas programas
+* Jei reguliariai apdorojate didelius duomenų rinkinius, atnaujinkite RAM
 
-***
+### GPU naudojimas (Chloros+ su CUDA)
 
-## Troubleshooting During Processing
+Kai įjungtas GPU pagreitinimas:
 
-### Processing is Very Slow
+* NVIDIA GPU rodo didelį panaudojimą (60–90 %)
+* VRAM naudojimas padidėja (reikia 4 GB+ VRAM)
+* Kalibravimo etapas yra žymiai greitesnis
 
-**Possible causes:**
+**Stebėti:**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* NVIDIA sistemos dėklo piktogramą
+* Užduočių tvarkyklę → Našumą → GPU
+* GPU-Z ar panašią stebėjimo priemonę
 
-**Solutions:**
+### Disko įvestis/išvestis
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+**Ko tikėtis:**
 
-### "Disk Space" Warnings
+* Didelis disko skaitymo greitis analizės etape
+* Didelis disko rašymo greitis eksporto etape
+* SSD yra žymiai greitesnis nei HDD
 
-**Solutions:**
+**Našumo patarimas:**
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
-
-### Frequent "Corrupted File" Messages
-
-**Solutions:**
-
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
-
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+* Jei įmanoma, naudokite SSD projektų aplanke
+* Venkite tinklo diskų dideliems duomenų rinkiniams
+* Įsitikinkite, kad diskas nėra beveik užpildytas (tai turi įtakos rašymo greičiui)
 
 ***
 
-## Processing Complete Notification
+## Problemų aptikimas apdorojimo metu
 
-When processing finishes:
+### Įspėjamieji ženklai
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**Procesas sustoja (be pokyčių 5+ minutes):**
+
+* Patikrinkite, ar nėra klaidų Debug Log
+* Patikrinkite, ar yra laisvos vietos diske
+* Patikrinkite Task Manager, ar veikia Chloros
+
+**Dažnai rodomi klaidų pranešimai:**
+
+* Sustabdykite apdorojimą ir peržiūrėkite klaidas
+* Dažniausios priežastys: disko vietos trūkumas, sugadinti failai, atminties problemos
+* Žr. skyrių „Problemų sprendimas“ žemiau
+
+**Sistema nereaguoja:**
+
+* Chloros+ lygiagretusis režimas naudoja per daug išteklių
+* Apsvarstykite galimybę sumažinti vienu metu vykdomų užduočių skaičių arba atnaujinti aparatinę įrangą
+* Laisvasis režimas naudoja mažiau išteklių
+
+### Kada sustabdyti apdorojimą
+
+Sustabdykite apdorojimą, jei matote:
+
+* ❌ Klaidas „Diskas pilnas“ arba „Negaliu įrašyti failo“
+* ❌ Pakartotinės vaizdo failų sugadinimo klaidos
+* ❌ Sistema visiškai užstrigo (nereaguoja)
+* ❌ Supratote, kad buvo nustatyti neteisingi parametrai
+* ❌ Importuoti neteisingi vaizdai
+
+**Kaip sustabdyti:**
+
+1. Spustelėkite **Sustabdyti/Atšaukti mygtuką** (pakeičia Pradėti mygtuką)
+2. Apdorojimas sustabdomas, pažanga prarandama
+3. Išspręskite problemas ir pradėkite iš naujo
 
 ***
 
-## Next Steps
+## Problemų sprendimas apdorojimo metu
 
-Once processing completes:
+### Apdorojimas labai lėtas
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+**Galimos priežastys:**
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+* Nežymėti tiksliniai vaizdai (nuskaitomi visi vaizdai)
+* HDD vietoj SSD saugyklos
+* Nepakankami sistemos ištekliai
+* Nustatyta daug indeksų
+* Prieiga prie tinklo disko
+
+**Sprendimai:**
+
+1. Jei tik pradėta ir esate aptikimo etape: atšaukti, pažymėti tikslus, pradėti iš naujo
+2. Ateityje: naudoti SSD, sumažinti indeksus, atnaujinti aparatinę įrangą
+3. Apsvarstyti CLI didelių duomenų rinkinių apdorojimui partijomis
+
+### „Diskų vietos“ įspėjimai
+
+**Sprendimai:**
+
+1. Nedelsiant atlaisvinti diskų vietą
+2. Perkelti projektą į diską, kuriame yra daugiau vietos
+3. Sumažinkite eksportuojamų indeksų skaičių.
+4. Naudokite JPG formatą vietoj TIFF (mažesni failai).
+
+### Dažni „Sugadinto failo“ pranešimai
+
+**Sprendimai:**
+
+1. Pakartotinai nukopijuokite vaizdus iš SD kortelės, kad užtikrintumėte jų vientisumą.
+2. Patikrinkite SD kortelę dėl klaidų.
+3. Pašalinkite sugadintus failus iš projekto.
+4. Tęskite likusių vaizdų apdorojimą.
+
+### Sistemos perkaitimas / greičio ribojimas
+
+**Sprendimai:**
+
+1. Užtikrinkite tinkamą ventiliaciją.
+2. Nuvalykite dulkes nuo kompiuterio ventiliacijos angų.
+3. Sumažinkite apdorojimo apkrovą (naudokite laisvąjį režimą vietoj Chloros+).
+4. Apdorokite vėsesniu paros metu.
+
+***
+
+## Pranešimas apie apdorojimo pabaigą
+
+Kai apdorojimas baigtas:
+
+* Pažangos juosta pasiekia 100 %
+* Debug Log (Debug žurnale) pasirodo pranešimas **„Processing Complete“ (Apdorojimas baigtas)**
+* Vėl įjungiamas mygtukas „Start“ (Pradėti)
+* Visi išvesties failai yra fotoaparato modelio pakatalogyje
+
+***
+
+## Tolimesni veiksmai
+
+Baigus apdorojimą:
+
+1. **Peržiūrėkite rezultatus** – žr. [Apdorojimo užbaigimas](finishing-the-processing.md)
+2. **Patikrinkite išvesties aplanką** – patikrinkite, ar visi failai eksportuoti teisingai
+3. **Peržiūrėkite Debug Log** – patikrinkite, ar nėra įspėjimų ar klaidų
+4. **Peržiūrėkite apdorotus vaizdus** – naudokite Image Viewer arba išorinę programinę įrangą
+
+Informaciją apie apdorotų rezultatų peržiūrą ir naudojimą rasite [Apdorojimo užbaigimas](finishing-the-processing.md).

@@ -1,43 +1,39 @@
-# Chloros+ Login
+# Chloros+ Prisijungimas
 
-## Chloros and Chloros (Browser) Login
+## Chloros ir Chloros (naršyklė) Prisijungimas
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+Vartotojo <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> šoniniame meniu galite prisijungti prie savo Chloros+ paskyros ir atrakinti papildomas funkcijas.
 
-When logged in your account details will be shown:
+Prisijungus bus rodomi jūsų paskyros duomenys:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Prisijungimas
 
-## CLI Login
+Prisijunkite naudodami savo Chloros+ prisijungimo duomenis, kad galėtumėte naudotis CLI apdorojimo funkcija.
 
-Login with your Chloros+ credentials to enable CLI processing.
-
-**Syntax:**
+**Sintaksė:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**Pavyzdys:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**Specialieji simboliai**: Naudokite viengubas kabutes aplink slaptažodžius, kuriuose yra simboliai, pvz., `$`, `!`, arba tarpai.
 {% endhint %}
 
-**Output:**
+**Rezultatas:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Plano galiojimo pabaiga
 
-### Plan Expiration
+Plano galiojimo pabaiga GUI rodo, kada jūsų licencija taps negaliojanti. Kas mėnesį atnaujinamų prenumeratų galiojimo pabaiga yra mėnesio pabaiga. Metinių prenumeratų galiojimo pabaiga yra praėjus metams nuo prenumeratos pradžios. Licencijos patikrinimui reikalingas kas mėnesį atnaujinamas interneto ryšys, su 30 dienų atidėjimo laikotarpiu.
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+### Įrenginių skaičiaus riba
 
-### Device Limit
+Kiekvienas Chloros+ planas siūlo skirtingą registruotų įrenginių skaičių. Kiekvienas įrenginys, prie kurio prisijungiate su Chloros+ paskyra, bus įskaičiuotas į registruotų įrenginių skaičių. MAPIR Cloud paskyros puslapyje galite pervardyti ir pašalinti įrenginį.
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
-
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ planas</th><th align="center">VARI</th><th align="center">BRONZA</th><th align="center">SILVER</th><th align="center">AUKSAS</th></tr></thead><tbody><tr><td align="right">Palaikomi įrenginiai</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

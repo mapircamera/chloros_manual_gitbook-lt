@@ -1,221 +1,221 @@
-# Choosing Target Images
+# Tikslinės nuotraukos pasirinkimas
 
-Marking which images contain calibration targets is a crucial step that significantly speeds up the Chloros processing pipeline. By pre-selecting target images, you eliminate the need for Chloros to scan every image in your dataset for calibration targets.
+Nuotraukų, kuriose yra kalibravimo tikslai, žymėjimas yra labai svarbus žingsnis, kuris žymiai pagreitina Chloros apdorojimo procesą. Iš anksto pasirinkdami tikslinės nuotraukas, jūs pašalinate būtinybę Chloros nuskaityti kiekvieną nuotrauką jūsų duomenų rinkinyje, ieškodami kalibravimo tikslų.
 
-## Why Mark Target Images?
+## Kodėl reikia žymėti tikslinės nuotraukas?
 
-### Processing Speed
+### Apdorojimo greitis
 
-Without marking target images, Chloros must:
+Nežymint tikslinės nuotraukos, Chloros turi:
 
-* Scan every single image in your project
-* Run target detection algorithms on each image
-* Check hundreds or thousands of images unnecessarily
+* Nuskaityti kiekvieną projekto nuotrauką
+* Vykdyti tikslinės nuotraukos aptikimo algoritmus kiekvienoje nuotraukoje
+* Be reikalo patikrinti šimtus ar tūkstančius nuotraukų
 
-**Result**: Processing can take significantly longer, especially for large datasets.
+**Rezultatas**: apdorojimas gali užtrukti žymiai ilgiau, ypač didelių duomenų rinkinių atveju.
 
-### With Marked Target Images
+### Su pažymėtais tiksliniais vaizdais
 
-When you check the Target column for specific images:
+Kai pažymite konkrečius vaizdus stulpelyje „Tikslas“:
 
-* Chloros only scans the checked images for targets
-* Target detection completes much faster
-* Overall processing time is greatly reduced
+* Chloros nuskaito tik pažymėtus vaizdus, ieškodamas tikslų
+* Tikslo aptikimas užtrunka daug trumpiau
+* Bendras apdorojimo laikas žymiai sutrumpėja
 
-{% hint style="success" %}
-**Speed Improvement**: Marking 2-3 target images in a 500-image dataset can reduce target detection time from 30+ minutes to under 1 minute.
+{% hint style=&quot;success&quot; %}
+**Greitis pagerėja**: Pažymėjus 2–3 tikslinius vaizdus 500 vaizdų duomenų rinkinyje, tikslų aptikimo laikas gali sutrumpėti nuo 30+ minučių iki mažiau nei 1 minutės.
 {% endhint %}
 
 ***
 
-## How to Mark Target Images
+## Kaip pažymėti tikslinius vaizdus
 
-### Step 1: Identify Your Target Images
+### 1 žingsnis: Nustatykite tikslinius vaizdus
 
-Look through your imported images in the File Browser and identify which images contain calibration targets.
+Peržiūrėkite importuotus vaizdus failų naršyklėje ir nustatykite, kurie vaizdai yra kalibravimo tikslai.
 
-**Common scenarios:**
+**Dažni scenarijai:**
 
-* **Pre-capture target**: Captured before starting the session
-* **Post-capture target**: Captured after completing the session
-* **In-field targets**: Targets placed within the capture area
-* **Multiple targets**: 2-3 target images per session (recommended)
+* **Išankstinis tikslas**: užfiksuotas prieš pradedant sesiją.
+* **Vėlesnis tikslas**: užfiksuotas po sesijos pabaigos.
+* **Tikslai lauke**: tikslai, esantys užfiksavimo srityje.
+* **Keli tikslai**: 2–3 tiksliniai vaizdai per sesiją (rekomenduojama).
 
-### Step 2: Check the Target Column
+### 2 žingsnis: patikrinkite tikslo stulpelį
 
-For each image containing a calibration target:
+Kiekvienam vaizdui, kuriame yra kalibravimo tikslas:
 
-1. Locate the image in the File Browser table
-2. Find the **Target** column (rightmost column)
-3. Click the checkbox in the Target column for that image
-4. Repeat for all images containing targets
+1. Raskite vaizdą failų naršyklės lentelėje.
+2. Raskite stulpelį **Tikslas** (dešiniąjį stulpelį).
+3. Pažymėkite žymės langelį stulpelyje „Tikslas“ šiam vaizdui.
+4. Pakartokite šiuos veiksmus visiems vaizdams, kuriuose yra tikslai.
 
-### Step 3: Verify Your Selection
+### 3 žingsnis: patikrinkite savo pasirinkimą
 
-Before processing, double-check:
+Prieš apdorojant, dar kartą patikrinkite:
 
-* [ ] All images with calibration targets are checked
-* [ ] No non-target images are accidentally checked
-* [ ] Targets are clearly visible in checked images
-
-***
-
-## Best Practices for Target Images
-
-### Target Capture Guidelines
-
-**Timing:**
-
-* Capture target images immediately before and throughout your capture session
-* Within the same lighting conditions as your DAQ light sensor
-* Ideally capture target images as often as possible for the best results. Otherwise, the light sensor data will be used to adjust the calibration over time.
-
-**Camera Position:**
-
-* Hold camera above target such that is is centered and fills around 40-60% of the image center.
-* Keep camera parallel/nadir to target surface
-
-**Lighting:**
-
-* Same ambient lighting as your DAQ light sensor
-* Avoid shadows on the target surfaces
-* Don't block your light source with your body, vehicle or vegetation
-* Overcast conditions provide most consistent results
-
-**Target Condition:**
-
-* Keep target panels clean and dry
-* All 4 panels should be clearly visible and unobstructed
-* Targets perpendicular/nadir to the light source if possible
-
-### How Many Target Images?
-
-**Minimum:** 1 target image per session. **Recommended:** 3-5 target images per session.
-
-**Best practice schedule:**
-
-* 3-5 images captured shortly after the light sensor is recording
-* Rotate the camera between captures for the best results
-* Optional: periodically mid-session if lighting conditions change constantly
+* [ ] Visi vaizdai su kalibravimo tikslais yra pažymėti
+* [ ] Nė vienas vaizdas be tikslo nėra pažymėtas atsitiktinai
+* [ ] Tikslai yra aiškiai matomi pažymėtuose vaizduose
 
 ***
 
-## Working with Multiple Cameras
+## Geriausia tikslo vaizdų praktika
 
-### Dual-Camera Setups
+### Tikslo fiksavimo gairės
 
-If using two MAPIR cameras simultaneously (e.g., Survey3W RGN + Survey3N OCN):
+**Laikas:**
 
-1. Capture target images with **both cameras** at the same time
-2. Use the **same physical target** for both cameras
-3. Mark target images for **both camera types** in the File Browser
-4. Chloros will use appropriate targets for each camera's calibration
+* Fiksuokite tikslo vaizdus prieš pat fiksavimo sesiją ir jos metu
+* Tose pačiose apšvietimo sąlygose, kaip ir jūsų DAQ šviesos jutiklis
+* Idealiu atveju, norint gauti geriausius rezultatus, tikslinius vaizdus fiksuokite kuo dažniau. Kitaip, šviesos jutiklio duomenys bus naudojami kalibravimui reguliuoti laikui bėgant.
 
-### Camera Model Column
+**Kameros padėtis:**
 
-The **Camera Model** column helps identify which images came from which camera:
+* Laikykite kamerą virš tikslo taip, kad jis būtų centre ir užimtų apie 40–60 % vaizdo centro.
+* Laikykite kamerą lygiagrečiai/nadir tikslo paviršiui
+
+**Apšvietimas:**
+
+* Tokios pačios aplinkos apšvietimo sąlygos kaip jūsų DAQ šviesos jutiklio.
+* Venkite šešėlių ant tikslo paviršių.
+* Neuždenkite šviesos šaltinio savo kūnu, transporto priemone ar augmenija.
+* Debesuotas oras užtikrina nuosekliausius rezultatus.
+
+**Tikslo sąlygos:**
+
+* Laikykite tikslo plokštes švarias ir sausas.
+* Visos 4 plokštės turi būti aiškiai matomos ir neužstotos.
+* Tikslai turi būti statūs/nadiriai šviesos šaltiniui, jei įmanoma.
+
+### Kiek tikslo vaizdų?
+
+**Minimalus skaičius:** 1 tikslo vaizdas per sesiją. **Rekomenduojamas skaičius:** 3–5 tikslo vaizdai per sesiją.
+
+**Geriausia praktika:**
+
+* 3–5 vaizdai, užfiksuoti netrukus po to, kai šviesos jutiklis pradėjo įrašyti
+* Norėdami gauti geriausius rezultatus, tarp kadrų keiskite kameros padėtį
+* Pasirinktinai: periodiškai sesijos viduryje, jei apšvietimo sąlygos nuolat keičiasi
+
+***
+
+## Darbas su keliomis kameromis
+
+### Dviejų kamerų konfigūracijos
+
+Jei naudojate dvi MAPIR kameras vienu metu (pvz., Survey3W RGN + Survey3N OCN):
+
+1. Užfiksuokite tikslo vaizdus **abiem kameromis** tuo pačiu metu.
+2. Naudokite **tą patį fizinį tikslą** abiem kameroms.
+3. Pažymėkite tikslo vaizdus **abiem kamerų tipams** failų naršyklėje.
+4. Chloros naudos atitinkamus tikslus kiekvienos kameros kalibravimui.
+
+### Kameros modelio stulpelis
+
+**Kameros modelio** stulpelis padeda nustatyti, kurie vaizdai buvo užfiksuoti kuria kamera:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
-* etc.
+* ir t. t.
 
-Use this column to verify you've marked targets for each camera type in your project.
-
-***
-
-## Target Detection Settings
-
-### Adjusting Detection Sensitivity
-
-If Chloros isn't detecting your targets correctly, adjust these settings in [Project Settings](adjusting-project-settings.md):
-
-**Minimum calibration sample area:**
-
-* **Default**: 25 pixels
-* **Increase** if getting false detections on small artifacts
-* **Decrease** if targets aren't being detected
-
-**Minimum target clustering:**
-
-* **Default**: 60
-* **Increase** if targets are being split into multiple detections
-* **Decrease** if targets with color variation aren't fully detected
+Naudokite šį stulpelį, kad patikrintumėte, ar pažymėjote tikslus kiekvienam kameros tipui savo projekte.
 
 ***
 
-## Common Target Image Issues
+## Tikslo aptikimo nustatymai
 
-### Problem: No Targets Detected
+### Aptikimo jautrumo reguliavimas
 
-**Possible causes:**
+Jei Chloros netinkamai aptinka jūsų tikslus, reguliuokite šiuos nustatymus [Projekto nustatymai](adjusting-project-settings.md):
 
-* Target images not marked in File Browser
-* Target too small in frame (< 30% of image)
-* Poor lighting (shadows, glare)
-* Target detection settings too strict
+**Minimalus kalibravimo pavyzdžio plotas:**
 
-**Solutions:**
+* **Numatytasis**: 25 pikseliai
+* **Padidinkite**, jei gaunate klaidingus aptikimus dėl mažų artefaktų
+* **Sumažinkite**, jei tikslai nėra aptinkami
 
-1. Verify Target column is checked for correct images
-2. Review target image quality in preview
-3. Recapture targets if quality is poor
-4. Adjust target detection settings if needed
+**Minimalus tikslų grupuojimas:**
 
-### Problem: False Target Detections
-
-**Possible causes:**
-
-* White buildings, vehicles, or ground cover mistaken for targets
-* Bright patches in vegetation
-* Detection sensitivity too low
-
-**Solutions:**
-
-1. Mark only actual target images to limit detection scope
-2. Increase minimum calibration sample area
-3. Increase minimum target clustering value
-4. Ensure target images show only the target (minimal background clutter)
+* **Numatytasis**: 60
+* **Padidinkite**, jei tikslai yra suskaidomi į kelis aptikimus
+* **Sumažinkite**, jei tikslai su spalvų variacijomis nėra visiškai aptikti
 
 ***
 
-## Verification Checklist
+## Dažnos tikslo vaizdo problemos
 
-Before starting processing, verify your target image selection:
+### Problema: neaptikti tikslai
 
-* [ ] At least 1 target image marked per session
-* [ ] Target column checkboxes are checked for all target images
-* [ ] Target images captured within same timeframe as survey
-* [ ] Targets clearly visible in preview when clicked
-* [ ] All 4 calibration panels visible in each target image
-* [ ] No shadows or obstructions on targets
-* [ ] For dual-camera: Targets marked for both camera types
+**Galimos priežastys:**
+
+* Tikslo vaizdai nepažymėti failų naršyklėje
+* Tikslas per mažas kadre (&lt; 30 % vaizdo)
+* Blogas apšvietimas (šešėliai, atspindžiai)
+* Per griežti tikslo aptikimo nustatymai
+
+**Sprendimai:**
+
+1. Patikrinkite, ar tikslo stulpelyje pažymėti teisingi vaizdai
+2. Peržiūrėkite tikslo vaizdo kokybę peržiūroje
+3. Jei kokybė prasta, vėl užfiksuokite tikslus
+4. Jei reikia, pakoreguokite tikslo aptikimo nustatymus
+
+### Problema: klaidingi tikslo aptikimai
+
+**Galimos priežastys:**
+
+* Balti pastatai, transporto priemonės ar žemės danga klaidingai palaikomi tikslais
+* Ryškūs plotai augmenijoje
+* Per mažas aptikimo jautrumas
+
+**Sprendimai:**
+
+1. Pažymėkite tik tikruosius tikslo vaizdus, kad apribotumėte aptikimo apimtį
+2. Padidinkite minimalų kalibravimo mėginio plotą
+3. Padidinkite minimalų tikslo klasterizavimo vertę
+4. Užtikrinkite, kad tikslo vaizduose būtų rodomas tik tikslas (minimalus fono triukšmas)
 
 ***
 
-## Target-Free Processing
+## Patikrinimo kontrolinis sąrašas
 
-### Processing Without Calibration Targets
+Prieš pradėdami apdorojimą, patikrinkite savo tikslo vaizdų pasirinkimą:
 
-While not recommended for scientific work, you can process without targets:
+* [ ] Bent 1 tikslo vaizdas pažymėtas per sesiją
+* [ ] Tikslo stulpelio žymės pažymėtos visų tikslo vaizdų atveju
+* [ ] Tikslo vaizdai užfiksuoti per tą patį laikotarpį kaip ir tyrimas
+* [ ] Tikslai aiškiai matomi peržiūroje, kai spustelėjami
+* [ ] Visi 4 kalibravimo skydeliai matomi kiekviename tikslo vaizde
+* [ ] Ant tikslų nėra šešėlių ar kliūčių
+* [ ] Dvigubai kamerai: tikslai pažymėti abiem kamerų tipams
 
-1. Leave all Target column checkboxes unchecked
-2. **Disable** "Reflectance calibration" in Project Settings
-3. Vignette correction will still be applied
-4. Output will not be calibrated for absolute reflectance
+***
 
-{% hint style="warning" %}
-**Not Recommended**: Without reflectance calibration, pixel values represent relative brightness only, not scientific reflectance measurements. Use calibration targets for accurate, repeatable results.
+## Apdorojimas be tikslų
+
+### Apdorojimas be kalibravimo tikslų
+
+Nors tai nerekomenduojama moksliniam darbui, galite apdoroti be tikslų:
+
+1. Palikite visus tikslų stulpelių žymimuosius langelius nepažymėtus
+2. **Išjunkite** „Atspindžio kalibravimą“ projekto nustatymuose
+3. Vignette korekcija vis tiek bus taikoma
+4. Išvestis nebus kalibruojama pagal absoliučią atspindžio koeficiento vertę
+
+{% hint style=&quot;warning&quot; %}
+**Nerekomenduojama**: be atspindžio koeficiento kalibravimo pikselių vertės atspindi tik santykinį ryškumą, o ne mokslinius atspindžio koeficiento matavimus. Norėdami gauti tikslius, pakartojamus rezultatus, naudokite kalibravimo tikslus.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Tolimesni veiksmai
 
-Once you've marked your target images:
+Pažymėję tikslinės nuotraukas:
 
-1. **Review your settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+1. **Peržiūrėkite nustatymus** – žr. [Projekto nustatymų koregavimas](adjusting-project-settings.md)
+2. **Pradėkite apdorojimą** – žr. [Apdorojimo pradžia](starting-the-processing.md)
+3. **Stebėkite pažangą** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
 
-For more information about calibration targets themselves, see [Calibration Targets](../calibration-targets.md).
+Daugiau informacijos apie kalibravimo tikslus rasite [Kalibravimo tikslai](../calibration-targets.md).

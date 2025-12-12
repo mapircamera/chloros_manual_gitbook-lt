@@ -1,34 +1,34 @@
-# Table of contents
+# Turinys
 
-* [Getting Started](README.md)
-* [GUI : Navigation](navigation.md)
-* [GUI : Projects](projects.md)
-* [CLI : Command Line](CLI.md)
-* [API : Python SDK](api-python-sdk.md)
-* [Supported Cameras](supported-cameras.md)
-* [Output Image Formats](output-image-formats.md)
-* [Chloros+ Login](chloros+-login.md)
-* [Calibration Targets](calibration-targets.md)
-* [Supported Languages](supported-languages.md)
-* [Download](download.md)
-* [FAQ](faq.md)
+* [Pradžia](README.md)
+* [GUI: Navigacija](navigation.md)
+* [GUI: Projektai](projects.md)
+* [CLI: Komandų eilutė](CLI.md)
+* [API: Python SDK](api-python-sdk.md)
+* [Palaikomos kameros](supported-cameras.md)
+* [Išvesties vaizdo formatai](output-image-formats.md)
+* [Chloros+ Prisijungimas](chloros+-login.md)
+* [Kalibravimo tikslai](calibration-targets.md)
+* [Palaikomos kalbos](supported-languages.md)
+* [Atsisiųsti](download.md)
+* [DUK](faq.md)
 
-## Processing Images (GUI)
+## Vaizdų apdorojimas (GUI)
 
-* [Adjusting Project Settings](processing-images-gui/adjusting-project-settings.md)
-* [Adding Files to a Project](processing-images-gui/adding-files-to-a-project.md)
-* [Choosing Target Images](processing-images-gui/choosing-target-images.md)
-* [Starting the Processing](processing-images-gui/starting-the-processing.md)
-* [Monitoring the Processing](processing-images-gui/monitoring-the-processing.md)
-* [Finishing the Processing](processing-images-gui/finishing-the-processing.md)
+* [Projekto nustatymų keitimas](processing-images-gui/adjusting-project-settings.md)
+* [Failų pridėjimas prie projekto](processing-images-gui/adding-files-to-a-project.md)
+* [Tikslinio vaizdo pasirinkimas](processing-images-gui/choosing-target-images.md)
+* [Apdorojimo pradžia](processing-images-gui/starting-the-processing.md)
+* [Apdorojimo stebėjimas](processing-images-gui/monitoring-the-processing.md)
+* [Apdorojimo pabaiga](processing-images-gui/finishing-the-processing.md)
 
-## PROJECT SETTINGS
+## PROJEKTO NUSTATYMAI
 
-* [Project Settings](project-settings/project-settings.md)
-* [Multispectral Index Formulas](project-settings/multispectral-index-formulas.md)
+* [Projekto nustatymai](project-settings/project-settings.md)
+* [Daugiaspektrinio indekso formulės](project-settings/multispectral-index-formulas.md)
 
-## IMAGE VIEWER (GUI)
+## VAIZDŲ PERŽIŪROS PROGRAMINĖ (GUI)
 
-* [Opening an Image Full Screen](image-viewer-gui/opening-an-image-full-screen.md)
-* [Image Layers](image-viewer-gui/image-layers.md)
-* [Index/LUT Sandbox](image-viewer-gui/index-lut-sandbox.md)
+* [Vaizdo atidarymas visame ekrane](image-viewer-gui/opening-an-image-full-screen.md)
+* [Vaizdo sluoksniai](image-viewer-gui/image-layers.md)
+* [Indekso/LUT smėlio dėžė](image-viewer-gui/index-lut-sandbox.md)
