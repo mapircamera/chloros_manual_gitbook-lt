@@ -45,7 +45,7 @@ Atsisiųskite naujausią Chloros versiją, skirtą Windows, kad galėtumėte pra
 2. Norėdami pradėti diegimą, dukart spustelėkite diegimo programą.
 3. Vadovaukitės diegimo vedlio nurodymais.
 4. Pasirinkite diegimo katalogą (numatyta: `C:\Program Files\Chloros\`).
-5. Baigite diegimą ir paleiskite Chloros.
+5. Baigkite diegimą ir paleiskite Chloros.
 6. Prisijunkite naudodami savo MAPIR Cloud Chloros+ paskyrą (arba tęskite naudodami nemokamą versiją).
 
 {% hint style=&quot;success&quot; %}
@@ -86,7 +86,7 @@ Chloros diegimas apima:
 
 Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
-* 🚀 **Daugiasiūlis apdorojimas** – vaizdų apdorojimas lygiagrečiai
+* 🚀 **Daugiasiūlis apdorojimas** – apdorokite vaizdus lygiagrečiai
 * ⚡ **GPU (CUDA) pagreitinimas** – išnaudokite NVIDIA GPU galią
 * 💻 **CLI prieiga** – automatizuokite naudodami komandinės eilutės įrankius
 * 🐍 **Python SDK** – Programinis API prieiga
@@ -99,7 +99,7 @@ Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
 ### Trikčių šalinimas
 
-**Diegimas nepavyksta ir rodomas klaidos pranešimas:**
+**Diegimas nepavyksta, rodomas klaidos pranešimas:**
 
 * Įsitikinkite, kad turite administratoriaus teises
 * Laikinai išjunkite antivirusinę programinę įrangą
@@ -122,7 +122,7 @@ Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
 ### Pagalba
 
-Reikia pagalbos dėl įdiegimo ar nustatymo?
+Reikia pagalbos diegiant ar konfigūruojant?
 
 * 📧 **El. paštas**: info@mapir.camera
 * 🌐 **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
@@ -165,4 +165,4 @@ Neteisėtas naudojimas, platinimas ar modifikavimas yra draudžiamas.
 
 **Nemokama versija**: galima naudoti asmeniniams ir komerciniams tikslams su funkcionalumo apribojimais.
 
-**Chloros+**: prenumerata pagrįsta licencija, suteikianti prieigą prie išplėstinių funkcijų ir komercinio naudojimo.
+**Chloros+**: prenumerata pagrįsta licencija, suteikianti teisę naudotis išplėstinėmis funkcijomis ir komerciniais sprendimais.

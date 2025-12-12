@@ -16,7 +16,7 @@ metaLinks:
 
 ### **JPG (8 bitai)**
 
-8 bitų (pikselių skaitmeninis skaičius 0–255) JPG (.jpg) formato išvestis.
+8 bitų (skaitmeninis pikselių skaičius 0–255) JPG (.jpg) formato išvestis.
 
 ### **PNG (8 bitų)**
 

@@ -4,9 +4,7 @@ metaLinks: {}
 
 # Pradžia
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros yra programinė įranga iš [MAPIR](https://www.mapir.camera), skirta vaizdų ir kitų jutiklių duomenų apdorojimui.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros yra programinė įranga iš [MAPIR](https://www.mapir.camera), skirta vaizdų ir kitų jutiklių duomenų apdorojimui.
 
 ***
 
@@ -14,7 +12,7 @@ Chloros yra prieinama 4 programos režimais:
 
 ## Chloros: Darbalaukio GUI programa
 
-\[Rekomenduojama] Atskiros langas su visomis funkcijomis.
+\[Rekomenduojama] Atskiro lango programa su visomis funkcijomis.
 
 ## Chloros (naršyklė): Internetinė GUI sąsaja
 

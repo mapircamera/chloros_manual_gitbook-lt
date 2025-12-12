@@ -1,6 +1,6 @@
 # CLI : Komandų eilutė
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** suteikia galingą komandinės eilutės prieigą prie Chloros vaizdų apdorojimo variklio, leidžiant automatizuoti, kurti scenarijus ir vykdyti be galvutės operacijas jūsų vaizdų apdorojimo darbo eigoje.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** suteikia galingą komandinės eilutės prieigą prie Chloros vaizdų apdorojimo variklio, leidžiant automatizuoti, kurti scenarijus ir vykdyti be galvos operacijas jūsų vaizdų apdorojimo darbo srautams.
 
 ### Pagrindinės funkcijos
 
@@ -21,7 +21,7 @@
 | **Diskas**       | Priklauso nuo projekto dydžio                                              |
 
 {% hint style=&quot;warning&quot; %}
-**Licencijos reikalavimas**: CLI reikalauja mokamo Chloros+ abonemento. Standartiniai (nemokami) planai neturi CLI prieigos. Norėdami atnaujinti, apsilankykite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
+**Licencijos reikalavimas**: CLI reikalauja mokamo Chloros+ prenumeratos. Standartiniai (nemokami) planai neturi CLI prieigos. Apsilankykite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), kad atnaujintumėte.
 {% endhint %}
 
 ## Greitasis pradžios vadovas
@@ -63,7 +63,7 @@ chloros-cli process "C:\Images\Dataset001"
 
 ***
 
-## Komandų žodynas
+## Komandų žinynas
 
 ### Bendroji sintaksė
 
@@ -95,7 +95,7 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 
 | Parinktis                | Tipas    | Numatytasis        | Aprašymas                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Kelias    | _Reikalingas_     | Aplankas, kuriame yra RAW/JPG daugiaspektriniai vaizdai                                         |
+| `<input-folder>`      | Kelias    | _Reikalingas_     | Aplankas, kuriame yra RAW/JPG multispektriniai vaizdai                                         |
 | `-o, --output`        | Kelias    | Tas pats kaip įvesties  | Apdorotų vaizdų išvesties aplankas                                                     |
 | `-n, --project-name`  | Stygos  | Automatiškai sugeneruotas | Pasirinktinis projekto pavadinimas                                                                    |
 | `--vignette`          | Žymė    | Įjungta        | Įjungti vinjetės korekciją                                                             |
@@ -130,7 +130,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
 {% hint style=&quot;warning&quot; %}
-**Specialieji simboliai**: Naudokite viengubas kabutes aplink slaptažodžius, kuriuose yra simbolių, pvz., `$`, `!`, arba tarpai.
+**Specialieji simboliai**: Naudokite viengubas kabutes aplink slaptažodžius, kuriuose yra simboliai, pvz., `$`, `!`, arba tarpai.
 {% endhint %}
 
 **Rezultatas:**
@@ -162,7 +162,7 @@ chloros-cli logout
 
 ***
 
-### `status` - Patikrinti licencijos būseną
+### `status` – patikrinti licencijos būseną
 
 Rodo dabartinę licencijos ir autentiškumo būseną.
 
@@ -209,7 +209,7 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**Naudojimo atvejis:** Vykdydami apdorojimą, iškvieskite šią komandą, kad patikrintumėte eksporto pažangą.
+**Naudojimo atvejis:** Šią komandą iškvieskite apdorojimo metu, kad patikrintumėte eksporto pažangą.
 
 ***
 
@@ -358,8 +358,8 @@ chloros-cli reset-project-folder
 | `--backend-exe` | Kelias    | Automatiškai nustatytas | Kelias į užpakalinės dalies vykdomąjį failą                       |
 | `--port`        | Sveikasis skaičius | 5000          | Užpakalinės dalies API prievado numeris                          |
 | `--restart`     | Žymė    | -             | Priversti paleisti iš naujo backend (nutraukia esamus procesus) |
-| `--version`     | Žymė    | -             | Rodyti versijos informaciją ir uždaryti                |
-| `--help`        | Žymė    | -             | Rodyti pagalbos informaciją ir uždaryti                   |
+| `--version`     | Žymė    | -             | Rodyti versijos informaciją ir išeiti                |
+| `--help`        | Žymė    | -             | Rodyti pagalbos informaciją ir išeiti                   |
 
 **Pavyzdys su bendrosiomis parinktimis:**
 
@@ -421,12 +421,12 @@ Naudojant kalibravimo skydelius, konvertuoja neapdorotus jutiklio vertes į stan
 * Norėdami išjungti, naudokite `--no-reflectance`.
 
 {% hint style=&quot;info&quot; %}
-**Reikalavimai**: užtikrinkite, kad kalibravimo plokštės būtų tinkamai eksponuotos ir matomos vaizduose, kad atspindžio konversija būtų tiksli.
+**Reikalavimai**: Norint užtikrinti tikslų atspindžio konvertavimą, įsitikinkite, kad kalibravimo plokštės yra tinkamai eksponuotos ir matomos jūsų vaizduose.
 {% endhint %}
 
 ### PPK korekcijos
 
-**Ką daro:** taiko post-processed kinematic korekcijas, naudojant DAQ-A-SD žurnalo duomenis, siekiant pagerinti GPS tikslumą.
+**Ką daro:** Taiko post-processed kinematic korekcijas, naudojant DAQ-A-SD žurnalo duomenis, siekiant pagerinti GPS tikslumą.
 
 * **Pagal numatytuosius nustatymus išjungta**
 * Norėdami įjungti, naudokite `--ppk`
@@ -434,7 +434,7 @@ Naudojant kalibravimo skydelius, konvertuoja neapdorotus jutiklio vertes į stan
 
 ### Išvesties formatai
 
-<table><thead><tr><th width="197">Formatas</th><th width="130.20001220703125">Bitų gylis</th><th width="116.5999755859375">Failo dydis</th><th>Tinkamiausias</th></tr></thead><tbody><tr><td><strong>TIFF (16 bitų)</strong> ⭐</td><td>16 bitų sveikasis skaičius</td><td>Didelis</td><td>GIS analizė, fotogrametrija (rekomenduojama)</td></tr><tr><td><strong>TIFF (32 bitai, procentai)</strong></td><td>32 bitų slankusis</td><td>Labai didelis</td><td>Mokslinė analizė, tyrimai</td></tr><tr><td><strong>PNG (8 bitai)</strong></td><td>8 bitų sveikasis skaičius</td><td>Vidutinis</td><td>Vizualinis patikrinimas, dalijimasis internete</td></tr><tr><td><strong>JPG (8 bitų)</strong></td><td>8 bitų sveikasis skaičius</td><td>Mažas</td><td>Greitas peržiūrėjimas, suspaustas išvesties failas</td></tr></tbody></table>***
+<table><thead><tr><th width="197">Formatas</th><th width="130.20001220703125">Bitų gylis</th><th width="116.5999755859375">Failo dydis</th><th>Tinkamiausias</th></tr></thead><tbody><tr><td><strong>TIFF (16 bitų)</strong> ⭐</td><td>16 bitų sveikasis skaičius</td><td>Didelis</td><td>GIS analizė, fotogrametrija (rekomenduojama)</td></tr><tr><td><strong>TIFF (32 bitai, procentai)</strong></td><td>32 bitų plūduriuojantis</td><td>Labai didelis</td><td>Mokslinė analizė, tyrimai</td></tr><tr><td><strong>PNG (8 bitai)</strong></td><td>8 bitų sveikasis skaičius</td><td>Vidutinis</td><td>Vizualinis patikrinimas, dalijimasis internete</td></tr><tr><td><strong>JPG (8 bitai)</strong></td><td>8 bitų sveikasis skaičius</td><td>Mažas</td><td>Greitas peržiūrėjimas, suspaustas išvesties failas</td></tr></tbody></table>***
 
 ## Automatizavimas ir skriptų kūrimas
 
@@ -594,14 +594,14 @@ MyProject/
     └── ...
 ```
 
-### Apdorojimo laiko įvertinimai
+### Apdorojimo trukmės įvertinimai
 
-Tipinis 100 vaizdų (kiekvienas 12 MP) apdorojimo laikas:
+Tipinė 100 vaizdų (kiekvienas 12 MP) apdorojimo trukmė:
 
-| Režimas              | Laikas      | Aparatūra                                     |
+| Režimas              | Laikas      | Techninė įranga                                     |
 | ----------------- | --------- | -------------------------------------------- |
 | **Lygiagretus režimas** | 5–10 min.  | i7/Ryzen 7, 16 GB RAM, SSD (iki 16 darbuotojų) |
-| **Lygiagretus režimas** | 10–15 min. | i5/Ryzen 5, 8 GB RAM, HDD (iki 8 darbuotojų)   |
+| **Lygiagretus režimas** | 10–15 min | i5/Ryzen 5, 8 GB RAM, HDD (iki 8 darbuotojų)   |
 
 {% hint style=&quot;info&quot; %}
 **Naudingas patarimas**: apdorojimo laikas priklauso nuo vaizdų skaičiaus, skiriamosios gebos ir kompiuterio specifikacijų.
@@ -621,7 +621,7 @@ Tipinis 100 vaizdų (kiekvienas 12 MP) apdorojimo laikas:
 
 **Sprendimai:**
 
-1. Patikrinkite įdiegimo vietą:
+1. Patikrinkite diegimo vietą:
 
 ```powershell
 dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
@@ -633,8 +633,8 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 "C:\Program Files\Chloros\resources\cli\chloros-cli.exe" process "C:\Datasets\Field_A"
 ```
 
-3. Pridėkite į PATH rankiniu būdu:
-   * Atidarykite Sistemos savybės → Aplinkos kintamieji
+3. Rankiniu būdu pridėkite į PATH:
+   * Atidarykite „Sistemos savybės“ → „Aplinkos kintamieji“
    * Redaguokite PATH kintamąjį
    * Pridėkite: `C:\Program Files\Chloros\resources\cli`
    * Perkraukite terminalą
@@ -651,7 +651,7 @@ Backend failed to start within 30 seconds
 
 **Sprendimai:**
 
-1. Patikrinkite, ar backend jau veikia (pirmiausia jį uždarykite)
+1. Patikrinkite, ar užpakalinė dalis jau veikia (pirmiausia ją uždarykite)
 2. Patikrinkite, ar Windows ugniasienė neblokuoja
 3. Išbandykite kitą prievadą:
 
@@ -659,7 +659,7 @@ Backend failed to start within 30 seconds
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
 ```
 
-4. Priversti paleisti backend iš naujo:
+4. Priverstinis backend paleidimas:
 
 ```powershell
 chloros-cli --restart process "C:\Datasets\Field_A"
@@ -704,10 +704,10 @@ No images found in the specified folder
 
 **Sprendimai:**
 
-1. Patikrinkite, ar aplanke yra palaikomi formatai (.RAW, .TIF, .JPG)
-2. Patikrinkite, ar aplanko kelias yra teisingas (keliuose su tarpais naudokite kabutes)
-3. Įsitikinkite, kad turite skaitymo teises į aplanką
-4. Patikrinkite, ar failų plėtiniai yra teisingi
+1. Patikrinkite, ar aplanke yra palaikomi formatai (.RAW, .TIF, .JPG).
+2. Patikrinkite, ar aplanko kelias yra teisingas (keliuose su tarpais naudokite kabutes).
+3. Įsitikinkite, kad turite teisę skaityti aplanką.
+4. Patikrinkite, ar failų plėtiniai yra teisingi.
 
 ***
 
@@ -715,7 +715,7 @@ No images found in the specified folder
 
 **Sprendimai:**
 
-1. Patikrinkite laisvą disko vietą (užtikrinkite, kad jos pakaktų išvesties duomenims).
+1. Patikrinkite laisvą disko vietą (įsitikinkite, kad jos pakanka išvesties failams).
 2. Uždarykite kitas programas, kad atlaisvintumėte atmintį.
 3. Sumažinkite vaizdų skaičių (apdorokite partijomis).
 
@@ -731,7 +731,7 @@ Port 5000 is already in use
 
 **Sprendimas:**
 
-Nurodykite kitą prieigą:
+Nurodykite kitą prievadą:
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
@@ -743,7 +743,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ### K: Ar man reikia licencijos CLI?
 
-**A:** Taip! CLI reikalauja mokamos **Chloros+ licencijos**.
+**Atsakymas:** Taip! CLI reikalauja mokamos **Chloros+ licencijos**.
 
 * ❌ Standartinis (nemokamas) planas: CLI išjungtas
 * ✅ Chloros+ (mokami) planai: CLI visiškai įjungtas
@@ -759,13 +759,13 @@ Prenumeruokite: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/
 * Windows Server 2016 arba naujesnė versija
 * Įdiegta Visual C++ Redistributable
 * Pakankama RAM (mažiausiai 8 GB, rekomenduojama 16 GB)
-* Vienkartinis GUI licencijos aktyvavimas bet kuriame kompiuteryje
+* Vienkartinė GUI licencijos aktyvacija bet kuriame kompiuteryje
 
 ***
 
 ### K: Kur saugomi apdoroti vaizdai?
 
-**A:** Pagal numatytuosius nustatymus apdoroti vaizdai išsaugomi **tame pačiame aplanke kaip ir įvesties** vaizdai, kameros modelio pakatalogiuose (pvz., `Survey3N_RGN/`).
+**A:** Pagal numatytuosius nustatymus apdoroti vaizdai saugomi **toje pačioje aplankoje kaip ir įvesties**, kameros modelio pakatalogiuose (pvz., `Survey3N_RGN/`).
 
 Naudokite `-o` parinktį, kad nurodytumėte kitą išvesties aplanką:
 
@@ -797,13 +797,13 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### K: Kas atsitiks, jei apdorojimo metu paspausiu Ctrl+C?
+### K: Kas nutiks, jei apdorojimo metu paspausiu Ctrl+C?
 
 **A:** CLI:
 
-1. Tinkamai sustabdys apdorojimą.
-2. Išjungs užpakalinę sistemą.
-3. Išeis su kodu 130.
+1. Gražiai sustabdys apdorojimą
+2. Išjungs užpakalinę sistemą
+3. Išeis su kodu 130
 
 Iš dalies apdoroti vaizdai gali likti išvesties aplanke.
 
@@ -811,7 +811,7 @@ Iš dalies apdoroti vaizdai gali likti išvesties aplanke.
 
 ### K: Ar galiu automatizuoti CLI apdorojimą?
 
-**A:** Žinoma! CLI yra sukurtas automatizavimui. Žr. [Automatizavimas ir skriptavimas](CLI.md#automation--scripting) PowerShell, Batch ir Python pavyzdžiams.
+**A:** Žinoma! CLI yra sukurtas automatizavimui. PowerShell, Batch ir Python pavyzdžius rasite skyriuje [Automatizavimas ir skriptų kūrimas](CLI.md#automation--scripting).
 
 ***
 
@@ -905,7 +905,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ***
 
-### 5 pavyzdys: Pasirinktinė rezultatų vieta
+### 5 pavyzdys: Pasirinktinė išvesties vieta
 
 Apdorokite į kitą diską su konkrečiu formatu:
 
@@ -917,9 +917,9 @@ chloros-cli process "C:\Input\Raw_Images" ^
 
 ***
 
-### 6 pavyzdys: Autentifikavimo darbo eiga
+### 6 pavyzdys: Autentiškumo patvirtinimo darbo eiga
 
-Užbaigti autentifikavimo eigą:
+Užbaigti autentiškumo patvirtinimo eigą:
 
 ```powershell
 # Step 1: Login

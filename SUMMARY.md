@@ -10,12 +10,12 @@
 * [Chloros+ Prisijungimas](chloros+-login.md)
 * [Kalibravimo tikslai](calibration-targets.md)
 * [Palaikomos kalbos](supported-languages.md)
-* [Atsisiųsti](download.md)
+* [Atsisiuntimas](download.md)
 * [DUK](faq.md)
 
 ## Vaizdų apdorojimas (GUI)
 
-* [Projekto nustatymų keitimas](processing-images-gui/adjusting-project-settings.md)
+* [Projekto nustatymų koregavimas](processing-images-gui/adjusting-project-settings.md)
 * [Failų pridėjimas prie projekto](processing-images-gui/adding-files-to-a-project.md)
 * [Tikslinio vaizdo pasirinkimas](processing-images-gui/choosing-target-images.md)
 * [Apdorojimo pradžia](processing-images-gui/starting-the-processing.md)
@@ -27,8 +27,8 @@
 * [Projekto nustatymai](project-settings/project-settings.md)
 * [Daugiaspektrinio indekso formulės](project-settings/multispectral-index-formulas.md)
 
-## VAIZDŲ PERŽIŪROS PROGRAMINĖ (GUI)
+## VAIZDŲ PERŽIŪROS PROGRAMĖ (GUI)
 
 * [Vaizdo atidarymas visame ekrane](image-viewer-gui/opening-an-image-full-screen.md)
 * [Vaizdo sluoksniai](image-viewer-gui/image-layers.md)
-* [Indekso/LUT smėlio dėžė](image-viewer-gui/index-lut-sandbox.md)
+* [Indeksas/LUT smėlio dėžė](image-viewer-gui/index-lut-sandbox.md)

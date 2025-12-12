@@ -2,13 +2,11 @@
 
 ## Chloros ir Chloros (naršyklė) Prisijungimas
 
-Vartotojo <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> šoniniame meniu galite prisijungti prie savo Chloros+ paskyros ir atrakinti papildomas funkcijas.
+Naudotojo <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> šoniniame meniu galite prisijungti prie savo Chloros+ paskyros ir atrakinti papildomas funkcijas.
 
 Prisijungus bus rodomi jūsų paskyros duomenys:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-
-## CLI Prisijungimas
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Prisijungimas
 
 Prisijunkite naudodami savo Chloros+ prisijungimo duomenis, kad galėtumėte naudotis CLI apdorojimo funkcija.
 
@@ -30,9 +28,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **Rezultatas:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
-
-### Plano galiojimo pabaiga
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Plano galiojimo pabaiga
 
 Plano galiojimo pabaiga GUI rodo, kada jūsų licencija taps negaliojanti. Kas mėnesį atnaujinamų prenumeratų galiojimo pabaiga yra mėnesio pabaiga. Metinių prenumeratų galiojimo pabaiga yra praėjus metams nuo prenumeratos pradžios. Licencijos patikrinimui reikalingas kas mėnesį atnaujinamas interneto ryšys, su 30 dienų atidėjimo laikotarpiu.
 

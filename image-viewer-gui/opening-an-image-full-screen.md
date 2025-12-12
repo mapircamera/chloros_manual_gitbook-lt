@@ -1,4 +1,4 @@
-# Vaizdo atidarymas per visą ekraną
+# Vaizdo atidarymas visame ekrane
 
 Chloros vaizdo peržiūros programa suteikia specialią visą ekraną užimančią sąsają, skirtą daugiaspektrių vaizdų peržiūrai, analizei ir redagavimui. Nepriklausomai nuo to, ar peržiūrite originalius vaizdus, ar apdorotus rezultatus, vaizdo peržiūros programa siūlo galingus įrankius tikrinimui ir analizei.
 
@@ -11,11 +11,11 @@ Dažniausias būdas atidaryti vaizdą Image Viewer:
 1. Įsitikinkite, kad esate **Failų naršyklės** skirtuke <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
 2. Spustelėkite bet kurį **vaizdo miniatiūrą** vaizdų tinklelyje
 3. Vaizdas atsidaro **pagrindinėje peržiūros srityje** (ekrano centre)
-4. Vaizdas dabar įkeltas ir paruoštas peržiūrai visame ekrane
+4. Vaizdas dabar yra įkeltas ir paruoštas peržiūrai visame ekrane
 
 ### Image Viewer skirtuko atidarymas
 
-Kai vaizdas įkeltas į peržiūros sritį:
+Kai vaizdas yra įkeltas į peržiūros sritį:
 
 1. Spustelėkite **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje
 2. Atsidarys vaizdų peržiūros skirtukas, kuriame pasirinktas vaizdas bus rodomas visame ekrane
@@ -30,9 +30,9 @@ Kai vaizdas įkeltas į peržiūros sritį:
 Didžiausia ekrano dalis rodo jūsų vaizdą:
 
 * **Pilna skiriamoji geba**: vaizdai rodomi natūralia skiriamąja geba
-* **Zoomable**: Naudokite valdiklius arba pelės ratuką, kad padidintumėte vaizdą
-* **Pannable**: Spustelėkite ir vilkite, kad perkelti vaizdą, kai jis padidintas
-* **Aspect ratio maintained**: Vaizdai proporcingai masteliuojami
+* **Zoomable**: naudokite valdiklius arba pelės ratuką, kad padidintumėte vaizdą
+* **Pannable**: spustelėkite ir vilkite, kad perkelti vaizdą, kai jis padidintas
+* **Aspect ratio maintained**: vaizdai proporcingai masteliuojami
 
 ***
 
@@ -42,7 +42,7 @@ Didžiausia ekrano dalis rodo jūsų vaizdą:
 
 #### Vaizdų peržiūra
 
-Naršykite vaizdų rinkinį naudodami klavišų kombinacijas arba mygtukus:
+Naršykite po vaizdų rinkinį naudodami klavišų kombinacijas arba mygtukus:
 
 * **Kitas vaizdas**: spustelėkite mygtuką → arba paspauskite klavišą **→** (dešinė rodyklė)
 * **Ankstesnis vaizdas**: spustelėkite mygtuką ← arba paspauskite klavišą **←** (kairė rodyklė)
@@ -56,13 +56,13 @@ Reguliuokite padidinimą, kad galėtumėte peržiūrėti vaizdo detales:
 
 * Spustelėkite mygtuką **+** (pliusas)
 * Paspauskite klavišą **+** arba **=**
-* Pasukite pelės ratuką **aukštyn**
+* Pasukite pelės ratuką **į viršų**
 
 **Sumažinti:**
 
 * Spustelėkite mygtuką **−** (minusas)
 * Paspauskite klavišą **−** (minusas)
-* Pasukite pelės ratuką **žemyn**
+* Pasukite pelės ratuką **į apačią**
 
 **Pritaikyti prie ekrano:**
 
@@ -114,8 +114,8 @@ Kai pelės žymeklį perkelite ant vaizdo, pikselių vertės rodomos realiuoju l
 
 * Koreguota vinjetė
 * Kalibruotas atspindys
-* Daugialypės juostos TIFF (Red, Green, NIR ir kt.)
-* Moksliniai duomenys paruošti analizės
+* Daugiabandis TIFF (Red, Green, NIR ir kt.)
+* Moksliniai duomenys paruošti analizuoti
 
 ### Indekso vaizdai
 
@@ -138,7 +138,7 @@ Taikykite daugiaspektrinius indeksus ir spalvų paieškos lenteles:
 4. Vizualizavimui taikykite spalvų LUT gradientą
 5. Nustatykite verčių intervalus ir ribas
 
-Išsamias instrukcijas rasite [Indekso/LUT smėlio dėžėje](index-lut-sandbox.md).
+Išsamios instrukcijos pateiktos [Indekso/LUT smėlio dėžėje](index-lut-sandbox.md).
 
 ***
 
@@ -177,10 +177,10 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
 
 1. Atidarykite NDVI arba kitą indekso vaizdą.
 2. Patikrinkite augmenijos plotus:
-   * **NDVI**: Sveikiems augalams turėtų rodyti 0,4–0,9.
-   * **NDRE**: didesni skaičiai rodo spartų augimą
+   * **NDVI**: Sveikiems augalams turėtų būti rodomas 0,4–0,9.
+   * **NDRE**: didesni skaičiai rodo intensyvų augimą
    * **GNDVI**: panašus į NDVI, bet jautrus chlorofilui
-3. Patikrinkite neaugmenį:
+3. Patikrinkite neaugmeniją:
    * **Dirvožemis**: artimas 0 arba šiek tiek neigiamas
    * **Vanduo**: neigiamos vertės (-0,5 iki 0)
 
@@ -201,19 +201,19 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
 1. Pabandykite atidaryti išorinėje peržiūros programoje, kad patikrintumėte failo vientisumą
 2. Patikrinkite, ar failo formatas atitinka tikėtiną tipą
 3. Uždarykite kitas programas, kad atlaisvintumėte atmintį
-4. Pabandykite mažesnį / kitokį vaizdą
+4. Pabandykite mažesnį/kitokį vaizdą
 
 ### Juodas arba baltas vaizdas
 
 **Galimos priežastys:**
 
 * Vertės diapazonas viršija ekrano galimybes
-* 32 bitų plūduriuojantis vaizdas su neįprastomis vertėmis
+* 32 bitų plaukiojantis vaizdas su neįprastomis vertėmis
 * Indekso skaičiavimo klaida
 
 **Sprendimai:**
 
-1. Patikrinkite pikselių vertes – jei visos labai mažos arba labai didelės, sureguliuokite ekrano diapazoną.
+1. Patikrinkite pikselių vertes – jei visos labai mažos arba labai didelės, sureguliuokite rodymo diapazoną.
 2. Pabandykite atidaryti QGIS arba panašioje programoje su automatiniu diapazono reguliavimu.
 3. Patikrinkite apdorojimo klaidų žurnalą, ar nėra klaidų.
 
@@ -221,7 +221,7 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
 
 **Galimos priežastys:**
 
-* Peržiūrimas neteisingas vaizdas (originalus, o ne apdorotas)
+* Rodomas neteisingas vaizdas (originalus, o ne apdorotas)
 * Kalibravimas nebuvo taikytas teisingai
 * Įvesties duomenys nebuvo įtraukti į šviesos jutiklio duomenis
 * Procentinis režimas buvo perjungtas neteisingai
@@ -240,7 +240,7 @@ Dabar, kai galite peržiūrėti vaizdus visame ekrane:
 
 * [**Vaizdų sluoksniai**](image-layers.md) – sužinokite apie daugiabandę vizualizaciją
 * [**Indeksas/LUT smėlio dėžė**](index-lut-sandbox.md) – taikykite pasirinktinius indeksus ir spalvų atitikmenis
-* [**Daugiaspektrinės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Sužinokite apie galimus indeksus
+* [**Daugiaspektrinės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Suprasti galimus indeksus
 
 Dėl apdorojimo darbo eigos žr.:
 

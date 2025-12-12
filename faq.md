@@ -19,7 +19,7 @@ Ne, Chloros palaiko tik MAPIR fotoaparatų vaizdų apdorojimą. Daugiau informac
 
 <summary>Ar galiu kalibruoti savo vaizdus pagal atspindžio koeficientą be kalibravimo taikinio?</summary>
 
-Ne. Be kalibravimo taško vaizdo, užfiksuoto tuo metu, kai buvo užfiksuoti ne taško vaizdai, negalėsite susieti vaizdo pikselių verčių su žinomu atspindžio procentu. Jei taip pat neįtrauksite MAPIR šviesos jutiklio žurnalo, aplinkos šviesos spektras nebus matuojamas, o atspindžio rezultatai nebus tikslūs.
+Ne. Be kalibravimo taikinio vaizdo, užfiksuoto tuo metu, kai buvo užfiksuoti ne taikinio vaizdai, negalėsite susieti vaizdo pikselių verčių su žinomu atspindžio procentu. Jei taip pat neįtrauksite MAPIR šviesos jutiklio žurnalo, aplinkos šviesos spektras nebus matuojamas, o atspindžio rezultatai nebus tikslūs.
 
 </details>
 
@@ -35,13 +35,13 @@ Ne. Chloros daro prielaidą, kad įvesties duomenys nebuvo pakeisti. Nekeičioki
 
 <summary>Ar galiu nustatyti savo MAPIR Survey3 kameras automatinei ekspozicijai ir apdoroti vaizdus Chloros?</summary>
 
-Ne. Survey3 vaizdų duomenų rinkiniai turi turėti fiksuotą/užfiksuotą ekspoziciją, todėl negali būti naudojamas automatinis užrakto greitis ar automatinis ISO. Visi to paties kameros modelio vaizdai turi turėti identišką užrakto greitį ir ISO (ekspoziciją).
+Ne. Survey3 vaizdų duomenų rinkiniai turi turėti fiksuotą/užfiksuotą ekspoziciją, todėl negalima naudoti automatinio užrakto greičio ar automatinio ISO. Visi to paties kameros modelio vaizdai turi turėti identišką užrakto greitį ir ISO (ekspoziciją).
 
 </details>
 
 <details>
 
-<summary>Ar Chloros gali apdoroti arba analizuoti ortomozikinius vaizdus?</summary>
+<summary>Ar Chloros gali apdoroti arba analizuoti ortomozikinės nuotraukas?</summary>
 
 Ne. Palaikomi tik atskiri MAPIR fotoaparato vaizdai, o ne sujungti vaizdai, pvz., ortomozikinis žemėlapis.
 
@@ -51,7 +51,7 @@ Ne. Palaikomi tik atskiri MAPIR fotoaparato vaizdai, o ne sujungti vaizdai, pvz.
 
 <summary>Kaip galiu pagreitinti Chloros tikslo aptikimo etapą?</summary>
 
-Failų naršyklės lentelėje iš anksto pasirinkus tikslinius vaizdus dešinėje skiltyje, Chloros ieškos kalibravimo tikslų tik tuose vaizduose, o tai labai pagreitins apdorojimą.
+Failų naršyklės lentelėje iš anksto pasirinkus tikslinius vaizdus dešinėje skiltyje, Chloros bus nurodytas ieškoti kalibravimo tikslų tik tuose vaizduose, o tai labai pagreitins apdorojimą.
 
 </details>
 
@@ -67,6 +67,6 @@ Jei planuojate įkelti į mūsų internetinę apdorojimo platformą [MAPIR Cloud
 
 <summary>Ar MAPIR kada nors palaikys X funkciją? Labai norėčiau, kad MAPIR siūlytų X.</summary>
 
-Mes visada džiaugiamės gavę atsiliepimus apie mūsų produktus. Jei pastebėjote problemą su mūsų produktais arba turite pasiūlymų, kaip galėtume juos patobulinti, prašome [SUSISIEKITE SU MUMIS](https://www.mapir.camera/community/contact) ir pasidalinti savo mintimis. Didžiąją dalį mūsų mokslinių tyrimų ir plėtros veiklos lemia klientų didžiausių poreikių išklausymas.
+Mes visada džiaugiamės gavę atsiliepimus apie mūsų produktus. Jei pastebėjote problemą su mūsų produktais arba turite pasiūlymų, kaip galėtume juos patobulinti, prašome [SUSISIEKITE SU MUMIS](https://www.mapir.camera/community/contact) ir pasidalinti savo mintimis. Didžioji dalis mūsų mokslinių tyrimų ir plėtros veiklos yra grindžiama klientų didžiausių poreikių išklausymu.
 
 </details>
