@@ -29,7 +29,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 1. **Aptikimas** – kalibravimo tikslų paieška
 2. **Analizė** – vaizdų tikrinimas ir ruošimas
-3. **Kalibravimas** – vinjetės ir atspindžio korekcijų taikymas
+3. **Kalibravimas** – vinjetės ir atspindžio koregavimas
 4. **Eksportavimas** – apdorotų failų išsaugojimas
 
 **Interaktyvios funkcijos:**
@@ -75,7 +75,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 * Skaityti vaizdo EXIF metaduomenis (laiko žymes, ekspozicijos nustatymus)
 * Nustatyti kalibravimo strategiją pagal tikslų laiko žymes
-* Tvarkyti vaizdų apdorojimo eilę
+* Organizuoti vaizdo apdorojimo eilę
 * Parengti lygiagretaus apdorojimo darbuotojus (tik Chloros+)
 
 **Trukmė:** 5–30 sekundžių
@@ -85,10 +85,10 @@ Vartotojams, turintiems Chloros+ licenciją:
 * Analizė: 0 % → 100 %
 * Greitas etapas, paprastai baigiamas greitai
 
-**Į ką atkreipti dėmesį:**
+**Į ką reikia atkreipti dėmesį:**
 
 * Turėtų vykti tolygiai, be pertraukų
-* Įspėjimai apie trūkstamus metaduomenis bus rodomi Debug Log
+* Įspėjimai apie trūkstamus metaduomenis bus rodomi „Debug Log“ (Debug žurnale)
 
 ### 3 etapas: Kalibravimas
 
@@ -117,7 +117,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 **Į ką atkreipti dėmesį:**
 
 * Pastovi pažanga pagal vaizdų skaičių
-* Patikrinkite „Debug Log“ (Debug žurnalą) dėl pranešimų apie kiekvieno vaizdo apdorojimo pabaigą
+* Patikrinkite „Debug Log“ (Debugavimo žurnalą) dėl pranešimų apie kiekvieno vaizdo apdorojimo pabaigą
 * Įspėjimai apie vaizdo kokybės ar kalibravimo problemas
 
 ### 4 etapas: Eksportavimas
@@ -202,16 +202,16 @@ Kritinės problemos, dėl kurių apdorojimas gali žlugti:
 | „Tikslai nerasti“               | Kalibravimo tikslai nerasti        | Pažymėkite tikslo vaizdus arba išjunkite atspindžio kalibravimą |
 | „Nepakankama disko vieta“        | Nepakanka vietos išvesties failams          | Atlaisvinkite disko vietą                                    |
 | „Pereiti prie sugadinto failo“        | Vaizdo failas sugadintas                  | Pakartotinai nukopijuokite failą iš SD kortelės                             |
-| „PPK duomenys pritaikyti“               | Pritaikyti GPS pataisymai iš .daq failo | Nėra – normalu                                         |
+| „PPK duomenys pritaikyti“               | GPS pataisymai iš .daq failo pritaikyti | Nėra – normalus                                         |
 
 ### Žurnalo duomenų kopijavimas
 
 Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 
-1. Atidarykite „Debug Log“ (Debug žurnalas) skydelį.
+1. Atidarykite „Debug Log“ (Debugavimo žurnalas) skydelį.
 2. Spustelėkite mygtuką „Copy Log“ (Kopijuoti žurnalą) (arba dešiniuoju pelės mygtuku spustelėkite → „Select All“ (Pasirinkti viską)).
 3. Įklijuokite į tekstinį failą arba el. laišką.
-4. Prireikus nusiųskite MAPIR pagalbai.
+4. Jei reikia, nusiųskite MAPIR pagalbos tarnybai.
 
 ***
 
@@ -223,7 +223,7 @@ Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 
 * 1 CPU branduolys ~100 %
 * Kiti branduoliai neveikia arba yra laisvi
-* Sistema išlieka reaguojanti
+* Sistema lieka reaguojanti
 
 **Chloros+ lygiagretusis režimas:**
 
@@ -233,7 +233,7 @@ Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 
 **Stebėti:**
 
-* Windows užduočių tvarkyklė (Ctrl+Shift+Esc)
+* Windows Užduočių tvarkyklė (Ctrl+Shift+Esc)
 * Skirtukas „Našumas“ → skyrius „CPU“
 * Ieškokite procesų „Chloros“ arba „chloros-backend“
 
@@ -278,7 +278,7 @@ Kai įjungtas GPU pagreitinimas:
 
 * Jei įmanoma, naudokite SSD projektų aplanke
 * Venkite tinklo diskų dideliems duomenų rinkiniams
-* Įsitikinkite, kad diskas nėra beveik užpildytas (tai turi įtakos rašymo greičiui)
+* Įsitikinkite, kad diskas nėra beveik užpildytas (tai daro įtaką rašymo greičiui)
 
 ***
 
@@ -286,7 +286,7 @@ Kai įjungtas GPU pagreitinimas:
 
 ### Įspėjamieji ženklai
 
-**Procesas sustoja (be pokyčių 5+ minutes):**
+**Procesas sustoja (nėra pokyčių 5+ minutes):**
 
 * Patikrinkite, ar nėra klaidų Debug Log
 * Patikrinkite, ar yra laisvos vietos diske
@@ -295,7 +295,7 @@ Kai įjungtas GPU pagreitinimas:
 **Dažnai rodomi klaidų pranešimai:**
 
 * Sustabdykite apdorojimą ir peržiūrėkite klaidas
-* Dažniausios priežastys: disko vietos trūkumas, sugadinti failai, atminties problemos
+* Dažniausios priežastys: vietos diske trūkumas, sugadinti failai, atminties problemos
 * Žr. skyrių „Problemų sprendimas“ žemiau
 
 **Sistema nereaguoja:**
@@ -316,7 +316,7 @@ Sustabdykite apdorojimą, jei matote:
 
 **Kaip sustabdyti:**
 
-1. Spustelėkite **Sustabdyti/Atšaukti mygtuką** (pakeičia Pradėti mygtuką)
+1. Spustelėkite **„Sustabdyti/Atšaukti“ mygtuką** (pakeičia „Pradėti“ mygtuką)
 2. Apdorojimas sustabdomas, pažanga prarandama
 3. Išspręskite problemas ir pradėkite iš naujo
 
@@ -337,7 +337,7 @@ Sustabdykite apdorojimą, jei matote:
 **Sprendimai:**
 
 1. Jei tik pradėta ir esate aptikimo etape: atšaukti, pažymėti tikslus, pradėti iš naujo
-2. Ateityje: naudoti SSD, sumažinti indeksus, atnaujinti aparatinę įrangą
+2. Ateityje: naudoti SSD, sumažinti indeksus, atnaujinti aparatūrą
 3. Apsvarstyti CLI didelių duomenų rinkinių apdorojimui partijomis
 
 ### „Diskų vietos“ įspėjimai
@@ -371,11 +371,11 @@ Sustabdykite apdorojimą, jei matote:
 
 ## Pranešimas apie apdorojimo pabaigą
 
-Kai apdorojimas baigtas:
+Kai apdorojimas baigiamas:
 
 * Pažangos juosta pasiekia 100 %
 * Debug Log (Debug žurnale) pasirodo pranešimas **„Processing Complete“ (Apdorojimas baigtas)**
-* Vėl įjungiamas mygtukas „Start“ (Pradėti)
+* Vėl įjungiamas paleidimo mygtukas
 * Visi išvesties failai yra fotoaparato modelio pakatalogyje
 
 ***

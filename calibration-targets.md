@@ -9,7 +9,9 @@ metaLinks:
 
 MAPIR siūlo įvairius kalibravimo tikslus, kad būtų galima padengti įvairias taikymo sritis. Kompaktiškas T4-R50, matomas žemiau, turi 4 plokštes, kurių šviesos atspindys buvo išmatuotas nuo 250 iki 2500 nm.
 
-<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>T4 difuziniai etaloniniai taškai turi šias atspindžio kreives, [duomenys atsisiųsti čia](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
+<figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>
+
+T4 difuziniai etaloniniai taškai turi šias atspindžio kreives, [duomenys atsisiųsti čia](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
 
 <figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR T4 atspindžio koeficientas :: 250–2500 nm</p></figcaption></figure>
 

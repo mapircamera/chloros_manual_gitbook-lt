@@ -1,6 +1,6 @@
 # Projekto nustatymų keitimas
 
-Prieš apdorojant vaizdus, svarbu sukonfigūruoti projekto nustatymus, kad jie atitiktų jūsų darbo eigos reikalavimus. Projekto nustatymų <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> skydelis suteikia išsamią kontrolę kalibravimo, apdorojimo parinkčių, daugiaspektrinių indeksų ir eksporto formatų atžvilgiu.
+Prieš apdorodami vaizdus, svarbu sukonfigūruoti projekto nustatymus, kad jie atitiktų jūsų darbo eigos reikalavimus. Projekto nustatymų <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> skydelis suteikia išsamią kontrolę kalibravimo, apdorojimo parinkčių, daugiaspektrinių indeksų ir eksporto formatų atžvilgiu.
 
 ## Prieiga prie projekto nustatymų
 
@@ -9,7 +9,7 @@ Prieš apdorojant vaizdus, svarbu sukonfigūruoti projekto nustatymus, kad jie a
 3. Projekto nustatymų skydelyje rodomos visos konfigūracijos parinktys
 
 {% hint style=&quot;info&quot; %}
-**Nustatymai yra automatiškai išsaugomi** kartu su projektu. Atidarius projektą iš naujo, visi nustatymai yra atkurti.
+**Nustatymai yra automatiškai išsaugomi** kartu su projektu. Kai vėl atidarote projektą, visi nustatymai yra atkurti.
 {% endhint %}
 
 ***
@@ -62,18 +62,18 @@ Pagrindiniai vaizdo apdorojimo ir kalibravimo parametrai.
 **Išplėstiniai nustatymai:**
 
 * **Šviesos jutiklio laiko juostos poslinkis**: PPK laiko sinchronizavimui (numatyta: 0)
-* **Taikyti PPK korekcijas**: naudoja GPS/ekspozicijos kontaktų duomenis iš .daq failų
+* **Taikyti PPK pataisas**: naudoja GPS/ekspozicijos kontaktų duomenis iš .daq failų
 * **Ekspozicijos kontaktas 1/2**: priskiria kameras ekspozicijos kontaktams dviejų kamerų konfigūracijoms
 
 ### Indeksas (daugiabangiai indeksai)
 
-Nustatykite, kokie augmenijos indeksai bus skaičiuojami ir eksportuojami.
+Nustatykite, kokie augmenijos indeksai turi būti apskaičiuojami ir eksportuojami.
 
 **Kaip pridėti indeksus:**
 
 1. Spustelėkite mygtuką **„Pridėti indeksą“**
 2. Išskleidžiamajame meniu pasirinkite indeksą (NDVI, NDRE, GNDVI ir kt.)
-3. Nustatykite vizualizavimo parametrus (LUT spalvas, verčių diapazonus)
+3. Nustatykite vizualizacijos parametrus (LUT spalvas, verčių diapazonus)
 4. Pridėkite kelis indeksus, jei reikia
 
 **Populiarūs indeksai:**
@@ -99,7 +99,7 @@ Kontroliuoja išvesties failo formatą ir kokybę.
 **Galimi formatai:**
 
 * **TIFF (16 bitų)**: rekomenduojamas GIS ir moksliniams tyrimams (0–65 535 diapazonas)
-* **TIFF (32 bitai, procentai)**: plaukiojančiojo kablelio atspindžio vertės (0,0–1,0 diapazonas)
+* **TIFF (32 bitai, procentai)**: slankiojo kablelio atspindžio vertės (0,0–1,0 diapazonas)
 * **PNG (8 bitai)**: be nuostolių suspaudimas vizualizavimui (0–255 diapazonas)
 * **JPG (8 bitai)**: mažiausi failai, suspaudimas su nuostoliais (0–255 diapazonas)
 
@@ -148,11 +148,11 @@ Nustatymas **„Išsaugoti projekto aplanką“** nurodo, kur pagal numatytuosiu
 
 Jei naudojate MAPIR DAQ įrašymo įrenginius su GPS tiksliai geografinės vietos nustatymui:
 
-### Privalomi reikalavimai
+### Reikalavimai
 
 * MAPIR DAQ su GPS (GNSS) moduliu
 * .daq žurnalo failas su ekspozicijos kontaktų įrašais
-* Kamera, prijungta prie DAQ ekspozicijos kontaktų fiksavimo sesijos metu
+* Kamera, prijungta prie DAQ ekspozicijos kontaktų per fiksavimo sesiją
 
 ### Konfigūracijos žingsniai
 
@@ -186,7 +186,7 @@ Apdorojant vaizdus iš kelių MAPIR kamerų viename projekte:
 3. PPK: rankiniu būdu priskirkite kiekvienai kamerai tinkamą ekspozicijos kontaktą
 4. Visos kameros naudoja tą patį eksporto formatą ir indeksus
 
-**Pavyzdys**: Survey3W RGN + Survey3N OCN dviejų kamerų įranga
+**Pavyzdys**: Survey3W RGN + Survey3N OCN dviguba kamera
 
 ### Laiko tarpo arba kelių datų tyrimai
 
@@ -211,7 +211,7 @@ Projektams su daug vaizdų (500+):
 
 ## Nustatymų tikrinimas
 
-Prieš pradėdami apdoroti, peržiūrėkite šiuos pagrindinius nustatymus:
+Prieš pradėdami apdorojimą, peržiūrėkite šiuos pagrindinius nustatymus:
 
 * [ ] Kameros modelis teisingai aptiktas failų naršyklėje
 * [ ] Įjungta vinjetės korekcija

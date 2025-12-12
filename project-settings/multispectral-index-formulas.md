@@ -18,15 +18,15 @@ Naudojant šias formules, pavadinimas gali baigtis „\_1“ arba „\_2“, kas
 
 ## EVI – patobulintas augmenijos indeksas
 
-Šis indeksas iš pradžių buvo sukurtas naudoti su MODIS duomenimis kaip NDVI patobulinimas, optimizuojant augmenijos signalą didelio lapų ploto indekso (LAI). Jis yra naudingiausias regionuose, kur LAI yra didelis, o NDVI gali būti prisotintas. Jis naudoja mėlynosios spalvos atspindžio sritį, kad pakoreguotų dirvožemio fono signalus ir sumažintų atmosferos įtaką, įskaitant aerozolio sklaidą.
+Šis indeksas iš pradžių buvo sukurtas naudoti su MODIS duomenimis kaip NDVI patobulinimas, optimizuojant augmenijos signalą didelio lapų ploto indekso (LAI) srityse. Jis yra naudingiausias regionuose, kuriuose LAI yra didelis, o NDVI gali būti prisotintas. Jis naudoja mėlynosios spalvos atspindžio sritį, kad pakoreguotų dirvožemio fono signalus ir sumažintų atmosferos įtaką, įskaitant aerozolio sklaidą.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-EVI vertės turėtų būti nuo 0 iki 1 augmenijos pikseliams. Ryškūs elementai, tokie kaip debesys ir balti pastatai, kartu su tamsiomis savybėmis, tokiomis kaip vanduo, gali sukelti anomalų pikselių verčių EVI vaizde. Prieš kuriant EVI vaizdą, turėtumėte užmaskuoti debesis ir ryškius elementus atspindžio vaizde ir, jei norite, nustatyti pikselių verčių ribą nuo 0 iki 1.
+EVI vertės turėtų būti nuo 0 iki 1 augmenijos pikseliams. Ryškūs elementai, tokie kaip debesys ir balti pastatai, kartu su tamsiomis savybėmis, tokiomis kaip vanduo, gali sukelti anomalijas pikselių vertėse EVI vaizde. Prieš kuriant EVI vaizdą, turėtumėte užmaskuoti debesis ir ryškius elementus atspindžio vaizde ir, jei norite, nustatyti pikselių verčių ribą nuo 0 iki 1.
 
-_Nuoroda: Huete, A., et al. „MODIS augmenijos indeksų radiometrinės ir biofizikinės charakteristikos apžvalga“. Remote Sensing of Environment 83 (2002):195–213._
+_Nuoroda: Huete, A., et al. „MODIS augmenijos indeksų radiometrinės ir biofizinės charakteristikos apžvalga“. Remote Sensing of Environment 83 (2002):195–213._
 
 ***
 
@@ -40,13 +40,13 @@ $$
 
 Miškingos vietovės turės mažesnes FCI1 vertes dėl mažesnio medžių atspindžio ir šešėlių buvimo lajos viduje.
 
-_Nuoroda: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Patikimi miško dangos indeksai daugiaspektriams vaizdams“. Fotogrametrinė inžinerija ir nuotolinis stebėjimas 84.8 (2018): 505–512._
+_Nuoroda: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Tvirti miškų dangos indeksai daugiaspektriams vaizdams“. Fotogrametrinė inžinerija ir nuotolinis stebėjimas 84.8 (2018): 505-512._
 
 ***
 
-## FCI2 – Miško dangos indeksas 2
+## FCI2 – Miškų dangos indeksas 2
 
-Šis indeksas atskiria miško lajos nuo kitų augmenijos tipų, naudojant daugiaspektrinius atspindžio vaizdus, kuriuose nėra raudonos krašto juostos.
+Šis indeksas atskiria miškų lajas nuo kitų augmenijos tipų, naudojant daugiaspektrinius atspindžio vaizdus, kuriuose nėra raudonos kraštinės juostos.
 
 $$
 FCI2 = Red * NIR
@@ -126,13 +126,13 @@ $$
 GNDVI = {(NIR - Green) \over (NIR + Green)  }
 $$
 
-_Nuoroda: Gitelson, A., ir M. Merzlyak. „Aukštesniųjų augalų lapų chlorofilo koncentracijos nuotolinis matavimas“. Advances in Space Research 22 (1998): 689–692._
+_Nuoroda: Gitelson, A., ir M. Merzlyak. „Aukštesniųjų augalų lapų chlorofilo koncentracijos nuotolinis jutimas.“ Advances in Space Research 22 (1998): 689-692._
 
 ***
 
-## GOSAVI – Green Optimizuotas dirvožemio koreguotas augmenijos indeksas
+## GOSAVI - Green Optimizuotas dirvožemio koreguotas augmenijos indeksas
 
-Šis indeksas iš pradžių buvo sukurtas naudojant spalvotą infraraudonąją fotografiją, siekiant prognozuoti azoto poreikį kukurūzams. Jis yra panašus į OSAVI, tačiau žalią juostą pakeičia raudona.
+Šis indeksas iš pradžių buvo sukurtas naudojant spalvotą infraraudonąją fotografiją, siekiant prognozuoti azoto poreikį kukurūzams. Jis panašus į OSAVI, tačiau žalią juostą pakeičia raudona.
 
 $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
@@ -142,7 +142,7 @@ _Nuoroda: Sripada, R., et al. „Kukurūzų azoto poreikio sezono metu nustatyma
 
 ***
 
-## GRVI – Green Santykio augmenijos indeksas
+## GRVI – Green santykio augmenijos indeksas
 
 Šis indeksas yra jautrus fotosintezės greičiui miško lajos, nes žalios ir raudonos spalvos atspindžiai yra stipriai veikiami lapų pigmentų pokyčių.
 
@@ -150,11 +150,11 @@ $$
 GRVI = {NIR \over Green }
 $$
 
-_Nuoroda: Sripada, R., et al. „Aerial Color Infrared Photography for Determining Early In-season Nitrogen Requirements in Corn“ (Oro spalvų infraraudonųjų spindulių fotografija, skirta nustatyti ankstyvojo sezono azoto poreikį kukurūzams). Agronomy Journal 98 (2006): 968-977._
+_Nuoroda: Sripada, R., et al. „Aerial Color Infrared Photography for Determining Early In-season Nitrogen Requirements in Corn“ (Oro spalvota infraraudonųjų spindulių fotografija, skirta nustatyti ankstyvojo sezono azoto poreikį kukurūzams). Agronomy Journal 98 (2006): 968-977._
 
 ***
 
-## GSAVI - Green Dirvožemio koreguotas augmenijos indeksas
+## GSAVI – Green Dirvožemio koreguotas augmenijos indeksas
 
 Šis indeksas buvo sukurtas naudojant spalvotą infraraudonąją fotografiją, siekiant prognozuoti azoto poreikį kukurūzams. Jis yra panašus į SAVI, tačiau žalią juostą pakeičia raudona.
 
@@ -162,7 +162,7 @@ $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Nuoroda: Sripada, R., et al. „Kukurūzų azoto poreikio sezono metu nustatymas naudojant spalvotą infraraudonąją fotografiją iš oro.“ Daktaro disertacija, Šiaurės Karolinos valstybinis universitetas, 2005 m._
+_Nuoroda: Sripada, R., et al. „Kukurūzų azoto poreikio sezono metu nustatymas naudojant spalvotą infraraudonąją fotografiją iš oro“. Daktaro disertacija, Šiaurės Karolinos valstybinis universitetas, 2005 m._
 
 ***
 
@@ -188,13 +188,13 @@ _Nuoroda: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde ir
 
 ## LCI – lapų chlorofilo indeksas
 
-Šis indeksas naudojamas chlorofilo kiekiui aukštesniuose augaluose įvertinti, kurie yra jautrūs chlorofilo absorbcijos sukeltiems atspindžio pokyčiams.
+Šis indeksas naudojamas aukštesniųjų augalų chlorofilo kiekiui įvertinti, jis jautrus chlorofilo absorbcijos sukeltiems atspindžio pokyčiams.
 
 $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Nuoroda: Datt, B. „Eukalipto lapų vandens kiekio nuotolinis stebėjimas“. Augalų fiziologijos žurnalas 154, nr. 1 (1999): 30–36._
+_Nuoroda: Datt, B. „Eukalipto lapų vandens kiekio nuotolinis jutimas.“ Augalų fiziologijos žurnalas 154, nr. 1 (1999): 30–36._
 
 ***
 
@@ -232,9 +232,9 @@ $$
 
 ***
 
-## NDVI – normalizuotas augmenijos skirtumo indeksas
+## NDVI – normalizuotas skirtumo augmenijos indeksas
 
-Šis indeksas yra sveikos, žalios augmenijos matas. Normalizuoto skirtumo formulės ir chlorofilo didžiausio sugėrimo bei atspindžio regionų naudojimo derinys užtikrina jo patikimumą įvairiomis sąlygomis. Tačiau jis gali būti prisotintas tankios augmenijos sąlygomis, kai LAI tampa didelis.
+Šis indeksas yra sveikos, žalios augmenijos matas. Normalizuotos skirtumo formulės ir chlorofilo didžiausio sugėrimo bei atspindžio regionų naudojimo derinys užtikrina jo patikimumą įvairiomis sąlygomis. Tačiau jis gali būti prisotintas tankios augmenijos sąlygomis, kai LAI tampa didelis.
 
 $$
 NDVI = {NIR - Red \over NIR + Red  }
@@ -242,7 +242,7 @@ $$
 
 Šio indekso vertė svyruoja nuo -1 iki 1. Įprastas žalios augmenijos intervalas yra nuo 0,2 iki 0,8.
 
-_Nuoroda: Rouse, J., R. Haas, J. Schell ir D. Deering. Augmenijos sistemų stebėjimas Didžiosiose lygumose naudojant ERTS. Trečiasis ERTS simpoziumas, NASA (1973): 309–317._
+_Nuoroda: Rouse, J., R. Haas, J. Schell ir D. Deering. Augmenijos sistemų stebėjimas Didžiosiose lygumose naudojant ERTS. Trečiasis ERTS simpoziumas, NASA (1973): 309-317._
 
 ***
 
@@ -254,13 +254,13 @@ $$
 NLI = {NIR^{2} - Red \over NIR^{2} + Red  }
 $$
 
-_Nuoroda: Goel, N. ir W. Qin. „Lapijos struktūros įtaka įvairių augmenijos indeksų ir LAI bei Fpar santykiams: kompiuterinė simuliacija.“ Remote Sensing Reviews 10 (1994): 309–347._
+_Nuoroda: Goel, N. ir W. Qin. „Lapijos struktūros įtaka įvairių augmenijos indeksų ir LAI bei Fpar santykiams: kompiuterinė simuliacija.“ Nuotolinio stebėjimo apžvalgos 10 (1994): 309–347._
 
 ***
 
-## OSAVI – optimizuotas dirvožemio koreguotas augmenijos indeksas
+## OSAVI – Optimizuotas dirvožemio koreguotas augmenijos indeksas
 
-Šis indeksas pagrįstas dirvožemio koreguotu augmenijos indeksu (SAVI). Jis naudoja standartinę 0,16 vertę lajos fono koregavimo koeficientui. Rondeaux (1996) nustatė, kad ši vertė užtikrina didesnį dirvožemio variavimą nei SAVI esant mažam augmenijos dangui, tuo pačiu parodydama didesnį jautrumą augmenijos dangui, didesniam nei 50 %. Šis indeksas geriausiai tinka naudoti vietovėse, kuriose augmenija yra palyginti reta ir dirvožemis matomas per lajos dangą.
+Šis indeksas pagrįstas dirvožemio koreguotu augmenijos indeksu (SAVI). Jis naudoja standartinę 0,16 vertę lajos fono koregavimo koeficientui. Rondeaux (1996) nustatė, kad ši vertė užtikrina didesnį dirvožemio variavimą nei SAVI esant mažam augmenijos dangui, tuo pačiu parodydama didesnį jautrumą augmenijos dangui, didesniam nei 50 %. Šis indeksas geriausiai tinka naudoti vietovėse, kuriose augmenija yra palyginti reta ir dirvožemis matomas per lajos viršų.
 
 $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
@@ -270,7 +270,7 @@ _Nuoroda: Rondeaux, G., M. Steven ir F. Baret. „Dirvožemio koreguotų augmeni
 
 ***
 
-## RDVI – Renormalizuotas augmenijos skirtumo indeksas
+## RDVI – Renormalizuotas skirtumo augmenijos indeksas
 
 Šis indeksas naudoja skirtumą tarp artimosios infraraudonosios ir raudonosios bangų ilgių kartu su NDVI, kad būtų išryškinti sveiki augalai. Jis yra nejautrus dirvožemio ir saulės matymo geometrijos poveikiui.
 
@@ -278,19 +278,19 @@ $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
 $$
 
-_Nuoroda: Roujean, J., ir F. Breon. „Augmenijos absorbuojamo PAR įvertinimas pagal dvikrypčio atspindžio matavimus.“ Remote Sensing of Environment 51 (1995): 375-384._
+_Nuoroda: Roujean, J., ir F. Breon. „Augmenijos absorbuojamo PAR įvertinimas pagal dviejų krypčių atspindžio matavimus.“ Remote Sensing of Environment 51 (1995): 375-384._
 
 ***
 
-## SAVI – dirvožemio pakoreguotas augmenijos indeksas
+## SAVI – dirvožemio koreguotas augmenijos indeksas
 
-Šis indeksas yra panašus į NDVI, tačiau jis slopina dirvožemio pikselių poveikį. Jis naudoja lajos fono koregavimo koeficientą _L_, kuris yra augmenijos tankio funkcija ir dažnai reikalauja išankstinių žinių apie augmenijos kiekį. Huete (1988) siūlo optimalų _L_=0,5 vertę, kad būtų atsižvelgta į pirmos eilės dirvožemio fono pokyčius. Šis indeksas geriausiai tinka naudoti vietovėse, kuriose augmenija yra palyginti reta ir dirvožemis matomas per lają.
+Šis indeksas yra panašus į NDVI, tačiau jis slopina dirvožemio pikselių poveikį. Jis naudoja lajos fono koregavimo koeficientą _L_, kuris yra augmenijos tankio funkcija ir dažnai reikalauja išankstinių žinių apie augmenijos kiekį. Huete (1988) siūlo optimalų _L_=0,5 vertę, kad būtų atsižvelgta į pirmos eilės dirvožemio fono pokyčius. Šis indeksas geriausiai tinka naudoti vietovėse, kuriose augmenija yra palyginti reta ir dirvožemis matomas per lajos viršų.
 
 $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
 $$
 
-_Nuoroda: Huete, A. „Dirvožemio koreguotas augmenijos indeksas (SAVI).“ Nuotolinis aplinkos stebėjimas 25 (1988): 295–309._
+_Nuoroda: Huete, A. „Dirvožemio koreguotas augmenijos indeksas (SAVI).“ Remote Sensing of Environment 25 (1988): 295-309._
 
 ***
 
@@ -308,17 +308,17 @@ _Nuoroda: Bannari, A., H. Asalhi ir P. Teillet. „Transformuotas skirtumo augme
 
 ## VARI – matomas atmosferos poveikiui atsparus indeksas
 
-Šis indeksas pagrįstas ARVI ir naudojamas augmenijos daliai vaizde, kuri yra mažai jautri atmosferos poveikiui, įvertinti.
+Šis indeksas pagrįstas ARVI ir naudojamas augmenijos daliai vaizde įvertinti, esant mažam jautrumui atmosferos poveikiui.
 
 $$
 VARI = {Green - Red \over Green + Red - Blue  }
 $$
 
-_Nuoroda: Gitelson, A., et al. „Augmenija ir dirvožemio linijos matomame spektriniame erdvėje: koncepcija ir technika augmenijos dalies nuotoliniam įvertinimui. International Journal of Remote Sensing 23 (2002): 2537−2562._
+_Nuoroda: Gitelson, A., et al. „Augmenija ir dirvožemio linijos matomame spektriniame erdvėje: koncepcija ir technika nuotolinio augmenijos dalies įvertinimo. Tarptautinis nuotolinio stebėjimo žurnalas 23 (2002): 2537−2562._
 
 ***
 
-## WDRVI – Platus dinaminis diapazonas augmenijos indeksas
+## WDRVI – plačios dinaminės srities augmenijos indeksas
 
 Šis indeksas yra panašus į NDVI, tačiau jame naudojamas svertinis koeficientas (_a_), siekiant sumažinti skirtumą tarp artimosios infraraudonosios ir raudonosios spinduliuotės įtakos NDVI. WDRVI yra ypač veiksmingas scenose, kuriose augmenijos tankis yra vidutinis arba didelis, kai NDVI viršija 0,6. NDVI linkęs išsilyginti, kai augmenijos dalis ir lapų ploto indeksas (LAI) didėja, o WDRVI yra jautresnis platesniam augmenijos dalių diapazonui ir LAI pokyčiams.
 

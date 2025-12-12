@@ -14,7 +14,9 @@ Pagrindiniame meniu galite pradėti naują projektą, atidaryti esamą projektą
 
 Kai įjungtas, pradėti apdorojimą mygtukas paleidžia vaizdo apdorojimo procesą.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Pažangos juosta <img src=".gitbook/assets/image (5).png" alt="" data-size="line">Nemokamame Chloros režime, kuris apdoroja visus failus paeiliui, pažangos juosta rodo 2 etapus: tikslo aptikimas ir apdorojimas.
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Pažangos juosta <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+
+Nemokamame Chloros režime, kuris apdoroja visus failus paeiliui, pažangos juosta rodo 2 etapus: tikslo aptikimas ir apdorojimas.
 
 Mokamame Chloros+ licencijuotame režime, kuris apdoroja visus failus vienu metu, pažangos juosta rodo 4 etapus: aptikimas, analizė, kalibravimas, eksportavimas. Jei pelės žymeklį užvesite ant Chloros+ pažangos juostos, atsivers išplėstinis 4 pažangos juostos skydelis, kad galėtumėte stebėti procesą. Spustelėjus viršutinę pažangos juostą, išskleidžiamas skydelis bus užfiksuotas, o spustelėjus dar kartą – atfiksuotas.
 

@@ -1,6 +1,6 @@
 # Projekto nustatymai
 
-Projekto nustatymai <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> šoninėje juostoje Chloros galite konfigūruoti visus vaizdo apdorojimo, kalibravimo tikslo nustatymo, daugiaspektrinių indeksų skaičiavimo ir eksporto parinktis savo projektui. Šie nustatymai išsaugomi kartu su projektu ir gali būti išsaugoti kaip šablonai, kad būtų galima juos pakartotinai naudoti keliuose projektuose.
+Projekto nustatymai <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> šoninėje juostoje Chloros galite konfigūruoti visus vaizdo apdorojimo, kalibravimo tikslo aptikimo, daugiaspektrinių indeksų skaičiavimo ir eksporto parinktis savo projektui. Šie nustatymai išsaugomi kartu su projektu ir gali būti išsaugoti kaip šablonai, kad būtų galima juos pakartotinai naudoti keliuose projektuose.
 
 ## Prieiga prie projekto nustatymų
 
@@ -31,10 +31,10 @@ Norėdami pasiekti projekto nustatymus:
 * **Tipas**: skaičius
 * **Diapazonas**: nuo 0 iki 100
 * **Numatytasis**: 60
-* **Aprašymas**: kontroliuoja klasterizavimo slenkstį, skirtą panašių spalvų regionų grupuojimui aptinkant kalibravimo tikslus. Didesnės vertės reikalauja, kad būtų grupuojamos panašesnės spalvos, todėl tikslų aptikimas tampa konservatyvesnis. Mažesnės vertės leidžia didesnį spalvų įvairovę tikslo grupėje.
+* **Aprašymas**: Kontroliuoja klasterizavimo slenkstį, skirtą panašių spalvų sričių grupuojimui aptinkant kalibravimo tikslus. Didesnės vertės reikalauja, kad būtų grupuojamos panašesnės spalvos, todėl tikslų aptikimas yra konservatyvesnis. Mažesnės vertės leidžia didesnį spalvų įvairovę tikslo grupėje.
 * **Kada reguliuoti**:
   * Padidinkite, jei kalibravimo tikslai yra suskaidomi į kelis aptikimus.
-  * Sumažinkite, jei kalibravimo tikslai su spalvų variacijomis nėra visiškai aptinkami.
+  * Sumažinkite, jei kalibravimo tikslai su spalvų įvairove nėra visiškai aptinkami.
 
 ***
 
@@ -46,42 +46,42 @@ Norėdami pasiekti projekto nustatymus:
 
 * **Tipas**: žymės langelis
 * **Numatytasis**: įjungta (pažymėta)
-* **Aprašymas**: Taiko vinjetės korekciją, kad kompensuotų objektyvo patamsėjimą vaizdų kraštuose. Vinjetė yra dažnas optinis reiškinys, kai vaizdo kampai ir kraštai atrodo tamsesni nei centras dėl objektyvo savybių.
-* **Kada išjungti**: Išjunkite tik tuo atveju, jei jūsų fotoaparato ir objektyvo kombinacija jau taiko vinjetės korekciją arba jei norite rankiniu būdu koreguoti vinjetę apdorojimo metu.
+* **Aprašymas**: taiko vignette korekciją, kad kompensuotų objektyvo patamsėjimą vaizdų kraštuose. Vignette yra dažnas optinis reiškinys, kai vaizdo kampai ir kraštai atrodo tamsesni nei centras dėl objektyvo savybių.
+* **Kada išjungti**: Išjunkite tik tuo atveju, jei jūsų fotoaparato ir objektyvo kombinacija jau taiko vignette korekciją arba jei norite rankiniu būdu koreguoti vignette po apdorojimo.
 
 ### Atspindžio kalibravimas / baltos spalvos balansas
 
-* **Tipas**: žymės langelis
-* **Numatytasis**: įjungta (pažymėta)
-* **Aprašymas**: įjungia automatinį atspindžio kalibravimą, naudojant vaizduose aptiktus kalibravimo tikslus. Tai normalizuoja atspindžio vertes visame duomenų rinkinyje ir užtikrina nuoseklius matavimus nepriklausomai nuo apšvietimo sąlygų.
-* **Kada išjungti**: išjunkite tik tuo atveju, jei norite apdoroti neapdorotus, nekalibruotus vaizdus arba jei naudojate kitą kalibravimo darbo eigą.
+* **Tipas**: Žymės langelis
+* **Numatytasis**: Įjungta (pažymėta)
+* **Aprašymas**: Įjungia automatinį atspindžio kalibravimą, naudojant vaizduose aptiktus kalibravimo tikslus. Tai normalizuoja atspindžio vertes visame duomenų rinkinyje ir užtikrina nuoseklius matavimus nepriklausomai nuo apšvietimo sąlygų.
+* **Kada išjungti**: Išjunkite tik tuo atveju, jei norite apdoroti nekalibruotus vaizdus arba jei naudojate kitą kalibravimo darbo eigą.
 
 ### Debayer metodas
 
-* **Tipas**: išskleidžiamas meniu
+* **Tipas**: Išskleidžiamas meniu
 * **Parinktys**:
   * Aukšta kokybė (greičiau) – šiuo metu vienintelė galima parinktis
 * **Numatytasis**: Aukšta kokybė (greičiau)
-* **Aprašymas**: Pasirenkamas demosaicing algoritmas, naudojamas neapdorotiems Bayer modelio jutiklio duomenims konvertuoti į spalvotus vaizdus. „Aukšta kokybė (greičiau)“ metodas užtikrina optimalų apdorojimo greičio ir vaizdo kokybės balansą.
+* **Aprašymas**: Pasirenkamas demosaicing algoritmas, naudojamas neapdorotiems Bayer modelio jutiklio duomenims konvertuoti į spalvotus vaizdus. „Aukšta kokybė (greičiau)” metodas užtikrina optimalų apdorojimo greičio ir vaizdo kokybės balansą.
 * **Pastaba**: Ateityje Chloros versijose gali būti pridėti papildomi debayer metodai.
 
 ### Minimalus pakalibravimo intervalas
 
-* **Tipas**: skaičius
+* **Tipas**: Skaičius
 * **Diapazonas**: nuo 0 iki 3600 sekundžių
 * **Numatytasis**: 0 sekundės
-* **Aprašymas**: nustato minimalų laiko intervalą (sekundėmis) tarp kalibravimo tikslų naudojimo. Nustačius 0, Chloros naudos kiekvieną aptiktą kalibravimo tikslą. Nustačius didesnę vertę, Chloros naudos tik kalibravimo tikslus, kurie yra atskirti bent jau šiuo sekundžių skaičiumi, taip sumažindamas duomenų rinkinių, kuriuose dažnai fiksuojami kalibravimo tikslai, apdorojimo laiką.
+* **Aprašymas**: Nustato minimalų laiko intervalą (sekundėmis) tarp kalibravimo tikslų naudojimo. Nustačius 0, Chloros naudos kiekvieną aptiktą kalibravimo tikslą. Nustačius didesnę vertę, Chloros naudos tik kalibravimo tikslus, kurie yra atskirti bent šiuo sekundžių skaičiumi, sumažindamas apdorojimo laiką duomenų rinkiniams su dažnais kalibravimo tikslų užfiksuojimais.
 * **Kada reguliuoti**:
   * Nustatykite 0, kad būtų pasiektas maksimalus kalibravimo tikslumas, kai apšvietimo sąlygos kinta.
   * Padidinkite (pvz., iki 60–300 sekundžių), kad apdorojimas būtų greitesnis, kai apšvietimas yra pastovus ir turite dažnus kalibravimo tikslų vaizdus.
 
 ### Šviesos jutiklio laiko juostos nuokrypis
 
-* **Tipas**: skaičius
+* **Tipas**: Skaičius
 * **Diapazonas**: nuo -12 iki +12 valandų
 * **Numatytasis**: 0 valandos
-* **Aprašymas**: Nurodo laiko juostos poslinkį (valandomis nuo UTC) šviesos jutiklio duomenų laiko žymėms. Tai naudojama apdorojant PPK (Post-Processed Kinematic) duomenų failus, siekiant užtikrinti teisingą laiko sinchronizaciją tarp vaizdų užfiksavimo ir GPS duomenų.
-* **Kada koreguoti**: Nustatykite savo vietos laiko juostos nuokrypį, jei jūsų PPK duomenys naudoja vietos laiką, o ne UTC. Pavyzdžiui:
+* **Aprašymas**: Nurodo laiko juostos poslinkį (valandomis nuo UTC) šviesos jutiklio duomenų laiko žymoms. Tai naudojama apdorojant PPK (Post-Processed Kinematic) duomenų failus, siekiant užtikrinti teisingą laiko sinchronizaciją tarp vaizdų užfiksavimo ir GPS duomenų.
+* **Kada reguliuoti**: Nustatykite savo vietos laiko juostos poslinkį, jei jūsų PPK duomenys naudoja vietos laiką, o ne UTC. Pavyzdžiui:
   * Ramiojo vandenyno laikas: -8 arba -7 (priklausomai nuo vasaros laiko)
   * Rytų laikas: -5 arba -4 (priklausomai nuo vasaros laiko)
   * Vidurio Europos laikas: +1 arba +2 (priklausomai nuo vasaros laiko)
@@ -90,8 +90,8 @@ Norėdami pasiekti projekto nustatymus:
 
 * **Tipas**: žymės langelis
 * **Numatytasis**: išjungta (nepažymėta)
-* **Aprašymas**: įjungia galimybę naudoti post-processed kinematic (PPK) pataisas iš MAPIR DAQ įrašymo įrenginių, turinčių GPS (GNSS). Kai įjungta, Chloros naudos visus .daq žurnalo failus, kuriuose yra ekspozicijos kaiščio duomenys jūsų projekto kataloge, ir taikys tikslias geografinės vietos korekcijas jūsų vaizdams.
-* **Reikalavimas**: .daq žurnalo failas su ekspozicijos kaiščio įrašais turi būti jūsų projekto kataloge
+* **Aprašymas**: Įgalina naudoti post-processed kinematic (PPK) pataisas iš MAPIR DAQ įrašymo įrenginių, turinčių GPS (GNSS). Kai įgalinta, Chloros naudos visus .daq žurnalo failus, turinčius ekspozicijos kontaktų duomenis jūsų projekto kataloge, ir taikys tikslias geografinės vietos pataisas jūsų vaizdams.
+* **Reikalavimas**: .daq žurnalo failas su ekspozicijos kaiščių įrašais turi būti jūsų projekto kataloge
 * **Kada įjungti**: Rekomenduojama visada įjungti PPK korekciją, jei jūsų .daq žurnalo faile yra ekspozicijos grįžtamojo ryšio įrašai.
 
 ### Ekspozicijos kontaktas 1
@@ -101,7 +101,7 @@ Norėdami pasiekti projekto nustatymus:
 * **Parinktys**:
   * Projekto aptikti fotoaparato modelių pavadinimai
   * „Nenaudoti“ – ignoruoti šį ekspozicijos kontaktą
-* **Numatytasis**: automatiškai parenkamas pagal projekto konfigūraciją
+* **Numatytasis**: Automatiškai pasirenkamas pagal projekto konfigūraciją
 * **Aprašymas**: Priskiria konkrečią kamerą ekspozicijos kontaktui 1 PPK laiko sinchronizavimui. Ekspozicijos kontaktas įrašo tikslų laiką, kai suveikia kameros užraktas, o tai yra labai svarbu tiksliai PPK geografinės vietos nustatymui.
 * **Automatinio pasirinkimo veikimas**:
   * Viena kamera + vienas kontaktas: Automatiškai pasirenka kamerą
@@ -113,28 +113,28 @@ Norėdami pasiekti projekto nustatymus:
 * **Tipas**: Pasirinkimas iš išskleidžiamojo meniu
 * **Matomumas**: Matomas tik tada, kai įjungta funkcija „Taikyti PPK pataisas“ IR kai ekspozicijos duomenys yra prieinami 2 kaiščiui
 * **Parinktys**:
-  * Projekto metu aptikti kamerų modelių pavadinimai
+  * Projekte aptikti kameros modelių pavadinimai
   * „Nenaudoti“ – ignoruoti šį ekspozicijos kontaktą
 * **Numatytasis**: automatiškai pasirenkamas pagal projekto konfigūraciją
-* **Aprašymas**: priskiria konkretų fotoaparatą ekspozicijos kontaktui 2 PPK laiko sinchronizavimui, kai naudojama dviejų fotoaparatų konfigūracija.
+* **Aprašymas**: priskiria konkrečią kamerą ekspozicijos kontaktui 2 PPK laiko sinchronizavimui, kai naudojama dviejų kamerų konfigūracija.
 * **Automatinio pasirinkimo elgsena**:
-  * Vienas fotoaparatas + vienas kontaktas: kontaktas 2 automatiškai nustatomas kaip „Nenaudoti“
-  * Viena kamera + du kaiščiai: 2 kaištis automatiškai nustatomas kaip „Nenaudoti“
+  * Viena kamera + vienas kontaktas: kontaktas 2 automatiškai nustatomas kaip „Nenaudoti“
+  * Viena kamera + du kontaktai: kontaktas 2 automatiškai nustatomas kaip „Nenaudoti“
   * Kelios kameros: reikalingas rankinis pasirinkimas
-* **Pastaba**: ta pati kamera negali būti priskirta ir 1, ir 2 kaiščiams tuo pačiu metu.
+* **Pastaba**: ta pati kamera negali būti priskirta ir kontaktui 1, ir kontaktui 2 tuo pačiu metu.
 
 ***
 
 ## Indeksas
 
-Šie nustatymai leidžia konfigūruoti daugiaspektrinius indeksus analizės ir vizualizavimo tikslais.
+Šie nustatymai leidžia konfigūruoti daugiaspektrinius indeksus analizės ir vizualizacijos tikslais.
 
 ### Pridėti indeksą
 
-* **Tipas**: specialus indeksų konfigūracijos skydelis
-* **Aprašymas**: Atidaro interaktyvų skydelį, kuriame galite pasirinkti ir konfigūruoti daugiaspektrinius augmenijos indeksus (NDVI, NDRE, EVI ir kt.), kurie bus apskaičiuojami vaizdo apdorojimo metu. Galite pridėti kelis indeksus, kiekvienam iš jų nustatydami savo vizualizavimo parametrus.
+* **Tipas**: Specialus indeksų konfigūracijos skydelis
+* **Aprašymas**: Atidaro interaktyvų skydelį, kuriame galite pasirinkti ir konfigūruoti daugiaspektrinius augmenijos indeksus (NDVI, NDRE, EVI ir kt.), kurie bus apskaičiuojami vaizdo apdorojimo metu. Galite pridėti kelis indeksus, kiekvienam nustatydami savo vizualizavimo parametrus.
 * **Galimi indeksai**: Sistema apima daugiau nei 30 iš anksto nustatytų daugiaspektrinių indeksų, įskaitant:
-  * NDVI (normalizuotas augmenijos skirtumo indeksas)
+* NDVI (normalizuotas augmenijos skirtumo indeksas)
   * NDRE (normalizuotas skirtumas RedEdge)
   * EVI (patobulintas augmenijos indeksas)
   * GNDVI, SAVI, OSAVI, MSAVI2
@@ -154,8 +154,8 @@ Norėdami pasiekti projekto nustatymus:
   2. Apibrėžkite formulę naudodami juostų identifikatorius (pvz., NIR, Red, Green, Blue).
   3. Išsaugokite formulę su aprašomuoju pavadinimu.
 * **Formulės sintaksė**: Palaikomos standartinės matematinės operacijos, įskaitant:
-  * Aritmetika: `+`, `-`, `*`, `/`
-  * Skaičiavimo operacijų eiliškumo skliausteliai
+  * Aritmetika: `+`, `-`, `*`, `/`.
+  * Skirtukai operacijų eiliškumui nurodyti.
   * Juostos nuorodos: NIR, Red, Green, Blue, RedEdge, Cyan, Orange, NIR1, NIR2
 
 ***
@@ -171,13 +171,13 @@ Norėdami pasiekti projekto nustatymus:
   * **TIFF (16 bitų)** – nesuspaustas 16 bitų TIFF formatas
   * **TIFF (32 bitai, procentai)** – 32 bitų slankiojo kablelio TIFF su atspindžio vertėmis procentais
   * **PNG (8 bitai)** - Suspaustas 8 bitų PNG formatas
-  * **JPG (8 bitai)** - Suspaustas 8 bitų JPEG formatas
+  * **JPG (8 bitų)** - Suspaustas 8 bitų JPEG formatas
 * **Numatytasis**: TIFF (16 bitų)
 * **Aprašymas**: Pasirenkamas failo formatas, kuriuo bus išsaugoti apdoroti ir kalibruoti vaizdai.
 * **Rekomenduojami formatai**:
   * **TIFF (16 bitų)**: Rekomenduojamas moksliniams tyrimams ir profesionaliems darbo procesams. Išsaugo maksimalią duomenų kokybę be suspaudimo artefaktų. Geriausiai tinka daugiaspektrinei analizei ir tolesniam apdorojimui GIS programinėje įrangoje.
-  * **TIFF (32 bitai, procentai)**: geriausiai tinka darbo eigai, kuriai reikalingos atspindžio vertės procentais (0–100 %). Užtikrina maksimalų radiometrinių matavimų tikslumą.
-  * **PNG (8 bitai)**: tinka peržiūrai internete ir bendrai vizualizacijai. Mažesni failų dydžiai su be nuostolių suspaudimu, bet sumažintas dinaminis diapazonas.
+  * **TIFF (32 bitai, procentai)**: Geriausiai tinka darbo eigai, kuriai reikalingos atspindžio vertės procentais (0–100 %). Užtikrina maksimalų radiometrinių matavimų tikslumą.
+  * **PNG (8 bitai)**: Tinka peržiūrai internete ir bendrai vizualizacijai. Mažesni failų dydžiai su nesuspaudimu, bet sumažintas dinaminis diapazonas.
   * **JPG (8 bitai)**: Mažiausi failų dydžiai, geriausiai tinka tik peržiūrai ir rodymui internete. Naudoja suspaudimą su nuostoliais, kuris netinka moksliniams tyrimams.
 
 ***
@@ -186,11 +186,11 @@ Norėdami pasiekti projekto nustatymus:
 
 Ši funkcija leidžia išsaugoti dabartinius projekto nustatymus kaip pakartotinai naudojamą šabloną.
 
-* **Tipas**: Teksto įvedimas + mygtukas „Išsaugoti“
-* **Aprašymas**: Įveskite aprašomąjį pavadinimą savo nustatymų šablonui ir spustelėkite išsaugojimo piktogramą. Šablonas išsaugos visus dabartinius projekto nustatymus (tikslo aptikimas, apdorojimo parinktys, indeksai ir eksporto formatas), kad juos būtų galima lengvai pakartotinai naudoti būsimuose projektuose.
+* **Tipas**: Teksto įvedimas + išsaugojimo mygtukas
+* **Aprašymas**: Įveskite aprašomąjį pavadinimą savo nustatymų šablonui ir spustelėkite išsaugojimo piktogramą. Šablonas išsaugos visus dabartinius projekto nustatymus (tikslo aptikimą, apdorojimo parinktis, indeksus ir eksporto formatą), kad juos būtų galima lengvai pakartotinai naudoti būsimuose projektuose.
 * **Naudojimo atvejai**:
   * Sukurkite šablonus skirtingoms kamerų sistemoms (RGB, multispektrinė, NIR)
-  * Išsaugokite standartines konfigūracijas konkretiems pasėlių tipams ar analizės darbo eigai
+  * Išsaugokite standartinius nustatymus konkretiems pasėlių tipams ar analizės darbo eigai
   * Dalinkitės nuosekliais nustatymais su visa komanda
 * **Kaip naudoti**:
   1. Nustatykite visus norimus projekto nustatymus
@@ -211,11 +211,11 @@ Norėdami pasiekti projekto nustatymus:
   * Nustatykite tinklo diską komandiniam bendradarbiavimui.
   * Keiskite į diską su daugiau saugojimo vietos dideliems duomenų rinkiniams.
   * Tvarkykite projektus pagal metus, klientą ar projekto tipą skirtingose aplankose.
-* **Pastaba**: Šio parametro keitimas turi įtakos tik NAUJIEMS projektams. Esami projektai lieka savo pradinėse vietose.
+* **Pastaba**: Šio nustatymo keitimas turi įtakos tik NAUJIEMS projektams. Esami projektai lieka savo pradinėse vietose.
 
 ***
 
-## Parametrų išsaugojimas
+## Nustatymų išsaugojimas
 
 Visi projekto nustatymai automatiškai išsaugomi su jūsų projekto failu (`.mapir` projekto formatas). Kai vėl atidarote projektą, visi nustatymai atkurti tiksliai taip, kaip juos palikote.
 
@@ -223,28 +223,28 @@ Visi projekto nustatymai automatiškai išsaugomi su jūsų projekto failu (`.ma
 
 Nustatymai taikomi tokia tvarka:
 
-1. **Sistemos numatyti nustatymai** – įdiegtieji numatyti nustatymai, apibrėžti Chloros
+1. **Sistemos numatyti nustatymai** – įdiegti numatyti nustatymai, apibrėžti Chloros
 2. **Šablono nustatymai** – jei kurdami projektą įkeliate šabloną
 3. **Išsaugoti projekto nustatymai** – su projekto failu išsaugoti nustatymai
 4. **Rankiniai koregavimai** – bet kokie pakeitimai, kuriuos atliekate per esamą sesiją
 
 ### Nustatymai ir vaizdų apdorojimas
 
-Dauguma nustatymų pakeitimų (ypač kategorijose „Apdorojimas“ ir „Eksportavimas“) sukels vaizdų perdirbimą, kad būtų atspindėti nauji nustatymai. Tačiau kai kurie nustatymai yra „tik eksportavimo“ ir nereikalauja nedelsiamo pakartotinio apdorojimo:
+Dauguma nustatymų pakeitimų (ypač kategorijose „Apdorojimas“ ir „Eksportavimas“) sukels vaizdų pakartotinį apdorojimą, kad būtų atspindėti nauji nustatymai. Tačiau kai kurie nustatymai yra „tik eksportavimo“ ir nereikalauja pakartotinio apdorojimo:
 
-* Išsaugoti projekto šabloną
+* Projekto šablono išsaugojimas
 * Darbinis katalogas
-* Kalibruotas vaizdo formatas (taikoma eksportuojant)
+* Kalibruotas vaizdo formatas (taikomas eksportuojant)
 
 ***
 
 ## Geriausia praktika
 
-1. **Pradėkite nuo numatytųjų nustatymų**: numatytieji nustatymai puikiai tinka daugumai MAPIR kamerų sistemų ir tipiniams darbo srautams.
-2. **Sukurkite šablonus**: kai optimizavote nustatymus konkrečiam darbo srautui ar kamerai, išsaugokite juos kaip šabloną, kad užtikrintumėte nuoseklumą visuose projektuose.
-3. **Išbandykite prieš visą apdorojimą**: kai bandote naujus nustatymus, išbandykite juos nedidelėje vaizdų dalyje, prieš apdorodami visą duomenų rinkinį.
+1. **Pradėkite nuo numatytųjų nustatymų**: numatytieji nustatymai puikiai tinka daugumai MAPIR kamerų sistemų ir tipinių darbo eigų.
+2. **Sukurkite šablonus**: optimizavę nustatymus konkrečiai darbo eigai ar kamerai, išsaugokite juos kaip šabloną, kad užtikrintumėte nuoseklumą visuose projektuose.
+3. **Išbandykite prieš visą apdorojimą**: bandydami naujus nustatymus, išbandykite juos su nedideliu vaizdų rinkiniu, prieš apdorodami visą duomenų rinkinį.
 4. **Užrašykite savo nustatymus**: naudokite aprašomuosius šablonų pavadinimus, kurie nurodo kameros sistemą, apdorojimo tipą ir numatytą naudojimą (pvz., „Survey3\_RGB\_NDVI\_Agriculture“).
-5. **Eksporto formato pasirinkimas**: Pasirinkite eksporto formatą pagal galutinę paskirtį:
+5. **Eksporto formato pasirinkimas**: pasirinkite eksporto formatą pagal galutinę paskirtį:
    * Mokslinė analizė → TIFF (16 bitų arba 32 bitų)
    * GIS apdorojimas → TIFF (16 bitų)
    * Greitas vizualizavimas → PNG (8 bitai)

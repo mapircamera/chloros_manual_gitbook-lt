@@ -1,204 +1,204 @@
-# Adding Files to a Project
+# Failų pridėjimas prie projekto
 
-Once you've created or opened a project in Chloros, the next step is to add your multispectral images to begin processing. The File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> tab makes it easy to import images and manage your dataset.
+Sukūrę arba atidarę projektą Chloros, kitas žingsnis yra pridėti daugiaspektrinius vaizdus, kad galėtumėte pradėti apdorojimą. Failų naršyklė<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> skirtukas leidžia lengvai importuoti vaizdus ir tvarkyti duomenų rinkinį.
 
-## Accessing the File Browser
+## Prieiga prie failų naršyklės
 
-1. Open or create a project in Chloros
-2. Click the **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The File Browser panel will display your project's file list
+1. Atidarykite arba sukurkite projektą Chloros
+2. Spustelėkite **Failų naršyklė** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje
+3. Failų naršyklės skydelyje bus rodomas jūsų projekto failų sąrašas
 
-{% hint style="info" %}
-**Supported File Types**: Chloros supports RAW+JPG and JPG image files from MAPIR Survey3W and Survey3N cameras. Only RAW+JPG are recommended.
+{% patarimas style=&quot;info&quot; %}
+**Palaikomi failų tipai**: Chloros palaiko RAW+JPG ir JPG vaizdo failus iš MAPIR Survey3W ir Survey3N fotoaparatų. Rekomenduojama naudoti tik RAW+JPG.
 {% endhint %}
 
 ***
 
-## Adding Images to Your Project
+## Vaizdų pridėjimas prie projekto
 
-There are two primary ways to add images to your project:
+Yra du pagrindiniai būdai, kaip pridėti vaizdus prie projekto:
 
-### Method 1: Add Files
+### 1 metodas: failų pridėjimas
 
-Use this option to import individual image files or a small selection of files.
+Naudokite šią parinktį, jei norite importuoti atskirus vaizdo failus arba nedidelį failų rinkinį.
 
-1. Click the **"Add Files"** button at the top of the File Browser panel
-2. Navigate to the folder containing your images
-3. Select one or more image files (hold **Ctrl** to select multiple files)
-4. Click **"Open"** to import the selected files
+1. Spustelėkite mygtuką **„Pridėti failus“** viršuje failų naršyklės skydelyje.
+2. Pereikite į aplanką, kuriame yra jūsų vaizdai.
+3. Pasirinkite vieną ar kelis vaizdo failus (norėdami pasirinkti kelis failus, laikykite nuspaudę klavišą **Ctrl**).
+4. Spustelėkite **„Atidaryti“**, kad importuotumėte pasirinktus failus.
 
-### Method 2: Add Folder
+### 2 metodas: aplanko pridėjimas
 
-Use this option to import all images from a folder at once.
+Naudokite šią parinktį, jei norite importuoti visus vaizdus iš aplanko iš karto.
 
-1. Click the **"Add Folder"** button at the top of the File Browser panel
-2. Navigate to and select the folder containing your capture session images
-3. Click **"Select Folder"** to import all supported images from that folder
-
-***
-
-## Understanding the File Browser Table
-
-Once images are imported, they appear in a table with the following columns:
-
-### Thumbnail
-
-* Small preview of each image
-* Click thumbnail to view full image in the main preview area
-
-### File Name
-
-* Original filename from the camera
-* Maintains camera naming convention (e.g., IMG\_0001.RAW)
-
-### Timestamp
-
-* Date and time the image was captured
-* Extracted from image EXIF metadata
-* Used for PPK synchronization and calibration target detection
-
-### Camera Model
-
-* Automatically detected camera and filter configuration
-* Examples: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Used to apply correct processing profiles
-
-### Target Column (Checkbox)
-
-* Check this box for images that contain calibration targets
-* Greatly speeds up target detection during processing
-* See [Choosing Target Images](choosing-target-images.md) for details
+1. Spustelėkite mygtuką **„Pridėti aplanką“** failų naršyklės skydelio viršuje.
+2. Pereikite prie aplanko, kuriame yra jūsų fotografavimo sesijos vaizdai, ir jį pasirinkite.
+3. Spustelėkite **„Pasirinkti aplanką“**, kad importuotumėte visus palaikomus vaizdus iš to aplanko.
 
 ***
 
-## Managing Files in Your Project
+## Failų naršyklės lentelės supratimas
 
-### Removing Files
+Kai vaizdai importuojami, jie rodomi lentelėje su šiomis stulpeliais:
 
-To remove unwanted images from your project:
+### Miniatiūra
 
-1. Select one or more images in the File Browser table
-2. Click the **"Remove Selected"** button
-3. Confirm removal (files are not deleted from disk, only removed from the project)
+* Mažas kiekvieno vaizdo peržiūros langelis.
+* Spustelėkite miniatiūrą, kad pagrindiniame peržiūros lange būtų rodomas visas vaizdas.
 
-### Sorting and Filtering
+### Failo pavadinimas
 
-* **Sort by column**: Click any column header to sort images
-* **Timestamp sort**: Useful for organizing chronological capture sequences
-* **Camera model filter**: Group images by camera type if using multiple cameras
+* Originalus failo pavadinimas iš fotoaparato.
+* Laikosi fotoaparato pavadinimų suteikimo taisyklių (pvz., IMG\_0001.RAW).
 
-***
+### Laiko žyma
 
-## Image Preview
+* Vaizdo užfiksavimo data ir laikas.
+* Išgauta iš vaizdo EXIF metaduomenų.
+* Naudojamas PPK sinchronizavimui ir kalibravimo tikslo aptikimui
 
-### Viewing Full Image
+### Fotoaparato modelis
 
-Click any image thumbnail in the File Browser to display it in the main preview area:
+* Automatiškai aptiktas fotoaparato ir filtro konfigūracija
+* Pavyzdžiai: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
+* Naudojamas teisingiems apdorojimo profiliams taikyti
 
-1. Image appears in the center preview panel
-2. Use zoom controls to inspect image details
-3. Navigate between images using arrow keys
+### Tikslo stulpelis (žymės langelis)
 
-### Quick Navigation
-
-* **Previous Image**: Click left arrow or press ← key
-* **Next Image**: Click right arrow or press → key
-* **Zoom In/Out**: Use mouse wheel or zoom buttons
-* **Pan**: Click and drag on image when zoomed in
+* Pažymėkite šį langelį, jei vaizduose yra kalibravimo tikslai
+* Žymiai pagreitina tikslo aptikimą apdorojimo metu
+* Daugiau informacijos rasite skyriuje [Tikslo vaizdų pasirinkimas](choosing-target-images.md)
 
 ***
 
-## Duplicate File Handling
+## Failų tvarkymas projekte
 
-Chloros automatically detects and ignores duplicate files:
+### Failų šalinimas
 
-* Files with identical filenames are skipped
-* Prevents accidental double-processing
-* Warning message displayed when duplicates are detected
+Norėdami pašalinti nepageidaujamus vaizdus iš savo projekto:
 
-{% hint style="warning" %}
-**Important**: Do not rename or modify your original image files before importing. Chloros relies on original filenames and metadata for proper processing.
+1. Pasirinkite vieną ar kelis vaizdus failų naršyklės lentelėje
+2. Spustelėkite mygtuką **„Pašalinti pasirinktus“**
+3. Patvirtinkite pašalinimą (failai nėra ištrinami iš disko, tik pašalinami iš projekto)
+
+### Rūšiavimas ir filtravimas
+
+* **Rūšiuoti pagal stulpelį**: spustelėkite bet kurį stulpelio antraštę, kad surūšiuotumėte vaizdus
+* **Rūšiuoti pagal laiko žymą**: naudinga chronologinei fotografavimo sekai tvarkyti.
+* **Fotoaparato modelio filtras**: jei naudojate kelis fotoaparatus, sugrupuokite vaizdus pagal fotoaparato tipą.
+
+***
+
+## Vaizdo peržiūra
+
+### Visas vaizdas
+
+Spustelėkite bet kurį vaizdo miniatiūrą failų naršyklėje, kad jis būtų rodomas pagrindiniame peržiūros lange:
+
+1. Vaizdas rodomas peržiūros lango centre.
+2. Naudokite mastelio reguliavimo mygtukus, kad peržiūrėtumėte vaizdo detales.
+3. Naršykite tarp vaizdų naudodami rodyklių klavišus
+
+### Greitas naršymas
+
+* **Ankstesnis vaizdas**: spustelėkite kairę rodyklę arba paspauskite klavišą ←
+* **Kitas vaizdas**: spustelėkite dešinę rodyklę arba paspauskite klavišą →
+* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio mygtukus
+* **Perkelti**: padidintą vaizdą spustelėkite ir vilkite
+
+***
+
+## Dvigubų failų tvarkymas
+
+Chloros automatiškai aptinka ir ignoruoja dubliuojamus failus:
+
+* Failai su identiškais pavadinimais yra praleidžiami
+* Apsaugo nuo atsitiktinio dvigubo apdorojimo
+* Aptikus dubliuojamus failus, rodomas įspėjamasis pranešimas
+
+{% hint style=&quot;warning&quot; %}
+**Svarbu**: prieš importuodami nepakeiskite ir nemodifikuokite originalių vaizdo failų. Chloros tinkamam apdorojimui naudoja originalius failų pavadinimus ir metaduomenis.
 {% endhint %}
 
 ***
 
-## Mixed Camera Datasets
+## Mišrios kamerų duomenų rinkmenos
 
-If your project contains images from multiple MAPIR cameras:
+Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 
-1. Chloros automatically detects each camera model
-2. Each camera type is processed with its appropriate calibration profile
-3. File Browser displays camera model in the Camera Model column
-4. Processing applies correct settings for each camera type
+1. Chloros automatiškai aptinka kiekvieną kameros modelį.
+2. Kiekvienas kameros tipas apdorojamas naudojant atitinkamą kalibravimo profilį.
+3. Failų naršyklė rodo kameros modelį stulpelyje „Kameros modelis“.
+4. Apdorojant taikomi teisingi nustatymai kiekvienam kameros tipui.
 
-**Example scenario**: Survey3W RGN + Survey3N OCN dual-camera setup
-
-***
-
-## Best Practices
-
-### Organize Before Import
-
-* Keep calibration target images in the same folder as survey images
-* Maintain original folder structure from your camera/SD card
-* Don't mix datasets from different sessions in one project
-
-### File Naming
-
-* Preserve original camera filenames (IMG\_0001.RAW, etc.)
-* Don't rename files before import
-* Original names contain important metadata
-
-### Calibration Target Images
-
-* Always include 1-2 calibration target images per session
-* Capture targets before and after the capture session
-* Place targets in the same lighting conditions as capture area
-* Mark target images using the Target checkbox to speed up processing
+**Pavyzdinis scenarijus**: Survey3W RGN + Survey3N OCN dvigubos kameros konfigūracija.
 
 ***
 
-## Common Issues and Solutions
+## Geriausia praktika
 
-### Images Not Appearing After Import
+### Tvarkykite prieš importuodami
 
-**Possible causes:**
+* Kalibravimo tikslinius vaizdus laikykite toje pačioje aplankoje kaip ir tyrimo vaizdus
+* Išsaugokite originalią aplanko struktūrą iš savo kameros/SD kortelės
+* Viename projekte nemaišykite duomenų rinkinių iš skirtingų sesijų
 
-* File format not supported (only RAW+JPG and JPG from MAPIR cameras)
-* Images are from non-MAPIR cameras (see [Supported Cameras](../supported-cameras.md))
-* File corruption or incomplete transfer from SD card
+### Failų pavadinimai
 
-**Solution**: Verify file format and camera model compatibility
+* Išsaugokite originalius kameros failų pavadinimus (IMG\_0001.RAW ir pan.)
+* Nepervardykite failų prieš importavimą
+* Originaliuose pavadinimuose yra svarbių metaduomenų
 
-### Camera Model Not Detected
+### Kalibravimo tiksliniai vaizdai
 
-**Possible causes:**
-
-* Modified EXIF metadata
-* Images edited in external software
-* Incomplete file transfer
-
-**Solution**: Re-import original, unmodified files from camera/SD card
-
-### Missing Timestamps
-
-**Possible causes:**
-
-* Camera clock not set correctly
-* EXIF data stripped by external software
-
-**Solution**: Verify camera time settings were correct during capture
+* Visada įtraukite 1–2 kalibravimo tikslinius vaizdus per sesiją.
+* Užfiksuokite tikslinius vaizdus prieš ir po užfiksavimo sesijos.
+* Pastatykite tikslinius vaizdus tokiomis pačiomis apšvietimo sąlygomis kaip užfiksavimo srityje.
+* Pažymėkite tikslinius vaizdus naudodami žymės langelį „Tikslas“, kad pagreitintumėte apdorojimą.
 
 ***
 
-## Next Steps
+## Dažnos problemos ir sprendimai
 
-Once your files are imported:
+### Vaizdai neatsiranda po importavimo
 
-1. **Review the file list** - Ensure all images loaded correctly
-2. **Check camera models** - Verify correct camera detection
-3. **Mark target images** - See [Choosing Target Images](choosing-target-images.md)
-4. **Adjust settings** - Configure processing options in [Project Settings](adjusting-project-settings.md)
-5. **Start processing** - See [Starting the Processing](starting-the-processing.md)
+**Galimos priežastys:**
 
-For detailed information about project configuration, see [Adjusting Project Settings](adjusting-project-settings.md).
+* Nepalaikomas failo formatas (tik RAW+JPG ir JPG iš MAPIR fotoaparatų)
+* Vaizdai yra iš ne MAPIR fotoaparatų (žr. [Palaikomi fotoaparatai](../supported-cameras.md))
+* Failo sugadinimas arba neišsamus perkėlimas iš SD kortelės
+
+**Sprendimas**: Patikrinkite failo formatą ir fotoaparato modelio suderinamumą.
+
+### Fotoaparato modelis neaptiktas
+
+**Galimos priežastys:**
+
+* Modifikuoti EXIF metaduomenys.
+* Vaizdai redaguoti išorinėje programinėje įrangoje.
+* Neužbaigtas failų perkėlimas.
+
+**Sprendimas**: Pakartotinai importuokite originalius, nemodifikuotus failus iš fotoaparato/SD kortelės.
+
+### Trūksta laiko žymų
+
+**Galimos priežastys:**
+
+* Netinkamai nustatytas fotoaparato laikrodis
+* Išorinė programinė įranga pašalino EXIF duomenis
+
+**Sprendimas**: Patikrinkite, ar fotoaparato laiko nustatymai buvo teisingi fotografavimo metu
+
+***
+
+## Tolimesni veiksmai
+
+Kai failai bus importuoti:
+
+1. **Peržiūrėkite failų sąrašą** – įsitikinkite, kad visi vaizdai įkelti teisingai
+2. **Patikrinkite fotoaparato modelius** – patikrinkite, ar fotoaparatas nustatytas teisingai
+3. **Pažymėkite tikslinį vaizdą** – žr. [Tikslinio vaizdo pasirinkimas](choosing-target-images.md)
+4. **Nustatykite parametrus** – konfigūruokite apdorojimo parinktis [Projekto nustatymai](adjusting-project-settings.md)
+5. **Pradėkite apdorojimą** – žr. [Apdorojimo pradžia](starting-the-processing.md)
+
+Išsami informacija apie projekto konfigūraciją pateikta skyriuje [Projekto nustatymų koregavimas](adjusting-project-settings.md).

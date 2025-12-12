@@ -2,12 +2,12 @@
 
 Kai Chloros užbaigs apdorojimą, atėjo laikas peržiūrėti rezultatus, patikrinti išvesties kokybę ir paruošti apdorotus vaizdus naudoti darbo eigoje. Šiame puslapyje pateikiami galutiniai žingsniai ir tolesni veiksmai.
 
-## Apdorojimo pabaigos rodiklis
+## Apdorojimo užbaigimo indikatorius
 
-Sėkmingai užbaigus apdorojimą, matysite kelis rodiklius:
+Sėkmingai užbaigus apdorojimą, matysite kelis indikatorius:
 
 * ✅ **Pažangos juosta**: pasiekia 100 % užbaigtumą
-* ✅ **Debug log**: rodo pranešimą „Apdorojimas užbaigtas“
+* ✅ **Debug log**: rodo pranešimą „Processing Complete“ (Apdorojimas užbaigtas)
 * ✅ **Pradžios mygtukas**: vėl tampa aktyvus (paruoštas kitam apdorojimo ciklui)
 * ✅ **Išvesties failai**: visi apdoroti vaizdai išsaugomi fotoaparato modelio pakatalogyje
 
@@ -17,7 +17,7 @@ Sėkmingai užbaigus apdorojimą, matysite kelis rodiklius:
 
 ### Išvesties aplanko atidarymas
 
-1. Spustelėkite **Pagrindinis meniu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (viršuje kairėje)
+1. Spustelėkite **Pagrindinis meniu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (viršutiniame kairiajame kampe)
 2. Pasirinkite **„Atidaryti projekto aplanką“**
 3. Jūsų failų naršyklė atidarys projekto katalogą
 4. Suraskite savo projektą pagal pavadinimą
@@ -75,7 +75,7 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 1. Spustelėkite mygtuką **„Kopijuoti“** arba **„Atsisiųsti“**
 2. Išsaugokite kaip tekstinį failą projekto aplanke
 3. Pridėkite prie projekto dokumentacijos
-4. Jei susidūrėte su problemomis, nusiųskite MAPIR palaikymo tarnybai
+4. Jei kyla problemų, nusiųskite MAPIR palaikymo tarnybai
 
 ***
 
@@ -85,16 +85,16 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 **Galimos priežastys:**
 
-* Failai neatitiko apdorojimo kriterijų
-* Tik tiksliniai vaizdai (neįtraukti į eksportą)
-* Eksporto metu baigėsi disko vieta
-* Failų sugadinimas apdorojimo metu
+* Failai neatitiko apdorojimo kriterijų.
+* Tik tiksliniai vaizdai (neįtraukti į eksportą).
+* Eksporto metu baigėsi disko vieta.
+* Failų sugadinimas apdorojimo metu.
 
 **Sprendimai:**
 
-1. Patikrinkite Debug Log, ar nėra praleidimo/klaidų pranešimų
-2. Patikrinkite, ar buvo pakankamai disko vietos
-3. Suskaičiuokite failus: turėtų sutapti (pirminis skaičius - tikslinis skaičius) × (indeksai + 1)
+1. Patikrinkite Debug Log, ar nėra praleidimo/klaidų pranešimų.
+2. Patikrinkite, ar buvo pakankamai disko vietos.
+3. Suskaičiuokite failus: turėtų sutapti (pirminis skaičius – tikslinis skaičius) × (indeksai + 1)
 4. Pakartotinai importuokite ir apdorokite trūkstamus failus.
 
 ### Problema: tamsūs arba šviesūs kraštai (vis dar matomas vinjetavimas)
@@ -107,7 +107,7 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 **Sprendimai:**
 
-1. Patikrinkite, ar projekto nustatymuose įjungta vinjetės korekcija.
+1. Patikrinkite, ar projekto nustatymuose įjungtas vinjetės koregavimas.
 2. Patikrinkite, ar teisingai nustatytas fotoaparato modelis.
 3. Jei vinjetė išlieka, susisiekite su MAPIR pagalbos tarnyba.
 
@@ -131,18 +131,18 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 **Tikėtini NDVI diapazonai:**
 
-* **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
+* **Vanduo, akmenys, dirvožemis**: nuo -0,1 iki 0,2
 * **Retas/nesveikas augmenija**: nuo 0,2 iki 0,4
-* **Vidutinė augmenija**: nuo 0,4 iki 0,6
+* **Vidutinis augmenija**: nuo 0,4 iki 0,6
 * **Sveika, tanki augmenija**: nuo 0,6 iki 0,9
 
 **Jei vertės neatitinka šių intervalų:**
 
 1. Patikrinkite, ar buvo taikytas atspindžio kalibravimas.
 2. Patikrinkite, ar buvo įtrauktas šviesos jutiklio žurnalas.
-3. Patikrinkite, ar buvo aptikti kalibravimo tikslai.
+3. Patikrinkite, ar buvo aptikti kalibravimo taškai.
 4. Įsitikinkite, kad buvo aptiktas teisingas fotoaparato modelis.
-5. Peržiūrėkite tikslo vaizdo fiksavimo laiką ir sąlygas.
+5. Peržiūrėkite taško vaizdo užfiksavimo laiką ir sąlygas.
 
 ***
 
@@ -164,7 +164,7 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 ### GIS analizei
 
-**Rekomenduojamas darbo srautas:**
+**Rekomenduojamas darbo eiga:**
 
 1. **Įkelkite į QGIS, ArcGIS ar panašią programą**
 2. **Naudokite 16 bitų TIFF** atspindžio vaizdus daugiabandinei analizei
@@ -198,8 +198,8 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 **Rekomendacijos dėl saugojimo:**
 
 * **Nedelsiant atlikite atsarginę kopiją**: išorinis kietasis diskas
-* **Ilgalaikis archyvas**: debesų saugykla (Google Drive, Dropbox ir pan.)
-* **Svarbūs duomenys**: išsaugokite 2–3 kopijas skirtingose vietose
+* **Ilgalaikis archyvavimas**: saugojimas debesyje (Google Drive, Dropbox ir kt.)
+* **Svarbūs duomenys**: laikykite 2–3 kopijas skirtingose vietose
 
 ***
 
@@ -240,7 +240,7 @@ Daugioms sesijoms/duomenų rinkiniams:
 
 ## Problemų sprendimas po apdorojimo
 
-### Pakartotinis apdorojimas su kitomis nustatymomis
+### Pakartotinis apdorojimas su kitokiais nustatymais
 
 Jei rezultatai nėra patenkinami:
 
@@ -260,7 +260,7 @@ Norėdami pakartotinai apdoroti tik tam tikrus vaizdus:
 
 ### Pagalba
 
-Jei kyla problemų:
+Jei susiduriate su problemomis:
 
 * 📧 **El. paštas**: info@mapir.camera (pridėkite Debug Log)
 * 🌐 **Pagalba**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
@@ -273,15 +273,15 @@ Jei kyla problemų:
 
 Dabar baigėte visą Chloros apdorojimo darbo eigą:
 
-1. ✅ **Sukurta projektas** – žr. [Projektai](../projects.md)
+1. ✅ **Sukurtas projektas** – žr. [Projektai](../projects.md)
 2. ✅ **Pridėti failai** – žr. [Failų pridėjimas](adding-files-to-a-project.md)
 3. ✅ **Pritaikyti nustatymai** – žr. [Projekto nustatymų pritaikymas](adjusting-project-settings.md)
-4. ✅ **Pažymėti tikslai** – žr. [Tikslo vaizdų pasirinkimas](choosing-target-images.md)
+4. ✅ **Pažymėti tikslai** – žr. [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
 5. ✅ **Pradėtas apdorojimas** – žr. [Apdorojimo pradžia](starting-the-processing.md)
-6. ✅ **Stebimas pažanga** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
-7. ✅ **Peržiūrėti rezultatai** – ši puslapis
+6. ✅ **Stebėta pažanga** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
+7. ✅ **Peržiūrėti rezultatai** – Ši puslapis
 
-**Jūsų kalibruoti, atspindžio koreguoti daugiaspektriai vaizdai yra paruošti analizės!**
+**Jūsų kalibruoti, atspindžio koreguoti daugiaspektriniai vaizdai yra paruošti analizės!**
 
 ***
 
@@ -289,9 +289,9 @@ Dabar baigėte visą Chloros apdorojimo darbo eigą:
 
 ### Išplėstinės funkcijos
 
-* [**Vaizdų peržiūros programa**](../image-viewer-gui/opening-an-image-full-screen.md) – interaktyvus vizualizavimas ir analizė
-* [**Indeksų/LUT smėlio dėžė**](../image-viewer-gui/index-lut-sandbox.md) – individualių indeksų testavimas
-* [**Daugiaspektrinių indeksų formulės**](../project-settings/multispectral-index-formulas.md) – išsamus indeksų žinynas
+* [**Vaizdų peržiūros programa**](../image-viewer-gui/opening-an-image-full-screen.md) – Interaktyvus vizualizavimas ir analizė
+* [**Indeksas/LUT smėlio dėžė**](../image-viewer-gui/index-lut-sandbox.md) – individualus indekso testavimas
+* [**Daugiaspektrinės indekso formulės**](../project-settings/multispectral-index-formulas.md) – išsamus indekso žinynas
 
 ### Automatizavimas ir integracija
 

@@ -7,14 +7,14 @@ Kai importavote vaizdus, pažymėjote kalibravimo tikslus ir konfigūravote proj
 Prieš spustelėdami mygtuką „Pradėti“, patikrinkite, ar viskas paruošta:
 
 * [ ] **Importuoti failai** – visi vaizdai rodomi failų naršyklėje
-* [ ] **Pažymėti tiksliniai vaizdai** – tikslinėje skiltyje pažymėti kalibravimo vaizdai
+* [ ] **Pažymėti tiksliniai vaizdai** – tikslinė kolona patikrinta kalibravimo vaizdams
 * [ ] **Aptikti fotoaparatų modeliai** – stulpelyje „Fotoaparato modelis“ rodomi teisingi fotoaparatai
 * [ ] **Konfigūruoti nustatymai** – peržiūrėti ir pakoreguoti projekto nustatymai
 * [ ] **Pasirinkti indeksai** – pridėti norimi multispektriniai indeksai (jei reikia)
 * [ ] **Pasirinktas eksporto formatas** – jūsų darbo eigai tinkamas išvesties formatas
 
 {% hint style=&quot;info&quot; %}
-**Patarimas**: Prieš apdorojimą spustelėkite keletą vaizdų failų naršyklėje, kad patikrintumėte, ar jie įkelti teisingai.
+**Patarimas**: Prieš apdorojimą peržiūrėkite keletą vaizdų failų naršyklėje, kad įsitikintumėte, jog jie įkelti teisingai.
 {% endhint %}
 
 ***
@@ -31,7 +31,7 @@ Paleidimo/grojimo mygtukas yra viršutinėje Chloros juostoje:
 
 ### Spustelėkite, kad pradėtumėte
 
-1. Spustelėkite **Paleisti/Pradėti mygtuką** viršutinėje juostoje
+1. Spustelėkite **Paleisti/Pradėti mygtuką** viršutiniame antraštės juostoje
 2. Apdorojimas prasideda iš karto
 3. Apdorojimo metu mygtukas tampa išjungtas (pilkos spalvos)
 4. Atnaujinama pažangos juosta, rodanti apdorojimo būklę
@@ -46,14 +46,14 @@ Paleidimo/grojimo mygtukas yra viršutinėje Chloros juostoje:
 
 Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų licencijos:
 
-### Nemokamas režimas (eilinis apdorojimas)
+### Nemokamas režimas (sekvencinis apdorojimas)
 
 **Prieinamas visiems vartotojams**
 
 **Kaip veikia:**
 
 * Apdoroja vaizdus po vieną, nuosekliai
-* Vienos sriegio veikimas
+* Vienos sriegės veikimas
 * Mažesnis atminties naudojimas
 
 **Pažangos juosta rodo 2 etapus:**
@@ -73,7 +73,7 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 **Kaip veikia:**
 
 * Vienu metu apdoroja kelis vaizdus
-* Daugiasiūlis veikimas (iki 16 lygiagrečių procesų)
+* Daugiaprocesinis veikimas (iki 16 lygiagrečių procesų)
 * Naudoja kelis CPU branduolius
 * Pasirenkamas GPU (CUDA) pagreitinimas su NVIDIA grafikos plokštėmis
 
@@ -87,8 +87,8 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 **Progreso juostos sąveika:**
 
 * **Pereikite pelės žymekliu** per juostą, kad pamatytumėte išsamų 4 etapų išskleidžiamąjį skydelį
-* **Spustelėkite** progreso juostą, kad išskleidžiamasis skydelis liktų toje vietoje
-* **Spustelėkite dar kartą**, kad skydelis būtų atšaldytas ir paslėptas
+* **Spustelėkite** progreso juostą, kad išskleidžiamasis skydelis liktų toje pačioje vietoje
+* **Spustelėkite dar kartą**, kad skydelis būtų atšildytas ir paslėptas
 
 **Apdorojimo laikas:**
 
@@ -97,27 +97,27 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 * GPU pagreitinimas dar labiau padidina greitį
 
 {% hint style=&quot;info&quot; %}
-**Chloros+ Greitis**: Lygiagretus apdorojimas gali būti 5–10 kartų greitesnis nei nuoseklusis režimas dideliems duomenų rinkiniams. 500 vaizdų projektas, kuris nemokamu režimu trunka 2 valandas, su Chloros+ gali būti užbaigtas per 15–20 minučių.
+**Chloros+ Greitis**: lygiagretus apdorojimas gali būti 5–10 kartų greitesnis nei nuoseklusis režimas dideliems duomenų rinkiniams. 500 vaizdų projektas, kuris nemokamu režimu trunka 2 valandas, su Chloros+ gali būti užbaigtas per 15–20 minučių.
 {% endhint %}
 
 ***
 
 ## Kas vyksta apdorojimo metu
 
-### 1 etapas: Tikslo aptikimas
+### 1 etapas: tikslo aptikimas
 
 **Ką daro Chloros:**
 
 * Nuskaito pažymėtus tikslo vaizdus (arba visus vaizdus, jei nėra pažymėtų)
 * Identifikuoja 4 kalibravimo skydelius kiekviename tiksle
-* Išskiria atspindžio vertes iš tikslo skydelių
-* Įrašo tikslo laiko žymes kalibravimo planavimui
+* Išskiria atspindžio vertes iš tikslų skydelių
+* Įrašo tikslų laiko žymes kalibravimo planavimui
 
 **Trukmė:** 1–30 sekundžių (su pažymėtais tikslais), 5–30+ minučių (nepažymėtais)
 
 ### 2 etapas: Debayering (RAW konversija)
 
-**Ką daro Chloros:**
+**Chloros atlieka šiuos veiksmus:**
 
 * Konvertuoja RAW Bayer modelio duomenis į pilnus RGB vaizdus
 * Taiko aukštos kokybės demosaicing algoritmą
@@ -130,7 +130,7 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 **Ką daro Chloros:**
 
 * **Vignette korekcija**: pašalina objektyvo patamsėjimą kraštuose
-* **Atspindžio kalibravimas**: normalizuoja naudojant tikslinio atspindžio vertes
+* **Atšvaitos kalibravimas**: normalizuoja naudojant tikslinės atšvaitos vertes
 * Taiko korekcijas visose juostose/kanaluose
 * Naudoja tinkamą kalibravimo tikslą kiekvienam vaizdui pagal laiko žymą
 
@@ -152,7 +152,7 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 
 * Išsaugo kalibruotus vaizdus pasirinktu formatu
 * Eksportuoja indeksų vaizdus su konfigūruotomis LUT spalvomis
-* Rašo failus į kameros modelio pakatalogius
+* Rašo failus į fotoaparato modelio pakatalogius
 * Išsaugo originalius failų pavadinimus su priesagomis
 
 **Trukmė:** priklauso nuo eksporto formato ir failo dydžio
@@ -173,15 +173,15 @@ Pradėjus, visas procesas vyksta automatiškai:
 
 **Laisvasis režimas:**
 
-* Santykinai mažas procesoriaus naudojimas (vienos grandinės)
-* Kompiuteris lieka reaguojantis kitoms užduotims
+* Santykinai mažas CPU naudojimas (vienos sriegis)
+* Kompiuteris lieka reaguojantis į kitas užduotis
 * Saugu sumažinti Chloros ir dirbti kitose programose
 
-**Chloros+ Lygiagretus režimas:**
+**Chloros+ Lygiagretusis režimas:**
 
-* Didelis CPU naudojimas (daugiagijis, iki 16 branduolių)
+* Didelis CPU naudojimas (daugiasiūlis, iki 16 branduolių)
 * Su GPU pagreičiu: didelis GPU naudojimas
-* Kompiuteris apdorojimo metu gali būti mažiau reaguojantis
+* Kompiuteris gali būti mažiau reaguojantis apdorojimo metu
 * Venkite pradėti kitas CPU intensyvias užduotis
 
 {% hint style=&quot;warning&quot; %}
@@ -192,12 +192,12 @@ Pradėjus, visas procesas vyksta automatiškai:
 
 **Svarbūs apribojimai:**
 
-* Pradėjus apdorojimą, jo negalima sustabdyti
-* Apdorojimą galima atšaukti, bet pažanga bus prarasta
-* Daliniai rezultatai nėra išsaugomi
-* Atšaukus apdorojimą, reikia pradėti iš naujo
+* Pradėjus apdorojimą, jo negalima sustabdyti.
+* Apdorojimą galima atšaukti, bet pažanga bus prarasta.
+* Daliniai rezultatai nėra išsaugomi.
+* Atšaukus apdorojimą, reikia pradėti iš naujo.
 
-**Planavimo patarimas:** labai dideliems projektams apsvarstykite apdorojimą partijomis arba CLI naudojimą, kad galėtumėte geriau kontroliuoti.
+**Planavimo patarimas:** labai dideliems projektams apdorojimą rekomenduojama atlikti partijomis arba naudoti CLI, kad būtų galima geriau kontroliuoti procesą.
 
 ***
 
@@ -207,10 +207,10 @@ Kol vyksta apdorojimas, galite:
 
 * **Stebėti pažangos juostą** – matyti bendrą užbaigtumo procentą
 * **Peržiūrėti dabartinį etapą** – aptikti, analizuoti, kalibruoti arba eksportuoti
-* **Patikrinti žurnalo skirtuką** – peržiūrėti išsamius apdorojimo pranešimus ir įspėjimus
+* **Patikrinti žurnalo skirtuką** – matyti išsamius apdorojimo pranešimus ir įspėjimus
 * **Peržiūrėti užbaigtus vaizdus** – kai kurie eksportuojami failai gali pasirodyti apdorojimo metu
 
-Išsami informacija apie stebėjimą pateikta skyriuje [Apdorojimo stebėjimas](monitoring-the-processing.md).
+Išsamią informaciją apie stebėjimą rasite [Apdorojimo stebėjimas](monitoring-the-processing.md).
 
 ***
 
@@ -234,15 +234,15 @@ Jei reikia sustabdyti apdorojimą:
 * Importuoti neteisingi vaizdai
 * Sistema veikia per lėtai arba nereaguoja
 
-**Atšaukus:**
+**Po atšaukimo:**
 
 * Peržiūrėkite ir ištaisykite visas problemas
 * Pritaikykite nustatymus pagal poreikį
 * Pradėkite apdorojimą iš naujo
-* Norėdami užtikrinti sklandžiausią veikimą, visiškai uždarykite Chloros ir paleiskite iš naujo
+* Norėdami gauti geriausią patirtį, visiškai uždarykite Chloros ir paleiskite iš naujo.
 
 {% hint style=&quot;warning&quot; %}
-**Nėra dalinių rezultatų**: Atšaukus visos pažangos duomenys bus ištrinti. Chloros neišsaugo iš dalies apdorotų vaizdų.
+**Nėra dalinių rezultatų**: Atšaukus atmetami visi pažangos rezultatai. Chloros neišsaugo dalinai apdorotų vaizdų.
 {% endhint %}
 
 ***
@@ -255,14 +255,14 @@ Faktinis apdorojimo laikas labai skiriasi priklausomai nuo:
 * Vaizdų skiriamosios gebos
 * RAW ir JPG įvesties formato
 * Apdorojimo režimo (nemokamas ir Chloros+)
-* CPU greičio ir branduolių skaičiaus
-* GPU prieinamumo (tik Chloros+)
-* Apskaičiuotinų indeksų skaičiaus
-* Eksporto formato sudėtingumo
+* CPU greitis ir branduolių skaičius
+* GPU prieinamumas (tik Chloros+)
+* Apskaičiuotinų indeksų skaičius
+* Eksporto formato sudėtingumas
 
-### Apytikriai apskaičiuotas laikas (Chloros+, 12 MP vaizdai, modernus procesorius)
+### Apytikslės prognozės (Chloros+, 12 MP vaizdai, modernus CPU)
 
-| Vaizdų skaičius | Nemokamas režimas | Chloros+ (procesorius) | Chloros+ (grafikos procesorius) |
+| Vaizdų skaičius | Nemokamas režimas | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
 | 50 vaizdų   | 15–20 min. | 5–8 min.        | 3–5 min.        |
 | 100 vaizdų  | 30–40 min. | 10–15 min.      | 5–8 min.        |
@@ -271,21 +271,21 @@ Faktinis apdorojimo laikas labai skiriasi priklausomai nuo:
 | 1000 nuotraukų | 4–6 val.   | 1,5–2 val.      | 40–60 min.      |
 
 {% hint style=&quot;info&quot; %}
-**Pirmasis paleidimas**: Pirminis apdorojimas gali užtrukti ilgiau, nes Chloros kuria talpyklas ir profilius. Vėlesnis panašių duomenų rinkinių apdorojimas bus greitesnis.
+**Pirmasis paleidimas**: Pradinis apdorojimas gali užtrukti ilgiau, nes Chloros kuria talpyklas ir profilius. Vėlesnis panašių duomenų rinkinių apdorojimas bus greitesnis.
 {% endhint %}
 
 ***
 
-## Dažnos problemos paleidžiant
+## Dažni paleidimo problemos
 
 ### Paleidimo mygtukas neveikia (pilkos spalvos)
 
 **Galimos priežastys:**
 
 * Neimportuoti vaizdai
-* Backend nepradėjo veikti
+* Backend dar nevisiškai paleistas
 * Ankstesnis apdorojimas vis dar vyksta
-* Projektas nepilnai įkeltas
+* Projektas nevisiškai įkeltas
 
 **Sprendimai:**
 
@@ -316,13 +316,13 @@ Faktinis apdorojimo laikas labai skiriasi priklausomai nuo:
 
 * Pamiršote pažymėti tikslinius vaizdus
 * Tiksliniai vaizdai neturi matomų tikslų
-* Tikslo aptikimo nustatymai yra pernelyg griežti
+* Tikslo aptikimo nustatymai pernelyg griežti
 
 **Sprendimai:**
 
 1. Peržiūrėkite [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
 2. Pažymėkite tinkamas nuotraukas stulpelyje „Tikslas“
-3. Patikrinkite, ar tikslai matomi pažymėtose nuotraukose
+3. Patikrinkite, ar tikslai yra matomi pažymėtose nuotraukose
 4. Prireikus pakoreguokite tikslo aptikimo nustatymus
 
 ***
