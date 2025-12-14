@@ -14,4 +14,4 @@ Pagrindiniame meniu pasirinkite „Naujas projektas“ ir įveskite unikalų pro
 
 Pasirinkite „Atidaryti projektą“, kad pamatytumėte esamų projektų sąrašą projekto aplanke. Jei projektų nėra, antrinis šoninis meniu neatsidarys. Viršutinėje nuotraukoje matote keletą GUI sukurtų projektų (t1, t2, t3). DATE\_TIME projektai buvo sukurti CLI naudojant numatytąją projektų pavadinimų schemą. Spustelėję bet kurį projekto pavadinimą, jį atidarysite.
 
-Spustelėjus mygtuką „Atidaryti projekto aplanką“ atidarys kompiuterio failų naršyklę projekto kelyje. Projekto kelią galite koreguoti [Projekto nustatymai](project-settings/project-settings.md).
+Spustelėjus mygtuką „Atidaryti projekto aplanką“ atsidarys jūsų kompiuterio failų naršyklė projekto kelyje. Projekto kelią galite koreguoti [Projekto nustatymuose](project-settings/project-settings.md).

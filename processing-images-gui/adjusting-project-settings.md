@@ -9,7 +9,7 @@ Prieš apdorodami vaizdus, svarbu sukonfigūruoti projekto nustatymus, kad jie a
 3. Projekto nustatymų skydelyje rodomos visos konfigūracijos parinktys
 
 {% hint style=&quot;info&quot; %}
-**Nustatymai yra automatiškai išsaugomi** kartu su projektu. Kai vėl atidarote projektą, visi nustatymai yra atkurti.
+**Nustatymai yra automatiškai išsaugomi** kartu su projektu. Atidarius projektą iš naujo, visi nustatymai yra atkurti.
 {% endhint %}
 
 ***
@@ -67,13 +67,13 @@ Pagrindiniai vaizdo apdorojimo ir kalibravimo parametrai.
 
 ### Indeksas (daugiabangiai indeksai)
 
-Nustatykite, kokie augmenijos indeksai turi būti apskaičiuojami ir eksportuojami.
+Nustatykite, kokius augmenijos indeksus skaičiuoti ir eksportuoti.
 
 **Kaip pridėti indeksus:**
 
 1. Spustelėkite mygtuką **„Pridėti indeksą“**
 2. Išskleidžiamajame meniu pasirinkite indeksą (NDVI, NDRE, GNDVI ir kt.)
-3. Nustatykite vizualizacijos parametrus (LUT spalvas, verčių diapazonus)
+3. Nustatykite vizualizavimo parametrus (LUT spalvas, verčių diapazonus)
 4. Pridėkite kelis indeksus, jei reikia
 
 **Populiarūs indeksai:**
@@ -99,7 +99,7 @@ Kontroliuoja išvesties failo formatą ir kokybę.
 **Galimi formatai:**
 
 * **TIFF (16 bitų)**: rekomenduojamas GIS ir moksliniams tyrimams (0–65 535 diapazonas)
-* **TIFF (32 bitai, procentai)**: slankiojo kablelio atspindžio vertės (0,0–1,0 diapazonas)
+* **TIFF (32 bitai, procentai)**: plaukiojančiojo kablelio atspindžio vertės (0,0–1,0 diapazonas)
 * **PNG (8 bitai)**: be nuostolių suspaudimas vizualizavimui (0–255 diapazonas)
 * **JPG (8 bitai)**: mažiausi failai, suspaudimas su nuostoliais (0–255 diapazonas)
 
@@ -148,17 +148,17 @@ Nustatymas **„Išsaugoti projekto aplanką“** nurodo, kur pagal numatytuosiu
 
 Jei naudojate MAPIR DAQ įrašymo įrenginius su GPS tiksliai geografinės vietos nustatymui:
 
-### Reikalavimai
+### Privalomi reikalavimai
 
 * MAPIR DAQ su GPS (GNSS) moduliu
 * .daq žurnalo failas su ekspozicijos kontaktų įrašais
-* Kamera, prijungta prie DAQ ekspozicijos kontaktų per fiksavimo sesiją
+* Kamera, prijungta prie DAQ ekspozicijos kontaktų fiksavimo sesijos metu
 
 ### Konfigūracijos žingsniai
 
 1. Įdėkite .daq žurnalo failą į savo projekto aplanką.
 2. Projekto nustatymuose pažymėkite langelį **„Taikyti PPK pataisas“**.
-3. Jei reikia, nustatykite **„Šviesos jutiklio laiko juostos nuokrypį“** (numatyta reikšmė: 0 UTC).
+3. Jei reikia, nustatykite **„Šviesos jutiklio laiko juostos poslinkį“** (numatyta reikšmė: 0 UTC).
 4. Priskirkite kameras ekspozicijos kontaktams:
    * **Viena kamera**: Automatiškai priskirta kontaktui 1
    * **Dvi kameros**: Rankiniu būdu priskirkite kiekvieną kamerą tinkamam kontaktui
@@ -211,7 +211,7 @@ Projektams su daug vaizdų (500+):
 
 ## Nustatymų tikrinimas
 
-Prieš pradėdami apdorojimą, peržiūrėkite šiuos pagrindinius nustatymus:
+Prieš pradėdami apdoroti, peržiūrėkite šiuos pagrindinius nustatymus:
 
 * [ ] Kameros modelis teisingai aptiktas failų naršyklėje
 * [ ] Įjungta vinjetės korekcija
@@ -231,4 +231,4 @@ Kai nustatymai sukonfigūruoti:
 2. **Pradėkite apdorojimą** – žr. [Apdorojimo pradžia](starting-the-processing.md)
 3. **Stebėkite pažangą** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
 
-Išsamią informaciją apie visus galimus nustatymus rasite [Projekto nustatymai](../project-settings/project-settings.md) informaciniame dokumente.
+Išsamią informaciją apie visus galimus nustatymus rasite [Projekto nustatymai](../project-settings/project-settings.md) informacinėje dokumentacijoje.

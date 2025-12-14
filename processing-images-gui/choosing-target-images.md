@@ -9,7 +9,7 @@ Nuotraukų, kuriose yra kalibravimo tikslai, žymėjimas yra labai svarbus žing
 Nežymint tikslinės nuotraukos, Chloros turi:
 
 * Nuskaityti kiekvieną projekto nuotrauką
-* Vykdyti tikslinės nuotraukos nustatymo algoritmus kiekvienoje nuotraukoje
+* Vykdyti tikslinės nuotraukos aptikimo algoritmus kiekvienoje nuotraukoje
 * Be reikalo patikrinti šimtus ar tūkstančius nuotraukų
 
 **Rezultatas**: apdorojimas gali užtrukti žymiai ilgiau, ypač didelių duomenų rinkinių atveju.
@@ -23,7 +23,7 @@ Kai pažymite konkrečius vaizdus stulpelyje „Tikslas“:
 * Bendras apdorojimo laikas žymiai sutrumpėja
 
 {% hint style=&quot;success&quot; %}
-**Greitis pagerėja**: Pažymėjus 2–3 tikslo vaizdus 500 vaizdų duomenų rinkinyje, tikslo aptikimo laikas gali sutrumpėti nuo 30+ minučių iki mažiau nei 1 minutės.
+**Greitis pagerėja**: Pažymėjus 2–3 tikslinius vaizdus 500 vaizdų duomenų rinkinyje, tikslų aptikimo laikas gali sutrumpėti nuo 30+ minučių iki mažiau nei 1 minutės.
 {% endhint %}
 
 ***
@@ -68,12 +68,12 @@ Prieš apdorojant, dar kartą patikrinkite:
 
 * Fiksuokite tikslo vaizdus prieš pat fiksavimo sesiją ir jos metu
 * Tose pačiose apšvietimo sąlygose, kaip ir jūsų DAQ šviesos jutiklis
-* Idealiu atveju, norint gauti geriausius rezultatus, tikslų vaizdus fiksuokite kuo dažniau. Kitaip, šviesos jutiklio duomenys bus naudojami kalibravimui reguliuoti laikui bėgant.
+* Idealiu atveju, norint gauti geriausius rezultatus, tikslinius vaizdus fiksuokite kuo dažniau. Kitaip, šviesos jutiklio duomenys bus naudojami kalibravimui reguliuoti laikui bėgant.
 
-**Kameros padėtis:**
+**Fotoaparato padėtis:**
 
-* Laikykite kamerą virš tikslo taip, kad jis būtų centre ir užimtų apie 40–60 % vaizdo centro.
-* Laikykite kamerą lygiagrečiai/nadir su tikslo paviršiumi
+* Laikykite fotoaparatą virš tikslo taip, kad jis būtų centruotas ir užimtų apie 40–60 % vaizdo centro.
+* Laikykite fotoaparatą lygiagrečiai/nadir tikslo paviršiui
 
 **Apšvietimas:**
 
@@ -82,10 +82,10 @@ Prieš apdorojant, dar kartą patikrinkite:
 * Neuždenkite šviesos šaltinio savo kūnu, transporto priemone ar augmenija.
 * Debesuotas oras užtikrina nuosekliausius rezultatus.
 
-**Tikslo būklė:**
+**Tikslo sąlygos:**
 
 * Laikykite tikslo plokštes švarias ir sausas.
-* Visos 4 plokštės turi būti aiškiai matomos ir neužstotos.
+* Visos 4 plokštės turi būti aiškiai matomos ir neuždenktos.
 * Tikslai turi būti statūs/nadiriai šviesos šaltiniui, jei įmanoma.
 
 ### Kiek tikslo vaizdų?
@@ -95,7 +95,7 @@ Prieš apdorojant, dar kartą patikrinkite:
 **Geriausia praktika:**
 
 * 3–5 vaizdai, užfiksuoti netrukus po to, kai šviesos jutiklis pradėjo įrašyti
-* Norėdami gauti geriausius rezultatus, tarp kadrų pasukite kamerą
+* Norėdami gauti geriausius rezultatus, tarp kadrų keiskite kameros padėtį
 * Pasirinktinai: periodiškai sesijos viduryje, jei apšvietimo sąlygos nuolat keičiasi
 
 ***
@@ -106,9 +106,9 @@ Prieš apdorojant, dar kartą patikrinkite:
 
 Jei naudojate dvi MAPIR kameras vienu metu (pvz., Survey3W RGN + Survey3N OCN):
 
-1. Užfiksuokite tikslo vaizdus **abiem kameromis** tuo pačiu metu.
+1. Užfiksuokite tikslo vaizdus **abi kameromis** tuo pačiu metu.
 2. Naudokite **tą patį fizinį tikslą** abiem kameroms.
-3. Pažymėkite tikslo vaizdus **abiem kamerų tipams** failų naršyklėje.
+3. Pažymėkite tikslo vaizdus **abiems kamerų tipams** failų naršyklėje.
 4. Chloros naudos atitinkamus tikslus kiekvienos kameros kalibravimui.
 
 ### Kameros modelio stulpelis
@@ -140,13 +140,13 @@ Jei Chloros netinkamai aptinka jūsų tikslus, reguliuokite šiuos nustatymus [P
 
 * **Numatytasis**: 60
 * **Padidinkite**, jei tikslai yra suskaidomi į kelis aptikimus
-* **Sumažinkite**, jei tikslai su spalvų variacijomis nėra visiškai aptinkami
+* **Sumažinkite**, jei tikslai su spalvų variacijomis nėra visiškai aptikti
 
 ***
 
 ## Dažnos tikslo vaizdo problemos
 
-### Problema: neaptinkami tikslai
+### Problema: neaptikti tikslai
 
 **Galimos priežastys:**
 
@@ -159,7 +159,7 @@ Jei Chloros netinkamai aptinka jūsų tikslus, reguliuokite šiuos nustatymus [P
 
 1. Patikrinkite, ar tikslo stulpelyje pažymėti teisingi vaizdai
 2. Peržiūrėkite tikslo vaizdo kokybę peržiūroje
-3. Jei kokybė prasta, vėl užfiksuokite tikslus
+3. Jei kokybė prasta, pakartotinai užfiksuokite tikslus
 4. Jei reikia, pakoreguokite tikslo aptikimo nustatymus
 
 ### Problema: klaidingi tikslo aptikimai
@@ -172,10 +172,10 @@ Jei Chloros netinkamai aptinka jūsų tikslus, reguliuokite šiuos nustatymus [P
 
 **Sprendimai:**
 
-1. Pažymėkite tik tikrus tikslo vaizdus, kad apribotumėte aptikimo apimtį
+1. Pažymėkite tik tikrus tikslo vaizdus, kad apribotumėte aptikimo sritį
 2. Padidinkite minimalų kalibravimo mėginio plotą
 3. Padidinkite minimalų tikslo klasterizavimo vertę
-4. Užtikrinkite, kad tikslo vaizduose būtų rodomas tik tikslas (minimalus fono triukšmas)
+4. Užtikrinkite, kad tikslo vaizduose būtų rodomas tik tikslas (minimalus fonas)
 
 ***
 
@@ -184,12 +184,12 @@ Jei Chloros netinkamai aptinka jūsų tikslus, reguliuokite šiuos nustatymus [P
 Prieš pradėdami apdorojimą, patikrinkite savo tikslo vaizdų pasirinkimą:
 
 * [ ] Bent 1 tikslo vaizdas pažymėtas per sesiją
-* [ ] Tikslo stulpelio žymės pažymėtos visiems tikslo vaizdams
+* [ ] Tikslo stulpelių žymės pažymėtos visiems tikslo vaizdams
 * [ ] Tikslo vaizdai užfiksuoti per tą patį laikotarpį kaip ir tyrimas
 * [ ] Tikslai aiškiai matomi peržiūroje, kai spustelėjami
 * [ ] Visi 4 kalibravimo skydeliai matomi kiekviename tikslo vaizde
-* [ ] Ant tikslų nėra šešėlių ar kliūčių.
-* [ ] Dvigubos kameros atveju: tikslai pažymėti abiejų tipų kameroms.
+* [ ] Ant tikslų nėra šešėlių ar kliūčių
+* [ ] Dvigubos kameros atveju: tikslai pažymėti abiejų tipų kameroms
 
 ***
 
@@ -199,8 +199,8 @@ Prieš pradėdami apdorojimą, patikrinkite savo tikslo vaizdų pasirinkimą:
 
 Nors tai nerekomenduojama moksliniams darbams, galite apdoroti be tikslų:
 
-1. Palikite visus tikslų stulpelių žymimuosius langelius nepažymėtus.
-2. **Išjunkite** „Atspindžio kalibravimą“ projekto nustatymuose.
+1. Palikite visus tikslų stulpelių žymimuosius langelius nepažymėtus
+2. **Išjunkite** „Atšvaitos kalibravimą“ projekto nustatymuose
 3. Vignette korekcija vis tiek bus taikoma
 4. Išvestis nebus kalibruojama pagal absoliučią atspindžio koeficiento vertę
 

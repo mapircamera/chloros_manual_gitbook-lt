@@ -13,7 +13,7 @@ Vartotojams, neturintiems Chloros+ licencijos:
 **2 etapų pažangos rodymas:**
 
 1. **Tikslo aptikimas** – kalibravimo tikslų paieška vaizduose
-2. **Apdorojimas** – koregavimų taikymas ir eksportavimas
+2. **Apdorojimas** – pataisymų taikymas ir eksportavimas
 
 **Pažangos juosta rodo:**
 
@@ -29,7 +29,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 1. **Aptikimas** – kalibravimo tikslų paieška
 2. **Analizė** – vaizdų tikrinimas ir ruošimas
-3. **Kalibravimas** – vinjetės ir atspindžio koregavimas
+3. **Kalibravimas** – vinjetės ir atspindžio korekcijų taikymas
 4. **Eksportavimas** – apdorotų failų išsaugojimas
 
 **Interaktyvios funkcijos:**
@@ -75,7 +75,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 * Skaityti vaizdo EXIF metaduomenis (laiko žymes, ekspozicijos nustatymus)
 * Nustatyti kalibravimo strategiją pagal tikslų laiko žymes
-* Organizuoti vaizdo apdorojimo eilę
+* Tvarkyti vaizdo apdorojimo eilę
 * Parengti lygiagretaus apdorojimo darbuotojus (tik Chloros+)
 
 **Trukmė:** 5–30 sekundžių
@@ -88,7 +88,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 **Į ką reikia atkreipti dėmesį:**
 
 * Turėtų vykti tolygiai, be pertraukų
-* Įspėjimai apie trūkstamus metaduomenis bus rodomi „Debug Log“ (Debug žurnale)
+* Įspėjimai apie trūkstamus metaduomenis bus rodomi „Debug Log“ (Debugavimo žurnale)
 
 ### 3 etapas: Kalibravimas
 
@@ -127,7 +127,7 @@ Vartotojams, turintiems Chloros+ licenciją:
 * Kalibruotų vaizdų rašymas į diską pasirinktu formatu
 * Daugiaspektrinių indeksų vaizdų eksportavimas su LUT spalvomis
 * Kameros modelio pakatalogių kūrimas
-* Originalių failų vardų išsaugojimas su atitinkamais priesagais
+* Originalių failų pavadinimų išsaugojimas su atitinkamais priesagais
 
 **Trukmė:** 10–20 % viso apdorojimo laiko
 
@@ -145,11 +145,11 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 ***
 
-## Debug Log (Debugavimo žurnalas) skirtukas
+## Debug Log (Debug žurnalo) skirtukas
 
-Debug Log (Debugavimo žurnalas) pateikia išsamią informaciją apie apdorojimo pažangą ir visas iškilusias problemas.
+Debug žurnale pateikiama išsami informacija apie apdorojimo pažangą ir visas iškilusias problemas.
 
-### Prieiga prie Debug Log (Debugavimo žurnalo)
+### Prieiga prie Debug žurnalo
 
 1. Spustelėkite **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje.
 2. Atsidarys žurnalo langas, kuriame bus rodomi apdorojimo pranešimai realiuoju laiku.
@@ -225,7 +225,7 @@ Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 * Kiti branduoliai neveikia arba yra laisvi
 * Sistema lieka reaguojanti
 
-**Chloros+ lygiagretusis režimas:**
+**Chloros+ Lygiagretusis režimas:**
 
 * Keli branduoliai 80–100 % (iki 16 branduolių)
 * Didelis bendras CPU naudojimas
@@ -262,11 +262,11 @@ Kai įjungtas GPU pagreitinimas:
 
 **Stebėti:**
 
-* NVIDIA sistemos dėklo piktogramą
-* Užduočių tvarkyklę → Našumą → GPU
-* GPU-Z ar panašią stebėjimo priemonę
+* NVIDIA sistemos dėklo piktograma
+* Užduočių tvarkyklė → Našumas → GPU
+* GPU-Z arba panaši stebėjimo priemonė
 
-### Disko įvestis/išvestis
+### Diskas I/O
 
 **Ko tikėtis:**
 
@@ -276,9 +276,9 @@ Kai įjungtas GPU pagreitinimas:
 
 **Našumo patarimas:**
 
-* Jei įmanoma, naudokite SSD projektų aplanke
+* Jei įmanoma, naudokite SSD projektų aplankams
 * Venkite tinklo diskų dideliems duomenų rinkiniams
-* Įsitikinkite, kad diskas nėra beveik užpildytas (tai daro įtaką rašymo greičiui)
+* Įsitikinkite, kad diskas nėra beveik užpildytas (tai turi įtakos rašymo greičiui)
 
 ***
 
@@ -286,7 +286,7 @@ Kai įjungtas GPU pagreitinimas:
 
 ### Įspėjamieji ženklai
 
-**Procesas sustoja (nėra pokyčių 5+ minutes):**
+**Procesas sustoja (jokių pokyčių 5+ minutes):**
 
 * Patikrinkite, ar nėra klaidų Debug Log
 * Patikrinkite, ar yra laisvos vietos diske
@@ -295,7 +295,7 @@ Kai įjungtas GPU pagreitinimas:
 **Dažnai rodomi klaidų pranešimai:**
 
 * Sustabdykite apdorojimą ir peržiūrėkite klaidas
-* Dažniausios priežastys: vietos diske trūkumas, sugadinti failai, atminties problemos
+* Dažniausios priežastys: disko vietos trūkumas, sugadinti failai, atminties problemos
 * Žr. skyrių „Problemų sprendimas“ žemiau
 
 **Sistema nereaguoja:**
@@ -316,7 +316,7 @@ Sustabdykite apdorojimą, jei matote:
 
 **Kaip sustabdyti:**
 
-1. Spustelėkite **„Sustabdyti/Atšaukti“ mygtuką** (pakeičia „Pradėti“ mygtuką)
+1. Spustelėkite **Sustabdyti/Atšaukti mygtuką** (pakeičia Pradėti mygtuką)
 2. Apdorojimas sustabdomas, pažanga prarandama
 3. Išspręskite problemas ir pradėkite iš naujo
 
@@ -338,13 +338,13 @@ Sustabdykite apdorojimą, jei matote:
 
 1. Jei tik pradėta ir esate aptikimo etape: atšaukti, pažymėti tikslus, pradėti iš naujo
 2. Ateityje: naudoti SSD, sumažinti indeksus, atnaujinti aparatūrą
-3. Apsvarstyti CLI didelių duomenų rinkinių apdorojimui partijomis
+3. Apsvarstyti CLI didelių duomenų rinkinių paketinio apdorojimo atveju
 
 ### „Diskų vietos“ įspėjimai
 
 **Sprendimai:**
 
-1. Nedelsiant atlaisvinti diskų vietą
+1. Nedelsiant išlaisvinti diskų vietą
 2. Perkelti projektą į diską, kuriame yra daugiau vietos
 3. Sumažinkite eksportuojamų indeksų skaičių.
 4. Naudokite JPG formatą vietoj TIFF (mažesni failai).

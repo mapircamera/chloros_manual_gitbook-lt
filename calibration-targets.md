@@ -1,5 +1,5 @@
 ---
-description: Laboratorijoje išmatuoti skydai, naudojami užfiksuotiems duomenims kalibruoti po apdorojimo
+description: Lab-measured panels used to calibrate captured data in post processing
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/calibration-targets
@@ -10,7 +10,7 @@ MAPIR siūlo įvairius kalibravimo tikslus, kad būtų galima padengti įvairias
 
 <figure><img src=".gitbook/assets/t4-r50_2.jpg" alt=""><figcaption><p>MAPIR T4-R50</p></figcaption></figure>
 
-T4 difuziniai etaloniniai taikiniai turi šias atspindžio kreives, [duomenys atsisiųsti čia](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
+T4 difuziniai etaloniniai taškai turi šias atspindžio kreives, [duomenys atsisiųsti čia](https://cdn.shopify.com/s/files/1/0972/5566/files/MAPIR_Diffuse_Reflectance_Standard_Calibration_Target_Data_T4.xlsx?v=1741759157):
 
 <figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (250-2500nm).png" alt=""><figcaption><p>MAPIR T4 atspindžio koeficientas :: 250–2500 nm</p></figcaption></figure>
 

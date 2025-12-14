@@ -3,10 +3,9 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
-
 # Atsisiųsti
 
-Atsisiųskite naujausią Chloros versiją, skirtą Windows, kad galėtumėte pradėti dirbti su daugiaspektrinių vaizdų apdorojimu.
+Atsisiųskite naujausią Chloros versiją, skirtą Windows, kad galėtumėte pradėti naudoti daugiaspektrinių vaizdų apdorojimo funkciją.
 
 ### Sistemos reikalavimai
 
@@ -14,7 +13,7 @@ Atsisiųskite naujausią Chloros versiją, skirtą Windows, kad galėtumėte pra
 | -------------------- | ------------------------------- | ------------------------------- |
 | **Operacinė sistema** | Windows 10 (64 bitai)             | Windows 11 (64 bitai)             |
 | **Procesorius**        | Intel Core i5 arba lygiavertis     | Intel Core i7 arba geresnis         |
-| **Atmintis (RAM)**     | 8 GB                             | 16 GB arba daugiau                    |
+| **Atmintis (RAM)**     | 8 GB                             | 16 GB ar daugiau                    |
 | **Vaizdo plokštė**    | Suderinama su DirectX 11           | NVIDIA GPU su 4 GB+ VRAM       |
 | **Saugykla**          | 2 GB laisvos vietos                  | SSD su 10 GB+ laisvos vietos       |
 | **Ekranas**          | 1920x1080                       | 2560x1440 arba didesnė             |
@@ -86,7 +85,7 @@ Chloros diegimas apima:
 
 Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
-* 🚀 **Daugiasiūlis apdorojimas** – apdorokite vaizdus lygiagrečiai
+* 🚀 **Daugiasiūlis apdorojimas** – vaizdų apdorojimas lygiagrečiai
 * ⚡ **GPU (CUDA) pagreitinimas** – išnaudokite NVIDIA GPU galią
 * 💻 **CLI prieiga** – automatizuokite naudodami komandinės eilutės įrankius
 * 🐍 **Python SDK** – Programinis API prieiga
@@ -95,11 +94,11 @@ Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėkite Chloros+ planus ir kainas</a></p>***
 
-## Pagalba diegiant
+## Įdiegimo pagalba
 
 ### Trikčių šalinimas
 
-**Diegimas nepavyksta, rodomas klaidos pranešimas:**
+**Įdiegimas nepavyksta ir rodomas klaidos pranešimas:**
 
 * Įsitikinkite, kad turite administratoriaus teises
 * Laikinai išjunkite antivirusinę programinę įrangą
@@ -166,3 +165,5 @@ Neteisėtas naudojimas, platinimas ar modifikavimas yra draudžiamas.
 **Nemokama versija**: galima naudoti asmeniniams ir komerciniams tikslams su funkcionalumo apribojimais.
 
 **Chloros+**: prenumerata pagrįsta licencija, suteikianti teisę naudotis išplėstinėmis funkcijomis ir komerciniais sprendimais.
+
+<figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption></figcaption></figure>

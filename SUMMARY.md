@@ -27,7 +27,7 @@
 * [Projekto nustatymai](project-settings/project-settings.md)
 * [Daugiaspektrinio indekso formulės](project-settings/multispectral-index-formulas.md)
 
-## VAIZDŲ PERŽIŪROS PROGRAMĖ (GUI)
+## VAIZDŲ PERŽIŪROS PROGRAMOS (GUI)
 
 * [Vaizdo atidarymas visame ekrane](image-viewer-gui/opening-an-image-full-screen.md)
 * [Vaizdo sluoksniai](image-viewer-gui/image-layers.md)

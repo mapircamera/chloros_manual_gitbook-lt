@@ -1,6 +1,6 @@
 # GUI: Navigacija
 
-Kai pirmą kartą paleidžiate Chloros ir Chloros (naršyklė), paleidžiamas jų užpakalinis modulis. Kai jis bus parengtas, viršutiniame kairiajame kampe atsiras pagrindinio meniu piktograma <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
+Kai pirmą kartą paleidžiate Chloros ir Chloros (naršyklė), paleidžiamas jų užpakalinis modulis. Kai jis bus paruoštas, viršutiniame kairiajame kampe atsiras pagrindinio meniu piktograma <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -40,7 +40,7 @@ Kai pagrindinėje vaizdų peržiūros programoje paspaudžiate vaizdą, jis atid
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Debug log
 
-Kai kyla problemų, peržiūrėkite logą, kad rastumėte debug spaudinius. Nukopijuokite/atsisiųskite logą ir nusiųskite jį [MAPIR palaikymo tarnybai](https://www.mapir.camera/community/contact), kad gautumėte pagalbą.
+Kai kyla problemų, peržiūrėkite žurnalo įrašus. Nukopijuokite/atsisiųskite žurnalą ir nusiųskite jį [MAPIR palaikymo tarnybai](https://www.mapir.camera/community/contact), kad gautumėte pagalbą.
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Vartotojo prisijungimas](chloros+-login.md)
 

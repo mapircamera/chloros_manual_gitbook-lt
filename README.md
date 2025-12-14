@@ -1,7 +1,6 @@
 ---
 metaLinks: {}
 ---
-
 # Pradžia
 
 <div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
@@ -14,7 +13,7 @@ Chloros yra prieinama 4 programos režimais:
 
 ## Chloros: Darbalaukio GUI programa
 
-\[Rekomenduojama] Atskiro lango programa su visomis funkcijomis.
+\[Rekomenduojama] Atskiros lango su visomis funkcijomis.
 
 ## Chloros (naršyklė): Internetinė GUI sąsaja
 
@@ -39,7 +38,7 @@ Nors Chloros yra nemokama daugumai užduočių, galbūt norėsite daugiau. Tuome
 * **Chloros+** [**CLI**](CLI.md) **Prieiga**: paleiskite Chloros+ iš komandinės eilutės, kad automatizuotumėte ir integruotumėte į savo programinę įrangą.
 * **Chloros+** [**API**](api-python-sdk.md) **Prieiga:** paleiskite Chloros+ iš Python programiniam valdymui, kad galėtumėte sklandžiai integruoti į savo tyrimų procesus, duomenų analizės darbo eigą ir pasirinktas programas.
 * **Naudojimas keliuose įrenginiuose**: kiekviena Chloros+ licencija leidžia registruoti 2 ir daugiau įrenginių. Naudokite savo MAPIR Cloud paskyrą, kad valdytumėte registruotus įrenginius. Pridėkite daugiau įrenginių palaikymą, atnaujindami savo Chloros+ licenciją.
-* **Individualizuotos daugiaspektrinės indeksų formulės:** įveskite individualizuotus daugiaspektrinius indeksus į Chloros rastro skaičiuokles, skirtas tiek apdorojimui, tiek vaizdų peržiūrai.
+* **Individualios daugiaspektrinės indeksų formulės:** įveskite individualius daugiaspektrinius indeksus į Chloros rastro skaičiuokles, skirtas tiek apdorojimui, tiek vaizdų peržiūrai.
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ kainos ir registracija</a></p>
 
