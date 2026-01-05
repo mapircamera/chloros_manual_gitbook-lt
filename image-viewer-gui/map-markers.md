@@ -86,7 +86,7 @@ SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo mastelio ly
 
 Galite pasirinkti žemėlapio sluoksnio tipą (iš kairės į dešinę):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Reljefas
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Reljefas
 
 Rodo aukščio profilius ir žemėlapio plyteles su detalėmis (keliais ir pan.)
 

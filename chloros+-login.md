@@ -6,7 +6,7 @@ Vartotojo <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> šon
 
 Prisijungus bus rodomi jūsų paskyros duomenys:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI prisijungimas
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI prisijungimas
 
 Prisijunkite naudodami savo Chloros+ prisijungimo duomenis, kad galėtumėte naudotis CLI apdorojimo funkcija.
 
