@@ -1,6 +1,6 @@
-# CLI : Komandų eilutė
+# CLI : Komandinė eilutė
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** suteikia galingą komandinės eilutės prieigą prie Chloros vaizdų apdorojimo variklio, leidžiant automatizuoti, kurti scenarijus ir vykdyti be galvos operacijas jūsų vaizdų apdorojimo darbo srautams.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** suteikia galingą komandinės eilutės prieigą prie Chloros vaizdų apdorojimo variklio, leidžiant automatizuoti, kurti scenarijus ir vykdyti be galvutės operacijas jūsų vaizdų apdorojimo darbo srautams.
 
 ### Pagrindinės funkcijos
 
@@ -8,7 +8,7 @@
 * 🔗 **Integracija** – įterpimas į esamus darbo srautus ir procesus
 * 💻 **Veikimas be grafinės sąsajos** – veikimas be GUI
 * 🌍 **Daugiakalbė** – 38 kalbų palaikymas
-* ⚡ **Lygiagretus apdorojimas** – dinamiškai pritaikomas prie jūsų CPU (iki 16 lygiagrečių darbuotojų)
+* ⚡ **Lygiagretus apdorojimas** – dinamiškai pritaikomas prie jūsų CPU (iki 16 lygiagrečių darbininkų)
 
 ### Reikalavimai
 
@@ -18,10 +18,10 @@
 | **Licencija**          | Chloros+ ([reikalingas mokamas planas](https://cloud.mapir.camera/pricing)) |
 | **Atmintis**           | Mažiausiai 8 GB RAM (rekomenduojama 16 GB)                                  |
 | **Internetas**         | Reikalingas licencijos aktyvavimui                                     |
-| **Diskas**       | Priklauso nuo projekto dydžio                                              |
+| **Diskų erdvė**       | Priklauso nuo projekto dydžio                                              |
 
 {% hint style=&quot;warning&quot; %}
-**Licencijos reikalavimas**: CLI reikalauja mokamo Chloros+ prenumeratos. Standartiniai (nemokami) planai neturi CLI prieigos. Apsilankykite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing), kad atnaujintumėte.
+**Licencijos reikalavimas**: CLI reikalauja mokamo Chloros+ prenumeratos. Standartiniai (nemokami) planai neturi CLI prieigos. Norėdami atnaujinti, apsilankykite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
 {% endhint %}
 
 ## Greitasis pradžios vadovas
@@ -31,6 +31,7 @@
 CLI automatiškai įtraukiamas į Chloros diegimo programą:
 
 1. Atsisiųskite ir paleiskite **Chloros Installer.exe**
+
 2. Užbaigite diegimo vedlio veiksmus
 3. CLI įdiegta į: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
@@ -95,7 +96,7 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 
 | Parinktis                | Tipas    | Numatytasis        | Aprašymas                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Kelias    | _Reikalingas_     | Aplankas, kuriame yra RAW/JPG multispektriniai vaizdai                                         |
+| `<input-folder>`      | Kelias    | _Reikalingas_     | Aplankas, kuriame yra RAW/JPG daugiaspektriniai vaizdai                                         |
 | `-o, --output`        | Kelias    | Tas pats kaip įvesties  | Apdorotų vaizdų išvesties aplankas                                                     |
 | `-n, --project-name`  | Stygos  | Automatiškai sugeneruotas | Pasirinktinis projekto pavadinimas                                                                    |
 | `--vignette`          | Žymė    | Įjungta        | Įjungti vinjetės korekciją                                                             |
@@ -130,12 +131,10 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
 {% hint style=&quot;warning&quot; %}
-**Specialieji simboliai**: Naudokite viengubas kabutes aplink slaptažodžius, kuriuose yra simboliai, pvz., `$`, `!`, arba tarpai.
+**Specialieji simboliai**: Naudokite viengubas kabutes aplink slaptažodžius, kuriuose yra simbolių, pvz., `$`, `!`, arba tarpai.
 {% endhint %}
 
-**Rezultatas:**
-
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+**Rezultatas:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
 ### `logout` - Išvalyti prisijungimo duomenis
 
@@ -160,11 +159,15 @@ chloros-cli logout
 ℹ Credentials cleared from cache
 ```
 
+{% hint style=&quot;info&quot; %}
+**SDK Vartotojai**: Python SDK taip pat teikia programinį `logout()` metodą, skirtą išvalyti kredencialus Python scenarijuose. Išsamią informaciją rasite [Python SDK dokumentacijoje](api-python-sdk.md#logout).
+{% endhint %}
+
 ***
 
-### `status` – patikrinti licencijos būseną
+### `status` – licencijos būsenos patikrinimas
 
-Rodo dabartinę licencijos ir autentiškumo būseną.
+Rodo dabartinę licenciją ir autentiškumo būseną.
 
 **Sintaksė:**
 
@@ -209,9 +212,7 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**Naudojimo atvejis:** Šią komandą iškvieskite apdorojimo metu, kad patikrintumėte eksporto pažangą.
-
-***
+**Naudojimo atvejis:** Šią komandą vykdykite apdorojimo metu, kad patikrintumėte eksporto pažangą.***
 
 ### `language` – sąsajos kalbos valdymas
 
@@ -250,9 +251,9 @@ chloros-cli language ja
 
 | Kodas    | Kalba              | Gimtoji pavadinimas      |
 | ------- | --------------------- | ---------------- |
-| `en`    | Anglų               | English          |
-| `es`    | Ispanų               | Español          |
-| `pt`    | Portugalų            | Português        |
+| `en`    | Anglų               | Anglų          |
+| `es`    | Ispanų               | Ispanų          |
+| `pt`    | Portugalų            | Portugalų        |
 | `fr`    | Prancūzų                | Français         |
 | `de`    | Vokiečių                | Deutsch          |
 | `it`    | Italų               | Italiano         |
@@ -267,25 +268,25 @@ chloros-cli language ja
 | `tr`    | Turkų               | Türkçe           |
 | `hi`    | Hindi                 | हिंदी            |
 | `id`    | Indoneziečių            | Bahasa Indonesia |
-| `vi`    | Vietnamo            | Tiếng Việt       |
+| `vi`    | Vietnamo kalba            | Tiếng Việt       |
 | `th`    | Tailando kalba                  | ไทย              |
 | `sv`    | Švedų kalba               | Svenska          |
 | `da`    | Danų kalba                | Dansk            |
-| `no`    | Norvegų kalba             | Norsk            |
-| `fi`    | Suomi               | Suomi            |
-| `el`    | Ελληνικά         | Ελληνικά         |
-| `cs`    | Čeština          | Čeština          |
+| `no`    | Norvegų             | Norsk            |
+| `fi`    | Suomų               | Suomi            |
+| `el`    | Graikų                 | Ελληνικά         |
+| `cs`    | Čekų                 | Čeština          |
 | `hu`    | Vengrų             | Magyar           |
 | `ro`    | Rumunų              | Română           |
 | `uk`    | Ukrainiečių             | Українська       |
 | `pt-BR` | Brazilijos portugalų  | Português Brasileiro |
-| `zh-HK` | Kantono kalba             | 粵語             |
-| `ms`    | Malajų kalba                 | Bahasa Melayu    |
-| `sk`    | Slovakų kalba                | Slovenčina       |
+| `zh-HK` | Kantono             | 粵語             |
+| `ms`    | Malajų                 | Bahasa Melayu    |
+| `sk`    | Slovakų                | Slovenčina       |
 | `bg`    | Bulgarų             | Български        |
-| `hr`    | Kroatų              | Hrvatski         |
-| `lt`    | Lietuvių            | Lietuvių         |
-| `lv`    | Latvų               | Latviešu         |
+| `hr`    | Kroatų kalba              | Hrvatski         |
+| `lt`    | Lietuvių kalba            | Lietuvių         |
+| `lv`    | Latvų kalba               | Latviešu         |
 | `et`    | Estų              | Eesti            |
 | `sl`    | Slovėnų             | Slovenščina      |
 
@@ -297,7 +298,7 @@ chloros-cli language ja
 
 ### `set-project-folder` - Nustatyti numatytąjį projekto aplanką
 
-Pakeisti numatytąjį projekto aplanko vietą (bendrai naudojamą su GUI).
+Pakeisti numatytąjį projekto aplanko vietą (bendrai su GUI).
 
 **Sintaksė:**
 
@@ -337,9 +338,9 @@ chloros-cli get-project-folder
 
 ***
 
-### `reset-project-folder` – Atstatyti numatytąjį
+### `reset-project-folder` – Atstatyti numatytąją vietą
 
-Atstatyti projekto aplanką į numatytąją vietą.
+Atstatyti numatytąją projekto aplanko vietą.
 
 **Sintaksė:**
 
@@ -355,11 +356,11 @@ chloros-cli reset-project-folder
 
 | Parinktis          | Tipas    | Numatytasis       | Aprašymas                                      |
 | --------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe` | Kelias    | Automatiškai nustatytas | Kelias į užpakalinės dalies vykdomąjį failą                       |
-| `--port`        | Sveikasis skaičius | 5000          | Užpakalinės dalies API prievado numeris                          |
+| `--backend-exe` | Kelias    | Automatiškai nustatytas | Kelias į pagrindinio kompiuterio vykdomąjį failą                       |
+| `--port`        | Sveikasis skaičius | 5000          | Pagrindinio kompiuterio API prievado numeris                          |
 | `--restart`     | Žymė    | -             | Priversti paleisti iš naujo backend (nutraukia esamus procesus) |
-| `--version`     | Žymė    | -             | Rodyti versijos informaciją ir išeiti                |
-| `--help`        | Žymė    | -             | Rodyti pagalbos informaciją ir išeiti                   |
+| `--version`     | Žymė    | -             | Rodyti versijos informaciją ir uždaryti                |
+| `--help`        | Žymė    | -             | Rodyti pagalbos informaciją ir uždaryti                   |
 
 **Pavyzdys su bendrosiomis parinktimis:**
 
@@ -373,21 +374,17 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ### Lygiagretus apdorojimas
 
-Chloros+ CLI **automatiškai pritaiko** lygiagretų apdorojimą prie jūsų kompiuterio galimybių:
-
-**Kaip tai veikia:**
+Chloros+ CLI **automatiškai pritaiko**lygiagretų apdorojimą prie jūsų kompiuterio galimybių:**Kaip tai veikia:**
 
 * Nustato jūsų CPU branduolius ir RAM
 * Paskirsto darbininkus: **2× CPU branduoliai** (naudoja hiperthreading)
-* **Maksimalus skaičius: 16 lygiagrečių darbininkų** (dėl stabilumo)
-
-**Sistemos lygiai:**
+* **Maksimalus skaičius: 16 lygiagrečių darbininkų** (dėl stabilumo)**Sistemos lygiai:**
 
 | Sistemos tipas   | CPU        | RAM      | Darbininkai  | Našumas     |
 | ------------- | ---------- | -------- | -------- | --------------- |
 | **Aukščiausios klasės**  | 16+ branduoliai  | 32+ GB   | Iki 16 | Maksimalus greitis   |
-| **Vidutinis** | 8–15 branduolių | 16–31 GB | 8–16     | Puikus greitis |
-| **Žemas**   | 4–7 branduolių  | 8–15 GB  | 4–8      | Geras greitis      |
+| **Vidutinio lygio** | 8–15 branduolių | 16–31 GB | 8–16     | Puikus greitis |
+| **Žemo lygio**   | 4–7 branduolių  | 8–15 GB  | 4–8      | Geras greitis      |
 
 {% hint style=&quot;success&quot; %}
 **Automatinis optimizavimas**: CLI automatiškai nustato jūsų sistemos specifikacijas ir konfigūruoja optimalų lygiagretų apdorojimą. Nereikia jokio rankinio konfigūravimo!
@@ -421,12 +418,12 @@ Naudojant kalibravimo skydelius, konvertuoja neapdorotus jutiklio vertes į stan
 * Norėdami išjungti, naudokite `--no-reflectance`.
 
 {% hint style=&quot;info&quot; %}
-**Reikalavimai**: Norint užtikrinti tikslų atspindžio konvertavimą, įsitikinkite, kad kalibravimo plokštės yra tinkamai eksponuotos ir matomos jūsų vaizduose.
+**Reikalavimai**: užtikrinkite, kad kalibravimo plokštės būtų tinkamai eksponuotos ir matomos jūsų vaizduose, kad atspindžio konversija būtų tiksli.
 {% endhint %}
 
 ### PPK korekcijos
 
-**Ką daro:** Taiko post-processed kinematic korekcijas, naudojant DAQ-A-SD žurnalo duomenis, siekiant pagerinti GPS tikslumą.
+**Ką daro:** taiko post-processed kinematic korekcijas, naudojant DAQ-A-SD žurnalo duomenis, siekiant pagerinti GPS tikslumą.
 
 * **Pagal numatytuosius nustatymus išjungta**
 * Norėdami įjungti, naudokite `--ppk`
@@ -436,7 +433,7 @@ Naudojant kalibravimo skydelius, konvertuoja neapdorotus jutiklio vertes į stan
 
 <table><thead><tr><th width="197">Formatas</th><th width="130.20001220703125">Bitų gylis</th><th width="116.5999755859375">Failo dydis</th><th>Tinkamiausias</th></tr></thead><tbody><tr><td><strong>TIFF (16 bitų)</strong> ⭐</td><td>16 bitų sveikasis skaičius</td><td>Didelis</td><td>GIS analizė, fotogrametrija (rekomenduojama)</td></tr><tr><td><strong>TIFF (32 bitai, procentai)</strong></td><td>32 bitų plūduriuojantis</td><td>Labai didelis</td><td>Mokslinė analizė, tyrimai</td></tr><tr><td><strong>PNG (8 bitai)</strong></td><td>8 bitų sveikasis skaičius</td><td>Vidutinis</td><td>Vizualinis patikrinimas, dalijimasis internete</td></tr><tr><td><strong>JPG (8 bitai)</strong></td><td>8 bitų sveikasis skaičius</td><td>Mažas</td><td>Greitas peržiūrėjimas, suspaustas išvesties failas</td></tr></tbody></table>***
 
-## Automatizavimas ir skriptų kūrimas
+## Automatizavimas ir scenarijų kūrimas
 
 ### PowerShell paketinis apdorojimas
 
@@ -464,7 +461,7 @@ foreach ($dataset in $datasets) {
 Write-Host "All datasets processed!" -ForegroundColor Green
 ```
 
-### Windows paketinis skriptas
+### Windows paketinis scenarijus
 
 Paprastas ciklas paketinio apdorojimo:
 
@@ -584,6 +581,7 @@ if __name__ == '__main__':
 ### Pavyzdinė išvesties struktūra
 
 ```
+
 MyProject/
 ├── project.json                             # Project metadata
 ├── 2025_0203_193056_008.JPG                # Original JPG
@@ -601,7 +599,7 @@ Tipinė 100 vaizdų (kiekvienas 12 MP) apdorojimo trukmė:
 | Režimas              | Laikas      | Techninė įranga                                     |
 | ----------------- | --------- | -------------------------------------------- |
 | **Lygiagretus režimas** | 5–10 min.  | i7/Ryzen 7, 16 GB RAM, SSD (iki 16 darbuotojų) |
-| **Lygiagretus režimas** | 10–15 min | i5/Ryzen 5, 8 GB RAM, HDD (iki 8 darbuotojų)   |
+| **Lygiagretus režimas** | 10–15 min. | i5/Ryzen 5, 8 GB RAM, HDD (iki 8 darbuotojų)   |
 
 {% hint style=&quot;info&quot; %}
 **Naudingas patarimas**: apdorojimo laikas priklauso nuo vaizdų skaičiaus, skiriamosios gebos ir kompiuterio specifikacijų.
@@ -621,7 +619,7 @@ Tipinė 100 vaizdų (kiekvienas 12 MP) apdorojimo trukmė:
 
 **Sprendimai:**
 
-1. Patikrinkite diegimo vietą:
+1. Patikrinkite įdiegimo vietą:
 
 ```powershell
 dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
@@ -637,29 +635,28 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
    * Atidarykite „Sistemos savybės“ → „Aplinkos kintamieji“
    * Redaguokite PATH kintamąjį
    * Pridėkite: `C:\Program Files\Chloros\resources\cli`
-   * Perkraukite terminalą
+   * Paleiskite terminalą iš naujo.
 
 ***
 
-### Nepavyko paleisti užpakalinės dalies
-
-**Klaida:**
+### Nepavyko paleisti užpakalinės dalies**Klaida:**
 
 ```
+
 Backend failed to start within 30 seconds
 ```
 
 **Sprendimai:**
 
-1. Patikrinkite, ar užpakalinė dalis jau veikia (pirmiausia ją uždarykite)
-2. Patikrinkite, ar Windows ugniasienė neblokuoja
+1. Patikrinkite, ar užpakalinė dalis jau veikia (pirmiausia ją uždarykite).
+2. Patikrinkite, ar Windows ugniasienė neblokuoja.
 3. Išbandykite kitą prievadą:
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
 ```
 
-4. Priverstinis backend paleidimas:
+4. Priversti paleisti backend:
 
 ```powershell
 chloros-cli --restart process "C:\Datasets\Field_A"
@@ -667,17 +664,16 @@ chloros-cli --restart process "C:\Datasets\Field_A"
 
 ***
 
-### Licencijos / autentiškumo problemos
-
-**Klaida:**
+### Licencijos / autentiškumo problemos**Klaida:**
 
 ```
+
 Chloros+ license required for CLI access
 ```
 
 **Sprendimai:**
 
-1. Patikrinkite, ar turite aktyvią Chloros+ prenumeratą.
+1. Patikrinkite, ar turite aktyvų Chloros+ prenumeratą.
 2. Prisijunkite naudodami savo prisijungimo duomenis:
 
 ```powershell
@@ -694,11 +690,10 @@ chloros-cli status
 
 ***
 
-### Nėra rastų vaizdų
-
-**Klaida:**
+### Nėra rastų vaizdų**Klaida:**
 
 ```
+
 No images found in the specified folder
 ```
 
@@ -711,9 +706,7 @@ No images found in the specified folder
 
 ***
 
-### Apdorojimas sustoja arba užstringa
-
-**Sprendimai:**
+### Apdorojimas sustoja arba užstringa**Sprendimai:**
 
 1. Patikrinkite laisvą disko vietą (įsitikinkite, kad jos pakanka išvesties failams).
 2. Uždarykite kitas programas, kad atlaisvintumėte atmintį.
@@ -721,11 +714,10 @@ No images found in the specified folder
 
 ***
 
-### Prieiga jau naudojama
-
-**Klaida:**
+### Prieiga jau naudojama**Klaida:**
 
 ```
+
 Port 5000 is already in use
 ```
 
@@ -743,7 +735,7 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ### K: Ar man reikia licencijos CLI?
 
-**Atsakymas:** Taip! CLI reikalauja mokamos **Chloros+ licencijos**.
+**Atsakymas:**Taip! CLI reikalauja mokamos**Chloros+ licencijos**.
 
 * ❌ Standartinis (nemokamas) planas: CLI išjungtas
 * ✅ Chloros+ (mokami) planai: CLI visiškai įjungtas
@@ -752,20 +744,16 @@ Prenumeruokite: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/
 
 ***
 
-### K: Ar galiu naudoti CLI serveryje be GUI?
-
-**A:** Taip! CLI veikia visiškai be grafinės sąsajos. Reikalavimai:
+### K: Ar galiu naudoti CLI serveryje be GUI?**A:** Taip! CLI veikia visiškai be grafinės sąsajos. Reikalavimai:
 
 * Windows Server 2016 arba naujesnė versija
 * Įdiegta Visual C++ Redistributable
-* Pakankama RAM (mažiausiai 8 GB, rekomenduojama 16 GB)
+* Pakankamai RAM (mažiausiai 8 GB, rekomenduojama 16 GB)
 * Vienkartinė GUI licencijos aktyvacija bet kuriame kompiuteryje
 
 ***
 
-### K: Kur saugomi apdoroti vaizdai?
-
-**A:** Pagal numatytuosius nustatymus apdoroti vaizdai saugomi **toje pačioje aplankoje kaip ir įvesties**, kameros modelio pakatalogiuose (pvz., `Survey3N_RGN/`).
+### K: Kur saugomi apdoroti vaizdai?**A:**Pagal numatytuosius nustatymus apdoroti vaizdai saugomi**tame pačiame aplanke kaip ir įvesties** vaizdai, kameros modelio pakatalogiuose (pvz., `Survey3N_RGN/`).
 
 Naudokite `-o` parinktį, kad nurodytumėte kitą išvesties aplanką:
 
@@ -775,15 +763,9 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### K: Ar galiu apdoroti kelis aplankus vienu metu?
+### K: Ar galiu apdoroti kelis aplankus vienu metu?**A:** Ne tiesiogiai vienu komandomis, bet galite naudoti scenarijus, kad apdorotumėte aplankus paeiliui. Žr. skyrių [Automatizavimas ir scenarijai](CLI.md#automation--scripting).***
 
-**A:** Ne tiesiogiai vienu komandomis, bet galite naudoti scenarijus, kad apdorotumėte aplankus paeiliui. Žr. skyrių [Automatizavimas ir scenarijai](CLI.md#automation--scripting).
-
-***
-
-### K: Kaip išsaugoti CLI išvestį į žurnalo failą?
-
-**PowerShell:**
+### K: Kaip išsaugoti CLI išvestį į žurnalo failą?**PowerShell:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
@@ -797,27 +779,19 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### K: Kas nutiks, jei apdorojimo metu paspausiu Ctrl+C?
-
-**A:** CLI:
+### K: Kas atsitiks, jei apdorojimo metu paspausiu Ctrl+C?**A:** CLI:
 
 1. Gražiai sustabdys apdorojimą
 2. Išjungs užpakalinę sistemą
-3. Išeis su kodu 130
+3. Uždarys su kodu 130
 
 Iš dalies apdoroti vaizdai gali likti išvesties aplanke.
 
 ***
 
-### K: Ar galiu automatizuoti CLI apdorojimą?
+### K: Ar galiu automatizuoti CLI apdorojimą?**A:** Žinoma! CLI yra sukurtas automatizavimui. Žr. [Automatizavimas ir scenarijų kūrimas](CLI.md#automation--scripting) dėl PowerShell, Batch ir Python pavyzdžių.***
 
-**A:** Žinoma! CLI yra sukurtas automatizavimui. PowerShell, Batch ir Python pavyzdžius rasite skyriuje [Automatizavimas ir skriptų kūrimas](CLI.md#automation--scripting).
-
-***
-
-### K: Kaip patikrinti CLI versiją?
-
-**A:**
+### K: Kaip patikrinti CLI versiją?**A:**
 
 ```powershell
 chloros-cli --version
@@ -826,6 +800,7 @@ chloros-cli --version
 **Rezultatas:**
 
 ```
+
 Chloros CLI 1.0.2
 ```
 
@@ -851,9 +826,7 @@ chloros-cli language --help
 
 * **El. paštas**: info@mapir.camera
 * **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Kainos**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
+* **Kainos**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
 
 ## Išsamūs pavyzdžiai
 
@@ -937,7 +910,7 @@ chloros-cli logout
 
 ***
 
-### 7 pavyzdys: Daugiakalbis naudojimas
+### 7 pavyzdys: Daugiakalbė naudojimo galimybė
 
 Pakeisti sąsajos kalbą:
 

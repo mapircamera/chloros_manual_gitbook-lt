@@ -2,23 +2,22 @@
 
 Kai Chloros užbaigs apdorojimą, atėjo laikas peržiūrėti rezultatus, patikrinti išvesties kokybę ir paruošti apdorotus vaizdus naudoti darbo eigoje. Šiame puslapyje pateikiami galutiniai žingsniai ir tolesni veiksmai.
 
-## Apdorojimo pabaigos rodiklis
+## Apdorojimo užbaigimo indikatorius
 
-Sėkmingai užbaigus apdorojimą, matysite kelis rodiklius:
+Sėkmingai užbaigus apdorojimą, matysite kelis indikatorius:
 
 * ✅ **Pažangos juosta**: pasiekia 100 % užbaigtumą
-* ✅ **Debug log**: rodo pranešimą „Apdorojimas užbaigtas“
+* ✅ **Debug log**: rodo pranešimą „Processing Complete“ (Apdorojimas užbaigtas)
 * ✅ **Pradžios mygtukas**: vėl tampa aktyvus (paruoštas kitam apdorojimo ciklui)
-* ✅ **Išvesties failai**: visi apdoroti vaizdai išsaugomi fotoaparato modelio pakatalogyje
-
-***
+* ✅ **Išvesties failai**: visi apdoroti vaizdai išsaugomi fotoaparato modelio pakatalogyje***
 
 ## Apdorotų vaizdų paieška
 
-### Išvesties katalogo atidarymas
+### Išvesties aplanko atidarymas
 
-1. Spustelėkite **Pagrindinis meniu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (viršutiniame kairiajame kampe)
+1. Spustelėkite **Pagrindinis meniu** <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> (viršutiniame kairiajame kampe)
 2. Pasirinkite **„Atidaryti projekto aplanką“**
+
 3. Jūsų failų naršyklė atidarys projekto katalogą
 4. Suraskite savo projektą pagal pavadinimą
 
@@ -33,13 +32,11 @@ Sėkmingai užbaigus apdorojimą, matysite kelis rodiklius:
 1. Pereikite į fotoaparato modelio pakatalogį
 2. Pasirinkite vaizdo failą
 3. Peržiūra atsiras Windows Explorer peržiūros lange
-4. Naudokite rodyklių klavišus, kad naršytumėte po vaizdus
+4. Naudokite rodyklių klavišus, kad peržiūrėtumėte vaizdus
 
 ### Peržiūra išorinėse vaizdų peržiūros programose
 
-**Rekomenduojamos peržiūros programos:**
-
-* **QGIS** – nemokama GIS programinė įranga (geriausiai tinka georeferencinei multispektrinei analizei)
+**Rekomenduojamos peržiūros programos:*** **QGIS** – nemokama GIS programinė įranga (geriausiai tinka georeferencinei multispektrinei analizei)
 * **IrfanView** – greita, lengva vaizdų peržiūros programa (palaiko TIFF)
 * **Adobe Photoshop** – profesionalus redagavimas (TIFF palaikymas)
 * **GIMP** – nemokama alternatyva Photoshop
@@ -60,7 +57,7 @@ Išsamias instrukcijas rasite [Image Viewer](../image-viewer-gui/opening-an-imag
 
 ## Debug log peržiūra
 
-### Patikrinkite, ar nėra įspėjimų ar klaidų
+### Patikrinkite įspėjimus ar klaidas
 
 1. Atidarykite **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> skirtuką
 2. Peržiūrėkite pranešimus
@@ -72,10 +69,11 @@ Išsamias instrukcijas rasite [Image Viewer](../image-viewer-gui/opening-an-imag
 
 Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarnybai:
 
-1. Spustelėkite mygtuką **„Kopijuoti“** arba **„Atsisiųsti“**.
-2. Išsaugokite kaip tekstinį failą projekto aplanke.
-3. Pridėkite prie projekto dokumentacijos.
-4. Jei kyla problemų, nusiųskite MAPIR palaikymo tarnybai.
+1. Spustelėkite mygtuką **„Kopijuoti“**arba**„Atsisiųsti“**
+
+2. Išsaugokite kaip tekstinį failą projekto aplanke
+3. Pridėkite prie projekto dokumentacijos
+4. Jei kyla problemų, nusiųskite MAPIR palaikymo tarnybai
 
 ***
 
@@ -92,7 +90,7 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 **Sprendimai:**
 
-1. Patikrinkite Debug Log, ar nėra praleidimo/klaidų pranešimų
+1. Patikrinkite Debug Log, ar nėra praleistų/klaidų pranešimų
 2. Patikrinkite, ar buvo pakankamai disko vietos
 3. Suskaičiuokite failus: turėtų sutapti (pirminis skaičius - tikslinis skaičius) × (indeksai + 1)
 4. Pakartotinai importuokite ir apdorokite trūkstamus failus.
@@ -129,14 +127,10 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 ### Problema: NDVI reikšmės atrodo neteisingos
 
-**Tikėtini NDVI diapazonai:**
-
-* **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
+**Tikėtini NDVI diapazonai:*** **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
 * **Retas/nesveikas augmenija**: nuo 0,2 iki 0,4
 * **Vidutinis augmenija**: nuo 0,4 iki 0,6
-* **Sveikas, tankus augmenija**: nuo 0,6 iki 0,9
-
-**Jei vertės neatitinka šių intervalų:**
+* **Sveika, tanki augmenija**: nuo 0,6 iki 0,9**Jei vertės neatitinka šių intervalų:**
 
 1. Patikrinkite, ar buvo taikytas atspindžio kalibravimas.
 2. Patikrinkite, ar buvo įtrauktas šviesos jutiklio žurnalas.
@@ -152,56 +146,47 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR pagalbos tarny
 
 **Rekomenduojamas darbo eiga:**
 
-1. **Importuokite kalibruotus atspindžio vaizdus** į fotogrametrijos programinę įrangą:
+1.**Importuokite kalibruotus atspindžio vaizdus** į fotogrametrijos programinę įrangą:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
-2. **Išsaugokite EXIF metaduomenis**: užtikrinkite, kad GPS duomenys būtų išsaugoti geotaggingui
-3. **Kalibruoti darbo srautai**: naudokite atspindžio vaizdus mokslinio tikslumo užtikrinimui
-4. **Apdorokite indeksų mozaikas**: sukurkite NDVI ortomozaikas iš atskirų indeksų vaizdų
-5. **Eksportuokite georeferencinius GeoTIFF**: naudoti GIS programose
+2. **Išsaugokite EXIF metaduomenis**: užtikrinkite, kad GPS duomenys būtų išsaugoti geotaggingui.
+3. **Kalibruoti darbo srautai**: naudokite atspindžio vaizdus mokslinio tikslumo užtikrinimui.
+4. **Apdorokite indeksų mozaikas**: Sukurkite NDVI ortomozaiikas iš atskirų indeksų vaizdų
+5. **Eksportuokite georeferencinius GeoTIFF**: Naudojimui GIS programose
 
 ### GIS analizei
 
 **Rekomenduojamas darbo eiga:**
 
-1. **Įkelkite į QGIS, ArcGIS ar panašią programą**
-2. **Naudokite 16 bitų TIFF** atspindžio vaizdus daugiabandinei analizei
+1.**Įkelkite į QGIS, ArcGIS ar panašias programas**
+
+2.**Naudokite 16 bitų TIFF** atspindžio vaizdus daugiabandinei analizei
 3. **Naudokite indeksinius vaizdus** (NDVI, NDRE) kaip paruoštus naudoti augmenijos sluoksnius
-4. **Rastro skaičiuoklė**: sujunkite juostas individualiai analizei
-5. **Eksportuokite**: kurkite klasifikavimo žemėlapius, keitimo aptikimą, augmenijos sveikatos žemėlapius
+4. **Rastrinis skaičiuoklis**: sujunkite juostas individualiai analizei
+5. **Eksportuokite**: kurkite klasifikavimo žemėlapius, keitimo aptikimą, augmenijos sveikatos žemėlapius.
 
 ### Tiesioginei analizei / ataskaitoms
 
-**Rekomenduojamas darbo srautas:**
+**Rekomenduojamas darbo eiga:**
 
-1. **Naudokite indeksinius vaizdus su LUT spalvomis** vizualinėms ataskaitoms
-2. **Išgaukite statistinius duomenis**: vidutinis NDVI pagal lauką/sklypą
+1.**Naudokite indeksinius vaizdus su LUT spalvomis** vizualinėms ataskaitoms.
+2. **Išgaukite statistinius duomenis**: vidutinis NDVI pagal lauką / sklypą.
 3. **Laiko eilutės**: palyginkite indeksus per kelis sesijos
-4. **Sukurkite ataskaitas**: įtraukite žemėlapius, statistinius duomenis ir vizualizacijas
-
-***
+4. **Sukurkite ataskaitas**: įtraukite žemėlapius, statistinius duomenis ir vizualizacijas***
 
 ## Archyvavimas ir atsarginės kopijos
 
 ### Rekomenduojama atsarginių kopijų strategija
 
-**Ką išsaugoti:**
-
-* ✅ **Originalius RAW/JPG vaizdus** – archyvuokite atskirame diske/debesyje
+**Ką išsaugoti:*** ✅ **Originalius RAW/JPG vaizdus** – archyvuokite atskirame diske/debesyje
 * ✅ **Apdoroti rezultatai** – išsaugokite kalibruotus vaizdus ir indeksus
 * ✅ **Projekto failas** – jame yra visi nustatymai, reikalingi pakartotiniam apdorojimui, jei to prireiktų
-* ✅ **Debug Log** – dokumentuoja apdorojimo detales
-* ✅ **Kalibravimo tiksliniai vaizdai** – tikrinimui ir pakartotiniam apdorojimui
-
-**Rekomendacijos dėl saugojimo:**
-
-* **Nedelsiant atlikite atsarginę kopiją**: išorinis kietasis diskas
-* **Ilgalaikis archyvas**: saugykla debesyje (Google Drive, Dropbox ir pan.)
-* **Svarbūs duomenys**: išsaugokite 2–3 kopijas skirtingose vietose
-
-***
+* ✅ **Debug log** – dokumentuoja apdorojimo detales
+* ✅ **Kalibravimo tiksliniai vaizdai** – tikrinimui ir pakartotiniam apdorojimui**Rekomendacijos dėl saugojimo:*** **Nedelsiant atlikite atsarginę kopiją**: išorinis kietasis diskas
+* **Ilgalaikis archyvas**: saugojimas debesyje (Google Drive, Dropbox ir pan.)
+* **Svarbūs duomenys**: saugokite 2–3 kopijas skirtingose vietose***
 
 ## Kiti apdorojimo ciklai
 
@@ -212,13 +197,12 @@ Jei ateityje apdorosite panašius duomenų rinkinius:
 1. **Išsaugokite projekto šabloną** (jei dar to nepadarėte)
 2. **Sukurkite naują projektą** naudodami išsaugotą šabloną
 3. **Importuokite naujus vaizdus**
-4. **Apdorokite** naudodami identiškus nustatymus, kad būtų užtikrintas nuoseklumas
+
+4.**Apdorokite**naudodami identiškus nustatymus, kad būtų užtikrintas nuoseklumas
 
 ### Daugių sesijų apdorojimas partijomis
 
-Daugioms sesijoms/duomenų rinkiniams:
-
-**1 variantas: GUI – keli projektai**
+Daugioms sesijoms/duomenų rinkiniams:**1 variantas: GUI – keli projektai**
 
 * Sukurkite atskirą projektą kiekvienai sesijai.
 * Naudokite nuoseklius šablono nustatymus.
@@ -233,7 +217,7 @@ Daugioms sesijoms/duomenų rinkiniams:
 **3 variantas: Python SDK (tik Chloros+)**
 
 * Programinis valdymas
-* Integracija su analizės vamzdynais
+* Integracija su analizės procesais
 * Žr. [API dokumentaciją](../api-python-sdk.md)
 
 ***
@@ -265,9 +249,7 @@ Jei susiduriate su problemomis:
 * 📧 **El. paštas**: info@mapir.camera (pridėkite Debug Log)
 * 🌐 **Pagalba**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **DUK**: [Dažnai užduodami klausimai](../faq.md)
-* 📖 **Dokumentacija**: [Chloros vadovas](../)
-
-***
+* 📖 **Dokumentacija**: [Chloros vadovas](../)***
 
 ## Santrauka: užbaigtas darbo srautas
 
@@ -276,12 +258,10 @@ Dabar baigėte visą Chloros apdorojimo darbo eigą:
 1. ✅ **Sukurtas projektas** – žr. [Projektai](../projects.md)
 2. ✅ **Pridėti failai** – žr. [Failų pridėjimas](adding-files-to-a-project.md)
 3. ✅ **Pritaikyti nustatymai** – žr. [Projekto nustatymų pritaikymas](adjusting-project-settings.md)
-4. ✅ **Pažymėti tikslai** – žr. [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
+4. ✅ **Pažymėti tikslai** – žr. [Tikslo vaizdų pasirinkimas](choosing-target-images.md)
 5. ✅ **Pradėtas apdorojimas** – žr. [Apdorojimo pradžia](starting-the-processing.md)
-6. ✅ **Stebėta pažanga** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
-7. ✅ **Peržiūrėti rezultatai** – Ši puslapis
-
-**Jūsų kalibruoti, atspindžio koreguoti multispektriniai vaizdai yra paruošti analizės!**
+6. ✅ **Stebimas pažanga** – žr. [Apdorojimo stebėjimas](monitoring-the-processing.md)
+7. ✅ **Peržiūrėti rezultatai** – ši puslapis**Jūsų kalibruoti, atspindžio koreguoti daugiaspektriniai vaizdai yra paruošti analizės!**
 
 ***
 
@@ -289,14 +269,14 @@ Dabar baigėte visą Chloros apdorojimo darbo eigą:
 
 ### Išplėstinės funkcijos
 
-* [**Vaizdų peržiūros programa**](../image-viewer-gui/opening-an-image-full-screen.md) – Interaktyvus vizualizavimas ir analizė
-* [**Indeksas/LUT smėlio dėžė**](../image-viewer-gui/index-lut-sandbox.md) – individualus indekso testavimas
-* [**Daugiaspektrinės indekso formulės**](../project-settings/multispectral-index-formulas.md) – išsamus indekso žinynas
+* [**Vaizdų peržiūros programa**](../image-viewer-gui/opening-an-image-full-screen.md) – interaktyvus vizualizavimas ir analizė
+* [**Indeksų/LUT smėlio dėžė**](../image-viewer-gui/index-lut-sandbox.md) – individualių indeksų testavimas
+* [**Daugiaspektrinių indeksų formulės**](../project-settings/multispectral-index-formulas.md) – išsamus indeksų žinynas
 
 ### Automatizavimas ir integracija
 
 * [**CLI dokumentacija**](../CLI.md) – komandinės eilutės paketinis apdorojimas
-* [**Python SDK**](../api-python-sdk.md) – Programinis automatizavimas
+* [**Python SDK**](../api-python-sdk.md) – Programinė automatizacija
 * [**Chloros+ funkcijos**](../#chloros) – Išplėstos apdorojimo galimybės
 
 ### Pagalba ir mokymasis

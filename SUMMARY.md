@@ -27,8 +27,10 @@
 * [Projekto nustatymai](project-settings/project-settings.md)
 * [Daugiaspektrinio indekso formulės](project-settings/multispectral-index-formulas.md)
 
-## VAIZDŲ PERŽIŪROS PROGRAMOS (GUI)
+## VAIZDŲ PERŽIŪROS PROGRAMA (GUI)
 
+* [Vaizdų tinklelis](image-viewer-gui/image-grid.md)
 * [Vaizdo atidarymas visame ekrane](image-viewer-gui/opening-an-image-full-screen.md)
 * [Vaizdo sluoksniai](image-viewer-gui/image-layers.md)
 * [Indeksas/LUT smėlio dėžė](image-viewer-gui/index-lut-sandbox.md)
+* [Žemėlapio žymekliai](image-viewer-gui/map-markers.md)
