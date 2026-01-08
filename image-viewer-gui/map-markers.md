@@ -1,6 +1,8 @@
-# Žemėlapio žymės
+# Žemėlapio žymekliai
 
 Žemėlapio skirtuke jūsų vaizdai rodomi interaktyviame 2D žemėlapyje pagal jų GPS koordinates. Tai suteikia geografinį jūsų fotografavimo sesijos apžvalgą ir padeda vizualizuoti erdvės aprėptį. Tai taip pat naudinga, kai pirmą kartą importuojate vaizdus, kad galėtumėte greitai pašalinti vaizdus, kurių nereikia apdoroti.
+
+<figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 ## Prieiga prie skirtuko „Žemėlapis“
 
@@ -9,18 +11,20 @@
 3. Spustelėkite skirtuką „Žemėlapis“ <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> skirtuką kairėje šoninėje juostoje
 4. Žemėlapyje bus rodomi žymekliai kiekvieno vaizdo GPS vietoje
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 **Reikalingas GPS**: žemėlapyje bus rodomi tik vaizdai, kurių EXIF metaduomenyse yra įterptos GPS koordinatės. Įsitikinkite, kad fotografuojant jūsų fotoaparate yra įjungtas GPS.
 {% endhint %}
 
 ***
 
-## Vaizdų koregavimas iš žemėlapio skirtuko**Žemėlapio**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> skirtuke yra tos pačios pridėjimo  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ir pašalinimo  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  failų mygtukai kaip ir [**Failų naršyklė**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Jame taip pat rodomas tas pats projektų failų sąrašas, bet su kitokiais stulpelių pavadinimais:
+## Vaizdų koregavimas iš žemėlapio skirtuko
+
+**Žemėlapio** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> yra tos pačios pridėjimo  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ir pašalinimo  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  failų mygtukai kaip ir [**Failų naršyklė**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Jame taip pat rodomas tas pats projektų failų sąrašas, bet su kitokiais stulpelių pavadinimais:
 
 ### Failo pavadinimas
 
 * Originalus failo pavadinimas iš fotoaparato
-* Laikosi fotoaparato pavadinimų taisyklių (pvz., IMG\_0001.RAW)
+* Laikosi fotoaparato pavadinimų konvencijos (pvz., IMG\_0001.RAW)
 
 ### Platuma
 
@@ -34,7 +38,7 @@
 
 * Vaizdo aukštis
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 Spustelėjus lentelės stulpelių antraštes, taip pat surūšiuojami eilutės duomenys.
 {% endhint %}
 
@@ -44,31 +48,31 @@ Spustelėjus lentelės stulpelių antraštes, taip pat surūšiuojami eilutės d
 
 Kiekvienas vaizdas su GPS duomenimis žemėlapyje žymimas žymekliu:
 
-### Žymeklių rodymas
+### Žymeklio rodymas
 
 * Žymekliai nurodo tikslias GPS koordinates, kuriose buvo užfiksuotas kiekvienas vaizdas.
-* Žymekliai gali būti sugrupuoti, kai vaizdas sumažinamas.
-* Padidinkite vaizdą, kad matytumėte atskirų vaizdų vietas.
+* Sugrupuoti žymekliai gali būti sugrupuoti, kai sumažinamas vaizdas.
+* Padidinkite vaizdą, kad pamatytumėte atskirų vaizdų vietas.
 
-{% hint style=&quot;success&quot; %}
-SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo mastelio lygį, plytelė toliau didinama, leidžiant jums matyti arti vienas kito esančius žymeklius.
+{% hint style="success" %}
+SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo padidinimo lygį, plytelė toliau padidinama, leidžiant jums matyti arti vienas kito esančius žymeklius.
 {% endhint %}
 
 ### Peržiūra, užvedus pelę
 
-* **Pereikite pelės žymekliu** per bet kurį žymeklį, kad pamatytumėte to vaizdo miniatiūrinį peržiūros langą.
-* Tai leidžia greitai vizualiai atpažinti vaizdą neišeinant iš žemėlapio peržiūros.
-* Naudinga ieškant konkrečių vaizdų didelėje užfiksuotoje sesijoje.
+* **Užveskite pelę** ant bet kurio žymens, kad pamatytumėte to vaizdo miniatiūrą.
+* Tai leidžia greitai vizualiai identifikuoti, neišeinant iš žemėlapio peržiūros.
+* Naudinga ieškant konkrečių vaizdų didelėje fotografavimo sesijoje.
 
 ***
 
-## Žemėlapio plytelių tiekėjai
+## Žemėlapio plytelių teikėjai
 
-{% hint style=&quot;success&quot; %}
-**Automatinis pasirinkimas**: Chloros automatiškai pasirenka plytelių paslaugą, kuri teikia geriausią mastelio lygį jūsų dabartinei žemėlapio vietai. Jei norite, galite rankiniu būdu perjungti tarp teikėjų.
+{% hint style="success" %}
+**Automatinis pasirinkimas**: Chloros automatiškai pasirenka plytelių paslaugą, kuri teikia geriausią priartinimo lygį jūsų dabartinei žemėlapio vietai. Jei norite, galite rankiniu būdu pereiti iš vieno tiekėjo prie kito.
 {% endhint %}
 
-Žemėlapio skirtuke palaikomi du plytelių teikėjai foniniam žemėlapio vaizdui:
+Žemėlapio skirtuke palaikomi du plytelių tiekėjai foniniams žemėlapio vaizdams:
 
 ### „Google Maps“
 
@@ -86,13 +90,13 @@ SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo mastelio ly
 
 Galite pasirinkti žemėlapio sluoksnio tipą (iš kairės į dešinę):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Reljefas
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Teritorija
 
-Rodo aukščio profilius ir žemėlapio plyteles su detalėmis (keliais ir pan.)
+Rodo aukščio profilius ir žemėlapio plyteles su detalėmis (keliai ir kt.)
 
 ### Žemėlapis
 
-Rodo standartines (mažesnės spartos) žemėlapio plyteles su detalėmis (keliais ir pan.)
+Rodo standartines (mažesnės spartos) žemėlapio plyteles su detalėmis (keliai ir kt.)
 
 ### Palydovas
 
@@ -100,20 +104,22 @@ Rodo detalias (didesnės spartos) palydovinio žemėlapio plyteles
 
 ### Hibridinis
 
-Rodo palydovinio žemėlapio plyteles su papildomomis detalėmis (keliais ir pan.)
+Rodo palydovinio žemėlapio plyteles su papildomomis detalėmis (keliai ir kt.)
 
 ***
 
 ## Žemėlapio navigacija
 
-### Mastelio valdymas
+### Mastelio reguliatoriai
 
-* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio mygtukus.
+* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio reguliatorius.
 * **Visas ekranas**: perkelkite žemėlapį į visą ekraną.
 
-### Perkėlimas
+### Perkėlimo reguliatoriai
 
-* **Perkėlimas**: spustelėkite ir vilkite, kad judėtumėte po žemėlapį.***
+* **Perkėlimas**: spustelėkite ir vilkite, kad perkelti žemėlapį.
+
+***
 
 ## Naudojimo atvejai
 
