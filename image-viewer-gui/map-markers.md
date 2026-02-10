@@ -1,6 +1,6 @@
-# Žemėlapio žymekliai
+# Žemėlapio žymės
 
-Žemėlapio skirtuke jūsų vaizdai rodomi interaktyviame 2D žemėlapyje pagal jų GPS koordinates. Tai suteikia geografinį jūsų fotografavimo sesijos apžvalgą ir padeda vizualizuoti erdvės aprėptį. Tai taip pat naudinga, kai pirmą kartą importuojate vaizdus, kad galėtumėte greitai pašalinti vaizdus, kurių nereikia apdoroti.
+Žemėlapio skirtuke jūsų vaizdai rodomi interaktyviame 2D žemėlapyje pagal jų GPS koordinates. Tai suteikia geografinį jūsų fotografavimo sesijos apžvalgą ir padeda vizualizuoti erdvės aprėptį. Tai taip pat naudinga, kai pirmą kartą importuojate vaizdus, kad galėtumėte greitai pašalinti visus vaizdus, kurių nereikia apdoroti.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
@@ -17,14 +17,12 @@
 
 ***
 
-## Vaizdų koregavimas iš žemėlapio skirtuko
-
-**Žemėlapio** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> yra tos pačios pridėjimo  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ir pašalinimo  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  failų mygtukai kaip ir [**Failų naršyklė**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Jame taip pat rodomas tas pats projektų failų sąrašas, bet su kitokiais stulpelių pavadinimais:
+## Vaizdų koregavimas iš žemėlapio skirtuko**Žemėlapio**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> yra tos pačios pridėjimo  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ir pašalinimo  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  failų mygtukai kaip ir [**Failų naršyklė**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . Jame taip pat rodomas tas pats projektų failų sąrašas, bet su kitokiais stulpelių pavadinimais:
 
 ### Failo pavadinimas
 
 * Originalus failo pavadinimas iš fotoaparato
-* Laikosi fotoaparato pavadinimų konvencijos (pvz., IMG\_0001.RAW)
+* Laikosi fotoaparato pavadinimų taisyklių (pvz., IMG\_0001.RAW)
 
 ### Platuma
 
@@ -55,21 +53,21 @@ Kiekvienas vaizdas su GPS duomenimis žemėlapyje žymimas žymekliu:
 * Padidinkite vaizdą, kad pamatytumėte atskirų vaizdų vietas.
 
 {% hint style="success" %}
-SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo padidinimo lygį, plytelė toliau padidinama, leidžiant jums matyti arti vienas kito esančius žymeklius.
+SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo padidinimo lygį, plytelė toliau didinama, leidžiant jums matyti arti vienas kito esančius žymeklius.
 {% endhint %}
 
 ### Peržiūra, užvedus pelę
 
-* **Užveskite pelę** ant bet kurio žymens, kad pamatytumėte to vaizdo miniatiūrą.
-* Tai leidžia greitai vizualiai identifikuoti, neišeinant iš žemėlapio peržiūros.
-* Naudinga ieškant konkrečių vaizdų didelėje fotografavimo sesijoje.
+* **Užveskite pelę** ant bet kurio žymeklio, kad pamatytumėte to vaizdo miniatiūrą.
+* Tai leidžia greitai vizualiai atpažinti vaizdą, nepaliekant žemėlapio peržiūros.
+* Naudinga ieškant konkrečių vaizdų didelėje fotografijų sesijoje.
 
 ***
 
 ## Žemėlapio plytelių teikėjai
 
 {% hint style="success" %}
-**Automatinis pasirinkimas**: Chloros automatiškai pasirenka plytelių paslaugą, kuri teikia geriausią priartinimo lygį jūsų dabartinei žemėlapio vietai. Jei norite, galite rankiniu būdu pereiti iš vieno tiekėjo prie kito.
+**Automatinis pasirinkimas**: Chloros automatiškai pasirenka plytelių paslaugą, kuri teikia geriausią priartinimo lygį jūsų dabartinei žemėlapio vietai. Jei norite, galite rankiniu būdu perjungti tiekėjus.
 {% endhint %}
 
 Žemėlapio skirtuke palaikomi du plytelių tiekėjai foniniams žemėlapio vaizdams:
@@ -90,7 +88,7 @@ SUPER-ZOOM: Kai pasiekiate maksimalų žemėlapio plytelių teikėjo padidinimo 
 
 Galite pasirinkti žemėlapio sluoksnio tipą (iš kairės į dešinę):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Teritorija
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Teritorija
 
 Rodo aukščio profilius ir žemėlapio plyteles su detalėmis (keliai ir kt.)
 
@@ -110,16 +108,14 @@ Rodo palydovinio žemėlapio plyteles su papildomomis detalėmis (keliai ir kt.)
 
 ## Žemėlapio navigacija
 
-### Mastelio reguliatoriai
+### Mastelio valdymas
 
-* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio reguliatorius.
+* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio mygtukus.
 * **Visas ekranas**: perkelkite žemėlapį į visą ekraną.
 
-### Perkėlimo reguliatoriai
+### Perkėlimas
 
-* **Perkėlimas**: spustelėkite ir vilkite, kad perkelti žemėlapį.
-
-***
+* **Perkėlimas**: spustelėkite ir vilkite, kad perkelti žemėlapį.***
 
 ## Naudojimo atvejai
 
@@ -159,7 +155,7 @@ Rodo palydovinio žemėlapio plyteles su papildomomis detalėmis (keliai ir kt.)
 
 **Galimos priežastys:**
 
-* Fotoaparato GPS blogai nustatė palydovo padėtį.
+* Fotoaparato GPS blogai nustatė palydovo koordinates.
 * GPS nukrypo fotografavimo metu.
 
-**Sprendimas**: Paprastai tai yra fotografavimo laiko problema; tiksliems taikymams apsvarstykite PPK/RTK GPS naudojimą.
+**Sprendimas**: Paprastai tai yra fotografavimo laiko problema; tiksliems taikymams apsvarstykite galimybę naudoti PPK/RTK GPS.

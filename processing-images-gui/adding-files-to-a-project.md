@@ -5,11 +5,11 @@ Sukūrę arba atidarę projektą Chloros, kitas žingsnis yra pridėti daugiaspe
 ## Prieiga prie failų naršyklės
 
 1. Atidarykite arba sukurkite projektą Chloros
-2. Spustelėkite **Failų naršyklės** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje
+2. Spustelėkite **Failų naršyklė** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje
 3. Failų naršyklės skydelyje bus rodomas jūsų projekto failų sąrašas
 
 {% hint style="info" %}
-**Palaikomi failų tipai**: Chloros palaiko RAW+JPG ir JPG vaizdų failus iš MAPIR Survey3W ir Survey3N fotoaparatų. Rekomenduojama naudoti tik RAW+JPG.
+**Palaikomi failų tipai**: Chloros palaiko RAW+JPG ir JPG vaizdo failus iš MAPIR Survey3W ir Survey3N fotoaparatų. Rekomenduojama naudoti tik RAW+JPG.
 {% endhint %}
 
 ***
@@ -32,14 +32,12 @@ Naudokite šią parinktį, jei norite importuoti atskirus vaizdo failus arba ned
 Naudokite šią parinktį, jei norite importuoti visus vaizdus iš aplanko iš karto.
 
 1. Spustelėkite mygtuką **„Pridėti aplanką“** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> “ mygtuką failų naršyklės skydelio viršuje.
-2. Pereikite prie aplanko, kuriame yra jūsų fotografavimo sesijos vaizdai, ir jį pasirinkite.
-3. Spustelėkite **„Pasirinkti aplanką“**, kad importuotumėte visus palaikomus vaizdus iš to aplanko.
-
-***
+2. Pereikite į aplanką, kuriame yra jūsų fotografavimo sesijos vaizdai, ir jį pasirinkite.
+3. Spustelėkite **„Pasirinkti aplanką“**, kad importuotumėte visus palaikomus vaizdus iš to aplanko.***
 
 ## Failų naršyklės lentelės supratimas
 
-Kai vaizdai importuojami, jie rodomi lentelėje su šiomis stulpelių eilutėmis:
+Kai vaizdai importuojami, jie rodomi lentelėje su šiomis stulpeliais:
 
 ### Failo pavadinimas
 
@@ -66,7 +64,7 @@ Kai vaizdai importuojami, jie rodomi lentelėje su šiomis stulpelių eilutėmis
 
 ### Vaizdo metaduomenų peržiūra
 
-Paspausdami perjungimo mygtuką virš lentelės dešiniame viršutiniame kampe, vaizdo tinklelyje galite peržiūrėti pasirinktų vaizdų metaduomenis.
+Paspausdami perjungimo mygtuką virš lentelės dešiniame viršutiniame kampe, vaizdų tinklelyje galite peržiūrėti pasirinktų vaizdų metaduomenis.
 
 <figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
@@ -86,9 +84,7 @@ Norėdami pašalinti nepageidaujamus vaizdus iš projekto:
 
 * **Rūšiuoti pagal stulpelį**: spustelėkite bet kurį stulpelio antraštę, kad surūšiuotumėte vaizdus.
 * **Rūšiuoti pagal laiko žymą**: naudinga chronologinei fotografavimo sekai organizuoti.
-* **Fotoaparato modelio filtras**: jei naudojate kelis fotoaparatus, sugrupuokite vaizdus pagal fotoaparato tipą.
-
-***
+* **Fotoaparato modelio filtras**: jei naudojate kelis fotoaparatus, sugrupuokite vaizdus pagal fotoaparato tipą.***
 
 ## Vaizdo peržiūra
 
@@ -105,9 +101,7 @@ Spustelėkite bet kurį vaizdo miniatiūrą failų naršyklėje, kad jis būtų 
 * **Ankstesnis vaizdas**: spustelėkite kairę rodyklę arba paspauskite klavišą ←.
 * **Kitas vaizdas**: spustelėkite dešinę rodyklę arba paspauskite klavišą →.
 * **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio mygtukus.
-* **Perkelti**: padidintą vaizdą spustelėkite ir vilkite.
-
-***
+* **Perkelti**: padidintą vaizdą spustelėkite ir vilkite.***
 
 ## Dvigubų failų tvarkymas
 
@@ -115,7 +109,7 @@ Chloros automatiškai aptinka ir ignoruoja dvigubus failus:
 
 * Failai su identiškais pavadinimais yra praleidžiami
 * Apsaugo nuo atsitiktinio dvigubo apdorojimo
-* Aptikus dubliuojamus failus, rodomas įspėjamasis pranešimas
+* Aptikus dubliuotus failus, rodomas įspėjamasis pranešimas
 
 {% hint style="warning" %}
 **Svarbu**: prieš importuodami nepakeiskite ir nemodifikuokite originalių vaizdo failų. Chloros tinkamam apdorojimui naudoja originalius failų pavadinimus ir metaduomenis.
@@ -132,9 +126,7 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 3. Failų naršyklė rodo kameros modelį stulpelyje „Kameros modelis“
 4. Apdorojant taikomi teisingi nustatymai kiekvienam kameros tipui
 
-**Pavyzdinis scenarijus**: Survey3W RGN + Survey3N OCN dvigubos kameros konfigūracija
-
-***
+**Pavyzdinis scenarijus**: Survey3W RGN + Survey3N OCN dvigubos kameros konfigūracija***
 
 ## Geriausia praktika
 
@@ -154,7 +146,7 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 
 * Visada įtraukite 1–2 kalibravimo tikslinius vaizdus per sesiją.
 * Užfiksuokite tikslinius vaizdus prieš ir po užfiksavimo sesijos.
-* Pastatykite tikslinius vaizdus tokiomis pačiomis apšvietimo sąlygomis kaip ir užfiksavimo srityje.
+* Tiksliniai vaizdai turi būti tose pačiose apšvietimo sąlygose kaip ir užfiksavimo sritis.
 * Pažymėkite tikslinius vaizdus naudodami žymės langelį „Tikslas“, kad pagreitintumėte apdorojimą.
 
 ***
@@ -177,7 +169,7 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 
 * Modifikuoti EXIF metaduomenys
 * Vaizdai redaguoti išorinėje programinėje įrangoje
-* Nevisiškas failų perkėlimas
+* Nevisiškai perkeltas failas
 
 **Sprendimas**: Pakartotinai importuokite originalius, nemodifikuotus failus iš fotoaparato/SD kortelės
 
@@ -188,9 +180,7 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 * Netinkamai nustatytas fotoaparato laikrodis
 * Išorinė programinė įranga pašalino EXIF duomenis
 
-**Sprendimas**: Patikrinkite, ar fotoaparato laiko nustatymai buvo teisingi fotografavimo metu
-
-***
+**Sprendimas**: Patikrinkite, ar fotoaparato laiko nustatymai buvo teisingi fotografavimo metu***
 
 ## Tolimesni veiksmai
 
@@ -198,8 +188,8 @@ Kai failai bus importuoti:
 
 1. **Peržiūrėkite failų sąrašą** – įsitikinkite, kad visi vaizdai įkelti teisingai
 2. **Patikrinkite fotoaparato modelius** – patikrinkite, ar fotoaparatas nustatytas teisingai
-3. **Pažymėkite tikslinį vaizdą** – žr. [Tikslinio vaizdo pasirinkimas](choosing-target-images.md)
+3. **Pažymėkite tikslinę nuotrauką** – žr. [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
 4. **Pakeiskite nustatymus** – konfigūruokite apdorojimo parinktis [Projekto nustatymai](adjusting-project-settings.md)
 5. **Pradėkite apdorojimą** – žr. [Apdorojimo pradžia](starting-the-processing.md)
 
-Išsami informacija apie projekto konfigūraciją pateikta skyriuje [Projekto nustatymų koregavimas](adjusting-project-settings.md).
+Išsamią informaciją apie projekto konfigūraciją rasite skyriuje [Projekto nustatymų koregavimas](adjusting-project-settings.md).

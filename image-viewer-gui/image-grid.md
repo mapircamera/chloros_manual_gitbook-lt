@@ -1,6 +1,6 @@
 # Vaizdų tinklelis
 
-Importavę vaizdus į projektą, pagrindinėje srityje pamatysite vaizdus, išdėstytus tinkleliu.
+Importavus vaizdus į projektą, pagrindinėje srityje matysite vaizdus, išdėstytus tinkleliu.
 
 ## Miniatiūrų dydis
 

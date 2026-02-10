@@ -1,4 +1,4 @@
-# Vaizdo atidarymas visame ekrane
+# Vaizdo atidarymas per visą ekraną
 
 Chloros vaizdo peržiūros programa suteikia specialią visą ekraną užimančią sąsają, skirtą daugiaspektrių vaizdų peržiūrai, analizei ir redagavimui. Nepriklausomai nuo to, ar peržiūrite originalius vaizdus, ar apdorotus rezultatus, vaizdo peržiūros programa siūlo galingus įrankius tikrinimui ir analizei.
 
@@ -30,65 +30,50 @@ Kai vaizdas įkeltas į peržiūros sritį:
 Didžiausia ekrano dalis rodo jūsų vaizdą:
 
 * **Pilna skiriamoji geba**: vaizdai rodomi natūralia skiriamąja geba
-* **Zoomable**: naudokite valdiklius arba pelės ratuką, kad padidintumėte vaizdą
-* **Pannable**: spustelėkite ir vilkite, kad perkelti vaizdą, kai jis padidintas
-* **Aspect ratio maintained**: vaizdai proporcingai masteliuojami
-
-***
+* **Padidinamas**: naudokite valdiklius arba pelės ratuką, kad padidintumėte
+* **Perkeliamas**: spustelėkite ir vilkite, kad perkelti padidintą vaizdą
+* **Išlaikomas vaizdo santykis**: vaizdai proporcingai masteliuojami***
 
 ## Peržiūros parinktys
 
-### Pagrindinė vaizdų navigacija
+### Pagrindinė vaizdo navigacija
 
 #### Vaizdų peržiūra
 
-Naršykite po vaizdų rinkinį naudodami klavišų kombinacijas arba mygtukus:
+Naršykite vaizdų rinkinį naudodami klavišų kombinacijas arba mygtukus:
 
-* **Kitas vaizdas**: spustelėkite mygtuką → arba paspauskite klavišą **→** (dešinė rodyklė)
-* **Ankstesnis vaizdas**: spustelėkite mygtuką ← arba paspauskite klavišą **←** (kairė rodyklė)
+* **Kitas vaizdas**: spustelėkite mygtuką → arba paspauskite klavišą**→** (dešinė rodyklė)
+* **Ankstesnis vaizdas**: spustelėkite mygtuką ← arba paspauskite klavišą**←** (kairė rodyklė)
 * **Peršokti prie konkretaus vaizdo**: grįžkite į failų naršyklę ir spustelėkite norimą miniatiūrą
 
 #### Padidinimo valdikliai
 
 Reguliuokite padidinimą, kad galėtumėte peržiūrėti vaizdo detales:
 
-**Padidinti:**
+**Padidinti:*** Spustelėkite mygtuką **+** (pliusas)
+* Paspauskite klavišą **+**arba**=*** Pasukite pelės ratuką **į viršų**
 
-* Spustelėkite mygtuką **+** (pliusas)
-* Paspauskite klavišą **+** arba **=**
-* Pasukite pelės ratuką **į viršų**
-
-**Sumažinti:**
-
-* Spustelėkite mygtuką **−** (minusas)
+**Sumažinti:*** Spustelėkite mygtuką **−** (minusas)
 * Paspauskite klavišą **−** (minusas)
 * Pasukite pelės ratuką **į apačią**
 
 #### Peržiūros mastelio keitimas
 
-Kai mastelis padidintas už ekrano ribų:
+Kai mastelis padidintas už ekrano dydžio ribų:
 
 1. Perkelkite pelės žymeklį ant vaizdo
 2. Spustelėkite ir **laikykite nuspaudę kairįjį pelės mygtuką**
-3. **Vilkite**, kad perkelti vaizdą
+
+3.**Vilkite**, kad perkelti vaizdą
 4. Atleiskite, kad sustabdyti peržiūros mastelio keitimą
 
-**Alternatyva**: Naudokite rodyklių klavišus, kad peržiūros mastelį keisti mažais žingsniais
-
-***
+**Alternatyva**: Naudokite rodyklių klavišus, kad peržiūros mastelį keistumėte nedideliais žingsniais***
 
 ## Pikselių vertės peržiūra
 
 ### Pikselių verčių peržiūra žymekliu
 
-Kai pelės žymeklį perkeliate ant vaizdo, pikselių vertės rodomos realiuoju laiku:
-
-**Vertės rodymo vieta:**
-
-* **Plaukiojantis skaičius ir raudona linija dešinėje pusėje esančiame indeksų LUT gradiento legendoje**
-* **Kai padidinate vaizdą dar labiau, plaukiojanti vertė šalia žymeklio ir paryškintas pikselis**
-* Rodo pikselių vertes **po žymekliu arba paryškintas**
-* Atnaujinama, kai judinate pelę
+Kai pelės žymeklį perkeliate ant vaizdo, pikselių vertės rodomos realiuoju laiku:**Vertės rodymo vieta:*** **Plaukiojantis skaičius ir raudona linija dešinėje pusėje esančiame indeksų LUT gradiento legendoje*** **Kai padidinate vaizdą, plaukiojanti vertė šalia žymeklio ir paryškintas pikselis*** Rodo pikselių vertes **po žymekliu arba paryškintas*** Atnaujinama, kai judinate pelę
 
 ***
 
@@ -110,7 +95,7 @@ Kai pelės žymeklį perkeliate ant vaizdo, pikselių vertės rodomos realiuoju 
 
 * Koreguota vinjetė
 * Kalibruotas atspindys
-* Daugialypė juosta TIFF (Red, Green, NIR ir kt.)
+* Daugiabandis TIFF (Red, Green, NIR ir kt.)
 * Moksliniai duomenys paruošti analizės
 
 ### RAW (indeksas)
@@ -128,7 +113,7 @@ Kai pelės žymeklį perkeliate ant vaizdo, pikselių vertės rodomos realiuoju 
 
 Taikykite daugiaspektrinius indeksus ir spalvų paieškos lenteles:
 
-1. **Image Viewer** šoninėje juostoje raskite **Index/LUT Sandbox** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninėje juostoje
+1. **Image Viewer**šoninėje juostoje raskite**Index/LUT Sandbox** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninėje juostoje
 2. Pasirinkite augmenijos indeksą (NDVI, NDRE ir kt.)
 3. Pasirinkite daugiaspektrę formulę arba sukurkite savo (tik Chloros+)
 4. Vizualizavimui taikykite spalvų LUT gradientą
@@ -149,11 +134,9 @@ Išsamias instrukcijas rasite [Indekso/LUT smėlio dėžėje](index-lut-sandbox.
 
 ### Padidinimas
 
-* **+** arba **=**: padidinti
+* **+**arba**=**: padidinti
 * **−**: sumažinti
-* **Peles ratukas**: padidinti/sumažinti
-
-***
+* **Peles ratukas**: padidinti/sumažinti***
 
 ### Indekso skaičiavimų tikrinimas
 
@@ -166,9 +149,7 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
    * **GNDVI**: panašus į NDVI, bet jautrus chlorofilui
 3. Patikrinkite neaugmeniją:
    * **Dirvožemis**: artimas 0 arba šiek tiek neigiamas
-   * **Vanduo**: neigiamos vertės (-0,5 iki 0)
-
-***
+   * **Vanduo**: neigiamos vertės (-0,5 iki 0)***
 
 ## Problemų, susijusių su peržiūra, sprendimas
 
@@ -205,7 +186,7 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
 
 **Galimos priežastys:**
 
-* Rodomas neteisingas vaizdas (originalas, o ne apdorotas)
+* Rodomas neteisingas vaizdas (originalus, o ne apdorotas).
 * Kalibravimas nebuvo taikytas teisingai
 * Įvesties duomenys nebuvo įtraukti į šviesos jutiklio duomenis
 * Procentinis režimas buvo perjungtas neteisingai
@@ -218,13 +199,13 @@ Patikrinkite, ar indeksai apskaičiuoti teisingai:
 
 ***
 
-## Tolimesni veiksmai
+## Kiti žingsniai
 
 Dabar, kai galite peržiūrėti vaizdus visame ekrane:
 
 * [**Vaizdų sluoksniai**](image-layers.md) – sužinokite apie daugiabandę vizualizaciją
 * [**Indeksas/LUT smėlio dėžė**](index-lut-sandbox.md) – taikykite pasirinktinius indeksus ir spalvų atitikmenis
-* [**Daugiabandės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Sužinokite apie galimus indeksus
+* [**Daugiaspektrinės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Sužinokite apie galimus indeksus
 
 Dėl apdorojimo darbo eigos žr.:
 
