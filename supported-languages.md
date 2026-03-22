@@ -1,12 +1,12 @@
 # Palaikomos kalbos
 
-Chloros teikia visapusišką sąsajos palaikymą **38 kalbomis visame pasaulyje**, todėl ji prieinama vartotojams visame pasaulyje. Galite iš karto pakeisti kalbą visose sąsajose: darbalaukyje, naršyklėje, CLI ir Python SDK.
+Chloros užtikrina visapusišką sąsajos palaikymą **38 pasaulio kalbomis**, todėl ji prieinama vartotojams visame pasaulyje. Galite akimirksniu keisti kalbas visose sąsajose: darbalaukyje, naršyklėje, CLI ir Python SDK.
 
 Chloros palaiko šias kalbas:
 
-| # | Kalba | Gimtoji pavadinimas | CLI kodas |
+| # | Kalba | Pavadinimas | CLI kodas |
 |---|----------|-------------|----------|
-| 1 | 🇺🇸 Anglų | Anglų | `en` |
+| 1 | 🇺🇸 Anglų | English | `en` |
 | 2 | 🇪🇸 Ispanų | Español | `es` |
 | 3 | 🇵🇹 Portugalų | Português | `pt` |
 | 4 | 🇫🇷 Prancūzų | Français | `fr` |
@@ -24,9 +24,9 @@ Chloros palaiko šias kalbas:
 | 16 | 🇮🇳 Hindi | हिंदी | `hi` |
 | 17 | 🇮🇩 Indoneziečių | Bahasa Indonesia | `id` |
 | 18 | 🇻🇳 Vietnamo | Tiếng Việt | `vi` |
-| 19 | 🇹🇭 tajų | ไทย | `th` |
-| 20 | 🇸🇪 švedų | Svenska | `sv` |
-| 21 | 🇩🇰 danų | Dansk | `da` |
+| 19 | 🇹🇭 Tailandiečių | ไทย | `th` |
+| 20 | 🇸🇪 Švedų | Svenska | `sv` |
+| 21 | 🇩🇰 Danų | Dansk | `da` |
 | 22 | 🇳🇴 Norvegų | Norsk | `no` |
 | 23 | 🇫🇮 Suomų | Suomi | `fi` |
 | 24 | 🇬🇷 Graikų | Ελληνικά | `el` |
@@ -41,22 +41,22 @@ Chloros palaiko šias kalbas:
 | 33 | 🇧🇬 Bulgarų | Български | `bg` |
 | 34 | 🇭🇷 Kroatų | Hrvatski | `hr` |
 | 35 | 🇱🇹 Lietuvių | Lietuvių | `lt` |
-| 36 | 🇱🇻 Latviešu | Latviešu | `lv` |
+| 36 | 🇱🇻 Latvių | Latviešu | `lv` |
 | 37 | 🇪🇪 Estų | Eesti | `et` |
 | 38 | 🇸🇮 Slovėnų | Slovenščina | `sl` |
 
 ## Kaip pakeisti kalbą
 
-### Chloros darbalaukyje/naršyklėje
+### Chloros darbalaukyje / naršyklėje
 
-1. Atidarykite programos nustatymus.
-2. Pereikite į kalbos pasirinkimo meniu.
-3. Iš sąrašo pasirinkite pageidaujamą kalbą.
-4. Sąsaja bus atnaujinta iš karto.
+1. Atidarykite programos nustatymus
+2. Pereikite į kalbos pasirinkimo meniu
+3. Iš sąrašo pasirinkite pageidaujamą kalbą
+4. Sąsaja bus atnaujinta iš karto
 
 ### Chloros CLI
 
-Naudokite `language` komandą, kad peržiūrėtumėte arba pakeistumėte CLI sąsajos kalbą:
+Naudokite komandą `language`, kad peržiūrėtumėte arba pakeistumėte CLI sąsajos kalbą:
 
 ```bash
 # View current language
@@ -79,15 +79,15 @@ Daugiau informacijos rasite [CLI dokumentacijoje](CLI.md).
 
 ### Chloros Python SDK
 
-Nustatykite kalbos parametrą, kai inicijuojate SDK, kad gautumėte pranešimus ir išvestis pageidaujama kalba.
+Inicijuodami SDK, nustatykite kalbos parametrą, kad pranešimai ir išvestys būtų rodomi jūsų pageidaujama kalba.
 
 ## Aprėptis
 
 Visos 38 kalbos yra visiškai palaikomos:
 
-* **Chloros Desktop** - Pilnas GUI vertimas
-* **Chloros Browser** - Visuose kalbose veikianti žiniatinklio sąsaja
-* **Chloros CLI** - Komandinės eilutės sąsaja ir išvesties pranešimai
+* **Chloros Desktop** – visiškas GUI vertimas
+* **Chloros Browser** – visomis kalbomis pateikiama žiniatinklio sąsaja
+* **Chloros CLI** – komandinės eilutės sąsaja ir išvesties pranešimai
 * **Chloros Python SDK** – API pranešimai ir dokumentacija
 
 Kalbų palaikymas užtikrina, kad vartotojai visame pasaulyje galėtų efektyviai dirbti savo gimtąja kalba be jokių kliūčių.

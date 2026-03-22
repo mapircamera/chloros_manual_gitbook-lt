@@ -6,49 +6,109 @@ metaLinks:
 
 # Atsisiųsti
 
-Atsisiųskite naujausią Chloros versiją, kad galėtumėte pradėti naudoti daugiaspektrinių vaizdų apdorojimo funkciją.
+Atsisiųskite naujausią „Chloros“ versiją ir pradėkite dirbti su daugiaspektrinių vaizdų apdorojimu.
 
 ### Sistemos reikalavimai
 
+#### Windows
+
 | Reikalavimas          | Minimalūs                                              | Rekomenduojami                                          |
 | -------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| **Operacinė sistema** | Windows 10 (64 bitai)                                  | Windows 11 (64 bitai)                                  |
+| **Operacinė sistema** | Windows 10 (64 bitų)                                  | Windows 11 (64 bitų)                                  |
 | **Procesorius**        | Intel Core i5 arba lygiavertis                          | Intel Core i7 arba geresnis                              |
 | **Atmintis (RAM)**     | 8 GB                                                  | 16 GB ar daugiau                                         |
-| **Vaizdo plokštė**    | Suderinama su DirectX 11                                | NVIDIA GPU su 4 GB+ VRAM                            |
-| **Saugykla**          | 6 GB laisvos vietos                                       | SSD su 10 GB+ laisvos vietos                            |
-| **Ekranas**          | 1920x1080                                            | 2560x1440 arba didesnė                                  |
-| **Internetas**         | Reikalingas \[pasirinktinai] Chloros+ licencijos aktyvinimui | Reikalingas \[pasirinktinai] Chloros+ licencijos aktyvinimui |
+| **Vaizdo plokštė**    | Suderinama su DirectX 11                                | NVIDIA GPU su 4 GB ar daugiau VRAM                            |
+| **Saugykla**          | 6 GB laisvos vietos                                       | SSD su 10 GB ar daugiau laisvos vietos                            |
+| **Ekranas**          | 1920x1080                                            | 2560x1440 ar didesnė                                  |
+| **Internetas**         | Reikalingas \[pasirinktinai] Chloros+ licencijos aktyvacijai | Reikalingas \[pasirinktinai] Chloros+ licencijos aktyvacijai |
+
+#### Linux amd64 (x86\_64)
+
+| Reikalavimas       | Minimalus                    | Rekomenduojamas               |
+| ----------------- | -------------------------- | ------------------------- |
+| **Distribucija**  | Ubuntu 20.04+ / Debian 11+ | Ubuntu 22.04+             |
+| **Procesorius**     | x86\_64 (Intel/AMD)        | Intel Core i7 ar geresnis   |
+| **Atmintis (RAM)**  | 8 GB                        | 16 GB ar daugiau              |
+| **Vaizdo plokštė** | Nėra (apdorojama procesoriumi)      | NVIDIA GPU su 4 GB+ VRAM |
+| **Saugykla**       | 2 GB laisvos vietos             | SSD su 10 GB+ laisvos vietos       |
+| **Python**        | Python 3.7+ (skirta SDK)      | Python 3.10+              |
+
+#### Linux arm64 (NVIDIA Jetson)
+
+| Reikalavimas      | Minimalus                      | Rekomenduojamas                     |
+| ---------------- | ---------------------------- | ------------------------------- |
+| **Platforma**     | NVIDIA Jetson su JetPack 6 | Jetson Orin NX 16 GB arba AGX Orin |
+| **Atmintis (RAM)** | 8 GB (bendra GPU/CPU)         | 16 GB+ bendra                    |
+| **Saugykla**      | 2 GB laisvos vietos               | NVMe SSD su 10 GB+ laisvos vietos        |
+| **Python**       | Python 3.7+ (skirta SDK)        | Python 3.10+                    |
 
 {% hint style="info" %}
-**GPU pagreitinimas**: Chloros+ naudotojai, turintys NVIDIA GPU, gali naudoti CUDA pagreitinimą, kad apdorojimas būtų žymiai spartesnis. Chloros+ naudotojai taip pat gauna daugiaprocesinį apdorojimą, kad pasiektų maksimalų greitį.
+**GPU pagreitinimas**: Chloros+ naudotojai, turintys NVIDIA GPU, gali naudoti CUDA pagreitinimą, kad apdorojimas būtų žymiai spartesnis. Tai veikia tiek su Windows (stacionarių kompiuterių GPU), tiek su Linux (stacionarių kompiuterių GPU ir NVIDIA Jetson). Chloros+ vartotojai taip pat gauna daugiasiūlį apdorojimą, užtikrinantį maksimalų greitį.
 {% endhint %}
 
 ***
 
 ## Atsisiųskite Chloros
 
-### <a href="https://drive.google.com/file/d/1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4/view?usp=drive_link" class="button primary">Atsisiųskite Chloros čia</a>
+### Naujausia stabili versija (2026 m. kovo 23 d.): Versija 1.1.0
 
-### Naujausia stabili versija
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Atsisiųskite Chloros skirtą Windows (.exe)</a>
 
-**Chloros diegimo programa Windows*** **Versija**: 1.0.5
-* **Išleidimo data**: 2026 m. vasario 10 d.
-* **Failo dydis (atsisiuntimas)**: 1,6 GB
-* **Failo dydis (įdiegus)**: 5,7 GB
-* **Failo tipas**: .exe (Windows diegimo programa)
 
-#### **Diegimo veiksmai:**
 
-1. Atsisiųskite `CHLOROS INSTALLER - CURRENT VERSION.exe` failą
-2. Norėdami pradėti diegimą, dukart spustelėkite diegimo programą
-3. Vadovaukitės diegimo vedlio nurodymais
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1dB8-ke3wxNXpw_e1qJ4BhwBpCoNd4kLS" class="button primary">Atsisiųskite Chloros skirtą Linux amd64 (.deb)</a>
+
+
+
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1d1OwdcYA4Rf4jkuPi2IBeWT2772_HnyO" class="button primary">Atsisiųskite Chloros skirtą Linux arm64 / Jetson (.deb)</a>
+
+#### Windows diegimo programa (GUI + CLI + Backend)
+
+* **Failo tipas**: .exe (Windows diegimo programa)**Diegimo žingsniai:**
+
+1. Atsisiųskite aukščiau nurodytą .exe failą
+2. Dvigubai spustelėkite diegimo programą, kad pradėtumėte diegimą
+3. Sekite diegimo vedlio nurodymus
 4. Pasirinkite diegimo katalogą (numatyta: `C:\Program Files\[USER]\Chloros\`)
-5. Baigti diegimą ir paleisti Chloros arba Chloros CLI
-6. Prisijunkite naudodami savo [MAPIR Cloud Chloros+ paskyrą](https://cloud.mapir.camera/pricing) (arba tęskite naudodami nemokamą versiją).
+5. Baigę diegimą, paleiskite Chloros arba Chloros CLI
+6. Prisijunkite naudodami savo [MAPIR Cloud Chloros+ paskyrą](https://cloud.mapir.camera/pricing) (arba tęskite su nemokama versija)
 
 {% hint style="success" %}
-Diegimo programa automatiškai įtraukia `chloros-cli` į jūsų sistemos PATH, kad būtų galima naudotis komandų eilute.
+Diegimo programa automatiškai įtraukia `chloros-cli` į jūsų sistemos PATH, kad būtų galima naudotis iš komandinės eilutės.
+{% endhint %}
+
+#### Linux amd64 (.deb paketas — CLI + Backend)
+
+* **Failo tipas**: .deb (Debian/Ubuntu paketas)
+* **Architektūra**: x86\_64 (amd64)
+
+```bash
+sudo dpkg -i chloros-amd64.deb
+chloros-cli --version  # Verify installation
+```
+
+#### Linux arm64 — NVIDIA Jetson (.deb paketas — CLI + Backend)
+
+* **Failo tipas**: .deb (JetPack 6)
+* **Architektūra**: aarch64 (arm64)
+
+```bash
+sudo dpkg -i chloros-arm64-jp6.deb
+chloros-cli --version  # Verify installation
+```
+
+Išsamias diegimo instrukcijas rasite [Linux diegimo](linux/linux-installation.md) skyriuje, o su „Jetson“ susijusias gaires — [„NVIDIA Jetson“ vadove](linux/nvidia-jetson-guide.md).
+
+#### Python SDK (visos platformos)
+
+```bash
+pip install chloros-sdk
+```
+
+Dokumentaciją rasite [API : Python SDK](api-python-sdk.md).
+
+{% hint style="info" %}
+**Linux vartotojai**: `.deb` paketas įdiegia CLI ir backend. Python SDK įdiegiamas atskirai per pip. Linux neturi grafinės vartotojo sąsajos — visa sąveika vyksta per CLI arba SDK.
 {% endhint %}
 
 ***
@@ -57,53 +117,71 @@ Diegimo programa automatiškai įtraukia `chloros-cli` į jūsų sistemos PATH, 
 
 ### Python SDK
 
-Kūrėjams ir automatizavimo darbo eigoms įdiekite Chloros Python SDK:
+Kūrėjams ir automatizavimo darbo srautams įdiekite Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Dokumentacija**: [API: Python SDK](api-python-sdk.md)**Reikalavimai**: Chloros Desktop turi būti įdiegtas, reikalingas Chloros+ licencijos prisijungimas.***
+**Dokumentacija**: [API: Python SDK](api-python-sdk.md)**Reikalavimai**: turi būti įdiegta Chloros (Windows diegimo programa arba Linux `.deb` paketas), reikalingas Chloros+ licencijos prisijungimas***
 
 ## Kas įtraukta
 
-Chloros diegimas apima:
+### Windows diegimo programa
 
-* ✅ **Chloros** – visapusiška grafinė sąsaja (GUI)
-* ✅ **Chloros CLI** – komandinės eilutės sąsaja (reikalinga Chloros+ licencija)
-* ✅ **Chloros SDK** – Python API (reikalinga Chloros+ licencija)
-* ✅ **Kameros profiliai** – iš anksto sukonfigūruoti MAPIR kameros šablonai***
+* ✅ **Chloros GUI** – visapusiška grafinė sąsaja
+* ✅ **Chloros CLI** – Komandinės eilutės sąsaja (reikalinga Chloros+ licencija)
+* ✅ **Chloros Backend** – Apdorojimo variklis
+* ✅ **Kamerų profiliai** – iš anksto sukonfigūruoti MAPIR kamerų šablonai
+
+### Linux .deb paketas
+
+* ✅ **Chloros CLI** – Komandinės eilutės sąsaja (reikalinga Chloros+ licencija)
+* ✅ **Chloros Backend** – apdorojimo variklis
+* ✅ **Kamerų profiliai** – iš anksto sukonfigūruoti MAPIR kamerų šablonai
+* ❌ Nėra GUI — Linux yra tik be grafinės sąsajos CLI/SDK
+
+### Python SDK (pip, visos platformos)
+
+* ✅ **Chloros SDK** - Python API (reikalinga Chloros+ licencija)***
 
 ## Atnaujinkite į Chloros+
 
 Atrakinkite išplėstines funkcijas su Chloros+ prenumerata:
 
-* 🚀 **Daugiasiūlis apdorojimas** – apdorokite vaizdus lygiagrečiai
+* 🚀 **Daugiagijis apdorojimas** – apdorokite vaizdus lygiagrečiai
 * ⚡ **GPU (CUDA) pagreitinimas** – išnaudokite NVIDIA GPU galią
 * 💻 **CLI prieiga** – automatizuokite naudodami komandinės eilutės įrankius
-* 🐍 **Python SDK** – programinis API prieiga
-* 📱 **Keli įrenginiai** – naudokite 2–10+ įrenginiuose (priklauso nuo plano)
-* **🐻 Išplėstinis tekstūrą atpažįstantis debayer metodas** – aukštos kokybės kraštus atpažįstantis debayer, derinamas su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayering triukšmą. 
-* 🧮 **Pasirinktinės formulės** – kurkite pasirinktinius multispektrinius indeksus
+* 🐍 **Python SDK** – programinė API prieiga
+* 📱 **Keli įrenginiai** – Naudokite 2–10 ir daugiau įrenginių (priklausomai nuo plano)
+* **🐻 Išplėstinis tekstūrą atpažįstantis debayerio metodas** – aukštos kokybės kraštus atpažįstantis debayeris, suderintas su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
+* 🧮 **Pasirinktinės formulės** – Sukurkite pasirinktinius multispektrinius indeksus
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėkite Chloros+ planus ir kainas</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėti Chloros+ planus ir kainas</a></p>***
 
-## Įdiegimo pagalba
+## Pagalba diegiant
 
 ### Trikčių šalinimas
 
-**Įdiegimas nepavyksta ir rodomas klaidos pranešimas:**
+**Diegimas nepavyksta, rodomas klaidos pranešimas:**
 
 * Įsitikinkite, kad turite administratoriaus teises
 * Laikinai išjunkite antivirusinę programinę įrangą
 * Patikrinkite, ar atitinkate minimalius sistemos reikalavimus
 
-**Programa nepaleidžiama:**
+**Programa nepaleidžiama (Windows):**
 
 * Patikrinkite, ar įdiegta Windows 10/11 (64 bitų)
 * Atnaujinkite grafikos tvarkykles
 * Patikrinkite Windows įvykių peržiūrą, kad sužinotumėte klaidos detales
-* Susisiekite su pagalbos tarnyba ir pateikite klaidų žurnalus
+* Susisiekite su palaikymo tarnyba ir pateikite klaidų žurnalus
+
+**CLI nepaleidžiama (Linux):**
+
+* Patikrinkite, ar `.deb` paketas įdiegtas teisingai: `dpkg -l | grep chloros`
+* Patikrinkite leidimus: `sudo chmod +x /usr/bin/chloros-cli`
+* Vykdykite diagnostiką: `chloros-cli selftest`
+* Patikrinkite, ar netrūksta bibliotekų: `ldd /usr/lib/chloros/chloros-backend | grep "not found"`
 
 **Licencijos aktyvavimo problemos:**
 
@@ -118,17 +196,41 @@ Reikia pagalbos diegiant ar konfigūruojant?
 
 * 📧 **El. paštas**: info@mapir.camera
 * 🌐 **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Dokumentacija**: [Pradžia](./)
+* 📚 **Dokumentacija**: [Pradžios vadovas](./)
 * ❓ **DUK**: [Dažnai užduodami klausimai](faq.md)***
 
 ## Keitimų žurnalas
 
 <details>
 
+<summary>Versija 1.1.0 (Naujausia)</summary>
+
+**Išleidimo data: 2026 m. kovo mėn.**
+
+**Naujos funkcijos*** **Linux palaikymas** — Natūralus CLI ir SDK palaikymas Linux amd64 (x86\_64) ir arm64 (NVIDIA Jetson JetPack 6) platformoms. Įdiekite per `.deb` paketus.
+* **NVIDIA Jetson palaikymas** — Optimizuotas apdorojimas Jetson Nano, Orin Nano, Orin NX ir AGX Orin kraštinių įrenginiams.
+* **Dinaminis skaičiavimo pritaikymas** — Automatinis aparatinės įrangos aptikimas ir apdorojimo strategijos optimizavimas. Chloros prisitaiko prie jūsų aparatinės įrangos nuo „Jetson Nano“ iki daugiaprocesorės darbo stoties.
+* **4 sriegių apdorojimo kanalas** — Vienu metu veikiantys aptikimo, kalibravimo, apdorojimo ir eksporto sriegiai su dinamišku GPU atminties paskirstymu.
+* **Naujos CLI komandos** — `selftest` (sistemos diagnostika) ir `update` (Linux atnaujinimų valdymas).
+* **Nauji CLI apdorojimo žymekliai** — `--debayer` (standartinis/atsižvelgiantis į tekstūrą), `--indices` (nurodyti indeksus), `--target` (pirmiausia ieškoti tikslinėje pakatalogėje, kad aptikimas būtų greitesnis).
+* **Nauji GUI meniu elementai** — „Pridėti failus“, „Pridėti aplanką“ ir „Pradėti/Sustabdyti apdorojimą“ dabar pasiekiami iš pagrindinio meniu išskleidžiamojo sąrašo.**Patobulinimai**
+
+* Tarpplatforminio užkulisio automatinis aptikimas (Windows ir Linux keliai)
+* Patobulintas SDK `get_status()` su pažangos stebėjimu pagal kiekvieną srautą
+* Naujos SDK išimtys: `ChlorosConfigurationError`, `ChlorosAuthenticationError`
+* Šilumos valdymas ir prisitaikantis greičio ribojimas NVIDIA Jetson
+* Automatinis atminties valdymas su OOM atsarginiu perėjimu prie mozaikinio GPU apdorojimo
+
+</details>
+
+<details>
+
 <summary>Versija 1.0.5</summary>
 
-#### **Išleidimo data**: 2026 m. vasario 10 d.**Naujos funkcijos*** **Tekstūrą atpažįstantis debayerio metodas \[Chloros+ Tik] -** Tekstūrą atpažįstantis metodas naudoja aukštos kokybės kraštus atpažįstantį debayerį kartu su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
-* **T4P kalibravimo tikslų palaikymas*** **Greičiau veikiantis Chloros+ GPU apdorojimas, geresnis atminties valdymas**
+**Išleidimo data: 2026 m. vasario 10 d.**
+
+**Naujos funkcijos*** **Tekstūrą atpažįstantis debayerio metodas \[tik Chloros+] -** Tekstūrą atpažįstantis metodas naudoja aukštos kokybės kraštų atpažįstantį debayerį, derinamą su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
+* **T4P kalibravimo tikslų palaikymas*** **Greitesnis Chloros+ GPU apdorojimas, geresnis atminties valdymas**
 
 **Klaidų taisymai*** Visiškai nauja vartotojo sąsaja (GUI), dabar turėtų veikti visuose Windows kompiuteriuose.
 
@@ -138,14 +240,16 @@ Reikia pagalbos diegiant ar konfigūruojant?
 
 <summary>Versija 1.0.4</summary>
 
-#### **Išleidimo data**: 2026 m. sausio 5 d.**Naujos funkcijos*** **Vaizdo/metaduomenų perjungimas**: į failų naršyklę įtrauktas perjungimas, leidžiantis peržiūrėti pasirinktų vaizdų metaduomenis lentelėje, o ne vaizdų tinklelyje
-* **Vaizdų tinklelio mastelio slankiklis**: naujas UI slankiklis, leidžiantis reguliuoti miniatiūrų dydį (taip pat palaiko CTRL + pelės ratuką)
-* **Vaizdo tinklelio eksporto mygtukai**: mygtukai viršutinėje eilutėje, skirti perjungti miniatiūras iš JPG į apdorotus eksportus (tikslai, atspindys, indeksas, LUT)
-* **Žemėlapio skirtukas**: naujas interaktyvus 2D žemėlapis, rodantis vaizdo GPS vietos žymes.
-  * Palaiko „Google Maps“ ir ESRI žemėlapių plyteles (automatiškai pasirenka geriausią plytelių paslaugą pagal mastelio lygio prieinamumą).
-  * Pelės žymeklį užvedus ant žemėlapio žymių, rodomas miniatiūrų peržiūros langas.
+**Išleidimo data: 2026 m. sausio 5 d.**
 
-**Klaidų taisymai*** Pagerintas Chloros diegimas ne anglų kalba kompiuteriuose.
+**Naujos funkcijos*** **Vaizdo/metaduomenų perjungimas**: Failų naršyklėje pridėtas perjungimas, leidžiantis peržiūrėti pasirinktų vaizdų metaduomenis lentelėje, o ne vaizdų tinklelyje
+* **Vaizdų tinklelio mastelio slankiklis**: Naujas vartotojo sąsajos slankiklis, skirtas miniatiūrų dydžiui reguliuoti (taip pat palaiko CTRL + pelės ratuką)
+* **Vaizdų tinklelio eksporto mygtukai**: Mygtukai viršutinėje eilutėje, skirti perjungti miniatiūras iš JPG į apdorotus eksportus (Tikslai, Atspindys, Indeksas, LUT)
+* **Žemėlapio skirtukas**: naujas interaktyvus 2D žemėlapis, rodantis vaizdo GPS vietos žymes
+  * Palaiko „Google Maps“ ir ESRI žemėlapio plyteles (automatiškai pasirenka geriausią plytelių paslaugą pagal mastelio lygio prieinamumą)
+  * Pelės žymeklį užvedus ant žemėlapio žymių, rodomas miniatiūrų peržiūros langas
+
+**Klaidų taisymai*** Pagerintas „Chloros“ įdiegimo palaikymas kompiuteriuose, kuriuose naudojama ne anglų kalba
 
 </details>
 
@@ -153,18 +257,20 @@ Reikia pagalbos diegiant ar konfigūruojant?
 
 <summary>Versija 1.0.3</summary>
 
-#### **Išleidimo data**: 2025 m. gruodžio 20 d.**Naujos funkcijos*** Pirminis paleidimas
+**Išleidimo data: 2025 m. gruodžio 20 d.**
 
-**Patobulinimai*** Pirminis paleidimas
+**Naujos funkcijos*** Pirmasis paleidimas
 
-**Klaidų taisymai*** Pirminis paleidimas
+**Patobulinimai*** Pirmasis paleidimas
 
-**Žinomos problemos*** Pirminis paleidimas
+**Klaidų taisymai*** Pirmasis paleidimas
+
+**Žinomos problemos*** Pirmasis paleidimas
 
 </details>***
 
 ## Licencinė sutartis**Nuosavybinė programinė įranga** – Autorinės teisės (c) 2026 MAPIR Inc.
 
-Neteisėtas naudojimas, platinimas ar modifikavimas yra draudžiamas.
+Draudžiama neteisėtai naudoti, platinti ar keisti.
 
-**Nemokama versija**: galima naudoti asmeniniams ir komerciniams tikslams su funkcionalumo apribojimais.**Chloros+**: prenumerata pagrįsta licencija, suteikianti teisę naudotis išplėstinėmis funkcijomis ir komerciniais sprendimais.
+**Nemokama versija**: Skirta asmeniniam ir komerciniam naudojimui su funkcionalumo apribojimais**Chloros+**: Licencija, pagrįsta prenumerata, skirta išplėstinėms funkcijoms ir komerciniam diegimui

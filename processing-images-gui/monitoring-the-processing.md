@@ -1,10 +1,10 @@
 # Apdorojimo stebėjimas
 
-Pradėjus apdorojimą, Chloros siūlo keletą būdų stebėti pažangą, tikrinti problemas ir suprasti, kas vyksta su jūsų duomenų rinkiniu. Šiame puslapyje paaiškinama, kaip stebėti apdorojimą ir interpretuoti Chloros teikiamą informaciją.
+Pradėjus apdorojimą, Chloros siūlo keletą būdų, kaip stebėti pažangą, tikrinti, ar nėra problemų, ir suprasti, kas vyksta su jūsų duomenų rinkiniu. Šiame puslapyje paaiškinama, kaip stebėti apdorojimo eigą ir kaip interpretuoti Chloros pateikiamą informaciją.
 
 ## Pažangos juostos apžvalga
 
-Pažangos juosta viršutiniame antraštės skyriuje rodo apdorojimo būseną ir užbaigtumo procentą realiuoju laiku.
+Pažangos juosta viršutiniame antrašte rodo apdorojimo būseną realiuoju laiku ir užbaigtumo procentą.
 
 ### Laisvojo režimo pažangos juosta
 
@@ -12,14 +12,12 @@ Vartotojams, neturintiems Chloros+ licencijos:
 
 **2 etapų pažangos rodymas:**
 
-1. **Tikslo aptikimas** – kalibravimo tikslų paieška vaizduose
-2. **Apdorojimas** – pataisymų taikymas ir eksportavimas
-
-**Pažangos juosta rodo:**
+1.**Tikslo aptikimas** – kalibravimo tikslų paieška vaizduose
+2. **Apdorojimas** – korekcijų taikymas ir eksportavimas**Pažangos juosta rodo:**
 
 * Bendrą užbaigtumo procentą (0–100 %)
 * Dabartinio etapo pavadinimą
-* Paprastą horizontalią juostą
+* Paprastą horizontalios juostos vizualizaciją
 
 ### Chloros+ pažangos juosta
 
@@ -27,30 +25,30 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 **4 etapų pažangos rodymas:**
 
-1. **Aptikimas** – kalibravimo tikslų paieška
-2. **Analizė** – vaizdų tikrinimas ir ruošimas
+1.**Aptikimas** – kalibravimo taškų paieška
+2. **Analizė** – vaizdų tikrinimas ir proceso paruošimas
 3. **Kalibravimas** – vinjetės ir atspindžio korekcijų taikymas
-4. **Eksportavimas** – apdorotų failų išsaugojimas
-
-**Interaktyvios funkcijos:**
-
-* **Pereikite pelės žymekliu per** pažangos juostą, kad pamatytumėte išplėstą 4 etapų skydelį
+4. **Eksportavimas** – apdorotų failų išsaugojimas**Interaktyvios funkcijos:*** **Pereikite pelės žymekliu** per pažangos juostą, kad pamatytumėte išplėstą 4 etapų skydelį
 * **Spustelėkite** pažangos juostą, kad sustabdytumėte / pritvirtintumėte išplėstą skydelį
-* **Spustelėkite dar kartą**, kad atšildytumėte ir automatiškai paslėptumėte, kai nuimsite pelę
-* Kiekvienas etapas rodo individualią pažangą (0–100 %)
+* **Spustelėkite dar kartą**, kad atšauktumėte sustabdymą ir skydelis automatiškai pasislėptų, kai nuimsite pelės žymeklį
+* Kiekviename etape rodomas individualus pažangos lygis (0–100 %)
 
 ***
 
 ## Kiekvieno apdorojimo etapo supratimas
 
-### 1 etapas: aptikimas (tikslo aptikimas)
+{% hint style="info" %}
+**Pipeline architektūra**: Šie 4 GUI etapai atitinka [4-siūlų apdorojimo pipeline](../processing-architecture/processing-pipeline.md). Sistemose su GPU pagreitinimu, 3-iasis siūlas (Kalibravimas) naudoja [Dinaminį skaičiavimo pritaikymą](../processing-architecture/dynamic-compute-adaptation.md), kuris optimizuoja apdorojimą jūsų konkrečiai aparatūrai.
+{% endhint %}
+
+### 1 etapas: Aptikimas (tikslo aptikimas)
 
 **Kas vyksta:**
 
 * Chloros nuskaito vaizdus, pažymėtus žymės langeliu „Tikslas“
-* Kompiuterinio matymo algoritmai identifikuoja 4 kalibravimo skydelius
-* Iš kiekvieno skydelio išgautos atspindžio vertės
-* Tikslo laiko žymos įrašomos tinkamam kalibravimo planavimui
+* Kompiuterinio matymo algoritmai identifikuoja 4 kalibravimo plokštes
+* Iš kiekvienos plokštės išgautos atspindžio vertės
+* Užregistruoti tikslo laiko žymos, reikalingos tinkamam kalibravimo planavimui
 
 **Trukmė:**
 
@@ -61,77 +59,65 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 * Aptikimas: 0 % → 100 %
 * Nuskaitytų vaizdų skaičius
-* Rasti tikslai
+* Rastų tikslų skaičius
 
-**Į ką reikia atkreipti dėmesį:**
+**Į ką atkreipti dėmesį:**
 
-* Turėtų būti baigta greitai, jei tikslai pažymėti tinkamai
+* Turėtų baigtis greitai, jei tikslai pažymėti tinkamai
 * Jei trunka per ilgai, tikslai gali būti nepažymėti
-* Patikrinkite „Debug Log“ (Debug žurnalą) dėl pranešimų „Target found“ (Rastas tikslas)
+* Patikrinkite „Debug Log“ žurnale, ar yra pranešimų „Target found“
 
 ### 2 etapas: Analizė
 
 **Kas vyksta:**
 
-* Skaityti vaizdo EXIF metaduomenis (laiko žymes, ekspozicijos nustatymus)
-* Nustatyti kalibravimo strategiją pagal tikslų laiko žymes
-* Tvarkyti vaizdo apdorojimo eilę
-* Parengti lygiagretaus apdorojimo darbuotojus (tik Chloros+)
+* Vaizdo EXIF metaduomenų skaitymas (laiko žymos, ekspozicijos nustatymai)
+* Kalibravimo strategijos nustatymas remiantis objektų laiko žymėmis
+* Vaizdų apdorojimo eilės tvarkymas
+* Lygiagretaus apdorojimo procesų paruošimas (tik Chloros+)
 
-**Trukmė:** 5–30 sekundžių
-
-**Pažangos indikatorius:**
+**Trukmė:** 5–30 sekundžių**Pažangos indikatorius:**
 
 * Analizė: 0 % → 100 %
 * Greitas etapas, paprastai baigiamas greitai
 
-**Į ką reikia atkreipti dėmesį:**
+**Į ką atkreipti dėmesį:**
 
-* Turėtų vykti tolygiai, be pertraukų
-* Įspėjimai apie trūkstamus metaduomenis bus rodomi „Debug Log“ (Debugavimo žurnale)
+* Pažanga turėtų vykti tolygiai, be pertraukų
+* Įspėjimai apie trūkstamus metaduomenis bus rodomi Debug Log
 
 ### 3 etapas: Kalibravimas
 
-**Kas vyksta:**
-
-* **Debayering**: RAW Bayer modelio konvertavimas į 3 kanalus
+**Kas vyksta:*** **Debayering**: RAW Bayer modelio konvertavimas į 3 kanalus
 * **Vignette korekcija**: objektyvo kraštų patamsėjimo pašalinimas
-* **Atspindžio kalibravimas**: normalizavimas pagal tikslinės vertės
+* **Atspindžio kalibravimas**: normalizavimas pagal tikslinės reikšmes
 * **Indekso skaičiavimas**: daugiaspektrinių indeksų skaičiavimas
 * Kiekvieno vaizdo apdorojimas per visą procesą
 
-**Trukmė:** didžioji dalis viso apdorojimo laiko (60–80 %)
-
-**Pažangos indikatorius:**
+**Trukmė:** Didžioji dalis bendro apdorojimo laiko (60–80 %)**Pažangos indikatorius:**
 
 * Kalibravimas: 0 % → 100 %
 * Šiuo metu apdorojamas vaizdas
-* Užbaigti vaizdai / Visi vaizdai
+* Apdoroti vaizdai / Visi vaizdai
 
-**Apdorojimo elgsena:**
+**Apdorojimo elgsena:*** **Laisvasis režimas**: Apdoroja po vieną vaizdą paeiliui
+* **Chloros+ režimas**: Apdoroja iki 16 vaizdų vienu metu
+* **GPU pagreitinimas**: Žymiai pagreitina šį etapą**Į ką atkreipti dėmesį:**
 
-* **Laisvasis režimas**: apdoroja po vieną vaizdą iš eilės
-* **Chloros+ režimas**: apdoroja iki 16 vaizdų vienu metu
-* **GPU pagreitinimas**: žymiai pagreitina šį etapą
-
-**Į ką atkreipti dėmesį:**
-
-* Pastovi pažanga pagal vaizdų skaičių
-* Patikrinkite „Debug Log“ (Debugavimo žurnalą) dėl pranešimų apie kiekvieno vaizdo apdorojimo pabaigą
+* Nuoseklus pažangos rodymas pagal vaizdų skaičių
+* Patikrinkite „Debug Log“ (Debug žurnalo) įrašus dėl kiekvieno vaizdo apdorojimo pranešimų
 * Įspėjimai apie vaizdo kokybės ar kalibravimo problemas
 
 ### 4 etapas: Eksportavimas
 
 **Kas vyksta:**
 
-* Kalibruotų vaizdų rašymas į diską pasirinktu formatu
-* Daugiaspektrinių indeksų vaizdų eksportavimas su LUT spalvomis
+* Kalibruotų vaizdų įrašymas į diską pasirinktu formatu
+* Daugiaspektrinių indeksinių vaizdų eksportavimas su LUT spalvomis
 * Kameros modelio pakatalogių kūrimas
 * Originalių failų pavadinimų išsaugojimas su atitinkamais priesagais
 
-**Trukmė:** 10–20 % viso apdorojimo laiko
-
-**Pažangos indikatorius:**
+**Trukmė:** 10–20 % viso apdorojimo laiko**Pažangos indikatorius:**
 
 * Eksportavimas: 0 % → 100 %
 * Rašomi failai
@@ -141,19 +127,19 @@ Vartotojams, turintiems Chloros+ licenciją:
 
 * Įspėjimai apie disko vietos trūkumą
 * Failų rašymo klaidos
-* Visų sukonfigūruotų išvesties užbaigimas
+* Visų sukonfigūruotų išvesties duomenų užbaigimas
 
 ***
 
-## Debug Log (Debug žurnalo) skirtukas
+## Skirtukas „Debug Log“ (Debugavimo žurnalas)
 
-Debug žurnale pateikiama išsami informacija apie apdorojimo pažangą ir visas iškilusias problemas.
+Debugavimo žurnale pateikiama išsami informacija apie apdorojimo eigą ir visas iškilusias problemas.
 
-### Prieiga prie Debug žurnalo
+### Prieiga prie debugavimo žurnalo
 
-1. Spustelėkite **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> piktogramą kairėje šoninėje juostoje.
-2. Atsidarys žurnalo langas, kuriame bus rodomi apdorojimo pranešimai realiuoju laiku.
-3. Automatiškai slinks, kad būtų rodomi naujausi pranešimai.
+1. Spustelėkite piktogramą **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> piktogramą kairiajame šoniniame meniu
+2. Atsidarys žurnalo langas, kuriame rodomi apdorojimo pranešimai realiuoju laiku
+3. Langas automatiškai slinks, kad būtų rodomi naujausi pranešimai
 
 ### Žurnalo pranešimų supratimas
 
@@ -179,7 +165,7 @@ Nekritinės problemos, kurios nesustabdo apdorojimo:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Veiksmas:** Peržiūrėkite įspėjimus po apdorojimo, bet nepertraukite jo.
+**Veiksmas:** Peržiūrėkite įspėjimus po apdorojimo, bet nepertraukite
 
 #### Klaidų pranešimai (Red)
 
@@ -191,27 +177,27 @@ Kritinės problemos, dėl kurių apdorojimas gali žlugti:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Veiksmas:** Sustabdyti apdorojimą, išspręsti klaidą, paleisti iš naujo.
+**Veiksmas:** Sustabdykite apdorojimą, išspręskite klaidą, paleiskite iš naujo
 
-### Įprasti žurnalo pranešimai
+### Dažni žurnalo pranešimai
 
 | Pranešimas                          | Reikšmė                                | Reikalingas veiksmas                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| „Tikslas aptiktas \[filename]“ | Kalibravimo tikslas sėkmingai rastas  | Nėra – normalu                                         |
-| „Apdorojamas vaizdas X iš Y“        | Dabartinės pažangos atnaujinimas                | Nėra – normalu                                         |
+| „Tikslas aptiktas \[failo pavadinimas]“ | Kalibravimo tikslas sėkmingai rastas  | Nėra – normalu                                         |
+| „Apdorojamas vaizdas X iš Y“        | Dabartinė pažanga                | Nėra – normalu                                         |
 | „Tikslai nerasti“               | Kalibravimo tikslai nerasti        | Pažymėkite tikslo vaizdus arba išjunkite atspindžio kalibravimą |
-| „Nepakankama disko vieta“        | Nepakanka vietos išvesties failams          | Atlaisvinkite disko vietą                                    |
-| „Pereiti prie sugadinto failo“        | Vaizdo failas sugadintas                  | Pakartotinai nukopijuokite failą iš SD kortelės                             |
-| „PPK duomenys pritaikyti“               | GPS pataisymai iš .daq failo pritaikyti | Nėra – normalus                                         |
+| „Nepakanka vietos diske“        | Nepakanka vietos išvesties duomenims          | Atlaisvinkite vietos diske                                    |
+| „Praleidžiamas sugadintas failas“        | Vaizdo failas yra sugadintas                  | Perkopijuokite failą iš SD kortelės                             |
+| „PPK duomenys pritaikyti“               | GPS pataisymai iš .daq failo pritaikyti | Nėra – normalu                                         |
 
 ### Žurnalo duomenų kopijavimas
 
-Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
+Norėdami nukopijuoti žurnalą trikčių šalinimo ar pagalbos tikslais:
 
-1. Atidarykite „Debug Log“ (Debugavimo žurnalas) skydelį.
-2. Spustelėkite mygtuką „Copy Log“ (Kopijuoti žurnalą) (arba dešiniuoju pelės mygtuku spustelėkite → „Select All“ (Pasirinkti viską)).
-3. Įklijuokite į tekstinį failą arba el. laišką.
-4. Jei reikia, nusiųskite MAPIR pagalbos tarnybai.
+1. Atidarykite „Debug Log“ (Trikčių šalinimo žurnalas) skydelį
+2. Spustelėkite mygtuką **„Copy Log“** (Kopijuoti žurnalą) (arba dešiniuoju pelės mygtuku spustelėkite → „Select All“ (Pažymėti viską))
+3. Įklijuokite į tekstinį failą arba el. laišką
+4. Jei reikia, nusiųskite į „MAPIR“ pagalbos tarnybą
 
 ***
 
@@ -223,18 +209,18 @@ Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 
 * 1 CPU branduolys ~100 %
 * Kiti branduoliai neveikia arba yra laisvi
-* Sistema lieka reaguojanti
+* Sistema išlieka reaguojanti
 
-**Chloros+ Lygiagretusis režimas:**
+**Chloros+ lygiagretusis režimas:**
 
-* Keli branduoliai 80–100 % (iki 16 branduolių)
-* Didelis bendras CPU naudojimas
+* Keletas branduolių 80–100 % (iki 16 branduolių)
+* Didelis bendras CPU panaudojimas
 * Sistema gali atrodyti mažiau reaguojanti
 
-**Stebėti:**
+**Kaip stebėti:**
 
 * Windows Užduočių tvarkyklė (Ctrl+Shift+Esc)
-* Skirtukas „Našumas“ → skyrius „CPU“
+* Skirtukas „Našumas“ → Skyrius „CPU“
 * Ieškokite procesų „Chloros“ arba „chloros-backend“
 
 ### Atminties (RAM) naudojimas
@@ -242,11 +228,11 @@ Norėdami kopijuoti žurnalą trikčių šalinimui ar pagalbai:
 **Tipinis naudojimas:**
 
 * Maži projektai (&lt; 100 vaizdų): 2–4 GB
-* Vidutiniai projektai (100–500 vaizdų): 4–8 GB
-* Dideliai projektai (500+ vaizdų): 8–16 GB
-* Chloros+ lygiagretusis režimas naudoja daugiau RAM
+* Vidutinio dydžio projektai (100–500 vaizdų): 4–8 GB
+* Didelio dydžio projektai (500+ vaizdų): 8–16 GB
+* Chloros+ lygiagretaus režimo metu sunaudojama daugiau RAM
 
-**Jei atminties mažai:**
+**Jei trūksta atminties:**
 
 * Apdorokite mažesnes partijas
 * Uždarykite kitas programas
@@ -260,25 +246,25 @@ Kai įjungtas GPU pagreitinimas:
 * VRAM naudojimas padidėja (reikia 4 GB+ VRAM)
 * Kalibravimo etapas yra žymiai greitesnis
 
-**Stebėti:**
+**Kaip stebėti:**
 
 * NVIDIA sistemos dėklo piktograma
 * Užduočių tvarkyklė → Našumas → GPU
 * GPU-Z arba panaši stebėjimo priemonė
 
-### Diskas I/O
+### Disko įvesties/išvesties operacijos
 
 **Ko tikėtis:**
 
-* Didelis disko skaitymo greitis analizės etape
-* Didelis disko rašymo greitis eksporto etape
+* Didelis disko skaitymo intensyvumas analizavimo etape
+* Didelis disko rašymo intensyvumas eksportavimo etape
 * SSD yra žymiai greitesnis nei HDD
 
 **Našumo patarimas:**
 
 * Jei įmanoma, naudokite SSD projektų aplankams
 * Venkite tinklo diskų dideliems duomenų rinkiniams
-* Įsitikinkite, kad diskas nėra beveik užpildytas (tai turi įtakos rašymo greičiui)
+* Užtikrinkite, kad disko talpa nebūtų beveik išnaudota (tai daro įtaką rašymo greičiui)
 
 ***
 
@@ -286,37 +272,37 @@ Kai įjungtas GPU pagreitinimas:
 
 ### Įspėjamieji ženklai
 
-**Procesas sustoja (jokių pokyčių 5+ minutes):**
+**Procesas sustoja (jokių pokyčių 5 ar daugiau minučių):**
 
-* Patikrinkite, ar nėra klaidų Debug Log
+* Patikrinkite „Debug Log“ dėl klaidų
 * Patikrinkite, ar yra laisvos vietos diske
-* Patikrinkite Task Manager, ar veikia Chloros
+* Patikrinkite „Task Manager“, ar veikia „Chloros“
 
 **Dažnai rodomi klaidų pranešimai:**
 
 * Sustabdykite apdorojimą ir peržiūrėkite klaidas
-* Dažniausios priežastys: disko vietos trūkumas, sugadinti failai, atminties problemos
-* Žr. skyrių „Problemų sprendimas“ žemiau
+* Dažniausios priežastys: vietos trūkumas diske, sugadinti failai, atminties problemos
+* Žiūrėkite skyrių „Problemų sprendimas“ žemiau
 
 **Sistema nereaguoja:**
 
-* Chloros+ lygiagretusis režimas naudoja per daug išteklių
-* Apsvarstykite galimybę sumažinti vienu metu vykdomų užduočių skaičių arba atnaujinti aparatinę įrangą
-* Laisvasis režimas naudoja mažiau išteklių
+* Chloros+ lygiagretaus režimo naudojimas sunaudoja per daug išteklių
+* Apsvarstykite galimybę sumažinti vienu metu vykdomų užduočių skaičių arba atnaujinti aparatūrą
+* Laisvasis režimas sunaudoja mažiau išteklių
 
 ### Kada sustabdyti apdorojimą
 
 Sustabdykite apdorojimą, jei matote:
 
 * ❌ Klaidas „Diskas pilnas“ arba „Negaliu įrašyti failo“
-* ❌ Pakartotinės vaizdo failų sugadinimo klaidos
+* ❌ Pasikartojančios vaizdo failų sugadinimo klaidos
 * ❌ Sistema visiškai užstrigo (nereaguoja)
 * ❌ Supratote, kad buvo nustatyti neteisingi parametrai
 * ❌ Importuoti neteisingi vaizdai
 
 **Kaip sustabdyti:**
 
-1. Spustelėkite **Sustabdyti/Atšaukti mygtuką** (pakeičia Pradėti mygtuką)
+1. Spustelėkite**„Sustabdyti/Atšaukti“ mygtuką** (pakeičia „Pradėti“ mygtuką)
 2. Apdorojimas sustabdomas, pažanga prarandama
 3. Išspręskite problemas ir pradėkite iš naujo
 
@@ -324,48 +310,48 @@ Sustabdykite apdorojimą, jei matote:
 
 ## Problemų sprendimas apdorojimo metu
 
-### Apdorojimas labai lėtas
+### Apdorojimas vyksta labai lėtai
 
 **Galimos priežastys:**
 
-* Nežymėti tiksliniai vaizdai (nuskaitomi visi vaizdai)
-* HDD vietoj SSD saugyklos
+* Nepažymėti tiksliniai vaizdai (nuskaitomi visi vaizdai)
+* Naudojamas HDD, o ne SSD saugykla
 * Nepakankami sistemos ištekliai
 * Nustatyta daug indeksų
 * Prieiga prie tinklo disko
 
 **Sprendimai:**
 
-1. Jei tik pradėta ir esate aptikimo etape: atšaukti, pažymėti tikslus, pradėti iš naujo
-2. Ateityje: naudoti SSD, sumažinti indeksus, atnaujinti aparatūrą
-3. Apsvarstyti CLI didelių duomenų rinkinių paketinio apdorojimo atveju
+1. Jei tik pradėjote ir esate aptikimo etape: atšaukti, pažymėti tikslus, paleisti iš naujo
+2. Ateityje: naudokite SSD, sumažinkite indeksų skaičių, atnaujinkite aparatūrą
+3. Apsvarstykite CLI naudojimą didelių duomenų rinkinių paketiniam apdorojimui
 
-### „Diskų vietos“ įspėjimai
-
-**Sprendimai:**
-
-1. Nedelsiant išlaisvinti diskų vietą
-2. Perkelti projektą į diską, kuriame yra daugiau vietos
-3. Sumažinkite eksportuojamų indeksų skaičių.
-4. Naudokite JPG formatą vietoj TIFF (mažesni failai).
-
-### Dažni „Sugadinto failo“ pranešimai
+### Įspėjimai apie „diskų vietą“
 
 **Sprendimai:**
 
-1. Pakartotinai nukopijuokite vaizdus iš SD kortelės, kad užtikrintumėte jų vientisumą.
-2. Patikrinkite SD kortelę dėl klaidų.
-3. Pašalinkite sugadintus failus iš projekto.
-4. Tęskite likusių vaizdų apdorojimą.
+1. Nedelsiant atlaisvinkite vietos diske
+2. Perkelkite projektą į diską, kuriame yra daugiau vietos
+3. Sumažinkite eksportuotinų indeksų skaičių
+4. Vietoj TIFF naudokite JPG formatą (mažesni failai)
+
+### Dažni pranešimai apie „sugadintus failus“
+
+**Sprendimai:**
+
+1. Perkopijuokite vaizdus iš SD kortelės dar kartą, kad užtikrintumėte jų vientisumą
+2. Patikrinkite SD kortelę dėl klaidų
+3. Pašalinkite sugadintus failus iš projekto
+4. Tęskite likusių vaizdų apdorojimą
 
 ### Sistemos perkaitimas / greičio ribojimas
 
 **Sprendimai:**
 
-1. Užtikrinkite tinkamą ventiliaciją.
-2. Nuvalykite dulkes nuo kompiuterio ventiliacijos angų.
-3. Sumažinkite apdorojimo apkrovą (naudokite laisvąjį režimą vietoj Chloros+).
-4. Apdorokite vėsesniu paros metu.
+1. Užtikrinkite tinkamą ventiliaciją
+2. Nuvalykite dulkes iš kompiuterio ventiliacijos angų
+3. Sumažinkite apdorojimo apkrovą (naudokite „Free“ režimą vietoj Chloros+)
+4. Apdorokite vėsesniu paros metu
 
 ***
 
@@ -374,19 +360,19 @@ Sustabdykite apdorojimą, jei matote:
 Kai apdorojimas baigiamas:
 
 * Pažangos juosta pasiekia 100 %
-* Debug Log (Debug žurnale) pasirodo pranešimas **„Processing Complete“ (Apdorojimas baigtas)**
-* Vėl įjungiamas paleidimo mygtukas
+* **„Apdorojimas baigtas“** pranešimas pasirodo „Debug Log“
+* „Pradėti“ mygtukas vėl tampa aktyvus
 * Visi išvesties failai yra fotoaparato modelio pakatalogyje
 
 ***
 
 ## Tolimesni veiksmai
 
-Baigus apdorojimą:
+Kai apdorojimas baigtas:
 
-1. **Peržiūrėkite rezultatus** – žr. [Apdorojimo užbaigimas](finishing-the-processing.md)
-2. **Patikrinkite išvesties aplanką** – patikrinkite, ar visi failai eksportuoti teisingai
-3. **Peržiūrėkite Debug Log** – patikrinkite, ar nėra įspėjimų ar klaidų
-4. **Peržiūrėkite apdorotus vaizdus** – naudokite Image Viewer arba išorinę programinę įrangą
+1. **Peržiūrėkite rezultatus** – Žr. [Apdorojimo užbaigimas](finishing-the-processing.md)
+2. **Patikrinkite išvesties aplanką** – įsitikinkite, kad visi failai buvo eksportuoti teisingai
+3. **Peržiūrėkite „Debug Log“** – patikrinkite, ar nėra įspėjimų ar klaidų
+4. **Peržiūrėkite apdorotus vaizdus** – naudokite „Image Viewer“ arba išorinę programinę įrangą
 
-Informaciją apie apdorotų rezultatų peržiūrą ir naudojimą rasite [Apdorojimo užbaigimas](finishing-the-processing.md).
+Informaciją apie apdorotų rezultatų peržiūrą ir naudojimą rasite skyriuje [Apdorojimo užbaigimas](finishing-the-processing.md).

@@ -1,6 +1,6 @@
-# Failų pridėjimas prie projekto
+# Failų pridėjimas į projektą
 
-Sukūrę arba atidarę projektą Chloros, kitas žingsnis yra pridėti daugiaspektrinius vaizdus, kad galėtumėte pradėti apdorojimą. Failų naršyklė<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> leidžia lengvai importuoti vaizdus ir tvarkyti duomenų rinkinį.
+Sukūrę arba atidarę projektą Chloros, kitas žingsnis – pridėti daugiaspektrinius vaizdus, kad būtų galima pradėti apdorojimą. Naudodami skirtuką „Failų naršyklė“<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> skirtukas leidžia lengvai importuoti vaizdus ir tvarkyti duomenų rinkinį.
 
 ## Prieiga prie failų naršyklės
 
@@ -9,62 +9,62 @@ Sukūrę arba atidarę projektą Chloros, kitas žingsnis yra pridėti daugiaspe
 3. Failų naršyklės skydelyje bus rodomas jūsų projekto failų sąrašas
 
 {% hint style="info" %}
-**Palaikomi failų tipai**: Chloros palaiko RAW+JPG ir JPG vaizdo failus iš MAPIR Survey3W ir Survey3N fotoaparatų. Rekomenduojama naudoti tik RAW+JPG.
+**Palaikomi failų tipai**: Chloros palaiko RAW+JPG ir JPG vaizdų failus iš MAPIR, Survey3W ir Survey3N fotoaparatų. Rekomenduojama naudoti tik RAW+JPG.
 {% endhint %}
 
 ***
 
-## Vaizdų pridėjimas prie projekto
+## Vaizdų pridėjimas į projektą
 
-Yra du pagrindiniai būdai, kaip pridėti vaizdus prie projekto:
+Yra du pagrindiniai būdai pridėti vaizdus į projektą:
 
-### 1 metodas: failų pridėjimas
+### 1 metodas: Pridėti failus
 
-Naudokite šią parinktį, jei norite importuoti atskirus vaizdo failus arba nedidelį failų rinkinį.
+Naudokite šią parinktį, norėdami importuoti atskirus vaizdo failus arba nedidelį failų rinkinį.
 
-1. Spustelėkite **„Pridėti failus“** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> mygtuką failų naršyklės skydelio viršuje
+1. Spustelėkite mygtuką **„Pridėti failus“** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> mygtuką viršuje failų naršyklės skydelyje
 2. Pereikite į aplanką, kuriame yra jūsų vaizdai
-3. Pasirinkite vieną ar kelis vaizdo failus (norėdami pasirinkti kelis failus, laikykite nuspaudę klavišą **Ctrl**)
+3. Pasirinkite vieną ar daugiau vaizdo failų (laikydami nuspaudę **Ctrl** klavišą, galite pasirinkti kelis failus)
 4. Spustelėkite **„Atidaryti“**, kad importuotumėte pasirinktus failus
 
-### 2 metodas: aplanko pridėjimas
+### 2 metodas: Aplanko pridėjimas
 
-Naudokite šią parinktį, jei norite importuoti visus vaizdus iš aplanko iš karto.
+Naudokite šią parinktį, jei norite vienu metu importuoti visus vaizdus iš aplanko.
 
-1. Spustelėkite mygtuką **„Pridėti aplanką“** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> “ mygtuką failų naršyklės skydelio viršuje.
-2. Pereikite į aplanką, kuriame yra jūsų fotografavimo sesijos vaizdai, ir jį pasirinkite.
-3. Spustelėkite **„Pasirinkti aplanką“**, kad importuotumėte visus palaikomus vaizdus iš to aplanko.***
+1. Spustelėkite mygtuką **„Pridėti aplanką“** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> viršuje esančią mygtuką
+2. Pereikite į aplanką, kuriame yra jūsų fotografavimo sesijos vaizdai, ir jį pasirinkite
+3. Spustelėkite **„Pasirinkti aplanką“**, kad importuotumėte visus palaikomus vaizdus iš to aplanko***
 
 ## Failų naršyklės lentelės supratimas
 
-Kai vaizdai importuojami, jie rodomi lentelėje su šiomis stulpeliais:
+Kai vaizdai importuojami, jie rodomi lentelėje su šiomis skiltimis:
 
 ### Failo pavadinimas
 
 * Originalus failo pavadinimas iš fotoaparato
-* Laikosi fotoaparato pavadinimų konvencijos (pvz., IMG\_0001.RAW)
+* Išlaiko fotoaparato pavadinimų sudarymo taisykles (pvz., IMG\_0001.RAW)
 
 ### Laiko žyma
 
-* Vaizdo įrašymo data ir laikas
+* Vaizdo užfiksavimo data ir laikas
 * Išgauta iš vaizdo EXIF metaduomenų
-* Naudojama PPK sinchronizavimui ir kalibravimo tikslo aptikimui
+* Naudojama PPK sinchronizavimui ir kalibravimo taško aptikimui
 
 ### Fotoaparato modelis
 
-* Automatiškai aptiktas fotoaparato ir filtro konfigūracija
+* Automatiškai nustatytas fotoaparato ir filtro konfigūracija
 * Pavyzdžiai: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Naudojamas teisingų apdorojimo profilių taikymui
+* Naudojama teisingiems apdorojimo profiliams taikyti
 
-### Tikslo stulpelis (žymės langelis)
+### Tikslo stulpelis (varnelė)
 
-* Pažymėkite šį langelį, jei vaizduose yra kalibravimo tikslai
-* Žymiai pagreitina tikslo aptikimą apdorojimo metu
+* Pažymėkite šį langelį, jei vaizduose yra kalibravimo taškai
+* Tai žymiai pagreitina taškų aptikimą apdorojimo metu
 * Daugiau informacijos rasite skyriuje [Tikslo vaizdų pasirinkimas](choosing-target-images.md)
 
 ### Vaizdo metaduomenų peržiūra
 
-Paspausdami perjungimo mygtuką virš lentelės dešiniame viršutiniame kampe, vaizdų tinklelyje galite peržiūrėti pasirinktų vaizdų metaduomenis.
+Paspaudus perjungimo mygtuką viršutiniame dešiniajame kampe virš lentelės, pasirinktų vaizdų metaduomenys bus rodomi vaizdų tinklelyje.
 
 <figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
@@ -74,80 +74,80 @@ Paspausdami perjungimo mygtuką virš lentelės dešiniame viršutiniame kampe, 
 
 ### Failų pašalinimas
 
-Norėdami pašalinti nepageidaujamus vaizdus iš projekto:
+Norėdami pašalinti nepageidaujamus vaizdus iš savo projekto:
 
-1. Pasirinkite vieną ar kelis vaizdus failų naršyklės lentelėje
-2. Spustelėkite mygtuką **„Pašalinti pasirinktus“** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> mygtuką.
-3. Patvirtinkite pašalinimą (failai nėra ištrinami iš disko, tik pašalinami iš projekto).
+1. Pasirinkite vieną ar kelis vaizdus lentelėje „Failų naršyklė“
+2. Spustelėkite mygtuką **„Pašalinti pasirinktus“** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> mygtuką
+3. Patvirtinkite pašalinimą (failai nėra ištrinami iš disko, tik pašalinami iš projekto)
 
 ### Rūšiavimas ir filtravimas
 
-* **Rūšiuoti pagal stulpelį**: spustelėkite bet kurį stulpelio antraštę, kad surūšiuotumėte vaizdus.
-* **Rūšiuoti pagal laiko žymą**: naudinga chronologinei fotografavimo sekai organizuoti.
-* **Fotoaparato modelio filtras**: jei naudojate kelis fotoaparatus, sugrupuokite vaizdus pagal fotoaparato tipą.***
+* **Rūšiavimas pagal stulpelį**: Spustelėkite bet kurį stulpelio antraštę, kad surūšiuotumėte vaizdus
+* **Rūšiavimas pagal laiko žymą**: Naudinga chronologinėms fotografijų sekcijoms tvarkyti
+* **Fotoaparato modelio filtras**: Sugrupuokite vaizdus pagal fotoaparato tipą, jei naudojate kelis fotoaparatus***
 
 ## Vaizdo peržiūra
 
 ### Visas vaizdas
 
-Spustelėkite bet kurį vaizdo miniatiūrą failų naršyklėje, kad jis būtų rodomas pagrindiniame peržiūros lange:
+Spustelėkite bet kurią vaizdo miniatiūrą failų naršyklėje, kad ji būtų rodoma pagrindinėje peržiūros srityje:
 
-1. Vaizdas rodomas peržiūros lango centre.
-2. Naudokite mastelio reguliavimo mygtukus, kad peržiūrėtumėte vaizdo detales.
-3. Perkelkite tarp vaizdų naudodami rodyklių klavišus.
+1. Vaizdas pasirodo centrinėje peržiūros srityje
+2. Naudokite mastelio valdymo elementus, kad apžiūrėtumėte vaizdo detales
+3. Pereikite tarp vaizdų naudodami rodyklių klavišus
 
 ### Greita navigacija
 
-* **Ankstesnis vaizdas**: spustelėkite kairę rodyklę arba paspauskite klavišą ←.
-* **Kitas vaizdas**: spustelėkite dešinę rodyklę arba paspauskite klavišą →.
-* **Padidinti/sumažinti**: naudokite pelės ratuką arba mastelio mygtukus.
-* **Perkelti**: padidintą vaizdą spustelėkite ir vilkite.***
+* **Ankstesnis vaizdas**: Spustelėkite kairę rodyklę arba paspauskite ← klavišą
+* **Kitas vaizdas**: Spustelėkite dešinę rodyklę arba paspauskite klavišą →
+* **Padidinimas/sumažinimas**: Naudokite pelės ratuką arba mastelio keitimo mygtukus
+* **Perkėlimas**: Spustelėkite ir vilkite vaizdą, kai jis yra padidintas***
 
-## Dvigubų failų tvarkymas
+## Duplikuotų failų tvarkymas
 
-Chloros automatiškai aptinka ir ignoruoja dvigubus failus:
+Chloros automatiškai aptinka ir ignoruoja duplikuotus failus:
 
 * Failai su identiškais pavadinimais yra praleidžiami
-* Apsaugo nuo atsitiktinio dvigubo apdorojimo
-* Aptikus dubliuotus failus, rodomas įspėjamasis pranešimas
+* Apsaugo nuo netyčinio dvigubo apdorojimo
+* Aptikus dubliatus, rodomas įspėjamasis pranešimas
 
 {% hint style="warning" %}
-**Svarbu**: prieš importuodami nepakeiskite ir nemodifikuokite originalių vaizdo failų. Chloros tinkamam apdorojimui naudoja originalius failų pavadinimus ir metaduomenis.
+**Svarbu**: Prieš importuojant nepakeiskite ir nemodifikuokite originalių vaizdo failų. Chloros tinkamam apdorojimui naudoja originalius failų pavadinimus ir metaduomenis.
 {% endhint %}
 
 ***
 
-## Mišrios kamerų duomenų rinkmenos
+## Mišrūs kamerų duomenų rinkiniai
 
-Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
+Jei jūsų projekte yra vaizdų iš kelių MAPIR kamerų:
 
 1. Chloros automatiškai aptinka kiekvieną kameros modelį
-2. Kiekvienas kameros tipas apdorojamas pagal atitinkamą kalibravimo profilį
+2. Kiekvienas kameros tipas apdorojamas naudojant atitinkamą kalibravimo profilį
 3. Failų naršyklė rodo kameros modelį stulpelyje „Kameros modelis“
-4. Apdorojant taikomi teisingi nustatymai kiekvienam kameros tipui
+4. Apdorojant kiekvienam kameros tipui taikomi teisingi nustatymai
 
-**Pavyzdinis scenarijus**: Survey3W RGN + Survey3N OCN dvigubos kameros konfigūracija***
+**Pavyzdinis scenarijus**: Survey3W RGN + Survey3N OCN dviejų kamerų konfigūracija***
 
 ## Geriausia praktika
 
-### Tvarkykite prieš importuodami
+### Tvarkykite prieš importuojant
 
-* Kalibravimo tikslinius vaizdus laikykite toje pačioje aplankoje kaip ir tyrimo vaizdus.
-* Išsaugokite originalią aplanko struktūrą iš savo kameros/SD kortelės.
-* Viename projekte nemaišykite duomenų rinkinių iš skirtingų sesijų.
+* Laikykite kalibravimo taikinio vaizdus toje pačioje aplankoje kaip ir tyrimo vaizdus
+* Išsaugokite originalią kameros / SD kortelės aplankų struktūrą
+* Nevienoje projekto dalyje nemaišykite skirtingų sesijų duomenų rinkinių
 
 ### Failų pavadinimai
 
-* Išsaugokite originalius kameros failų pavadinimus (IMG\_0001.RAW ir pan.).
-* Nepervardykite failų prieš importuodami.
-* Originaliuose pavadinimuose yra svarbių metaduomenų.
+* Išsaugokite originalius kameros failų pavadinimus (IMG\_0001.RAW ir pan.)
+* Nepervardinkite failų prieš importuojant
+* Originaliuose pavadinimuose yra svarbių metaduomenų
 
-### Kalibravimo tiksliniai vaizdai
+### Kalibravimo taikinio vaizdai
 
-* Visada įtraukite 1–2 kalibravimo tikslinius vaizdus per sesiją.
-* Užfiksuokite tikslinius vaizdus prieš ir po užfiksavimo sesijos.
-* Tiksliniai vaizdai turi būti tose pačiose apšvietimo sąlygose kaip ir užfiksavimo sritis.
-* Pažymėkite tikslinius vaizdus naudodami žymės langelį „Tikslas“, kad pagreitintumėte apdorojimą.
+* Visada įtraukite 1–2 kalibravimo taikinio vaizdus per sesiją
+* Užfiksuokite taikinius prieš ir po fotografavimo sesijos
+* Pastatykite taikinius tokiomis pačiomis apšvietimo sąlygomis kaip ir fotografavimo zona
+* Pažymėkite taikinio vaizdus naudodami žymės langelį „Target“, kad pagreitintumėte apdorojimą
 
 ***
 
@@ -159,19 +159,19 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 
 * Nepalaikomas failo formatas (tik RAW+JPG ir JPG iš MAPIR fotoaparatų)
 * Vaizdai yra iš ne MAPIR fotoaparatų (žr. [Palaikomi fotoaparatai](../supported-cameras.md))
-* Failas sugadintas arba nevisiškai perkeltas iš SD kortelės
+* Sugadintas failas arba nepilnas perkėlimas iš SD kortelės
 
-**Sprendimas**: Patikrinkite failo formatą ir fotoaparato modelio suderinamumą
+**Sprendimas**: Patikrinkite failo formato ir fotoaparato modelio suderinamumą
 
-### Fotoaparato modelis neaptiktas
+### Neaptiktas fotoaparato modelis
 
 **Galimos priežastys:**
 
-* Modifikuoti EXIF metaduomenys
-* Vaizdai redaguoti išorinėje programinėje įrangoje
-* Nevisiškai perkeltas failas
+* Pakeisti EXIF metaduomenys
+* Nuotraukos redaguotos išorinėje programinėje įrangoje
+* Nepilnas failų perkėlimas
 
-**Sprendimas**: Pakartotinai importuokite originalius, nemodifikuotus failus iš fotoaparato/SD kortelės
+**Sprendimas**: Pakartotinai importuokite originalius, nepakeistus failus iš fotoaparato/SD kortelės
 
 ### Trūksta laiko žymų
 
@@ -180,16 +180,16 @@ Jei jūsų projekte yra vaizdai iš kelių MAPIR kamerų:
 * Netinkamai nustatytas fotoaparato laikrodis
 * Išorinė programinė įranga pašalino EXIF duomenis
 
-**Sprendimas**: Patikrinkite, ar fotoaparato laiko nustatymai buvo teisingi fotografavimo metu***
+**Sprendimas**: Patikrinkite, ar fotografavimo metu fotoaparato laiko nustatymai buvo teisingi***
 
 ## Tolimesni veiksmai
 
 Kai failai bus importuoti:
 
 1. **Peržiūrėkite failų sąrašą** – įsitikinkite, kad visi vaizdai įkelti teisingai
-2. **Patikrinkite fotoaparato modelius** – patikrinkite, ar fotoaparatas nustatytas teisingai
-3. **Pažymėkite tikslinę nuotrauką** – žr. [Tikslinės nuotraukos pasirinkimas](choosing-target-images.md)
-4. **Pakeiskite nustatymus** – konfigūruokite apdorojimo parinktis [Projekto nustatymai](adjusting-project-settings.md)
+2. **Patikrinkite fotoaparatų modelius** – įsitikinkite, kad fotoaparatai buvo teisingai atpažinti
+3. **Pažymėkite tikslinius vaizdus** – žr. [Tikslinių vaizdų pasirinkimas](choosing-target-images.md)
+4. **Nustatykite parametrus** – sukonfigūruokite apdorojimo parinktis [Projekto nustatymuose](adjusting-project-settings.md)
 5. **Pradėkite apdorojimą** – žr. [Apdorojimo pradžia](starting-the-processing.md)
 
 Išsamią informaciją apie projekto konfigūraciją rasite skyriuje [Projekto nustatymų koregavimas](adjusting-project-settings.md).
