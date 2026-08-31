@@ -1,374 +1,287 @@
-# Indeksų/LUT bandymų aplinka
+# „Index/LUT Sandbox“
 
-Indeksų/LUT bandymų aplinka – tai interaktyvi darbo erdvė, esanti programoje „Chloros Image Viewer“, leidžianti realiuoju laiku eksperimentuoti su daugiaspektrinių indeksų skaičiavimais ir spalvotais vaizdais. Šis galingas įrankis padeda išbandyti įvairius indeksus, patikslinti verčių intervalus ir kurti publikavimui parengtus vaizdus, neperdirbant viso duomenų rinkinio.
+„Index/LUT Sandbox“ – tai interaktyvi darbo erdvė, esanti „Chloros Image Viewer“ šoninėje juostoje. Pasirinkite formulę, susiekite su ja savo kameros kanalus, nuspalvinkite ją gradientu ir sureguliuokite verčių diapazoną – vaizdas atsinaujina realiuoju laiku, kol tai darote. Nuo 1.2.0 versijos taip pat galite **išsaugoti tai, ką sukūrėte**, vienam vaizdui arba visam projektui, be pakartotinio apdorojimo.
 
-## Kas yra indeksų/LUT smėlio dėžė?
+## Kam skirta „Sandbox“
 
-### Tikslas
-
-Smėlio dėžė suteikia:
-
-* **Indeksų skaičiavimą realiuoju laiku** – bet kokį augmenijos indeksą pritaikykite akimirksniu
-* **Interaktyvų LUT koregavimą** – tiksliai sureguliuokite spalvų perėjimus ir intervalus
-* **Darbo eigos optimizavimą** – nustatykite geriausius parametrus prieš atliekant paketinį apdorojimą
-
-### „Sandbox“ ir projekto apdorojimas
-
-**„Index/LUT Sandbox“ (interaktyvus):**
-
-* Vienas vaizdas vienu metu
-* Momentinė grįžtamoji informacija
-* Eksperimentinis ir iteracinis
-* Nėra nuolatinių failų pakeitimų
-* Puikiai tinka tyrinėjimui ir bandymams
-
-**Projekto apdorojimas (partija):**
-
-* Visas duomenų rinkinys iš karto
-* Iš anksto sukonfigūruoti nustatymai
-* Nuolatiniai išvesties failai
-* Laiko reikalaujantis
-* Geriausias, kai nustatymai yra galutiniai
+| „Index/LUT Sandbox“ (interaktyvi)        | Projekto apdorojimas (partija)       |
+| -------------------------------------- | -------------------------------- |
+| Po vieną vaizdą, greitas grįžtamasis ryšys  | Visas duomenų rinkinys per vieną apdorojimo ciklą     |
+| Eksperimentinis ir iteracinis             | Iš anksto sukonfigūruoti nustatymai          |
+| Renderiuoja realiuoju laiku; išsaugo tik jūsų prašymu  | Visada įrašo galutinius failus      |
+| Puikiai tinka tinkamiems nustatymams rasti | Geriausia naudoti, kai nustatymai jau galutiniai |
 
 {% hint style="success" %}
-**Geriausias darbo srautas**: Naudokite „Sandbox“, kad eksperimentuotumėte ir rastumėte optimalius indekso ir LUT nustatymus, tada taikykite tuos nustatymus visam duomenų rinkiniui projekto apdorojimo metu.
+**Įprastas darbo procesas**: reguliuokite „Sandbox“ tol, kol vizualizacija atitiks jūsų norus, tada eksportuokite tiesiai iš „Sandbox“ arba nukopijuokite tuos pačius indekso ir LUT nustatymus į [Projekto nustatymus](../project-settings/project-settings.md), kad kito apdorojimo ciklo metu jie būtų pritaikyti kiekvienam vaizdui.
 {% endhint %}
 
 ***
 
-## Darbas su indeksų/LUT „Sandbox“
+## „Sandbox“ atidarymas
 
-### Iš anksto apskaičiuotų indeksų supratimas
+1. Spustelėkite vaizdą lentelėje — jis atsidarys visame ekrane **Vaizdų peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> skirtuke
+2. Spustelėkite **Vaizdo peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> piktogramą, kad išslystų kairysis šoninis meniu, jei jis dar nėra atidarytas
+3. Dešinėje viršuje esančiame sluoksnių išskleidžiamajame meniu pasirinkite daugiabandį sluoksnį — paprastai pasirenkamas **RAW (atspindžio koeficientas)**, nes pagal kalibruotą atspindžio koeficientą apskaičiuotos indeksų reikšmės yra palyginamos tarp vaizdų
 
-Chloros indeksai gali būti taikomi projekto apdorojimo metu. Norint nuspręsti, kokius indeksų ir LUT nustatymus norite taikyti eksportuojant, paprasčiausia naudoti vaizdų peržiūros „Sandbox“.
+Šoninėje juostoje iš viršaus į apačią rodomi:
 
-„Sandbox“ leidžia jums:
+* vaizdo pavadinimas ir jo fotoaparato modelis
+* mygtukas **Eksportuoti/Išsaugoti vaizdus** — pasirodo, kai pažymėta „Index“ arba „LUT“
+* žymimieji langeliai **Index**ir**LUT**
+* indekso konfigūracijos skydelis
+* skydelis **Kursoriaus vertės** su rodmenimis, histogramu ir GSD valdymu
 
-* **Taikyti naujus indeksus ir spalvų gradientus (LUT)** duomenims vizualizuoti
-* **Interaktyviai reguliuoti vizualizacijos nustatymus*** **Peržiūrėti** jau apskaičiuotus indeksinius vaizdus
-* **Tikrinti** pikselių vertes visuose mastelio lygiuose
+{% hint style="warning" %}
+**Negalima naudoti su monochromatinėmis kameromis.** Vienos juostos „LATTICE M3M“ vaizde abu žymimieji langeliai yra išjungti, o įrankio patarime nurodoma: _„Negalima naudoti su monochromatiniais (M3M) jutikliais“_ — vienoje juostoje daugiajuostis indeksas nėra apibrėžtas. Norėdami apskaičiuoti indeksus iš M3M kamerų, sujunkite dvi ar daugiau kamerų į suderintą daugiabandį vaizdų rinkinį ir naudokite „LATTICE“ indekso variklį.
+{% endhint %}
 
-### Sandbox atidarymas
+***
 
-Prie indeksų/LUT sandbox galima prisijungti per **vaizdų peržiūros programos** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninės juostos skirtuke:
+## Indekso taikymas
 
-1. Spustelėkite vaizdą failų naršyklės vaizdų lentelėje, jis atsidarys **vaizdų peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> skirtuke
-2. Spustelėkite **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , kad atidarytumėte kairėje esantį iššokantį šoninį meniu, jei jis dar nėra atidarytas
+1. Pažymėkite langelį **Indeksas** šoninės juostos viršuje
+2. Kairėje išskleidžiamajame meniu pasirinkite savo kameros filtrą (`RGN`, `OCN`, `NGB`, `RGB`, `RE`, `NIR`)
+3. Dešiniame išskleidžiamajame meniu pasirinkite indekso formulę — 27 įdiegtos formulės ir bet kokios jūsų išsaugotos pasirinktinės formulės
+4. Formulė pateikiama kaip žemiau esanti matematinė išraiška, kurioje kiekvienoje juostos vietoje yra tuščias apskritimas. **Pervilkite spalvotą kanalo apskritimą į lizdą**, kad jį susietumėte
+5. Kai visi formulėje naudojami lizdai bus susieti, vaizdas atsinaujins ir parodys indekso reikšmes
+6. Nukreipkite žymeklį ant vaizdo, kad pamatytumėte reikšmes; skydelyje **„Žymeklio reikšmės“** po žymekliu atsiras indekso eilutė su atitinkama reikšme
 
-### Vaizdo pasirinkimas, kuriam taikyti indeksą/LUT
+Dukart spustelėkite susietą lizdą, kad jį išvalytumėte. Neužbaigta formulė yra įprasta būsena vilkimo metu, o ne klaida — vaizdas tiesiog neatsinaujina, kol formulė nėra užbaigta.
 
-Norėdami dirbti su indeksu „Image Viewer“ <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Kanalo apskritimai pažymėti spalvomis: raudona = Red, žalia = Green, mėlyna = Blue, oranžinė = Orange, žydra = Cyan, violetinė = NIR, raudonai violetinė = RE. Tos pačios spalvos naudojamos kanalų taškams ir histogramos kreivėms skydelyje „Cursor Values“ (Kursoriaus reikšmės).
 
-1. **Atidarykite vaizdą** iš pagrindinio vaizdų tinklelio, spustelėdami jį
-2. Tada atsidarys **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> skirtukas
-3. Spustelėkite **sluoksnių išskleidžiamąjį meniu** (peržiūros lango viršutiniame dešiniajame kampe)
-4. Išskleidžiamajame meniu pasirinkite sluoksnį:
-   * RAW (atspindys)
-
-### Indekso taikymas vaizdui
-
-Kai vaizdas rodomas visame ekrane ir atidarytas **vaizdo peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> šoninė juosta:
-
-1. Pažymėkite langelį „Indeksas“ šoninės juostos viršuje
-2. Pasirinkite savo fotoaparato filtrą iš kairiojo išskleidžiamojo meniu
-3. Pasirinkite norimą indekso formulę iš dešiniojo išskleidžiamojo meniu
-4. Perkelkite filtro kanalo spalvų apskritimus į vietas žemiau esančioje indekso formulėje
-5. Kai formulė bus teisinga, vaizdas atsinaujins ir parodys indekso vertes
-6. Judinkite pelės žymeklį, kad pamatytumėte vertes žymeklio vietoje
-7. Padidinkite vaizdą, kad pamatytumėte atskirus pikselius ir su jais susijusias vertes
-
-Kiekvienas indeksas turi konkretų verčių diapazoną ir reikšmę:
-
-#### NDVI pavyzdys
+### NDVI pavyzdys
 
 ```
 
 Formula: (NIR - Red) / (NIR + Red)
 
-For Survey3W RGN camera:
-NIR = 850nm band
-Red = 661nm band
+For a Survey3W RGN camera:
+  NIR = 850 nm band
+  Red = 661 nm band
 
-Result range: -1.0 to +1.0
-Typical vegetation: 0.4 to 0.9
-Stressed vegetation: 0.2 to 0.4
-Bare soil: 0.0 to 0.2
-Water: -0.1 to 0.1
+Result range:          -1.0 to +1.0
+Typical vegetation:     0.4 to 0.9
+Stressed vegetation:    0.2 to 0.4
+Bare soil:              0.0 to 0.2
+Water:                 -0.1 to 0.1
 ```
 
-Išsamią indeksų formulių dokumentaciją rasite [Daugiaspektrinių indeksų formulės](../project-settings/multispectral-index-formulas.md).
+Išsamią formulių žinyną — visus tris iš anksto nustatytų sąrašų ir informaciją, kur kokie pavadinimai tinka — rasite [Daugiaspektrinių indeksų formulėse](../project-settings/multispectral-index-formulas.md).
 
-***
+### Pažymėjus „Indeksas“, bet nenaudojant LUT
 
-## Darbas su LUT (paieškos lentelėmis)
+Vaizdas atvaizduojamas **pilkosios skalės** spalvomis, ištemptas tarp dviejų slenksčių verčių. Tai daroma sąmoningai: indekso vaizdas yra skaliariniai duomenys, o pilkosios skalės atvaizdavimas yra tikriausias jo atvaizdavimas. Jei norite spalvų, pridėkite LUT.***
 
-### Kas yra LUT?
+## Darbas su LUT (paieškos lentelėmis)**Paieškos lentelė** susieja indekso vertes su spalvomis: įvesties NDVI 0,65 atveju išvesties spalva yra tam tikra žalia. Ji nekeičia duomenų — ji keičia tai, kaip juos interpretuojate.
 
-**Paieškos lentelė (LUT)** susieja skaitmenines indekso vertes su spalvomis vizualizavimui:
+### LUT pridėjimas
 
-* **Įvestis**: Indekso pikselio vertė (pvz., NDVI 0,65)
-* **Išvestis**: RGB spalva (pvz., ryškiai žalia)
-* **Tikslas**: Padaryti modelius lengviau matomus ir interpretuojamus**Pilkosios skalės ir spalvų LUT palyginimas:**
-
-* Pilkosios skalės: Moksliškos ir neutralios, rodo neapdorotus duomenis
-* Spalvų LUT: Intuityvios ir įspūdingos, išryškina modelius ir skirtumus
-
-{% hint style="success" %}
-**Vizualizacijos galia**: Taikant spalvotą LUT pilkosios skalės indeksiniam vaizdui, iš pirmo žvilgsnio tampa žymiai lengviau atpažinti modelius, anomalijas ir dominančias sritis.
-{% endhint %}
-
-### LUT taikymas indeksiniam vaizdui
-
-Kai turite indeksinį vaizdą, kuriame rodomas
-
-1. Spustelėkite <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> „+Pridėti LUT“ mygtuką
+1. Spustelėkite mygtuką „<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">“ **„+ Add LUT“** po formule
 2. Pasirinkite spalvų gradientą
-3. Nustatykite apkarpymo minimalius ir maksimalius galinius taškus
-4. Nustatykite apkarpymo režimą
-5. Pažymėkite langelį „Indeksas“ **vaizdo peržiūros** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> , kad pritaikytumėte LUT
+3. Nustatykite apkarpymo minimumą ir maksimumą
+4. Pasirinkite apkarpymo režimą
+5. Pažymėkite **LUT** langelį šoninėje juostoje, kad jis būtų pritaikytas
+
+LUT langelis lieka neaktyvus, kol LUT nėra faktiškai sukonfigūruotas indekse.
 
 ### Spalvų gradiento pasirinkimas
 
-**Gradiento pasirinkimas:**
+Užveskite pelę ant **gradiento juostos**, kad atidarytumėte išankstinių nustatymų sąrašą — „Chloros“ pateikia**septyni** gradiento išankstinius nustatymus:
 
-1. LUT skydelyje suraskite**spalvotą gradientų juostą**
+| # | Gradientas                            | Forma                                                               |
+| - | ----------------------------------- | ------------------------------------------------------------------- |
+| 1 | Red → Geltona → Green (**numatytoji**)  | Išsiskirianti — atitinka įprastą supratimą apie augmeniją: žalia = sveika |
+| 2 | Violetinė → Geltona → Green             | Skiriasi, su aiškiai išreikštu apatiniu galu                                  |
+| 3 | Ruda → Balta → Blue                | Skiriasi aplink šviesų vidurį                                   |
+| 4 | Juoda → Violetinė → Rožinė → Šviesiai geltona | Sekcinė, nuo tamsios iki šviesios                                           |
+| 5 | Red → Geltona → Blue                 | Skiriasi aplink šviesų vidurį                                   |
+| 6 | Violetinė → Blue → Green → Geltona      | Eilės tvarka, nuo tamsios iki šviesios                                           |
+| 7 | Orange → Balta → Violetinė             | Skiriasi aplink šviesų vidurį                                   |
 
-2. Užveskite pelę ant jos, kad pamatytumėte galimus gradientų nustatymus
-3. Pasirinkite norimą gradientą
-4. Vaizdas **atnaujinamas iš karto** su naujomis spalvomis, kai pažymėta langelis „Indeksas“
+**Išsiskiriantis**gradientas lango viduryje pateikia neutralią spalvą, kuri gerai matoma, kai vidurinis taškas reiškia kažką konkretaus (ribą, bazinę datą).**Eilinis** gradientas monotoniškai pereina nuo tamsios iki šviesios spalvos, o tai gerai tinka kiekiui, kurį apibūdina tik „daugiau“ ir „mažiau“.
 
-{% hint style="success" %}
-**Geriausia praktika**: Tokiems augmenijos indeksams kaip NDVI, Red-Yellow-Green gradientas yra intuityviausias, nes atitinka natūralias spalvų asociacijas (žalia = sveika, geltona = vidutinė, raudona = streso paveikta).
-{% endhint %}
+Kiekvienas iš anksto nustatytas variantas turi septynis spalvų taškus. Spustelėkite iš anksto nustatytą variantą, ir vaizdas bus iškart atnaujintas (jei pažymėta LUT langelis).
 
-### Spalvų klasių nustatymas
+### Spalvų taškų redagavimas
 
-**Klasės valdiklis**nustato, kiek atskirų spalvų pakopų bus jūsų gradiente:**Klasės skaičiaus parinktys:*** **2–5 klasės**: labai plačios kategorijos, aiškios zonos
-* **6–10 klasių**: subalansuotas, tinkamas klasifikavimui
-* **11–20 klasių**: sklandūs gradientai, ištisinis vaizdas
-* **20+ klasių**: Beveik ištisinis, maksimalus sklandumas**Kaip reguliuoti:**
+Po gradiento juosta yra spalvų pavyzdžių eilė, po vieną kiekvienam taškui:
 
-1. LUT skydelyje suraskite**spalvų pavyzdžių kvadratėlius po gradientų juosta**
+* **Pakeisti spalvą**: spustelėkite spalvų pavyzdį, kad atidarytumėte spalvų pasirinkimo langą (spalvų ratas, RGB/HSV slankikliai arba šešioliktainis kodas, pvz., `#FF0000`)
+* **Pridėti perėjimą**: spustelėkite mygtuką**+** eilutės gale — bus pridėtas baltas perėjimas
+* **Pašalinti perėjimą**:**dubliuokite** pavyzdį
+* **Išsaugoti redaguotą gradientą**: spustelėkite išsaugojimo piktogramą šalia gradientų juostos, kad redaguotą gradientą įtrauktumėte į iš anksto nustatytų sąrašą ir galėtumėte jį pasirinkti vėl
 
-2. Reguliuokite klasių skaičių, pridedant su mygtuku „+“
-3. Pašalinkite klasių skaičių, dukart spustelėdami spalvų pavyzdį
-4. Gradientas atnaujinamas **realaus laiko režimu** ant vaizdo**Poveikis vizualizacijai:*** **Mažiau klasių** (3–5): Sukuria aiškias zonas, supaprastintą klasifikaciją, lengviau atskirti kategorijas
-* **Vidutinis klasių skaičius** (6–10): Subalansuotas požiūris, tinka daugumai taikymų
-* **Daugiau klasių** (15–20): Sklandūs perėjimai, detalūs skirtumai, fotografinis vaizdas**Kada naudoti:*** **Mažai klasių (3–5)**: pristatymų skaidrės, klasifikavimo žemėlapiai, paprastos ataskaitos
-* **Vidutinis klasių skaičius (6–10)**: bendroji analizė, subalansuotos detalės, standartinės ataskaitos
-* **Daug klasių (15–20)**: mokslinė analizė, išsamus tyrimas, leidybos kokybės rezultatai
+Gradientas, kurį sukonfigūravote indekse, yra išsaugomas kartu su tuo indeksu projekto nustatymuose, todėl jis išlieka uždarius ir vėl atidarius projektą.
 
-### Vertės intervalų tikslinimas
+**Mažesnis sustojimų skaičius**sukuria aiškias zonas, kurios atrodo kaip klasifikacija;**didesnis sustojimų skaičius** sukuria sklandžius, beveik fotografinius perėjimus. Nuo trijų iki penkių sustojimų tinka prezentacijų skaidrėms ir klasifikacinėms žemėlapiams; nuo šešių iki dešimties – bendrai analizei; penkiolika ar daugiau – išsamiam tyrimui ir publikacijų iliustracijoms.
 
-**Vertės intervalų valdikliai**nustato, kokios indekso vertės atitinka kokias spalvas jūsų gradiente:**Intervalų valdikliai LUT skydelyje:*** **Minimali vertė**: Spalvų skalės apatinė riba
-* **Maksimali vertė**: Spalvų skalės viršutinė riba
-* **Tarpinės vertės**: Automatiškai paskirstomos tarp minimalios ir maksimalios (remiantis klasių skaičiumi)
+### Vertės diapazono nustatymas
 
-#### Mažiausios ir didžiausios verčių koregavimas
+Ribos reguliatorius yra **dviejų rankenėlių slankiklis**, kurio diapazonas yra nuo −1 iki +1; abiejuose galuose yra redaguojami tekstiniai laukeliai, skirti tikslioms reikšmėms įvesti, ir mygtukas**AUTO**.
 
-**Norėdami koreguoti verčių intervalus:**
+* Patempkite bet kurią rankenėlę arba įveskite skaičių į laukelį ir paspauskite „Enter“
+* **AUTO**nustato intervalą pagal**2-ąjį ir 98-ąjį procentilius** pagal vaizdo galiojančias indeksų vertes — tai geras pradinis taškas, kuris ignoruoja išskirtines vertes. Chloros rezultatą apvalina adaptatyviai: iki 4 skaičių po kablelio, jei intervalas labai siauras, iki 3 — jei siauras, o kitais atvejais — iki 2
+* Bet koks rankinis nustatymas turi pirmenybę prieš „AUTO“, kol vėl nepaspausite „AUTO“
 
-1. LUT skydelyje suraskite įvesties laukelius**Min Value**ir**Max Value**
+Pavyzdinis „NDVI“ langas:
 
-2. Spustelėkite laukelį**Min Value**
+| Tikslas                                    | Min.  | Maks. |
+| --------------------------------------- | ---- | --- |
+| Rodyti viską                         | −1,0 | 1,0 |
+| Tik augmenija, išskyrus dirvožemį ir vandenį | 0,2  | 0,9 |
+| Tik sveika augmenija                 | 0,5  | 0,9 |
+| Pabrėžti stresą                        | 0,2  | 0,5 |
 
-3. Įveskite norimą mažiausią vertę (pvz., `0.2`)
-4. Paspauskite **Enter** arba spustelėkite už lauko ribų
-5. Pakartokite su lauku **Maks. vertė** (pvz., `0.9`)
-6. Vizualizacija **atnaujinama iš karto**{% hint style="info" %}**Automatinis mastelio keitimas**: Kai pirmą kartą pritaikote LUT, Chloros automatiškai nustato mažiausią ir didžiausią vertes pagal faktinį duomenų diapazoną vaizde. Tada galite susiaurinti šį diapazoną, kad sutelktumėte dėmesį į konkrečius jus dominančius verčių diapazonus.
-{% endhint %}
+Siaurinant langą padidinamas kontrastas tiriamoje srityje, o visa kita išstumiama už ribų — ten, kur **apkarpymo režimas** nusprendžia, kas su tuo nutiks.***
 
-**Pavyzdiniai NDVI diapazono koregavimai:*** **Visas diapazonas**: nuo `-1.0` iki `1.0` (rodo visas galimas vertes)
-* **Sutelktas į augmeniją**: nuo `0.2` iki `0.9` (neįtraukiant pliko dirvožemio ir vandens)
-* **Tik sveika augmenija**: nuo `0.5` iki `0.9` (paryškinti tik stiprius augalus)
-* **Streso nustatymas**: nuo `0.2` iki `0.5` (paryškinti problemines vietas)
-* **Pasirinktinis diapazonas**: Reguliuokite pagal stebėtus pikselių vertes**Kodėl reikia reguliuoti diapazonus?*** **Padidinkite kontrastą** jus dominančioje srityje
-* **Išskirkite nereikšmingas vertes** (pvz., vandens telkinius, pliką dirvą)
-* **Standartizuokite vizualizaciją** keliuose vaizduose ar skirtingomis datomis
-* **Pabrėžkite subtilius skirtumus** siaurame verčių diapazone
+## Apkarpymo režimai
 
-### Vertės, viršijančios diapazoną, apkarpymas
+Kai pikselio indekso vertė nepatenka į minimalios/maksimalios ribos langą, apkarpymo režimas nusprendžia, kaip jis bus atvaizduojamas.
 
-Kai pikselių vertės viršija jūsų nustatytą minimalų/maksimalų diapazoną, galite kontroliuoti, kaip jos rodomos, naudodami **apkarpymo režimus**.
+| Išskleidžiamojo meniu pavadinimas                  | Įrašyta reikšmė      | Ribų nepasiekę pikseliai atvaizduojami kaip                                                                                                |
+| ------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Minimalus ir maksimalus** (numatyta) | `clip`            | Artimiausia gradiento galinė spalva — reikšmės, mažesnės už minimalų dydį, priskiriamos pirmajai spalvai, o reikšmės, didesnės už maksimalų dydį, priskiriamos paskutinei |
+| **Skaidrus fonas**      | `transparent`     | Visiškai skaidrus (tikrasis alfa)                                                                                                  |
+| **Indeksinis fonas**| `indexColor`      | Pilkosios skalės, ištemptas per**visą** vaizdo indeksų diapazoną, todėl už diapazono ribų esanti struktūra vis dar matoma pilka spalva                |
+| **Originalus fonas**         | `backgroundColor` | Pats pagrindinis vaizdas, todėl spalvų sluoksnis uždedamas ant tikrosios scenos                                                |
 
-#### **Galimi apkarpymo režimo variantai:**
-
-#### 1. Minimalus ir maksimalus
-
-* Pikseliai, **mažesni už minimalų**→ rodomi naudojant**pirmąją spalvą** gradientu (pvz., raudoną)
-* Pikseliai, **viršijantys maksimumą**→ rodomi naudojant**paskutinę spalvą** gradientu (pvz., žalia)
-* **Naudojimo atvejis**: pabrėžti kraštutines vertes, parodyti visą duomenų intervalą su sodriomis spalvomis ribose
-* **Pavyzdys**: NDVI vertės, mažesnės nei 0,2, visos rodomos raudonai, vertės, didesnės nei 0,9, visos rodomos žaliai
-
-#### 2. Skaidrus fonas
-
-* Pikseliai **už diapazono ribų**tampa**visiškai skaidrūs*** Tik pikseliai **diapazono ribose** rodo spalvų gradientą
-* **Naudojimo atvejis**: GIS perdanga, konkrečių verčių diapazonų izoliavimas, tik dominančių sričių išskyrimas
-* **Pavyzdys**: Rodyti spalvotai tik NDVI 0,4–0,7, visa kita – skaidru
-
-{% hint style="warning" %}
-**Skaidrumo apribojimas**: Skaidrūs pikseliai peržiūroje bus rodomi kaip fono spalva. Eksportuojant apdorojimo metu, skaidrumas išsaugomas PNG formatu, bet ne JPG.
-{% endhint %}
-
-#### 3. Indekso fonas
-
-* Pikseliai **už ribų**rodomi**pilkosios skalės** (rodomos neapdorotos indekso reikšmės)
-* Pikseliai **ribose**rodo**spalvų perėjimą*** **Naudojimo atvejis**: Subtilus išryškinimas, išlaikant kontekstą ir pabrėžiant dominančias sritis
-* **Pavyzdys**: Spalvomis išryškinkite stresą patiriančią augmeniją (NDVI 0,3–0,5), o sveikas sritis rodykite pilka spalva
-
-#### 4. Originalus fonas
-
-* Pikseliai, **esančios už ribų**, rodo**originalų multispektrinį vaizdą*** Pikseliai, **esančios ribose**, rodo**spalvų gradientą*** **Naudojimo atvejis**: Labiausiai intuityvus – derina natūralų vaizdo kontekstą su analitiniu spalvotu sluoksniu
-* **Pavyzdys**: Matykite tikrąjį lauko/pasėlių vaizdą su spalvomis pažymėtomis streso sritimis
-
-### Tinkamo apkarpymo režimo pasirinkimas
-
-| Apkarpymo režimas              | Tinkamiausias                                   | Vizualizacijos stilius          |
-| -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimalus ir maksimalus**    | Visų duomenų rodymas, mokslinė analizė     | Visi pikseliai nuspalvinti           |
-| **Skaidrus fonas** | GIS perdangos, konkrečių intervalų izoliavimas    | Spalva intervale, už jo – tuščia |
-| **Indeksinis fonas**       | Subtilus pabrėžimas, išlaikant duomenų kontekstą  | Spalva diapazone, už jo – pilka  |
-| **Originalus fonas**    | Ataskaitos, pristatymai, intuityvi analizė | Spalva diapazone, už jo – nuotrauka |
-
-### Pasirinktinių LUT spalvų kūrimas
-
-Norėdami visiškai kontroliuoti vizualizaciją, galite kurti **pasirinktinius spalvų gradientus**, redaguodami atskirus spalvų sustojimus.**Norėdami sukurti pasirinktinį gradientą:**
-
-1. LUT skydelyje suraskite**gradiento peržiūros juostą**
-
-2. Po gradientu ieškokite**spalvų pavyzdžių kvadratėlių**
-
-3.**Spustelėkite spalvų perėjimą**, kad jį pasirinkite
-4. Atsivers **spalvų pasirinkimo langas**
-
-5. Pasirinkite naują spalvą naudodami:
-   * **Spalvų ratą**: vizualus spalvų pasirinkimas
-   * **RGB/HSV slankikliai**: tikslus spalvų valdymas
-   * **Šešioliktainio kodo įvedimas**: tiksli spalvos specifikacija (pvz., `#FF0000` raudonai)
-6. Spustelėkite už spalvų pasirinkimo lango ribų, **kad pritaikytumėte naują spalvą**
-
-7. Gradientas**atnaujinamas iš karto** vaizde**Spalvų sustojimų pridėjimas arba pašalinimas:*** **Pridėti sustojimą**: Spustelėkite piktogramą „+“, kad pabaigoje pridėtumėte naują spalvų pavyzdį
-* **Pašalinti sustojimą**: Dukart spustelėkite spalvų kvadratą, kad pašalintumėte spalvų pavyzdį**Pritaikymo strategijos:*** **Gradiento apgręžimas**: Apverskite spalvų tvarką, kad pakeistumėte reikšmę (pvz., žalia = žema, raudona = aukšta)
-* **Prekės ženklo spalvos**: suderinkite su savo organizacijos spalvų palete ataskaitoms
-* **Tinkama spalvų akliesiems**: naudokite oranžinės-mėlynos arba violetinės-geltonos spalvų derinius
-* **Spausdinimo optimizavimas**: pasirinkite spalvas, kurios tinka tiek spalvotam, tiek pilkosios skalės spausdinimui
-* **Daugialygis**: naudokite skirtingas spalvas tam tikroms vertės riboms klasifikuoti
+| Režimas                       | Geriausiai tinka                               | Išvaizda                                      |
+| -------------------------- | -------------------------------------- | ----------------------------------------- |
+| **Minimalus ir maksimalus**      | Visų duomenų rodymas, mokslinė analizė | Kiekvienas pikselis nuspalvintas                      |
+| **Skaidrus fonas** | GIS sluoksniai, vertės intervalo izoliavimas   | Spalva lango viduje, už jo – nieko |
+| **Indeksinis fonas**       | Akcentavimas išlaikant duomenų kontekstą    | Spalva viduje, pilka už lango               |
+| **Originalus fonas**    | Ataskaitos ir pristatymai              | Spalva viduje, nuotrauka už lango         |
 
 {% hint style="info" %}
-**Pasirinktinių gradientų išsaugojimas**: Pasirinktinius gradientus galima išsaugoti ir naudoti pakartotinai. Spustelėkite išsaugojimo piktogramą LUT skydelyje, kad išsaugotumėte savo pasirinktines spalvų schemas ateityje.
+**Pikseliai be duomenų visada yra skaidrūs, bet kuriame režime.** Pikselis, kurio indeksas nėra baigtinis (dalyba iš 0 į 0) arba yra lygiai −1,0 arba +1,0 (saturacijos indikatoriai, kai vienoje juostoje rodoma nulinė vertė, o kitoje – ne), traktuojamas kaip neturintis duomenų, o ne kaip kraštutinė vertė. Tai leidžia išvengti peršviestų šviesių sričių ir visiškai tamsų sričių patekimo į spalvų skalę, užuot jas vaizdavus kaip ekstremaliausius kadro rodmenis. Ta pati taisyklė apibrėžia, kurie pikseliai naudojami „AUTO“ slenksčiams ir indekso histogramai, todėl visi trys rodikliai sutampa.
+{% endhint %}
+
+Skaidrumas išsaugomas, kai eksportas įrašomas kaip PNG. Jis negali būti atvaizduojamas JPG formatu.
+
+***
+
+## Vertės rodymas, kol atliekate nustatymus**„Cursor Values“** skydelis po konfigūracijos skydeliu yra „Sandbox“ matavimo prietaisas:
+
+* Perkelkite žymeklį virš vaizdo ir perskaitykite kiekvieno kanalo šaltinio vertes bei indekso vertę atitinkamoje eilutėje
+* Įjunkite mygtuką **INDEX** virš histogramos, kad pamatytumėte indeksų verčių pasiskirstymą kadre: dvi jūsų nustatytos ribos bus pavaizduotos kaip oranžinės punktyrinės linijos, o žymeklio vertė – kaip balta linija. Tai greičiausias būdas pasirinkti langą, kuriame iš tikrųjų yra jūsų duomenys
+* Įjunkite **CURSOR**, kad pamatytumėte žymeklio linijas prie verčių po žymekliu
+* Padidinkite vaizdą daugiau nei 60× (mažiau, jei nustatytas GSD bloko dydis), kad būtų paryškinti atskiri rodomi pikseliai su kintama verte
+
+Praktinė procedūra:
+
+1. Užsirašykite vertes virš sveikos augmenijos, streso paveiktos augmenijos, pliko dirvožemio ir vandens
+2. Pažiūrėkite, kur šie klasteriai yra indekso histogramoje
+3. Nustatykite mažiausią ir didžiausią vertes, kad apibrėžtumėte jus dominančią klasterio sritį
+4. Pasirinkite apkarpymo režimą — _Original Background_ išlaiko matomą aplinką aplink klasterį
+
+***
+
+## Eksportavimas iš „Sandbox“
+
+Viskas, kas nurodyta aukščiau, yra tiesioginis peržiūros vaizdas, kol jo neišsaugosite. Mygtukas **„Eksportuoti/Išsaugoti vaizdus“** šoninės juostos viršuje atidaro langą, kuris pasislinksta virš šoninės juostos (uždengdamas ne vaizdą, todėl vis dar galite matyti, dėl ko sprendžiate).
+
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>### Parinktys
+
+| Parinktis                          | Efektas                                                                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Taikyti dabartiniam vaizdui**      | Išsaugo būtent tą vaizdą, kuris rodomas, su šiais nustatymais                                                                                                |
+| **Taikyti visiems projekto vaizdams** | Pakartotinai taiko tą pačią konfigūraciją kiekvienam projekto vaizdui. Vaizdai, kuriuose nėra šiam indeksui reikalingų juostų, yra praleidžiami, o ne traktuojami kaip nesėkmės |
+| **Indekso/LUT gradiento juosta**      | Taip pat kiekvienam eksportui išsaugo atskirą paaiškinimų paveikslėlį su pažymėtu verčių diapazonu                                                                     |
+| **Indekso histograma**             | Taip pat kiekvienam eksportui išsaugo atskirą histogramos paveikslėlį, kuriame rodomos duomenų minimalios ir maksimalios reikšmės bei apribojimo ribos                                               |
+
+Jei vaizdo skirtuke nustatytas **GSD bloko dydis** yra didesnis nei 1, prieš patvirtinant eksportą langelyje bus pateikta atitinkama informacija: eksportuojant bus išsaugotas tai, ką matote, įskaitant blokų vidurkį. Jei norite gauti visą skiriamąją gebą, pirmiausia nustatykite GSD parametrą atgal į 1.
+
+### Kur saugomi failai
+
+Kiekvieną kartą paspaudus **Eksportuoti**sukuriama**nauja, niekada anksčiau nenaudota aplankas**:
+
+```
+<project folder>/Sandbox_Exports/<IndexName>_<Index|LUT>_<NNN>/
+```
+
+Pavyzdžiai: `Sandbox_Exports/NDVI_LUT_001/`, o kitam vykdymui – `Sandbox_Exports/NDVI_LUT_002/`. Numeracija nustatoma nuskaitant tai, kas jau yra diske, todėl ji išlieka net po perkrovimų ir rankiniu būdu ištrintų aplankų. Nieko niekada neperrašoma — pagrindinė „Sandbox“ paskirtis yra palyginti vieną bandymą su ankstesniuoju.
+
+Aplankėje, kiekvienam vaizdui:
+
+| Failas                                                   | Turinys                                                   |
+| ------------------------------------------------------ | ---------------------------------------------------------- |
+| `<source name>_<IndexName>_<Index\|LUT>.png`           | Atvaizduotas vaizdas, pikselis po pikselio toks, koks buvo rodomas peržiūroje |
+| `<source name>_<IndexName>_<Index\|LUT>_legend.png`    | Gradiento juostos papildomasis failas, jei prašoma                     |
+| `<source name>_<IndexName>_<Index\|LUT>_histogram.png` | Indekso histogramos papildomasis failas, jei prašoma                  |
+
+Abu papildomi langeliai visada įrašomi **pilna skiriamąja geba**, net jei pagrindinis vaizdas yra vidurkinamas blokais: bloko dydis atitinka ekrano skiriamąją gebą, o abu papildomi langeliai rodo tikrąsias indekso reikšmes kiekvienam pikseliui. Be to, juose pateikiama daugiau informacijos nei ekrane rodomose versijose — abu nurodo išplėtimo langą _ir_ tikruosius duomenų minimumą bei maksimumą, todėl išsaugota legenda lieka įskaitoma net po kelių mėnesių, net ir neatidarius projekto.
+
+### Vykdymo eiga ir rezultatai
+
+Visos projekto eksportavimas trunka keletą minučių, todėl programa pateikia ataskaitas per tiesioginį vykdymo kanalo srautą, o ne blokuoja sistemą:
+
+* Vykdymo juosta rodo „`current / total`“ ir rašomą failą
+* Baigus eksportą, langelyje parodoma, kiek vaizdų buvo eksportuota, kiek praleista, ir išvesties aplanko kelias
+* Praleisti vaizdai išvardijami kartu su priežastimi (rodomi iki penkių, po to – eilutė „+N daugiau“). Dažniausiai priežastis yra sluoksnis, kuriame nėra šiam indeksui reikalingų kanalų
+* Jei projekte **nė vienas** vaizdas negali naudoti šio indekso, operacija praneša apie nesėkmę, o ne palieka tuščią aplanką
+
+Vienu metu gali vykti tik vienas eksporto procesas „sandbox“ aplinkoje. Bandymas paleisti antrą procesą, kol pirmasis dar vyksta, yra atmestas su aiškiu pranešimu, kad du procesai nesivaržytų dėl to paties projekto failo.
+
+### Tinklelis parenka vykdymą
+
+Kiekvienas užbaigtas vykdymas rodomas kaip atskiras mygtukas [vaizdų tinklelyje](image-grid.md) įrankių juostoje, pažymėtas `<IndexName> <Index|LUT> <NNN>`. Štai kaip galima palyginti eksportavimo operacijas: du kartus eksportuokite naudodami skirtingus gradientus arba slenksčius, tada perjunkite tarp dviejų mygtukų lentelėje.
+
+***
+
+## Pasirinktinės indekso formulės (Chloros+)
+
+{% hint style="info" %}
+**Kur jas kurti**: „Sandbox“ šoninėje juostoje arba**projekto nustatymuose** prieš apdorojimą. Abiem atvejais duomenys įrašomi į tą patį projekto lygio sąrašą.
+{% endhint %}
+
+1. Atidarykite pasirinktinių formulių skaičiuoklę iš indeksų formulių išskleidžiamojo meniu (reikia prisijungti su atitinkamu Chloros+ abonementu)
+2. Įrašykite formulę naudodami **juostų-slotų simbolius** `x`, `y`, `z`, `a`, `b`, `c` — tai nėra juostų pavadinimai
+3. Galimi operatoriai: `+`, `-`, `*`, `/`, `^` ir `()`, skirti grupavimui
+4. Galimos funkcijos: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
+5. Pavadinkite ir išsaugokite jį — jis pasirodys formulės išskleidžiamojo meniu apačioje, o jo lizdus susiesite vilkdami kanalų apskritimus, lygiai taip pat kaip ir su įdiegtomis išankstinėmis nustatymų kombinacijomis
+
+```
+
+Modified NDVI with an offset:   (y-x)/(y+x+0.5)
+Simple ratio:                   y/x
+Three-band difference:          (y-x)/(y+x-z)
+Squared ratio:                  (y/x)^2
+```
+
+{% hint style="warning" %}
+**Pasirinktinės formulės veikia tik grafinėje vartotojo sąsajoje.** Parinktis „CLI/SDK `--indices`“ išplečia 22 įdiegtų nustatymų sąrašą ir tyliai praleidžia viską kitą, įskaitant jūsų pasirinktas formules. Norėdami apdoroti pasirinktinę formulę partijos režimu, sukonfigūruokite ją projekto nustatymuose ir paleiskite apdorojimą arba naudokite „Sandbox“ eksporto funkciją „Taikyti visiems projekto vaizdams“.
 {% endhint %}
 
 ***
 
-## Interaktyvus darbo srautas
+## Problemų sprendimas
 
-### Atnaujinimai realiuoju laiku
+### „Šiame sluoksnyje nėra kanalų, kurių reikia šiam indeksui“
 
-Visi LUT koregavimai „sandbox“ aplinkoje atnaujina vaizdą **akimirksniu ir interaktyviai**:
+Formulė nuskaito kanalo poziciją, kurios dabartiniame sluoksnyje nėra — pavyzdžiui, trijų lizdų indeksą vieno ar dviejų kanalų faile. Perjunkite į daugiabandį sluoksnį (atspindžio arba be Bayerio filtro) arba pasirinkite indeksą, kuris atitinka jūsų fotoaparato filtrą.
 
-* **Perkelkite sluoksnį** → Vaizdas pasikeičia iš karto
-* **Pasirinkite gradientą** → Spalvos atnaujinamos akimirksniu
-* **Koreguokite verčių diapazoną** → Kontrastas keičiasi realiuoju laiku
-* **Keiskite klases** → Gradiento sklandumas atnaujinamas iš karto
-* **Modifikuokite apkarpymą** → Fono rodymas pasikeičia akimirksniu
-* **Redaguokite spalvas** → Pasirinktoji spalvų gama pritaikoma iš karto**Nereikia „Taikyti“ mygtuko** – visi pakeitimai vyksta tiesiogiai ir interaktyviai!
+### „Nepavyko prisijungti prie vaizdo apdorojimo užkulisio“
 
-{% hint style="success" %}
-**Tiesioginis grįžtamasis ryšys**: Tiesioginis vizualus grįžtamasis ryšys leidžia greitai eksperimentuoti su įvairiais nustatymais, kol rasite optimalų vaizdą, atitinkantį jūsų analizės poreikius.
-{% endhint %}
+Užkulisio serveris neatsako. Patikrinkite skirtuką „Log“; jei apdorojimo modulis paleidžiamas iš naujo, „Sandbox“ atsistatys savaime, kai tik jis vėl pradės veikti.
 
-### Pakartotinio tobulinimo darbo eiga
+### Vaizdas nepasikeitė, kai vilkiau apskritimą
 
-**Tipinė LUT optimizavimo darbo eiga:**
+Formulė dar nėra užbaigta. Neužbaigta formulė traktuojama kaip įprasta vilkimo būsena – niekas nerenderuojama ir niekas nepranešama kaip klaida. Užpildykite visus laukelius, kuriuos naudoja formulė.
 
-1.**Pasirinkite indeksinį sluoksnį** (pvz., RAW (atspindys))
-2. **Taikykite indeksą** – pasirinkite kameros filtrą ir indekso formulę, vilkite spalvotus apskritimus į tinkamą vietą indekso formulėje
-3. **Taikykite LUT gradientą** – pradėkite nuo Red-Yellow-Green nustatymų
-4. **Patikrinkite pikselių vertes** – judinkite žymeklį, atkreipkite dėmesį į verčių intervalus
-5. **Nustatykite min./maks.** – susiaurinkite, kad sutelktumėte dėmesį į augmeniją (pvz., nuo 0,2 iki 0,9)
-6. **Pasirinkite apkarpymą** – išbandykite „Original Background“ (Originalus fonas) kontekstui
-7. **Patobulinkite spalvas** – prireikus pritaikykite gradientą, jei norite pabrėžti tam tikrus elementus
-8. **Užbaigkite nustatymus**– užfiksuokite nustatymus ir nukopijuokite į „Project Settings“ (Projekto nustatymus) eksporto apdorojimui
+### Visas vaizdas yra vienos spalvos
 
-### Pikselių verčių tikrinimas
+Jūsų klipo langas greičiausiai yra gerokai už duomenų ribų. Paspauskite **AUTO**, kad jis prisitaikytų prie 2-ojo/98-ojo procentilio, arba įjunkite**INDEX** histogramą, kad pamatytumėte, kur iš tikrųjų yra duomenys.
 
-Faktinių pikselių verčių supratimas yra labai svarbus nustatant veiksmingus LUT intervalus:**Kaip tikrinti vertes:**
+### Eksportuotos spalvos nesutampa su tomis, kurias mačiau
 
-1. Pikselių vertės rodomos, kai vaizde yra pažymėtas langelis „Indeksas“ arba abu langeliai „Indeksas“ ir „LUT“.
-2. **Perkelkite žymeklį** per skirtingas vaizdo sritis
-3. **Stebėkite pikselių vertes**, rodomas legendoje, kai užvedate žymeklį
-4. Padidinkite vaizdą, kad pamatytumėte atskirus pikselius, pažymėtus plaukiojančia verte
-5. **Užsirašykite** skirtingų objektų verčių diapazonus:
-   * **Sveika augmenija**: pvz., NDVI 0,55–0,85
-   * **Stresą patyrusi augmenija**: pvz., NDVI 0,30–0,50
-   * **Plika dirva**: pvz., NDVI 0,05–0,25
-   * **Vanduo** (jei yra): pvz., NDVI -0,05–0,10**Pikselių verčių naudojimas LUT intervalams nustatyti:**Išnagrinėję pikselių vertes, atitinkamai pakoreguokite LUT minimalią ir maksimalią vertes:**Pavyzdinis scenarijus:*** **Stebėjimas**: Dirvos vertės = 0,05–0,25, Stresuota = 0,25–0,50, Sveika = 0,50–0,85
-* **Tikslas**: Vizualizuoti tik augalų sveikatos būklę (neįtraukiant dirvos)
-* **LUT nustatymai**: Min = `0.25`, Max = `0.85`
-* **Apkarpymas**: „Originalus fonas“, kad dirvožemis būtų matomas natūralia spalva
-* **Rezultatas**: Spalvų gradientas taikomas tik augmenijai, dirvožemis rodomas kaip originalus vaizdas
-
-{% hint style="info" %}
-**Dinaminis diapazonas**: Skirtingiems pasėliams, sezonams ir augimo etapams bus taikomi skirtingi verčių diapazonai. Prieš nustatydami LUT diapazonus, visada patikrinkite pikselių vertes savo konkrečiame duomenų rinkinyje.
-{% endhint %}
-
-***
-
-## Pasirinktiniai indeksai (Chloros+)
-
-### Pasirinktinių indeksų formulių kūrimas
-
-{% hint style="info" %}
-**Kur kurti**: Pasirinktinius indeksus galima konfigūruoti**Projekto nustatymuose** prieš apdorojimą, taip pat vaizdo peržiūros programos „sandbox“ šoninėje juostoje.
-{% endhint %}
-
-**Norėdami sukurti pasirinktinį indeksą:**
-
-1.**Atidarykite projekto nustatymus** (prieš apdorojimą) arba vaizdų peržiūros programos „sandbox“ šoninę juostą
-2. Pereikite prie **indekso formulės išskleidžiamojo meniu**
-
-3. Ieškokite parinkties**„Custom“** (turite būti prisijungę su Chloros+ licencija)
-4. **Nustatykite formulę** naudodami juostų kintamuosius:
-   * Juostų pavadinimai: `NIR`, `Red`, `Green`, `Blue`, `RedEdge` ir t. t.
-   * Operatoriai: `+`, `-`, `*`, `/`, `^` (eksponentas)
-   * Funkcijos: `sqrt()`, `abs()` ir kt. (jei palaikoma)
-   * Skliausteliai: `()` operacijų eiliškumui
-5. **Pavadinkite savo indeksą** (pvz., „MyIndex“ arba „CustomNDVI“)
-6. **Išsaugokite konfigūraciją**
-
-**Pavyzdinės pasirinktinės formulės:**
-
-```
-
-Modified NDVI with offset:
-(NIR - Red) / (NIR + Red + 0.5)
-
-Simple ratio:
-NIR / Red
-
-Complex multi-band:
-(NIR - Red) / (NIR + Red - Blue)
-
-Exponential index:
-(NIR / Red) ^ 2
-```
-
-{% hint style="warning" %}
-**Formulės patvirtinimas**: Įsitikinkite, kad jūsų formulė naudoja jūsų kameroje prieinamus juostų diapazonus. Pavyzdžiui, RedEdge yra prieinama tik kamerose su RedEdge filtru.
-{% endhint %}
+Jos turėtų sutapti – eksporto kelias sąmoningai atspindi tiesioginį peržiūros vaizdą, įskaitant alfa kanalą apkarpymo režimu, o blokų vidurkavimas taikomas _po_ spalvinimo, lygiai taip pat, kaip tai daro peržiūros programa. Jei jos skiriasi, patikrinkite, ar GSD bloko dydis nepasikeitė tarp peržiūros ir eksporto.
 
 ***
 
 ## Tolimesni veiksmai
 
-Dabar, kai supratote indeksų / LUT bandymų aplinką:
-
-* **Taikykite apdorojimui**: naudokite nustatytus parametrus [Projekto nustatymuose](../project-settings/project-settings.md)
-* **Apdorokite partiją**: pritaikykite optimizuotus indeksus visam duomenų rinkiniui
-* **Sužinokite daugiau**: Perskaitykite [Daugiaspektrinių indeksų formulės](../project-settings/multispectral-index-formulas.md)
-
-Susijusi dokumentacija:
-
-* [**Vaizdo sluoksniai**](image-layers.md) - Sluoksnių valdymas ir vizualizavimas
-* [**Vaizdo atidarymas visame ekrane**](opening-an-image-full-screen.md) – Vaizdo peržiūros programos pagrindai
-* [**Vaizdų apdorojimas (GUI)**](../processing-images-gui/adding-files-to-a-project.md) – Visas apdorojimo darbo srautas
+* [**Vaizdo sluoksniai**](image-layers.md) — kuriam sluoksniui taikyti indeksą ir ką reiškia jo reikšmės
+* [**Vaizdo atidarymas visame ekrane**](opening-an-image-full-screen.md) — išsamus kursoriaus rodmenų, histogramos ir GSD valdymo aprašymas
+* [**Daugiaspektrinių indeksų formulės**](../project-settings/multispectral-index-formulas.md) — kiekvienas iš anksto nustatytas parametras, kiekviename paviršiuje
+* [**Projekto nustatymai**](../project-settings/project-settings.md) — nustatymų, kuriuos radote, įtraukimas į apdorojimo ciklą

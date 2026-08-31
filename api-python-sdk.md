@@ -1,1389 +1,246 @@
 # API : Python SDK
 
-**Chloros Python SDK** suteikia programinę prieigą prie Chloros vaizdų apdorojimo variklio, leidžiančio automatizuoti, kurti individualizuotus darbo srautus ir sklandžiai integruoti su jūsų Python programomis bei tyrimų procesais.
+{% hint style="info" %}
+**Ieškote išsamios informacijos apie API?** Šis puslapis yra praktinis vadovas. Visos viešos klasės, metodai, tikslios parašai ir pavyzdžiai, kuriuos galima nukopijuoti ir įklijuoti, yra [SDK nuorodoje](reference/sdk-reference.md), kuri yra pritaikyta dirbti su AI asistentais.**Dirbate su AI asistentu?** Įklijuokite šį URL į pokalbio langą, kad jis turėtų visą, naujausią Chloros 1.2.0 API:
 
-### Pagrindinės savybės
+`https://mapir.gitbook.io/chloros/reference/sdk-reference.md`
 
-* 🐍 **Native Python** – Švarus, Python stiliaus API vaizdų apdorojimui
-* 🔧 **Visiška prieiga prie API** – Visiška kontrolė apdorojant Chloros
-* 🚀 **Automatizavimas** – kurkite pasirinktinius paketinio apdorojimo darbo srautus
-* 🔗 **Integracija** – įterpkite Chloros į esamas Python programas
-* 📊 **Paruošta tyrimams** – puikiai tinka mokslinės analizės procesams
-* ⚡ **Lygiagretus apdorojimas** – pritaikoma pagal jūsų procesoriaus branduolių skaičių (Chloros+)
-
-### Reikalavimai
-
-| Reikalavimas          | Išsami informacija                                                             |
-| -------------------- | ------------------------------------------------------------------- |
-| **Įdiegta Chloros** | Windows: darbalaukio diegimo programa; Linux: `.deb` paketas                  |
-| **Licencija**          | Chloros+ ([reikalingas mokamas planas](https://cloud.mapir.camera/pricing)) |
-| **Operacinė sistema** | Windows 10/11 (64 bitų), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
-| **Python**           | Python 3.7 ar naujesnė versija                                                |
-| **Atmintis**           | Mažiausiai 8 GB RAM (rekomenduojama 16 GB)                                  |
-| **Internetas**         | Reikalingas licencijos aktyvavimui                                     |
-
-{% hint style="warning" %}
-**Licencijos reikalavimas**: Python SDK reikalauja mokamo Chloros+ prenumeratos, kad būtų galima naudotis API. Standartiniai (nemokami) planai nesuteikia prieigos prie API/SDK. Norėdami atnaujinti, apsilankykite [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
+Kiekvienas šio vadovo puslapis yra prieinamas kaip neapdorotas „Markdown“ failas, kurio pavadinimas susideda iš mažosiomis raidėmis parašyto slugo + `.md`, o visas vadovas yra indeksuotas adresu `https://mapir.gitbook.io/chloros/llms.txt`.
 {% endhint %}
 
-## Greitasis pradžios vadovas
+**Chloros Python SDK** (`chloros-sdk` „PyPI“ svetainėje) valdo visas darbalaukio programos funkcijas, pradedant nuo Python: paketinį vaizdų apdorojimą, tiesioginį „LATTICE“ kameros ir matricos valdymą, DAQ šviesos jutiklių sesijas bei išsaugotų projektų automatizavimą. Tai plonas sluoksnis, uždedamas ant to paties vietinio užpakalinio modulio, kurį naudoja GUI ir „CLI“ (HTTP, esantis „`127.0.0.1:5000`“), todėl veikimas visose trijose aplinkose yra identiškas.
 
-### Įdiegimas
+## Įdiegimas
 
-Įdiekite per pip:
+Įdiegimas vyksta dviem etapais: pirmiausia įdiegiamas Chloros darbalaukio paketas (jis suteikia apdorojimo pagrindą ir aparatinės įrangos vykdymo aplinką), o po to – Python paketas.
+
+**1 etapas — Įdiekite Chloros.** Windows: paleiskite darbalaukio diegimo programą (numatytoji vieta – `C:\Program Files\MAPIR\Chloros\`) iš [Atsisiuntimo](download.md) puslapio. Linux: įdiekite paketą „`.deb`“ ([Linux įdiegimas](linux/linux-installation.md)).**2 žingsnis — Įdiekite „SDK“** (Python 3.7+):
 
 ```bash
 pip install chloros-sdk
 ```
 
-{% hint style="info" %}
-**Pirminis nustatymas**: Prieš naudodami SDK, aktyvuokite savo Chloros+ licenciją atidarydami Chloros, Chloros (naršyklė) arba Chloros CLI ir prisijungdami su savo prisijungimo duomenimis. Tai reikia padaryti tik vieną kartą. Linux (be GUI) naudokite: `chloros-cli login user@example.com 'password'`
-{% endhint %}
+Jums netgi gali neprireikti „pip“: kiekvienas diegimo paketas turi atitinkamą „SDK“ „wheel“. „Windows“ diegimo programa jį automatiškai įdiegia į jūsų sistemos „Python“; Linux `.deb` įdiegia jį į `/usr/lib/chloros/sdk/` ir išveda tikslią `pip install --user` komandą. PyPI atnaujinamas išleidžiant naujas versijas, todėl `pip install chloros-sdk` atitinka naujausią stabilią versiją.
 
-### Pagrindinis naudojimas
-
-Aplanką apdorokite vos keliomis eilutėmis:
-
-```python
-from chloros_sdk import process_folder
-
-# One-line processing (Windows)
-results = process_folder("C:\\DroneImages\\Flight001")
-
-# One-line processing (Linux)
-results = process_folder("/home/user/drone_images/flight001")
-```
-
-{% hint style="info" %}
-**Kelių platformų keliai**: Šioje puslapyje pateikti kodo pavyzdžiai naudoja Windows stiliaus kelius (pvz., `C:\\DroneImages\\Flight001`). Linux naudokite Linux kelius (pvz., `/home/user/drone_images/flight001` arba `~/drone_images/flight001`). SDK veikia vienodai abiejose platformose.
-{% endhint %}
-
-### Visiškas valdymas
-
-Išplėstiniams darbo srautams:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-# Initialize SDK
-chloros = ChlorosLocal()
-
-# Create project
-chloros.create_project("MyProject", camera="Survey3N_RGN")
-
-# Import images
-chloros.import_images("C:\\DroneImages\\Flight001")  # Windows
-# chloros.import_images("/home/user/drone_images/flight001")  # Linux
-
-# Configure settings
-chloros.configure(
-    vignette_correction=True,
-    reflectance_calibration=True,
-    indices=["NDVI", "NDRE", "GNDVI"]
-)
-
-# Process images
-chloros.process(mode="parallel", wait=True)
-```
-
-***
-
-## Įdiegimo vadovas
-
-### Būtinos sąlygos
-
-Prieš diegdami SDK, įsitikinkite, kad turite:
-
-1. **Įdiegta Chloros** — Windows: darbalaukio diegimo programa ([atsisiųsti](download.md)); Linux: `.deb` paketas ([Linux įdiegimas](linux/linux-installation.md))
-2. **Python 3.7+** įdiegta ([python.org](https://www.python.org))
-3. **Veikianti Chloros+ licencija** ([atnaujinimas](https://cloud.mapir.camera/pricing))
-
-### Įdiegti per pip
-
-**Standartinis įdiegimas:**
+**3 žingsnis — Prisijunkite vieną kartą kiekviename kompiuteryje:**
 
 ```bash
-pip install chloros-sdk
+chloros-cli login user@example.com 'YourPassword'
 ```
 
-**Su pažangos stebėjimo palaikymu:**
+Prisijungimo duomenys išsaugomi `~/.chloros/` (abiejose platformose). Windows galite prisijungti taip pat naudodami darbalaukio programėlės skirtuką „Vartotojas“ (<img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line">). SDK reikalauja mokamo Chloros+ plano — žr. [Licencijos reikalavimus](#license-requirement) žemiau.
 
-```bash
-pip install chloros-sdk[progress]
-```
+| Reikalavimas | Išsami informacija |
+| --- | --- |
+| **Įdiegta „Chloros“** | „Windows“: darbalaukio diegimo programa; Linux: `.deb` paketas (teikia užkulisinį binarinį failą) |
+| **Python** | 3.7 ar naujesnė versija (sukurta ir išbandyta su 3.10) |
+| **Operacinė sistema** | Windows 10/11 64 bitų, „Ubuntu 22.04 LTS“ ar naujesnė versija, arba „NVIDIA Jetson“ (JetPack 6) |
+| **Licencija** | Aktyvi „Chloros+“ prisijungimo paskyra, bet koks mokamas planas („Copper“ ar aukštesnis) |
 
-**Diegimas kūrimo tikslais:**
+## 60 sekundžių pergalė
 
-```bash
-pip install chloros-sdk[dev]
-```
-
-### Diegimo patikrinimas
-
-Patikrinkite, ar SDK yra įdiegtas teisingai:
+Vienas iškvietimas sukuria projektą, importuoja aplanką, sukonfigūruoja apdorojimą ir paleidžia duomenų srautą — automatiškai paleidžiant užkulisinį procesą, jei jis dar neveikia:
 
 ```python
 import chloros_sdk
-print(f"Chloros SDK version: {chloros_sdk.__version__}")
+
+results = chloros_sdk.process_folder(
+    "C:/DroneImages/Flight001",
+    indices=["NDVI", "NDRE", "GNDVI"],
+)
 ```
 
-***
+(Naudojant Linux, naudokite Linux kelius: `/home/user/drone_images/flight001`. SDK veikia vienodai abiejose platformose.)
 
-## Pirminis nustatymas
-
-### Licencijos aktyvavimas
-
-SDK naudoja tą pačią licenciją kaip Chloros, Chloros (naršyklė) ir Chloros CLI. Aktyvuokite vieną kartą per GUI arba CLI:**Windows:**Atidarykite**Chloros arba Chloros (naršyklė)** ir prisijunkite vartotojo <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> skirtuką arba naudokite CLI.**Linux:** Naudokite CLI (GUI nėra):
-
-```bash
-chloros-cli login user@example.com 'your_password'
-```
-
-Licencija yra išsaugoma vietiniame atminties talpykloje ir išlieka po kompiuterio perkrovimo.
-
-{% hint style="success" %}
-**Vienkartinis nustatymas**: Prisijungus per GUI arba CLI, SDK automatiškai naudoja išsaugotą licenciją. Papildomo autentifikavimo nereikia!
-{% endhint %}
-
-{% hint style="info" %}
-**Atsijungimas**: SDK vartotojai gali programiškai išvalyti išsaugotus prisijungimo duomenis naudodami `logout()` metodą. Žr. [logout() metodą](#logout) API žinyne.
-{% endhint %}
-
-### Ryšio patikrinimas
-
-Patikrinkite, ar SDK gali prisijungti prie Chloros:
+Apdorojate „LATTICE“ užfiksuotų vaizdų aplanką? Naudokite „LATTICE“ suderinamą apvalkalą — jis taiko tinkamus numatytuosius nustatymus (be skydelio tikslo nustatymo, standartinis debayeris):
 
 ```python
-from chloros_sdk import ChlorosLocal
-
-# Initialize SDK (auto-starts backend if needed)
-chloros = ChlorosLocal()
-
-# Check status
-status = chloros.get_status()
-print(f"Backend running: {status['running']}")
+results = chloros_sdk.process_lattice_capture(
+    folder_path="C:/Captures/2026-05-13_Field",
+    indices=["NDVI"],
+)
 ```
 
-***
+## `ChlorosLocal` — visiškas apdorojimo grandinės valdymas
 
-## API nuoroda
-
-### Klasė „ChlorosLocal“
-
-Pagrindinė klasė, skirta vietiniam Chloros vaizdų apdorojimui.
-
-#### Konstruktorius
+Jei reikia daugiau nei vienos eilutės komandos, naudokite `ChlorosLocal`. Jis paleidžia užkurtį pirmą kartą naudojant (`auto_start_backend=True`), sukuria ir konfigūruoja projektus, stebi vykdymo eigą ir pateikia apibendrinimą po užduoties įvykdymo.
 
 ```python
 ChlorosLocal(
-    api_url="http://localhost:5000",     # Backend URL
-    auto_start_backend=True,             # Auto-start backend if not running
-    backend_exe=None,                    # Backend path (auto-detected)
-    timeout=30,                          # Request timeout (seconds)
-    backend_startup_timeout=60           # Backend startup timeout
+    api_url="http://127.0.0.1:5000",   # backend URL (also: backend_url=)
+    auto_start_backend=True,            # spawn backend if not running
+    backend_exe=None,                   # override backend binary path
+    timeout=30,                         # request timeout seconds
+    backend_startup_timeout=60,         # backend boot timeout
+    processing_timeout=14400,           # hard cap on process() (4 h)
+    processing_stuck_timeout=1800,      # no-progress threshold (30 min)
 )
-```
-
-**Parametrai:**
-
-| Parametras                 | Tipas | Numatytasis                   | Aprašymas                           |
-| ------------------------- | ---- | ------------------------- | ------------------------------------- |
-| `api_url`                 | str  | `"http://localhost:5000"` | URL vietinio Chloros užpakalinio modulio          |
-| `auto_start_backend`      | bool | `True`                    | Automatiškai paleisti backend, jei reikia |
-| `backend_exe`             | str  | `None` (automatinis aptikimas)      | Kelias į backend vykdomąjį failą            |
-| `timeout`                 | int  | `30`                      | Užklausos laiko limitas sekundėmis            |
-| `backend_startup_timeout` | int  | `60`                      | Backend paleidimo laiko limitas (sekundėmis) |
-
-**Pavyzdžiai:**
-
-```python
-# Default (auto-start backend, auto-detect path on Windows and Linux)
-chloros = ChlorosLocal()
-
-# Connect to running backend
-chloros = ChlorosLocal(auto_start_backend=False)
-
-# Custom backend path (Windows)
-chloros = ChlorosLocal(backend_exe="C:/Custom/chloros-backend.exe")
-
-# Custom backend path (Linux)
-chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
-
-# Custom timeout with longer startup (e.g., for Jetson)
-chloros = ChlorosLocal(timeout=60, backend_startup_timeout=120)
 ```
 
 {% hint style="info" %}
-**Automatinis platformų nustatymas**: SDK automatiškai bando rasti jūsų platformai tinkamą backend kelią:
-* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
-* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
-* **Linux (rankinis)**: `/opt/mapir/chloros/backend/chloros-backend`
+Naudokite numatytąjį `http://127.0.0.1:5000`, o ne pakeiskite jį `localhost` — Windows atveju `localhost` pirmiausia išsprendžiamas kaip `::1` ir kainuoja ~2 sekundes už kiekvieną užklausą, kai naudojamas tik IPv4 palaikantis užpakalinis serveris.
 {% endhint %}
 
-***
-
-### Metodai
-
-#### `create_project(project_name, camera=None)`
-
-Sukurti naują Chloros projektą.
-
-**Parametrai:**
-
-| Parametras      | Tipas | Privalomas | Aprašymas                                              |
-| -------------- | ---- | -------- | -------------------------------------------------------- |
-| `project_name` | str  | Taip      | Projekto pavadinimas                                     |
-| `camera`       | str  | Ne       | Kameros šablonas (pvz., „Survey3N\_RGN“, „Survey3W\_OCN“) |
-
-**Grąžina:** `dict` – Atsakymas dėl projekto sukūrimo**Pavyzdys:**
+Naudokite jį kaip konteksto tvarkyklę, kad būtų užtikrintas išvalymas:
 
 ```python
-# Basic project
-chloros.create_project("DroneField_A")
+import chloros_sdk
 
-# With camera template
-chloros.create_project("DroneField_A", camera="Survey3N_RGN")
+with chloros_sdk.ChlorosLocal() as cl:
+    cl.create_project("FieldA_2026-05-26", camera="Survey3N_RGN")
+    cl.import_images("C:/DroneImages/Flight001")
+    cl.configure(
+        vignette_correction=True,
+        reflectance_calibration=True,
+        indices=["NDVI", "NDRE", "GNDVI"],
+        export_format="TIFF (16-bit)",
+    )
+    results = cl.process(mode="parallel", wait=True)
+print(results["summary"])
 ```
 
-***
-
-#### `import_images(folder_path, recursive=False)`
-
-Importuoti vaizdus iš aplanko.
-
-**Parametrai:**
-
-| Parametras     | Tipas     | Privalomas | Aprašymas                        |
-| ------------- | -------- | -------- | ---------------------------------- |
-| `folder_path` | str/Path | Taip      | Kelias į aplanką su vaizdais         |
-| `recursive`   | bool     | Ne       | Ieškoti pakatalogiuose (numatyta: False) |
-
-**Grąžina:** `dict` - Importo rezultatai su failų skaičiumi**Pavyzdys:**
+`configure()` priima šiuos raktinius žodžius: `debayer`, `vignette_correction`, `reflectance_calibration`, `indices`, `export_format`, `ppk`, `daq_log_path`, `input_level`, `radiometric_output`, `array_alignment`, `array_alignment_crop`, `array_alignment_interpolation` ir `custom_settings`. Pagrindinės reikšmės:
 
 ```python
-# Import from folder
-chloros.import_images("C:\\DroneImages\\Flight001")
+# export_format
+"TIFF (16-bit)"           # default, recommended
+"TIFF (32-bit, Percent)"  # reflectance percentage as float32
+"PNG (8-bit)"
+"JPG (8-bit)"
 
-# Import recursively
-chloros.import_images("C:\\DroneImages", recursive=True)
+# debayer
+"High Quality (Faster)"                  # standard, default
+"Texture Aware (Slow, Highest Quality)"  # neural debayer, Chloros+ only
 ```
 
-***
+„LATTICE“ būdingi reguliatoriai (`input_level`, `radiometric_output`, `array_alignment*` šeima) yra aprašytos kartu su išsamiomis verčių lentelėmis [SDK nuorodoje](reference/sdk-reference.md#supported-values).
 
-#### `configure(**settings)`
-
-Konfigūruoti apdorojimo nustatymus.
-
-**Parametrai:**
-
-| Parametras                 | Tipas | Numatytasis                 | Aprašymas                     |
-| ------------------------- | ---- | ----------------------- | ------------------------------- |
-| `debayer`                 | str  | „Standartinis (greitas, vidutinė kokybė)“ | Debayerio metodas            |
-| `vignette_correction`     | bool | `True`                  | Įjungti vinjetės korekciją      |
-| `reflectance_calibration` | bool | `True`                  | Įjungti atspindžio kalibravimą  |
-| `indices`                 | list | `None`                  | Apskaičiuotini augmenijos indeksai |
-| `export_format`           | str  | „TIFF (16 bitų)“         | Išvesties formatas                   |
-| `ppk`                     | bool | `False`                 | Įjungti PPK korekcijas          |
-| `custom_settings`         | dict | `None`                  | Išplėstiniai pasirinktiniai nustatymai        |
-
-**Eksporto formatai:**
-
-* `"TIFF (16-bit)"` – Rekomenduojama GIS/fotogrametrijai
-* `"TIFF (32-bit, Percent)"` – Mokslinė analizė
-* `"PNG (8-bit)"` – Vizualinis patikrinimas
-* `"JPG (8-bit)"` – Suspaustas išvesties failas
-
-**Galimi indeksai:**NDVI, NDRE, GNDVI, OSAVI, CIG, EVI, SAVI, MSAVI, MTVI2 ir kt.**Pavyzdys:**
+### Vykdymo eigos stebėjimas
 
 ```python
-# Basic configuration
-chloros.configure(
-    vignette_correction=True,
-    reflectance_calibration=True,
-    indices=["NDVI", "NDRE"]
-)
+def show_progress(percent, message):
+    print(f"[{percent:3d}%] {message}")
 
-# Advanced configuration
-chloros.configure(
-    debayer="Standard (Fast, Medium Quality)",
-    vignette_correction=True,
-    reflectance_calibration=True,
-    ppk=True,
-    export_format="TIFF (32-bit, Percent)",
-    indices=["NDVI", "NDRE", "GNDVI", "OSAVI", "CIG"]
-)
+with chloros_sdk.ChlorosLocal() as cl:
+    cl.create_project("FieldA")
+    cl.import_images("C:/DroneImages/Flight001")
+    cl.configure(indices=["NDVI"])
+    cl.process(progress_callback=show_progress, poll_interval=1.0)
 ```
 
-***
+### Vykdymo pabaigos santraukos skaitymas — ir tuščių vykdymų aptikimas
 
-#### `process(mode="parallel", wait=True, progress_callback=None)`
+Užbaigus vykdymą, `process()` prideda užkulisio apdorojimo santrauką kaip `result["summary"]`. Kiekvienas įrašas `summary["hints"]` yra pilnas sakinys, paaiškinantis viską, kas verta dėmesio — pavyzdžiui, kodėl vykdymo metu nebuvo gauta jokių rezultatų — ir kiekviena užuomina taip pat pakartotinai išsiunčiama kaip Python `UserWarning`, todėl tušti vykdymai yra savaime diagnozuojami, net jei niekada nepatikrinate žodyno:
 
-Apdorokite projekto vaizdus.
-
-**Parametrai:**
-
-| Parametras           | Tipas     | Numatytasis      | Aprašymas                               |
-| ------------------- | -------- | ------------ | ----------------------------------------- |
-| `mode`              | str      | `"parallel"` | Apdorojimo režimas: „parallel“ arba „serial“   |
-| `wait`              | bool     | `True`       | Laukti užbaigimo                       |
-| `progress_callback` | callable | `None`       | Pažangos atgalinio skambučio funkcija (progress, msg) |
-| `poll_interval`     | float    | `2.0`        | Pažangos tikrinimo intervalas (sekundės)   |
-
-**Grąžina:** `dict` - Apdorojimo rezultatai
+```python
+result = cl.process()
+for hint in result.get("summary", {}).get("hints", []):
+    print("HINT:", hint)
+# hints also arrive on the warnings channel:
+#   python -W always::UserWarning your_script.py
+```
 
 {% hint style="warning" %}
-**Lygiagretusis režimas**: Reikalinga Chloros+ licencija. Automatiškai pritaikoma prie jūsų procesoriaus branduolių skaičiaus (iki 16 darbininkų).
+**`process()` neatsiranda, kai vykdymo metu nesukuriami jokie vaizdai.** Tai vienintelė vieta, kurioje SDK ir CLI sąmoningai skiriasi: `chloros-cli process` traktuoja situaciją „buvo prašoma produktų, bet nė vienas nebuvo įrašytas“ kaip nesėkmę ir baigia veikimą su nelygiu nuliui rezultatu, tuo tarpu SDK grįžta įprastai ir apie šią sąlygą praneša per `summary` / užuominas. Jei jūsų procesų grandinė turėtų sustoti esant tuščiam vykdymui, patikrinkite tai patys – peržiūrėkite `summary` (arba suskaičiuokite failus projekto aplanke), o ne pasikliaukite išimtimi.
 {% endhint %}
 
-**Pavyzdys:**
+## „Smart Connect“ — veikianti aparatinė įranga
+
+Trys pagalbinės programos atidaro nuolatines sesijas užkulisinės sistemos aparatinės įrangos rezervoje — toje pačioje rezervoje, kurią naudoja GUI, todėl „SDK“ skriptai veikia kartu su darbalaukio programa, nesivaržydami dėl nuosekliųjų prievadų ar tinklo pralaidumo. Visos trys automatiškai paleidžia vietinę užkulisinę sistemą, jei nė viena neveikia.
+
+### Viena „LATTICE“ kamera — `connect_camera`
 
 ```python
-# Simple processing
-results = chloros.process()
+import chloros_sdk
 
-# With progress monitoring
-def show_progress(progress, message):
-    print(f"[{progress}%] {message}")
-
-chloros.process(
-    mode="parallel",
-    progress_callback=show_progress,
-    wait=True
-)
-
-# Fire-and-forget (non-blocking)
-chloros.process(wait=False)
+# Open by serial; reuses existing pool entry if one exists
+with chloros_sdk.connect_camera("213800234") as cam:
+    cam.set_settings(exposure_time=10000, gain=0.0)   # microseconds, dB
+    cam.capture("output/")
 ```
 
-***
+### Sinchronizuotas masyvas — `connect_array`
 
-#### `get_config()`
-
-Gauti dabartinę projekto konfigūraciją.
-
-**Grąžina:** `dict` - Dabartinė projekto konfigūracija**Pavyzdys:**
+`connect_array` yra rekomenduojamas pradinis taškas daugiakamerinėms sistemoms. Jis vykdo tą patį išmaniojo paruošimo procesą kaip ir grafinė vartotojo sąsaja: tinklo analizę, automatinį sinchronizavimo lygmens pasirinkimą, PTP laiko sinchronizavimą, pikselių formato pasirinkimą kiekvienai kamerai, AE sėjos nustatymą ir GPIO trigerio įjungimą. **Pirmoji serijinė kamera yra pagrindinė** (ji siunčia aparatinio trigerio impulsą); likusios yra pavaldžiosios.
 
 ```python
-config = chloros.get_config()
-print(config['Project Settings'])
+with chloros_sdk.connect_array(
+        ["213800234", "214000533", "214701288", "214701292"]) as arr:
+    arr.capture("output/", processing="reflectance")
 ```
 
-***
+Pridėkite `smart=True` prie bet kokio masyvo įrašymo, kad prieš suveikiant būtų palaukta, kol automatinė ekspozicija visose kamerose stabilizuosis. Dėl fiksavimo režimų („Vienkartinis“ / „Nuolatinis“ / „Intervalinis“ / „Greičiausias“), įrašymo įrenginių, „burst-to-video“ ir masyvo suderinimo žr. [SDK nuorodą](reference/sdk-reference.md#synchronized-array--arraysession-smart-prep).
 
-#### `get_status()`
+### DAQ šviesos jutiklis — `connect_daq_sensor`
 
-Gauti užkulisinės sistemos būsenos informaciją, įskaitant apdorojimo pažangą pagal kiekvieną srautą.
-
-**Grąžina:** `dict` - Užkulisinės sistemos būsena su tokia struktūra:
+Jei argumentų nepateikiama, „`connect_daq_sensor()`“ automatiškai nustato perdavimo būdą (pirmenybė: „Ethernet“ → „BLE“ → „USB“):
 
 ```python
-{
-    "running": True,
-    "url": "http://localhost:5000",
-    "processing": {
-        "percent": 75.0,
-        "phase": "processing"
-    },
-    "export": {
-        "percent": 50.0,
-        "phase": "exporting",
-        "active": True
-    }
-}
+with chloros_sdk.connect_daq_sensor() as daq:    # smart-detect USB / BLE / ETH
+    for frame in daq.latest(n=5):
+        print(frame["spectrum"][:10])
 ```
 
-**Pavyzdys:**
+Kiekviename rėmelyje perduodami 135 taškų `spectrum` (W/m²/nm, kai kalibruota), `is_saturated` žymė ir CIE `x`, `y`, `z`. Norint priskirti konkretų jutiklį ar perdavimo protokolą — tai patikimas pasirinkimas kompiuteriuose su keliais tinklo sąsajų įrenginiais, kur „Ethernet“ automatinis aptikimas pirmuoju bandymu gali nepranešti apie veikiantį „DAQ-E“ — reikia perduoti vieną aiškų nurodymą:
 
 ```python
-status = chloros.get_status()
-print(f"Running: {status['running']}")
-print(f"URL: {status['url']}")
-print(f"Processing: {status['processing']['percent']}%")
-print(f"Export: {status['export']['percent']}% - Active: {status['export']['active']}")
+daq = chloros_sdk.connect_daq_sensor(transport="usb", port="COM3")
+daq = chloros_sdk.connect_daq_sensor(mac="AA:BB:CC:DD:EE:FF")        # implies BLE
+daq = chloros_sdk.connect_daq_sensor(eth_host="daq-e-xxx.local")     # implies Ethernet
 ```
 
-***
+Atkreipkite dėmesį, kad didžiųjų raidžių koregavimo profiliai (`cap_id`) **nėra** SDK reguliatorius — vietoj to pasirinkite juos naudodami `chloros-cli daq pool-connect --cap-id …` / `pool-set-cap`.
 
-#### `shutdown_backend()`
+### Išsaugoti projektai — `open_project`
 
-Uždaryti backendą (jei paleistas naudojant SDK).
+Išsaugotas Chloros projektas išsaugo prijungtą įrangą (`cameras.json` + `sensors.json` kartu su `project.json`), o „`chloros_sdk.open_project(path)`“ gali iš karto vėl prijungti viską ir vykdyti įrašymus pagal įrenginio pavadinimą. Žr. [Projekto automatizavimas](reference/sdk-reference.md#project-automation--chlorosproject) nuorodoje.
 
-**Pavyzdys:**
+## Ką gaunate įdiegę tik per „pip“
+
+Prieš naudodami aparatinės įrangos paviršius, patikrinkite modulio lygio prieinamumo žymes:
 
 ```python
-chloros.shutdown_backend()
+import chloros_sdk
+print(chloros_sdk.__version__)
+print("CAMERA_AVAILABLE =", chloros_sdk.CAMERA_AVAILABLE)    # True iff lattice_sdk imported cleanly
+print("DAQ_AVAILABLE    =", chloros_sdk.DAQ_AVAILABLE)       # True iff daq_sdk imported cleanly
+print("PROJECT_AVAILABLE =", chloros_sdk.PROJECT_AVAILABLE)  # True iff ChlorosProject deps available
 ```
 
-***
+Kompiuteryje, kuriame yra **tik** `pip install chloros-sdk` ir nėra Chloros darbalaukio paketo:
 
-#### `logout()`
+* `ChlorosLocal`, `process_folder` ir `process_lattice_capture` **neveikia** — jiems reikalingas užkulisinis binarinis failas, kuris pateikiamas darbalaukio diegimo programoje.
+* „Smart-connect“ pagalbinės programos (`connect_camera`, `connect_array`, `connect_daq_sensor`) yra gryni „HTTP“ klientai, todėl jie veikia su kito kompiuterio užkurtu serveriu — tačiau pateikti serveriai susiejami tik su kilpos adresais, todėl prievadą turite nukreipti patys (pvz., `ssh -N -L 5000:127.0.0.1:5000 user@chloros-host`) ir perduoti „`backend_url="http://127.0.0.1:5000"`“ kartu su „`auto_start_backend=False`“. Žr. [Nuotolinio užpakalinio serverio režimas](reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel).
+* Tiesiogiai su aparatine įranga susijusios LATTICE klasės (`LatticeCamera`, `CameraPool`, …) importuojamos, tačiau joms reikalinga „Arena“ SDK vykdymo aplinka iš darbalaukio paketo — be jos `CAMERA_AVAILABLE` yra `False`.
+* `daq_sdk` (tiesioginės DAQ klasės) pateikiamos su darbalaukio diegimu, o ne su PyPI paketu, todėl „`DAQ_AVAILABLE`“ yra „`False`“ kompiuteryje, kuriame naudojamas tik „pip“ — vietoj to valdykite DAQ jutiklius per „`connect_daq_sensor()`“, prisijungus prie (tuneliuoto) užpakalinio serverio.
 
-Išvalykite išsaugotus prisijungimo duomenis iš vietinės sistemos.
+## Licencijos reikalavimai
 
-**Aprašymas:**
+Norint naudotis „SDK“, reikia turėti aktyvų „Chloros+“ prisijungimą bet kuriame mokamame lygyje — **„Copper“ ar aukštesniame**(„Copper“ / „Bronze“ / „Silver“ / „Gold“); nemokamame „Iron“ lygyje nėra prieigos prie SDK/CLI. Reikalavimų vykdymas vyksta**serverio pusėje**: kiekvienas SDK užklausimas turi turėti tiek aktyvią sesiją, tiek mokamą planą, kitaip serveris grąžina `403` / `PLAN_UPGRADE_REQUIRED` (kurį `ChlorosLocal` sukelia kaip `ChlorosLicenseError`, o pagalbinės funkcijos – kaip `ChlorosConnectError`). Atsijungęs skambintojas gauna `401` / `AUTH_REQUIRED` (`ChlorosAuthenticationError`) — pakartotinis `chloros-cli login` paleidimas išsprendžia pirmąjį atvejį, bet ne antrąjį.
 
-Programiškai atsijungia pašalinant išsaugotus autentifikavimo duomenis. Tai naudinga:
-* Perjungiant tarp skirtingų Chloros+ paskyrų
-* Autentifikavimo duomenų išvalymui automatizuotose aplinkose
-* Saugumo tikslais (pvz., pašalinant autentifikavimo duomenis prieš išdiegimą)
+Naudojimas neprisijungus veikia plano atidėjimo laikotarpiu: lygis nuskaitomas iš serverio patvirtinimo talpyklos (5 minutės) arba pasirašytos, prie kompiuterio priskirtos licencijos talpyklos (30 dienų mėnesiniams planams; iki prenumeratos galiojimo pabaigos metiniams planams). Pasibaigus atidėjimo laikotarpiui, planas pereina į nemokamą lygį, o prieiga pagal „SDK“ sustabdoma, kol kompiuteris bent kartą prisijungs prie serverio. „`chloros-cli status`“ lieka pasiekiamas nemokamame lygyje, todėl priežastis visada matoma. Žr. [Chloros+ Prisijungimas](chloros+-login.md).
 
-**Grąžina:** `dict` - Atsijungimo operacijos rezultatas**Pavyzdys:**
+## Išimtys
+
+Naudokite bazinę klasę, kad būtų tvarkomi „visi Chloros sutrikimai“:
 
 ```python
-from chloros_sdk import ChlorosLocal
-
-# Initialize SDK
-chloros = ChlorosLocal()
-
-# Clear cached credentials
-result = chloros.logout()
-print(f"Logout successful: {result}")
-
-# After logout, login required via GUI/CLI/Browser before next SDK use
-```
-
-{% hint style="info" %}
-**Reikalingas pakartotinis autentifikavimas**: Po `logout()` iškvietimo turite vėl prisijungti per Chloros, Chloros (naršyklė) arba Chloros CLI, prieš naudodami SDK.
-{% endhint %}
-
-***
-
-### Patogios funkcijos
-
-#### `process_folder(folder_path, **options)`
-
-Vienos eilutės patogi funkcija, skirta apdoroti aplanką.
-
-**Parametrai:**
-
-| Parametras                 | Tipas     | Numatytasis         | Aprašymas                    |
-| ------------------------- | -------- | --------------- | ------------------------------ |
-| `folder_path`             | str/Path | Privaloma        | Kelias į aplanką su vaizdais     |
-| `project_name`            | str      | Automatiškai sugeneruota  | Projekto pavadinimas                   |
-| `camera`                  | str      | `None`          | Kameros šablonas                |
-| `indices`                 | sąrašas     | `["NDVI"]`      | Skaičiuotini indeksai           |
-| `vignette_correction`     | bool     | `True`          | Įjungti vinjetės korekciją     |
-| `reflectance_calibration` | bool     | `True`          | Įjungti atspindžio kalibravimą |
-| `export_format`           | str      | &quot;TIFF (16 bitų)&quot; | Išvesties formatas                  |
-| `mode`                    | str      | `"parallel"`    | Apdorojimo režimas                |
-| `progress_callback`       | iškviečiamas | `None`          | Pažangos atgalinis skambutis              |
-
-**Grąžina:** `dict` - Apdorojimo rezultatai**Pavyzdys:**
-
-```python
-from chloros_sdk import process_folder
-
-# Simple one-liner
-results = process_folder("C:\\DroneImages\\Flight001")
-
-# With custom settings
-results = process_folder(
-    "C:\\DroneImages\\Flight001",
-    project_name="Field_A_Survey",
-    camera="Survey3N_RGN",
-    indices=["NDVI", "NDRE", "GNDVI"],
-    mode="parallel"
-)
-
-# With progress monitoring
-def show_progress(progress, message):
-    print(f"[{progress}%] {message}")
-
-results = process_folder(
-    "C:\\DroneImages\\Flight001",
-    progress_callback=show_progress
-)
-```
-
-***
-
-## Konteksto tvarkyklės palaikymas
-
-SDK palaiko konteksto tvarkytuvus automatiniam valymui:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-# Auto-cleanup when done
-with ChlorosLocal() as chloros:
-    chloros.create_project("MyProject")
-    chloros.import_images("C:\\Images")
-    chloros.configure(indices=["NDVI"])
-    chloros.process()
-# Backend automatically shut down here
-```
-
-***
-
-## Išsamūs pavyzdžiai
-
-{% hint style="info" %}
-**Linux vartotojai**: Visuose žemiau pateiktuose pavyzdžiuose naudojami Windows keliai. Pakeiskite `C:\\...` kelius savo Linux keliais (pvz., `/home/user/...` arba `~/...`). Visos SDK funkcijos yra identiškos visose platformose.
-{% endhint %}
-
-### 1 pavyzdys: Pagrindinis apdorojimas
-
-Aplanko apdorojimas naudojant numatytuosius nustatymus:
-
-```python
-from chloros_sdk import process_folder
-
-# Process with default settings
-results = process_folder("C:\\Datasets\\Field_A_2025_01_15")
-
-print(f"Processing complete: {results}")
-```
-
-***
-
-### 2 pavyzdys: Pasirinktinis darbo srautas
-
-Visiška apdorojimo proceso kontrolė:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-# Initialize SDK
-chloros = ChlorosLocal()
-
-# Create project with camera template
-chloros.create_project("Research_Plot_A", camera="Survey3N_RGN")
-
-# Import images
-import_results = chloros.import_images("C:\\Research\\PlotA")
-print(f"Imported {len(import_results.get('files', []))} images")
-
-# Configure advanced settings
-chloros.configure(
-    debayer="Standard (Fast, Medium Quality)",
-    vignette_correction=True,
-    reflectance_calibration=True,
-    ppk=False,
-    export_format="TIFF (16-bit)",
-    indices=["NDVI", "NDRE", "GNDVI", "OSAVI"]
-)
-
-# Process with progress monitoring
-def show_progress(progress, message):
-    print(f"Progress: {progress}% - {message}")
-
-chloros.process(
-    mode="parallel",
-    progress_callback=show_progress,
-    wait=True
-)
-
-print("Processing complete!")
-```
-
-***
-
-### 3 pavyzdys: Keleto aplankų apdorojimas partijomis
-
-Apdorokite keletą skrydžių duomenų rinkinių:
-
-```python
-from chloros_sdk import ChlorosLocal
-from pathlib import Path
-
-# Initialize SDK once
-chloros = ChlorosLocal()
-
-# List of flight folders
-flights = [
-    "C:\\Datasets\\Flight_001",
-    "C:\\Datasets\\Flight_002",
-    "C:\\Datasets\\Flight_003"
-]
-
-for flight_path in flights:
-    flight_name = Path(flight_path).name
-    print(f"\n{'='*60}")
-    print(f"Processing: {flight_name}")
-    print('='*60)
-    
-    try:
-        # Create project
-        chloros.create_project(flight_name, camera="Survey3N_RGN")
-        
-        # Import images
-        chloros.import_images(flight_path)
-        
-        # Configure
-        chloros.configure(
-            vignette_correction=True,
-            reflectance_calibration=True,
-            indices=["NDVI", "NDRE", "GNDVI"]
-        )
-        
-        # Process
-        chloros.process(mode="parallel", wait=True)
-        
-        print(f"✓ {flight_name} completed successfully")
-    
-    except Exception as e:
-        print(f"✗ {flight_name} failed: {e}")
-
-print("\n" + "="*60)
-print("All flights processed!")
-```
-
-***
-
-### 4 pavyzdys: Integracija į tyrimų procesą
-
-Chloros integravimas su duomenų analize:
-
-```python
-from chloros_sdk import ChlorosLocal
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# Initialize Chloros
-chloros = ChlorosLocal()
-
-# Field survey data
-surveys = [
-    {"name": "Plot_A", "folder": "C:\\Research\\PlotA", "biomass": 4500},
-    {"name": "Plot_B", "folder": "C:\\Research\\PlotB", "biomass": 3800},
-    {"name": "Plot_C", "folder": "C:\\Research\\PlotC", "biomass": 5200}
-]
-
-results = []
-
-for survey in surveys:
-    # Process with Chloros
-    chloros.create_project(survey['name'])
-    chloros.import_images(survey['folder'])
-    chloros.configure(indices=["NDVI", "NDRE"])
-    chloros.process(mode="parallel", wait=True)
-    
-    # Get results
-    config = chloros.get_config()
-    
-    # Extract NDVI values (example - adjust based on your needs)
-    # In real implementation, you would read the processed TIFF files
-    
-    results.append({
-        'plot': survey['name'],
-        'biomass': survey['biomass'],
-        # Add your NDVI extraction here
-    })
-
-# Statistical analysis
-df = pd.DataFrame(results)
-print("\nResults:")
-print(df)
-
-# Create correlation plot
-# plt.scatter(df['ndvi'], df['biomass'])
-# plt.xlabel('NDVI')
-# plt.ylabel('Biomass (kg/ha)')
-# plt.title('NDVI vs Biomass Correlation')
-# plt.show()
-```
-
-***
-
-### 5 pavyzdys: Individualus pažangos stebėjimas
-
-Išplėstinis pažangos stebėjimas su registravimu:
-
-```python
-from chloros_sdk import ChlorosLocal
-from datetime import datetime
-import logging
-
-# Setup logging
-logging.basicConfig(
-    filename=f'processing_{datetime.now():%Y%m%d_%H%M%S}.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(message)s'
-)
-
-# Progress callback with logging
-def log_progress(progress, message):
-    log_msg = f"[{progress}%] {message}"
-    logging.info(log_msg)
-    print(log_msg)
-
-# Process with logging
-chloros = ChlorosLocal()
-chloros.create_project("LoggedProcess")
-chloros.import_images("C:\\DroneImages")
-chloros.configure(indices=["NDVI", "NDRE"])
-
-logging.info("Starting processing...")
-chloros.process(
-    mode="parallel",
-    progress_callback=log_progress,
-    wait=True
-)
-logging.info("Processing complete!")
-```
-
-***
-
-### 6 pavyzdys: Klaidų tvarkymas
-
-Patikimas klaidų tvarkymas gamybiniam naudojimui:
-
-```python
-from chloros_sdk import ChlorosLocal
-from chloros_sdk.exceptions import (
-    ChlorosError,
-    ChlorosBackendError,
-    ChlorosLicenseError,
-    ChlorosProcessingError
-)
-
-def process_safely(folder_path):
-    """Process with comprehensive error handling"""
-    try:
-        with ChlorosLocal() as chloros:
-            chloros.create_project("SafeProcess")
-            chloros.import_images(folder_path)
-            chloros.configure(indices=["NDVI"])
-            chloros.process()
-            
-        return True, "Success"
-    
-    except ChlorosLicenseError as e:
-        return False, f"License error: {e}. Upgrade to Chloros+ at cloud.mapir.camera/pricing"
-    
-    except ChlorosBackendError as e:
-        return False, f"Backend error: {e}. Ensure Chloros is installed (Windows installer or Linux .deb package)."
-    
-    except ChlorosProcessingError as e:
-        return False, f"Processing error: {e}"
-    
-    except FileNotFoundError as e:
-        return False, f"Folder not found: {e}"
-    
-    except ChlorosError as e:
-        return False, f"Chloros error: {e}"
-    
-    except Exception as e:
-        return False, f"Unexpected error: {e}"
-
-# Use the safe function
-success, message = process_safely("C:\\DroneImages\\Flight001")
-if success:
-    print(f"✓ {message}")
-else:
-    print(f"✗ {message}")
-```
-
-***
-
-### 7 pavyzdys: Paskyros valdymas ir išsiregistravimas
-
-Valdykite prisijungimo duomenis programiškai:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-def switch_account():
-    """Clear credentials to switch to a different account"""
-    try:
-        chloros = ChlorosLocal()
-        
-        # Clear current credentials
-        result = chloros.logout()
-        print("✓ Credentials cleared successfully")
-        print("Please log in with new account via Chloros, Chloros (Browser), or CLI")
-        
-        return True
-    
-    except Exception as e:
-        print(f"✗ Logout failed: {e}")
-        return False
-
-def secure_cleanup():
-    """Remove credentials for security purposes"""
-    try:
-        chloros = ChlorosLocal()
-        chloros.logout()
-        print("✓ Credentials removed for security")
-        
-    except Exception as e:
-        print(f"Warning: Cleanup error: {e}")
-
-# Switch accounts
-if switch_account():
-    print("\nRe-authenticate via Chloros GUI/CLI/Browser before next SDK use")
-
-# Or perform secure cleanup
-# secure_cleanup()
-```
-
-***
-
-### 8 pavyzdys: Komandinės eilutės įrankis
-
-Sukurkite pasirinktinį CLI įrankį naudodami SDK:
-
-```python
-#!/usr/bin/env python
-"""
-Custom Chloros CLI Tool
-Process multiple folders from command line
-"""
-
-import sys
-import argparse
-from pathlib import Path
-from chloros_sdk import process_folder
-
-def main():
-    parser = argparse.ArgumentParser(description='Custom Chloros Processor')
-    parser.add_argument('folders', nargs='+', help='Folders to process')
-    parser.add_argument('--indices', nargs='+', default=['NDVI'],
-                       help='Indices to calculate (default: NDVI)')
-    parser.add_argument('--camera', default=None,
-                       help='Camera template')
-    parser.add_argument('--format', default='TIFF (16-bit)',
-                       help='Export format')
-    parser.add_argument('--logout', action='store_true',
-                       help='Clear cached credentials before processing')
-    
-    args = parser.parse_args()
-    
-    # Handle logout if requested
-    if args.logout:
-        from chloros_sdk import ChlorosLocal
-        chloros = ChlorosLocal()
-        chloros.logout()
-        print("Credentials cleared. Please re-login via Chloros GUI/CLI/Browser.")
-        return 0
-    
-    successful = []
-    failed = []
-    
-    for folder in args.folders:
-        folder_path = Path(folder)
-        
-        if not folder_path.exists():
-            print(f"✗ Skipping {folder}: not found")
-            failed.append(folder)
-            continue
-        
-        print(f"\nProcessing: {folder_path.name}...")
-        
-        try:
-            process_folder(
-                folder_path,
-                camera=args.camera,
-                indices=args.indices,
-                export_format=args.format
-            )
-            print(f"✓ {folder_path.name} complete")
-            successful.append(folder)
-        
-        except Exception as e:
-            print(f"✗ {folder_path.name} failed: {e}")
-            failed.append(folder)
-    
-    # Summary
-    print(f"\n{'='*60}")
-    print(f"Summary: {len(successful)} successful, {len(failed)} failed")
-    
-    return 0 if not failed else 1
-
-if __name__ == '__main__':
-    sys.exit(main())
-```
-
-**Naudojimas:**
-
-```bash
-# Process multiple folders
-python my_processor.py "C:\Flight001" "C:\Flight002" --indices NDVI NDRE GNDVI
-
-# Clear cached credentials
-python my_processor.py --logout
-```
-
-***
-
-## Išimčių tvarkymas
-
-SDK teikia konkrečias išimčių klases skirtingiems klaidų tipams:
-
-### Išimčių hierarchija
-
-```python
-ChlorosError                    # Base exception
-├── ChlorosBackendError        # Backend startup/connection issues
-├── ChlorosLicenseError        # License validation issues
-├── ChlorosConnectionError     # Network/connection failures
-├── ChlorosProcessingError     # Image processing failures
-├── ChlorosAuthenticationError # Authentication failures
-└── ChlorosConfigurationError  # Configuration errors
-```
-
-### Išimčių pavyzdžiai
-
-```python
-from chloros_sdk import ChlorosLocal
-from chloros_sdk.exceptions import *
+import chloros_sdk
 
 try:
-    chloros = ChlorosLocal()
-    chloros.process()
-
-except ChlorosLicenseError:
-    print("Chloros+ license required. Upgrade at cloud.mapir.camera/pricing")
-
-except ChlorosBackendError:
-    print("Backend failed to start. Ensure Chloros is installed (Windows installer or Linux .deb package).")
-
-except ChlorosProcessingError as e:
-    print(f"Processing failed: {e}")
-
-except ChlorosError as e:
-    print(f"General Chloros error: {e}")
+    chloros_sdk.process_folder("/path/to/folder")
+except chloros_sdk.ChlorosAuthenticationError:
+    print("Run `chloros-cli login` first.")
+except chloros_sdk.ChlorosLicenseError:
+    print("Chloros+ subscription required.")
+except chloros_sdk.ChlorosError as e:
+    print(f"Chloros error: {e}")
 ```
 
-***
+Visos vamzdynų išimtys (`ChlorosBackendError`, `ChlorosConnectionError`, `ChlorosLicenseError`, `ChlorosAuthenticationError`, `ChlorosConfigurationError`, `ChlorosProcessingError`) kyla iš `ChlorosError`. Vienas niuansas: `ChlorosConnectError` — sukeltas tik `connect_camera` / `connect_array` / `connect_daq_sensor` — kyla iš paprastojo `Exception`, **ne** iš `ChlorosError`, todėl `except ChlorosError` jo neaptiks. Pilna hierarchija pateikta [SDK nuorodoje](reference/sdk-reference.md#exceptions).
 
-## Išplėstinės temos
+## Taip pat žr.
 
-### Pasirinktinė užkulisio konfigūracija
-
-Naudokite pasirinktinę užkulisio vietą arba konfigūraciją:
-
-```python
-chloros = ChlorosLocal(
-    backend_exe="C:\\Custom\\chloros-backend.exe",
-    api_url="http://localhost:5001",  # Custom port
-    timeout=60,                        # Longer timeout
-    backend_startup_timeout=120        # 2 minutes startup
-)
-```
-
-### Neužblokuojantis apdorojimas
-
-Pradėkite apdorojimą ir tęskite kitas užduotis:
-
-```python
-# Start processing (non-blocking)
-chloros.process(wait=False)
-
-# Do other work here...
-print("Processing started in background...")
-
-# Check status later
-import time
-while True:
-    status = chloros.get_config()
-    if status.get('processing_complete'):
-        break
-    time.sleep(5)
-
-print("Processing complete!")
-```
-
-### Atminties valdymas
-
-Didelės apimties duomenų rinkiniams apdorokite partijomis:
-
-```python
-from pathlib import Path
-
-base_folder = Path("C:\\LargeDataset")
-batch_size = 100
-
-# Get all image files
-images = list(base_folder.glob("*.RAW"))
-
-# Process in batches
-for i in range(0, len(images), batch_size):
-    batch = images[i:i+batch_size]
-    batch_folder = base_folder / f"batch_{i//batch_size}"
-    
-    # Create batch folder and move images
-    # ... (implementation details)
-    
-    # Process batch
-    process_folder(batch_folder)
-```
-
-***
-
-## Trikčių šalinimas
-
-### Backend nepaleidžiamas
-
-**Problema:** SDK nepavyksta paleisti backend**Sprendimai:**
-
-1. Patikrinkite, ar įdiegtas Chloros:
-
-```python
-import os
-import platform
-
-# Auto-detect backend path
-if platform.system() == "Windows":
-    backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe"
-else:
-    backend_path = "/usr/lib/chloros/chloros-backend"
-
-print(f"Backend exists: {os.path.exists(backend_path)}")
-```
-
-2. Patikrinkite ugniasienę (Windows) arba prievado prieinamumą (Linux: `lsof -i :5000`)
-3. Išbandykite rankinį užpakalinės dalies kelią:
-
-```python
-# Windows
-chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
-
-# Linux
-chloros = ChlorosLocal(backend_exe="/opt/mapir/chloros/backend/chloros-backend")
-```
-
-***
-
-### Licencija nerasta**Problema:** SDK įspėja apie trūkstamą licenciją**Sprendimai:**
-
-1. Atidarykite Chloros, Chloros (naršyklė) arba Chloros CLI ir prisijunkite.
-2. Patikrinkite, ar licencija yra išsaugota talpykloje:
-
-```python
-from pathlib import Path
-import os
-import platform
-
-# Check cache location
-if platform.system() == "Windows":
-    cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
-else:
-    cache_path = Path.home() / '.cache' / 'chloros'
-
-print(f"Cache exists: {cache_path.exists()}")
-```
-
-3. Jei kyla problemų su prisijungimo duomenimis, išvalykite talpykloje išsaugotus prisijungimo duomenis ir prisijunkite iš naujo:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-# Clear cached credentials
-chloros = ChlorosLocal()
-chloros.logout()
-
-# Then login again via Chloros, Chloros (Browser), or Chloros CLI
-```
-
-4. Susisiekite su pagalbos tarnyba: info@mapir.camera
-
-***
-
-### Importo klaidos**Problema:** `ModuleNotFoundError: No module named 'chloros_sdk'`**Sprendimai:**
-
-```bash
-# Verify installation
-pip show chloros-sdk
-
-# Reinstall if needed
-pip uninstall chloros-sdk
-pip install chloros-sdk
-
-# Check Python environment
-python -c "import sys; print(sys.path)"
-```
-
-***
-
-### Apdorojimo laiko limitas**Problema:** Pasibaigė apdorojimo laiko limitas**Sprendimai:**
-
-1. Padidinkite laiko limitą:
-
-```python
-chloros = ChlorosLocal(timeout=120)  # 2 minutes
-```
-
-2. Apdorokite mažesnes partijas
-3. Patikrinkite laisvą disko vietą
-4. Stebėkite sistemos išteklius
-
-***
-
-### Prievadas jau naudojamas**Problema:** Užimtas vidinis prievadas 5000**Sprendimai:**
-
-```python
-# Use different port
-chloros = ChlorosLocal(api_url="http://localhost:5001")
-```
-
-Arba suraskite ir uždarykite konfliktuojantį procesą:
-
-```powershell
-# Windows PowerShell
-Get-NetTCPConnection -LocalPort 5000
-```
-
-```bash
-# Linux
-lsof -i :5000
-kill $(lsof -t -i :5000)
-```
-
-***
-
-## Našumo patarimai
-
-### Optimizuokite apdorojimo greitį
-
-1. **Naudokite lygiagretaus režimo funkciją** (reikia Chloros+)
-
-```python
-chloros.process(mode="parallel")  # Up to 16 workers
-```
-
-2. **Sumažinkite išvesties skiriamąją gebą** (jei tai priimtina)
-
-```python
-chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
-```
-
-3. **Išjunkite nereikalingus indeksus**
-
-```python
-# Only calculate needed indices
-chloros.configure(indices=["NDVI"])  # Not all indices
-```
-
-4. **Apdorokite SSD** (ne HDD)***
-
-### Atminties optimizavimas
-
-Didelėms duomenų bazėms:
-
-```python
-# Process in batches instead of all at once
-# See "Memory Management" in Advanced Topics
-```
-
-***
-
-### Fono apdorojimas
-
-Atlaisvinkite Python kitoms užduotims:
-
-```python
-chloros.process(wait=False)  # Non-blocking
-
-# Continue with other work
-# ...
-```
-
-***
-
-## Integracijos pavyzdžiai
-
-### Django integracija
-
-```python
-# views.py
-from django.http import JsonResponse
-from chloros_sdk import process_folder
-
-def process_images_view(request):
-    if request.method == 'POST':
-        folder_path = request.POST.get('folder_path')
-        
-        try:
-            results = process_folder(folder_path)
-            return JsonResponse({'success': True, 'results': results})
-        except Exception as e:
-            return JsonResponse({'success': False, 'error': str(e)})
-```
-
-### Flask API
-
-```python
-# app.py
-from flask import Flask, request, jsonify
-from chloros_sdk import process_folder
-
-app = Flask(__name__)
-
-@app.route('/api/process', methods=['POST'])
-def process():
-    data = request.get_json()
-    folder_path = data.get('folder_path')
-    
-    try:
-        results = process_folder(folder_path)
-        return jsonify({'success': True, 'results': results})
-    except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-if __name__ == '__main__':
-    app.run()
-```
-
-### Jupyter Notebook
-
-```python
-# notebook.ipynb
-from chloros_sdk import ChlorosLocal
-import matplotlib.pyplot as plt
-
-# Initialize
-chloros = ChlorosLocal()
-
-# Process
-chloros.create_project("JupyterTest")
-chloros.import_images("C:\\Data")
-chloros.configure(indices=["NDVI"])
-
-# Progress in notebook
-from IPython.display import clear_output
-
-def notebook_progress(progress, message):
-    clear_output(wait=True)
-    print(f"Progress: {progress}%")
-    print(message)
-
-chloros.process(progress_callback=notebook_progress)
-
-# Visualize results
-# ... (your visualization code)
-```
-
-***
-
-## DUK
-
-### K: Ar SDK reikalauja interneto ryšio?
-
-**A:** Tik pradiniam licencijos aktyvavimui. Prisijungus per Chloros, Chloros (naršyklė) arba Chloros CLI, licencija išsaugoma vietiniame atminties talpykloje ir veikia neprisijungus prie interneto 30 dienų.***
-
-### K: Ar galiu naudoti SDK serveryje be GUI?**A:** Taip! SDK veikia be grafinės sąsajos tiek Windows, tiek Linux serveriuose.**Linux (rekomenduojama be grafinės sąsajos):**
-* Įdiekite per `.deb` paketą
-* Aktyvuokite licenciją: `chloros-cli login user@example.com 'password'`
-
-**Windows serveris:**
-* Windows Server 2016 ar naujesnė versija
-* Įdiegta Chloros (vienkartinis)
-* Licencija aktyvuota per CLI arba bet kuriame kompiuteryje
-
-***
-
-### K: Koks skirtumas tarp „Desktop“, CLI ir SDK?
-
-| Funkcija         | „Desktop“ GUI | CLI Komandinė eilutė | Python SDK  |
-| --------------- | ----------- | ---------------- | ----------- |
-| **Sąsaja**   | Spustelėk ir spausk | Komandos          | Python API  |
-| **Tinkamiausia**    | Vizualus darbas | Skriptavimas        | Integracija |
-| **Automatizavimas**  | Ribotas     | Geras             | Puikus   |
-| **Lankstumas** | Bazinis       | Geras             | Maksimalus     |
-| **Licencija**     | Chloros+    | Chloros+         | Chloros+    |***
-
-### K: Ar galiu platinti programas, sukurtas naudojant SDK?**A:** SDK kodą galima integruoti į jūsų programas, tačiau:
-
-* Galutiniams vartotojams reikia įdiegti Chloros
-* Galutiniams vartotojams reikia aktyvių Chloros+ licencijų
-* Komerciniam platinimui reikalinga OEM licencija
-
-Dėl OEM klausimų kreipkitės į info@mapir.camera.
-
-***
-
-### K: Kaip atnaujinti SDK?
-
-```bash
-pip install --upgrade chloros-sdk
-```
-
-***
-
-### K: Kur išsaugomi apdoroti vaizdai?
-
-Pagal numatytuosius nustatymus – projekto kelyje:
-
-```
-
-Project_Path/
-└── MyProject/
-    └── Survey3N_RGN/          # Processed outputs
-```
-
-***
-
-### K: Ar galiu apdoroti vaizdus iš Python scenarijų, vykdomų pagal tvarkaraštį?**A:** Taip! Naudokite savo operacinės sistemos tvarkaraščio planavimo priemonę su Python scenarijais:
-
-```python
-# scheduled_processing.py
-from chloros_sdk import process_folder
-
-# Process today's flights
-results = process_folder("/data/flights/today")  # Linux
-# results = process_folder("C:\\Flights\\Today")  # Windows
-```
-
-**Windows:** Nustatykite tvarkaraštį per užduočių planavimo programą, kad skriptas būtų vykdomas kasdien.**Linux:** Nustatykite tvarkaraštį per cron:
-
-```cron
-# Run at 2 AM daily
-0 2 * ** /usr/bin/python3 /home/user/scheduled_processing.py >> /var/log/chloros.log 2>&1
-```
-
-***
-
-### K: Ar SDK palaiko async/await?**A:** Dabartinė versija yra sinchroninė. Norėdami naudoti asinchroninį elgesį, naudokite `wait=False` arba paleiskite atskirame sraute:
-
-```python
-import threading
-
-def process_thread():
-    chloros.process()
-
-thread = threading.Thread(target=process_thread)
-thread.start()
-
-# Continue with other work...
-```
-
-***
-
-### K: Kaip perjungti skirtingas Chloros+ paskyras?**A:** Naudokite `logout()` metodą, kad išvalytumėte išsaugotus prisijungimo duomenis, tada prisijunkite iš naujo su nauja paskyra:
-
-```python
-from chloros_sdk import ChlorosLocal
-
-# Clear current credentials
-chloros = ChlorosLocal()
-chloros.logout()
-
-# Re-login via Chloros, Chloros (Browser), or Chloros CLI with new account
-```
-
-Atsijungę, prieš vėl naudodami SDK, prisijunkite prie naujos paskyros per GUI, naršyklę arba CLI.
-
-***
-
-## Pagalba
-
-### Dokumentacija
-
-* **API nuoroda**: Ši puslapis
-
-### Pagalbos kanalai
-
-* **El. paštas**: info@mapir.camera
-* **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Kainos**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-### Pavyzdinis kodas
-
-Visi čia pateikti pavyzdžiai yra išbandyti ir paruošti naudoti. Kopijuokite juos ir pritaikykite savo poreikiams.
-
-***
-
-## Licencija**Nuosavybinė programinė įranga** – Autorinės teisės (c) 2025 MAPIR Inc.
-
-SDK reikalauja aktyvios Chloros+ prenumeratos. Neleidžiama naudoti, platinti ar keisti be leidimo.
+* [SDK nuoroda](reference/sdk-reference.md) — išsamus „API“ paviršius, optimizuotas dirbtinio intelekto asistentams.
+* [CLI nuoroda](reference/cli-reference.md) — kiekviena CLI pakomanda atitinka SDK iškvietą.
+* [Atsisiųsti](download.md) — diegimo programos, skirtos Windows ir Linux.

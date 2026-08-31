@@ -1,336 +1,200 @@
 # Vaizdo sluoksniai
 
-Išskleidžiamajame meniu „Vaizdo sluoksniai“ programoje „Chloros Image Viewer“ galite greitai perjungti skirtingas to paties vaizdo versijas – nuo originalių užfiksuotų vaizdų iki apdorotų atspindžio rezultatų ir apskaičiuotų indeksinių vaizdų.
+**Sluoksnių išskleidžiamasis meniu**, esantis vaizdo peržiūros programos dešiniame viršutiniame kampe, leidžia perjungti visas peržiūrimos nuotraukos versijas – nuo pirminio kadro iki kiekvieno apdoroto produkto ir apskaičiuotų indeksinių vaizdų – neišeinant iš peržiūros programos.
 
 ## Kas yra vaizdo sluoksniai?
 
-Chloros programoje **sluoksniai** reiškia skirtingus vaizdo rezultatus, kuriuos galima gauti iš vieno šaltinio vaizdo. Apdorojant vaizdus, Chloros sukuria keletą versijų:
+„Sluoksnis“ programoje „Chloros“ yra vienas **produkto failas**, susietas su vienu šaltinio vaizdu. Importuojant gaunami šaltinio failai; apdorojimo metu kiekvienam proceso metu sukurtam produktui pridedamas atskiras sluoksnis. Eksportuoti failai išlaiko šaltinio failo pavadinimą — būtent**aplankas** identifikuoja produktą, o sluoksnio pavadinimas yra Chloros žymė tam aplankui.
 
-* **Originalūs vaizdai** (JPG ir RAW failai iš jūsų fotoaparato)
-* **Atstumo kalibruoti** rezultatai (jei buvo įjungta atstumo kalibracija)
-* **Tiksliniai vaizdai** (jei vaizde yra kalibravimo tikslai)
-* **Indeksiniai vaizdai** (NDVI, NDRE, GNDVI ir kt., jei buvo sukonfigūruoti indeksai)**Sluoksnių pasirinkimo išskleidžiamasis meniu**, esantis vaizdo peržiūros programos dešinėje viršutinėje dalyje, leidžia akimirksniu perjungti šias versijas neišeinant iš peržiūros programos.***
+<!-- SCREENSHOT-NEEDED: Image Viewer full screen with the layer dropdown open on a processed LATTICE multispectral image, showing the full list: TIFF base, RAW (Original), RAW (Debayered), RAW (Preview), RAW (Radiance), RAW (Reflectance), and one RAW (NDVI Index) entry. -->
 
-## Galimi sluoksnių tipai
+***
 
-### JPG
+## Sluoksnių sąrašas
 
-* Originalus JPG peržiūros vaizdas iš jūsų fotoaparato
-* Visada prieinamas visiems vaizdams
-* Neapdorotas, toks, koks užfiksuotas fotoaparatu
-* Įkeliama ir rodoma greičiausiai
+### Visada esantys
 
-**Kada peržiūrėti:**
+| Sluoksnis | Kas tai yra |
+| --- | --- |
+| **JPG**(arba**PNG**/**TIFF**) | Pagrindinis failas, gautas kartu su įrašymu. „Survey3“ importuoja „`.JPG`“ šalia kiekvieno „`.RAW`“; „LATTICE“ įrašai pateikia „PNG“ arba „TIFF“ peržiūros vaizdą. Pažymėtas pagal tai, kas iš tikrųjų buvo importuota |
+| **RAW (Originalus)** | Šaltinis – neapdorotas kadras, kuriam pašalintas „bayeringas“ rodymui, netaikant jokių korekcijų. Prieinamas nuo importavimo momento — nereikia jokio apdorojimo |
 
-* Greita originalaus kadro peržiūra
-* Vaizdo kompozicijos ir kadravimo patikrinimas
-* Kadravimo kokybės patikrinimas prieš apdorojimą
+„LATTICE“ užfiksuotas vaizdas, kurio bazinis failas **yra** neapdorotas kadras, neturi atskiro bazinio įrašo: jį jau apima `RAW (Original)`.
 
-### RAW (Originalus)
+### Survey3 apdorojimo produktai
 
-* Originalūs RAW jutiklio duomenys iš jūsų fotoaparato
-* Debayered be jokio papildomo apdorojimo
-* Didesnis bitų gylis nei JPG (paprastai 12 bitų arba 14 bitų jutiklio duomenys)
-
-**Kada peržiūrėti:**
-
-* Originalaus jutiklio duomenų kokybės tikrinimas
-* Jutiklio problemų ar artefaktų tikrinimas
-* Rezultatų prieš ir po apdorojimo palyginimas
-
-### RAW (Tikslas)
-
-* Rodomas tik tiems vaizdams, kuriuose nustatyta, kad yra kalibravimo tikslai
-* Rodo originalų RAW vaizdą su aptiktu tikslu
-* Naudojamas patikrinti, ar tikslo aptikimas buvo sėkmingas
-
-**Kada peržiūrėti:**
-
-* Patvirtinant, kad kalibravimo taikiniai buvo aptikti teisingai
-* Tikrinant taikinio vaizdo kokybę
-* Šalinant kalibravimo problemas
+| Sluoksnis | Įrašyta į | Egzistuoja, kai |
+| --- | --- | --- |
+| **RAW (Tikslas)** | — | Nustatyta, kad kadre yra kalibravimo tikslas |
+| **RAW (Atspindžio koeficientas)** | `Reflectance_Calibrated_Images/` | Šiame kadre sėkmingai atliktas atspindžio koeficiento kalibravimas |
+| **Ištaisyta vinjetė**| `Vignette_Corrected_Images/` | Kadrą nebuvo galima kalibruoti pagal atspindį**ir** buvo įjungta *vinjetės korekcija* |
+| **Jutiklio atsakas**| `Sensor_Response_Images/` | Kadrą nepavyko kalibruoti pagal atspindžio koeficientą**ir** *vigneto korekcija* buvo išjungta |
+| **Baltojo balanso nustatymas** | `White_Balanced_Images/` | Buvo sukurtas produktas su nustatytu baltuoju balansu |
 
 {% hint style="info" %}
-**Taikinio sluoksnis**: Šis sluoksnis pasirodo išskleidžiamajame meniu tik tiems vaizdams, kuriuose yra kalibravimo taikiniai. Įprasti užfiksuoti vaizdai neturės šios parinkties.
+**Vignette korekcija ir jutiklio jautrumas yra alternatyvos, niekada nenaudokite abiejų kartu.** Kiekvienam kameros modeliui per vieną apdorojimo ciklą sukuriamas tik vienas nekalibruotas atsarginis produktas, o *Vignette korekcijos* jungiklis pasirenka, kuris iš jų bus naudojamas. Žr. [Projekto nustatymus](../project-settings/project-settings.md).
 {% endhint %}
 
-### RAW (atspindžio koeficientas)
+### LATTICE lygiai
 
-* Kalibruotas atspindžio koeficiento išvesties vaizdas
-* Ištaisyta vinjetė (jei įjungta apdorojimo metu)
-* Atspindžio koeficientas kalibruotas naudojant taškų duomenis (jei įjungta)
-* Daugiajuostis TIFF su visais kameros kanalais
-* Pikselių reikšmės atspindi atspindžio koeficiento procentinę dalį (naudojant procentinį režimą)
-* Paruoštas redaguoti naudojant [Index/LUT Sandbox](index-lut-sandbox.md)
+LATTICE vienu apdorojimo etapu išskirsto duomenis į šiuos lygius. Kurie iš jų egzistuoja, priklauso nuo projekto nustatymuose nurodytų eksporto perjungiklių kiekvienam produktui ir nuo to, kas taikoma konkrečiai kamerai.
 
-**Kada peržiūrėti:**
+| Sluoksnis | Įrašoma į | Taikoma |
+| --- | --- | --- |
+| **RAW (Debayered)** | `Debayered_Images/` | RGB ir multispektrinė |
+| **RAW (peržiūra)** | `Preview_Images/` | Daugiaspektriniai (netikrų spalvų išplėtimas) |
+| **Baltojo balanso** | `Preview_Images/` | RGB pagrindinės kameros — RGB peržiūra užregistruota šiuo pavadinimu, kad sutaptų su to paties pavadinimo Survey3 sluoksniu |
+| **RAW (spinduliavimas)** | `Radiance_Images/` | Tik daugiaspektrinė |
+| **RAW (atspindys)** | `Reflectance_Calibrated_Images/` | Tik multispektrinė, ir tik tada, kai atitinkamas `.daq` žemyn nukreiptas įrašas arba kokybės patikrinimą išlaikęs kadre esantis taikinys užima kadrą |
 
-* Tikrinant kalibruotus rezultatus
-* Tikrinant kalibravimo kokybę
-* Tikrinant pikselių vertes dėl mokslinio tikslumo
-* Lyginant su originalu, kad pamatytumėte kalibravimo efektus
+RGB pagrindinės kameros neturi radiometrijos pagal juostas, todėl spinduliavimo ir atspindžio duomenys jų atveju praleidžiami kaip **netaikytini** — apie tai nurodoma žurnale, o ne tyliai praleidžiama.
 
-{% hint style="success" %}
-**Rekomenduojama**: Naudokite RAW (atspindžio) sluoksnį, kai tikrinate pikselių vertes moksliniams matavimams ir analizei.
-{% endhint %}
+### Indekso, LUT ir „sandbox“ sluoksniai
 
-### RAW (NDVI indeksas)... ir panašūs
+| Sluoksnio modelis | Pavyzdys | Iš kur jis paimtas |
+| --- | --- | --- |
+| **RAW (`<INDEX>` indeksas)** | `RAW (NDVI Index)` | Po vieną kiekvienam indekso, sukonfigūruotam projekto nustatymuose, apskaičiuojamas apdorojimo metu |
+| **`<INDEX>` LUT** | `NDVI LUT` | Indekso versija su pritaikytomis spalvomis |
+| **Bandymų aplinka (`<Name>` `<Index\|LUT>` `<NNN>`)** | `Sandbox (NDVI LUT 003)` | Po vieną už kiekvieną [indekso/LUT „Sandbox“](index-lut-sandbox.md) eksporto ciklą |
 
-* Apskaičiuotas augmenijos indekso vaizdas (šiuo pavyzdžiu – NDVI)
-* Indekso pavadinimas keičiasi priklausomai nuo to, kuris indeksas buvo sukonfigūruotas apdorojimo metu
-* Pavyzdžiai: RAW (NDVI indeksas), RAW (NDRE indeksas), RAW (GNDVI indeksas) ir kt.
-* Vienos juostos pilkosios skalės vaizdas, rodantis indekso apskaičiavimo rezultatus
-* Kiekvienam indeksui, sukonfigūruotam projekto nustatymuose, rodomas vienas sluoksnis
-
-**Galimi indeksų pavadinimai:**
-
-* RAW (NDVI indeksas)
-* RAW (NDRE indeksas)
-* RAW (GNDVI indeksas)
-* RAW (OSAVI indeksas)
-* RAW (EVI indeksas)
-* RAW (SAVI indeksas)
-* Ir daugelis kitų... (žr. [Daugiaspektrinių indeksų formulės](../project-settings/multispectral-index-formulas.md))
-
-**Kada peržiūrėti:**
-
-* Tikrinant indekso skaičiavimo rezultatus
-* Tikrinant indekso verčių intervalus
-* Nustatant dominančias sritis
-* Tikrinant indekso vaizdus prieš naudojant GIS ar analizėje
+Jei tas pats indekso pavadinimas sukonfigūruotas daugiau nei vieną kartą su skirtingais nustatymais, antrajam ir vėlesniems pavadinimuose pridedamas skaičius (`RAW (NDVI2 Index)`), kad sluoksnius būtų galima atskirti.
 
 ***
 
-## Sluoksnių pasirinkimo įrankio naudojimas
+## Sluoksnių pasirinkimo funkcijos naudojimas
 
-### Išskleidžiamojo meniu atidarymas
+1. Atidarykite vaizdą visame ekrane, spustelėdami miniatiūrą tinklelyje
+2. Spustelėkite **sluoksnių išskleidžiamąjį meniu** peržiūros lango dešinėje viršutinėje dalyje
+3. Pasirinkite sluoksnį — vaizdas atsinaujina iš karto
 
-1. Atidarykite vaizdą visos ekrano režimu (spustelėkite bet kurią miniatiūrą vaizdo peržiūroje)
-2. Suraskite **sluoksnių išskleidžiamąjį meniu** peržiūros dešiniame viršutiniame kampe
-3. Išskleidžiamajame meniu rodomas šiuo metu pasirinktas sluoksnis (pvz., „JPG“)
-4. Spustelėkite išskleidžiamąjį meniu, kad pamatytumėte visus galimus sluoksnius
+Išskleidžiamajame meniu pirmiausia pateikiami **JPG, RAW (Original), RAW (Target), RAW (Reflectance)**, būtent tokia tvarka, o po jų išvardijami visi kiti sluoksniai pagal produktų registravimo tvarką.
 
-### Sluoksnių perjungimas
+### Sluoksnių prioritetas naršant
 
-1. Spustelėkite sluoksnių išskleidžiamąjį meniu, kad atidarytumėte sąrašą
-2. Rodomi visi galimi dabartinio vaizdo sluoksniai
-3. Spustelėkite bet kurio sluoksnio pavadinimą, kad pereitumėte prie tos versijos
-4. Vaizdas atnaujinamas iš karto, kad būtų rodomas pasirinktas sluoksnis
+Paspausdami **←**/**→** pereisite prie kito vaizdo ir sistema stengsis išlaikyti tą patį sluoksnį:
 
-**Greitas perjungimas:**
+1. **Pirmiausia tiksli atitiktis** — jei kitas vaizdas turi to paties pavadinimo sluoksnį, jis bus parinktas. Būtent tai leidžia jums likti sluoksnyje „`RAW (NDVI Index)`“, kol peržiūrite visą rinkinį
+2. **Tada atitikimas pagal tipą** — indeksinis sluoksnis ieško bet kurio indeksinio sluoksnio, LUT — bet kurio LUT, atspindžio — atspindžio, tikslinio — tikslinio, originalo — originalo, bazinio — bazinio
+3. **Tada, tik eksporto sluoksnių atveju** — pavadinimas išsaugomas net jei sluoksnių sąrašas dar nepasivijo, nes failas jau egzistuoja diske. Būtent tai leidžia peržiūrėti produktus, kol vykdymo procesas juos dar rašo
+4. **Kitais atvejais** — pirmasis pasiekiamas sluoksnis, kuris paprastai yra bazinis vaizdas
 
-* Išskleidžiamasis meniu įsimena jūsų paskutinį pasirinkimą
-* Pereidžiant prie kito vaizdo, Chloros bando rodyti to paties tipo sluoksnį
-* Jei to sluoksnio nėra kitame vaizde, numatytasis sluoksnis yra JPG
+Projekto „`.daq`“ ir „`.csv`“ papildomi failai praleidžiami naršant rodyklių klavišais, todėl peržiūrint vaizdus niekada nepatenkama į šviesos jutiklio įrašą.
 
-### Sluoksnių prieinamumas
-
-Ne visi sluoksniai yra prieinami kiekvienam vaizdui:
-
-**Visada prieinami:*** ✅ JPG (kiekvienas vaizdas turi JPG peržiūrą)
-
-**Prieinami su sąlygomis:**
-
-* ⚠️ RAW (Originalus) – Tik jei vaizdas buvo užfiksuotas RAW arba RAW+JPG režimu
-* ⚠️ RAW (Tikslas) – Tik jei vaizde yra aptikti kalibravimo tikslai
-* ⚠️ RAW (atspindys) – tik po apdorojimo su įjungtu atspindžio kalibravimu
-* ⚠️ RAW (\[Indeksas] indeksas) – tik po apdorojimo su sukonfigūruotais indeksais
-
-***
-
-## Sluoksnių išsaugojimas
-
-### Perėjimas tarp vaizdų
-
-Kai pereinate prie kito vaizdo (naudodami rodyklių klavišus arba spustelėdami miniatiūras):**Sluoksnio nustatymas išlieka:**
-
-* Jei žiūrite „RAW (atspindys)“, kitas vaizdas rodo „RAW (atspindys)“ (jei yra)
-* Jei žiūrite „RAW (NDVI indeksas)“, kitas vaizdas rodo „RAW (NDVI indeksas)“ (jei yra)
-* Jei to paties sluoksnio nėra, numatytasis yra JPG
-
-**Darbo eigos pavyzdys:**
-
-1. Atidarykite 1 paveikslėlį, perjunkite į RAW (NDVI indeksas)
-2. Paspauskite →, kad peržiūrėtumėte 2 paveikslėlį
-3. 2 paveikslėlyje automatiškai rodomas RAW (NDVI indeksas) sluoksnis
-4. Tęskite naršymą – visuose vaizduose rodomas NDVI sluoksnis
-5. Labai efektyvu peržiūrint indekso rezultatus daugelyje vaizdų
-
-***
-
-## Įprasti darbo srautai
-
-### Darbo srautas 1: Palyginimas prieš ir po
-
-**Tikslas**: Palyginti originalų ir kalibruotą vaizdą
-
-1. Atidarykite apdorotą vaizdą vaizdų peržiūroje
-2. Išskleidžiamajame meniu pasirinkite **RAW (Originalus)**
-
-3. Atkreipkite dėmesį į vinjetavimą ir nekalibruotas vertes
-4. Išskleidžiamajame meniu pasirinkite **RAW (Atstumas)**
-
-5. Palyginkite – vinjetavimas pašalintas, vertės kalibruotos
-
-### Darbo eiga 2: Indekso peržiūra
-
-**Tikslas**: Greitai peržiūrėti NDVI rezultatus visame duomenų rinkinyje
-
-1. Atidarykite pirmąjį apdorotą vaizdą
-2. Išskleidžiamajame meniu pasirinkite **RAW (NDVI indeksas)**
-
-3. Naudokite → rodyklės klavišą, kad pereitumėte prie kito vaizdo
-4. NDVI sluoksnis išlieka automatiškai
-5. Tęskite per visus vaizdus, tikrindami NDVI modelius
-6. Perjunkite į **RAW (NDRE indeksas)**, kad palygintumėte
-
-### Darbo eiga 3: Tikslo patikrinimas
-
-**Tikslas**: Patikrinti, ar visi tikslo vaizdai buvo aptikti teisingai
-
-1. Pereikite prie tikslo vaizdo
-2. Išskleidžiamajame meniu pasirinkite **RAW (Tikslas)**
-
-3. Patikrinkite, ar kalibravimo tikslai yra aiškiai matomi ir aptikti
-4. Pereikite prie kito tikslo vaizdo
-5. Pakartokite patikrinimą visiems tikslams
-
-### Darbo eiga 4: Pikselių verčių tikrinimas
-
-**Tikslas**: Patikrinti atspindžio vertes dėl mokslinio tikslumo
-
-1. Atidarykite apdorotą vaizdą
-2. Pasirinkite **RAW (Atspindys)** sluoksnį
-3. Įjunkite **Pikselių procentas** režimą (mygtukas viršutiniame dešiniajame įrankių juostoje)
-4. Perkelkite žymeklį virš augmenijos plotų
-5. Patikrinkite, ar pikselių vertės yra numatytuose intervaluose (30–70 % NIR, 5–15 % Red)
-6. Patikrinkite, ar dirvožemio ir vandens plotų vertės yra tinkamos
+Padidinimas ir perėjimas taip pat taikomi visoms nuotraukoms, todėl tų pačių lauko vietų palyginimas prieš ir po tampa paprastas.
 
 ***
 
 ## Pikselių verčių supratimas pagal sluoksnius
 
-Skirtingi sluoksniai rodo skirtingus pikselių verčių intervalus:
+[Kursoriaus verčių skydelyje](opening-an-image-full-screen.md#cursor-values) rodomos tikrosios kiekvieno kanalo vertės po jūsų kursoriumi, to sluoksnio saugojimo vienetais. Jo stulpeliai keičiasi priklausomai nuo sluoksnio:
 
-### JPG sluoksnis
+| Sluoksnis | Rodomas vienetas | Pastabos |
+| --- | --- | --- |
+| „Base“ (JPG / PNG / TIFF peržiūra) | DN, 0–255 | Rodomos reikšmės, koreguotos pagal gama RGB. Tik vizualiam patikrinimui |
+| RAW (Originalus) | DN | Neapdoroti jutiklio skaitmeniniai duomenys. Histogramos ašis nurodo gylį: 255 (8 bitai), 4095 (12 bitai) arba 65535 (16 bitai) |
+| RAW (Debayered) | DN | Linijinis, be ekrano ištempimo |
+| RAW (Peržiūra) / Balansuota balta | DN | Rodomas rezultatas — ištemptas arba su koreguota gama. Neskirtas matavimui |
+| RAW (Spinduliavimas) | **W/m²/sr/nm** | „Float32“ fizinis spinduliavimas. Nėra DN stulpelio |
+| RAW (atspindys) | DN **ir %** | Procentinė vertė apskaičiuota pagal to failo skalę — žr. toliau |
+| Indekso / LUT / „sandbox“ eksportai | Indekso vertė arba RGB komponentai | Vienkanalis indeksinis failas pateikia indekso vertę; spalvų atvaizdavimo LUT faile pateikiami Red/Green/Blue komponentai |
 
-* **Intervalas**: 0–255 (8 bitai)
-* **Reikšmė**: Rodomosios vertės, koreguotos pagal gama
-* **Naudojimas**: Tik vizualiai apžiūrai, ne mokslinėms matavimams
+### Atspindžio koeficientas: skalė nurodyta kiekvienam failui atskirai
 
-### RAW (Originalus)
+{% hint style="warning" %}
+**„Padalinti iš 65 535“ teisinga tik Survey3 atveju.** LATTICE atspindžio koeficientas saugomas kitokiu masteliu, o šių dviejų daliklių sumaišymas yra dažniausias būdas gauti atspindžio koeficiento vertes, kurios yra lygiai perpus mažesnės nei turėtų būti.
+{% endhint %}
 
-* **Intervalas**: 0–65535 (16 bitai)
-* **Reikšmė**: Neapdoroti skaitmeniniai jutiklio duomenys
-* **Naudojimas**: Jutiklio veikimo tikrinimui, nekalibruoti
+| Šaltinis | DN, kurio vertė lygi atspindžio koeficientui 1,0 | Identifikuojamas pagal |
+| --- | --- | --- |
+| **LATTICE**(M3C / M3M) |**32768** | XMP žymė „`Chloros:PixelScale=32768`“, įrašyta į kiekvieną eksportuotą LATTICE atspindžio duomenų rinkinį. 2× atsarga reiškia, kad ρ, didesnis nei 1,0, gali būti atvaizduojamas, o ne apkarpomas |
+| **Survey3**|**65535** | Jei nėra XMP masto žymės „Chloros“, kalibravimas „Survey3“ įrašo ρ × dtype-max ir apriboja vertę iki 1,0 |
 
-### RAW (atspindžio)
+GIS ir skriptų kūrimui: iš failo nuskaitykite `Chloros:PixelScale` ir padalinkite iš jo. Jei žymės nėra, failas yra Survey3 masto (65535). Peržiūros programa, indekso/LUT bandymų aplinka ir indekso eksportas mastelį apskaičiuoja vienodu būdu, todėl skaičius, kurį matote žymeklio vietoje, yra tas pats skaičius, kurį naudojo indekso skaičiavimai.
 
-* **Diapazonas**: 0–65 535 (16 bitų TIFF) arba 0,0–1,0 (32 bitų procentais)
-* **Reikšmė**: Kalibruotas atspindžio procentas
-* **Naudojimas**: Moksliniai matavimai ir analizė**16 bitų TIFF atveju:**Padalinkite iš 65 535, kad gautumėte atspindžio procentą**32 bitų procentų atveju:** Vertės tiesiogiai atspindi procentą (0,5 = 50 % atspindžio)
+Be to, atsižvelgiant į formatą, duomenys saugomi taip:
 
-### RAW (indeksiniai vaizdai)
+* **TIFF (32 bitai, procentais)** saugo DN / 65535 kaip plūduriuojančiojo kablelio skaičių
+* **PNG (8 bitai)**ir**JPG (8 bitai)** saugo DN × 255 / 65535
+* **8 bitų TIFF eksportas iš 8 bitų šaltinio įrašo** yra apribojamas iki 0–255, o ne perskaičiuojamas, ir sąmoningai neturi mastelio žymės. Šiame skydelyje tik tiems failams rodomas DN, be procentų stulpelio
 
-* **Diapazonas**: Skiriasi priklausomai nuo indekso (paprastai nuo -1,0 iki +1,0 normalizuotiems indeksams)
-* **Reikšmė**: Indekso skaičiavimo rezultatas
-* **Pavyzdžiai**:
-  * NDVI: nuo -1 iki +1 (augmenija paprastai nuo 0,4 iki 0,9)
-  * NDRE: nuo -1 iki +1 (streso nustatymas)
-  * EVI: nuo 0 iki 1 (pagerinta augmenija)
+### Indekso verčių intervalai
+
+| Indekso grupė | Tipinis intervalas | Vertė |
+| --- | --- | --- |
+| Normalizuotas skirtumas (NDVI, GNDVI, NDRE, ENDVI…) | nuo −1 iki +1 | Sveika augmenija paprastai 0,4–0,9; plikas dirvožemis – apie 0; vanduo – neigiamas |
+| Prisitaikęs prie dirvožemio (SAVI, OSAVI, MSAVI2…) | apytikriai nuo −1 iki +1,5 | Panašus rodmuo kaip NDVI, bet pašalintas dirvožemio fonas |
+| Santykis (GRVI, GCI, MSR, CIRE…) | neribotas viršuje | Santykiai auga be ribų, kai vardiklio juosta artėja prie nulio |
+| EVI / LAI | nuo 0 iki ~1, nuo 0 iki ~3,5 | Debesys ir kiti prisotinti pikseliai išstumia abu rodiklius už ribų — pirmiausia juos užmaskuokite |
+
+Tikslias kiekvieno iš anksto nustatyto parametrų derinio formules rasite [Daugiaspektrinių indeksų formulėse](../project-settings/multispectral-index-formulas.md).
 
 ***
 
-## Patarimai ir geriausia praktika
+## Įprasti darbo srautai
 
-### Efektyvus sluoksnių perjungimas
+### Palyginimas prieš ir po
 
-* **Klavišų kombinacijų naudojimas**: Nors sluoksniams nėra klavišų kombinacijų, navigacijos rodyklės (←/→) veikia visuose sluoksniuose
-* **Nuoseklūs darbo srautai**: Pasirinkite vieną sluoksnį (pvz., NDVI) ir peržiūrėkite visą duomenų rinkinį prieš perjungdami į kitą
-* **Greiti palyginimai**: Perjunkite tarp „Original“ ir „Reflectance“, kad patikrintumėte apdorojimo kokybę
+1. Pasirinkite **RAW (Original)** ir atkreipkite dėmesį į vinjetavimą bei nekalibruotas reikšmes
+2. Perjunkite į **RAW (Reflectance)**
 
-### Veiklos svarstymai
+3. Palyginkite — vinjetavimas pašalintas, reikšmės kalibruotos. Padidinimas ir peržiūra išlieka, todėl matote tą patį plotą
 
-* **JPG įkeliami greičiausiai**: Naudokite greitam naršymui per daugybę vaizdų
-* **RAW sluoksniai įkeliami lėčiau**: Didesnė skiriamoji geba ir bitų gylis
-* **Indekso sluoksniai**: Panašus greitis kaip ir atspindžio sluoksnių
-* **Pirmasis įkėlimas yra lėčiausias**: Vėlesni to paties sluoksnio peržiūros yra talpinami į talpyklą ir yra greitesni
+### Vieno indekso peržiūra visame rinkinyje
 
-### Kokybės patikrinimas
+1. Atidarykite pirmąjį apdorotą vaizdą ir pasirinkite indekso sluoksnį
+2. Pakartotinai spauskite **→** — indekso sluoksnis seka paskui jus nuo vaizdo prie vaizdo
+3. Peržiūrėdami stebėkite šoninės juostos histogramą: kadrą, kurio pasiskirstymas staigiai šoktelėja, verta apžiūrėti atidžiau
 
-* **Visada patikrinkite RAW (Original)**: Patikrinkite šaltinio duomenų kokybę prieš pasitikėdami apdorotais rezultatais
-* **Palyginkite sluoksnius**: naudokite sluoksnių perjungimą, kad įsitikintumėte, jog apdorojimas vyko teisingai
-* **Patikrinkite indeksų diapazonus**: naudokite „Pixel Percent“ režimą su indeksų sluoksniais, kad įsitikintumėte, jog vertės yra priimtinos***
+### Kalibravimo taškų patikrinimas
+
+1. Pasirinkite **RAW (Target)** ant tikslinio kadro
+2. Patikrinkite, ar tikslas aiškiai matomas ir aptiktas
+3. Pereikite prie kito tikslinio kadro — tikslo sluoksnis seka kartu
+
+### Patikrinkite atspindžio verčių tikslumą
+
+1. Pasirinkite **RAW (Reflectance)**
+
+2. Perskaitykite**%** stulpelį skydelyje „Cursor Values“ — jis jau yra tinkamai pritaikytas šiam failui
+3. Atlikite patikrinimą, lygindami su žinomomis medžiagomis kadre: sveika augmenija pasižymi aukštais NIR rodikliais ir žemais raudonos spalvos rodikliais; kalibravimo taško atspindžio koeficientas turėtų būti artimas paskelbtam
+
+***
 
 ## Problemų sprendimas
 
-### Sluoksnis nėra prieinamas
+### Lauke, kurio tikėjausi, nėra išskleidžiamajame meniu
 
-**Problema**: laukiamas sluoksnis neatsiranda išskleidžiamajame meniu**Galimos priežastys:**
+**Galimos priežastys**
 
-* Vaizdas nebuvo apdorotas (galimi tik JPG ir RAW (Original) formatai)
-* Apdorojimo metu buvo išjungtas atspindžio kalibravimas
-* Konkretus indeksas nebuvo nustatytas projekto nustatymuose
-* Vaizdas yra tik taikinio vaizdas (taikinams indeksai nesukuriami)
+* Vaizdas nebuvo apdorotas — yra tik bazinis sluoksnis ir `RAW (Original)`
+* Projekto nustatymuose nepažymėtas produkto eksporto jungiklis
+* Produktas netaikomas tai kamerai (spinduliavimas ir atspindžio koeficientas RGB pagrindinėje kameroje; bet koks indeksas vienos juostos M3M monochromatinėje kameroje)
+* Atspindžio kalibravimui nebuvo su kuo dirbti — nebuvo `.daq` žemyn nukreipto spinduliavimo aprėpties ir nebuvo kokybės patikrinimą išlaikiusio taikinio kadre — todėl kadras buvo grąžintas į „Vignette Corrected“ arba „Sensor Response“
 
-**Sprendimai:**
+**Ką daryti**
 
-1. Patikrinkite, ar vaizdas buvo apdorotas (patikrinkite išvesties aplanką, ar jame yra apdoroti failai)
-2. Patikrinkite projekto nustatymus, kad įsitikintumėte, jog indeksai buvo nustatyti
-3. Apdorokite iš naujo, įjungę norimus indeksus
+1. Patikrinkite vykdymo žurnalą: Chloros nurodo, kada nebuvo įmanoma eksportuoti prašomo produkto ir kodėl
+2. Patikrinkite eksporto perjungiklius kiekvienam produktui atskirai [Projekto nustatymuose](../project-settings/project-settings.md)
+3. Patikrinkite, ar produkto aplankas yra projekto išvesties medžio struktūroje
+4. Pakartotinai apdorokite įjungus produktą
 
-### Rodomas neteisingas sluoksnis
+### Sluoksnių sąrašas atrodo pasenęs
 
-**Problema**: Vaizdas atidaromas netikėtame sluoksnyje**Priežastis**: Perkelti ankstesnio vaizdo sluoksnio nustatymai, tačiau to sluoksnio dabartiniame vaizde nėra**Sprendimas**: Chloros automatiškai grįžta prie JPG, kai pageidaujamas sluoksnis nėra prieinamas – tai yra normalu
+Chloros, vykstant apdorojimui, iš naujo nuskaito projekto produktų aplankus ir ištaiso trūkstamus sluoksnių registravimus remdamasis tuo, kas iš tikrųjų yra diske, todėl sluoksnis, kurio eksportavimas baigtas, paprastai atsiranda savaime per apklausą. Perėjimas nuo vaizdo į kitą langą ir atgal priverčia atlikti naują apdorojimą.
 
-### Nematomi kalibravimo taikiniai
+### Atspindžio vertės atrodo dvigubai mažesnės nei turėtų būti
 
-**Problema**: RAW (taikinio) sluoksnyje nerodomas taikinio aptikimas**Galimos priežastys:**
+Beveik neabejotinai dalinate „LATTICE“ failą iš 65535. Naudokite `Chloros:PixelScale` (32768) arba peržiūrėkite stulpelį **%**, kuriame šis koeficientas jau yra pritaikytas.
 
-* Taikiniai nebuvo aptikti apdorojimo metu
-* Vaizdas iš tikrųjų neturi taikinio
-* Taikinio aptikimo nustatymai pernelyg griežti
+### Indekso sluoksnis egzistuoja, bet vaizdas tuščias
 
-**Sprendimai:**
-
-1. Patikrinkite „Debug Log“ (Debug žurnalo) įrašus, ar nėra pranešimų „Target found“ (Taikinys rastas)
-2. Patikrinkite, ar vaizde iš tiesų yra matomi kalibravimo taškai
-3. Nustatykite taškų aptikimo parametrus projekto nustatymuose
-4. Žiūrėkite [Taškų vaizdų pasirinkimas](../processing-images-gui/choosing-target-images.md)
-
-***
-
-## Susijusios funkcijos
-
-### Vaizdo peržiūros įrankiai
-
-Peržiūrėdami bet kurį sluoksnį, galite naudoti:
-
-* **Mastelio valdymą**: Padidinkite vaizdą, kad galėtumėte apžiūrėti detales
-* **Perkėlimą**: Spustelėkite ir vilkite, kad perkelti padidintą vaizdą
-* **Pikselių verčių peržiūra**: Peržiūrėkite vertes kursoriaus vietoje
-* **Navigacijos rodyklės**: Perkelkite tarp vaizdų išlaikydami sluoksnį
-* **Pikselių procentų režimas**: Perjunkite tarp DN ir procentų rodymo
-
-Žr. [Vaizdo atidarymas visame ekrane](opening-an-image-full-screen.md), kur rasite išsamią vaizdo peržiūros programos dokumentaciją.
-
-### Indekso/LUT bandymų aplinka
-
-Interaktyviam indekso testavimui ir vizualizavimui:
-
-* **Indekso skaičiavimas realiuoju laiku**: Išbandykite įvairias indekso formules
-* **LUT spalvų atvaizdavimas**: Taikykite spalvų gradientus pilkosios skalės indeksams
-* **Vizualizacijų eksportavimas**: Išsaugokite spalvotus indekso vaizdus
-
-Išsamią informaciją rasite [Indekso/LUT bandymų aplinkoje](index-lut-sandbox.md).
+Indeksui reikalingos juostos, kurių jūsų sluoksnyje nėra — pavyzdžiui, indeksas, skaitantis trečiąjį kanalą, pritaikytas vieno ar dviejų kanalų failui. Perjunkite į daugiakanalį sluoksnį (atspindžio arba be „bayeringo“) arba pasirinkite indeksą, atitinkantį kameros filtrą.
 
 ***
 
 ## Tolimesni veiksmai
 
-Dabar, kai jau suprantate vaizdo sluoksnius:
-
-* [**Vaizdo atidarymas visame ekrane**](opening-an-image-full-screen.md) – išsamus „Image Viewer“ vadovas
-* [**Indekso/LUT smėlio dėžė**](index-lut-sandbox.md) – interaktyvus indekso vizualizavimas
-* [**Daugiaspektrinės indeksų formulės**](../project-settings/multispectral-index-formulas.md) – Galimų indeksų sąrašas
-* [**Apdorojimo užbaigimas**](../processing-images-gui/finishing-the-processing.md) – Apdorotų rezultatų supratimas
+* [**Vaizdo atidarymas visame ekrane**](opening-an-image-full-screen.md) — žymeklio rodmenys, histograma ir GSD valdymas
+* [**Indeksų/LUT bandymų erdvė**](index-lut-sandbox.md) — interaktyvus indeksų vizualizavimas ir eksportavimas
+* [**Daugiaspektrinių indeksų formulės**](../project-settings/multispectral-index-formulas.md) — indeksų nuorodos
+* [**Apdorojimo užbaigimas**](../processing-images-gui/finishing-the-processing.md) — išvesties aplankų medis, į kurį nukreipia šie sluoksniai
