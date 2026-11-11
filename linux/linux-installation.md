@@ -1,8 +1,12 @@
-# Linux įdiegimas
+# Linux diegimas
 
-Chloros platinamas kaip Linux, kaip `.deb` paketai, kurie įdiegia CLI ir užkulisinį serverį. Python SDK yra atskiras „pip“ paketas (taip pat įtrauktas į `.deb` kaip versijai atitinkantis „wheel“).
+Chloros Linux sistemai platinamas kaip `.deb` paketai, kurie įdiegia CLI, užkulisinį serverį ir Python SDK (sistemai `python3` taip pat pridedamas versijai atitinkantis „wheel“ failas, skirtas „virtualenvs“).
 
-Paketo failų pavadinimuose nurodyta versija ir architektūra: „`chloros_1.2.0_amd64.deb`“ – x86_64, o „`chloros_1.2.0_arm64_jp6.deb`“ – „JetPack 6 Jetson“ versijoms. Toliau pateiktose komandose įrašykite failą, kurį iš tikrųjų atsisiuntėte.
+Paketų failų pavadinimuose nurodyta versija ir architektūra: „`chloros_1.3.0_amd64.deb`“ – x86_64, o „`chloros_1.3.0_arm64_jp6.deb`“ – „arm64“ (NVIDIA Jetson, JetPack 6). Toliau pateiktose komandose pakeiskite failo pavadinimą į tą, kurį iš tikrųjų atsisiuntėte.
+
+{% hint style="info" %}
+**Nauja 1.3.0 versijoje: programos pateikiamos neišpakuotos.** Užkulisinė dalis ir CLI įdiegiamos kaip aplankai, `/usr/lib/chloros/backend/` ir `/usr/lib/chloros/cli/`, o ne kaip atskiri savaime išsiskleidžiantys failai. Jie nebeišsiskleidžia į laikiną aplanką kiekvieną kartą paleidžiant, todėl paleidžiasi daug greičiau (x86_64 architektūroje užkulisinė dalis anksčiau kiekvieną kartą paleidžiant išsiskleisdavo apie 100 sekundžių) ir nebereikia kelių GB laisvos vietos kataloge „`/tmp`“. „amd64“ versijos „`.deb`“ dydis taip pat yra maždaug perpus mažesnis nei anksčiau.
+{% endhint %}
 
 ***
 
@@ -12,38 +16,37 @@ Paketo failų pavadinimuose nurodyta versija ir architektūra: „`chloros_1.2.0
 
 | Reikalavimas | Minimalus | Rekomenduojamas |
 | --- | --- | --- |
-| **Distribucija** | Ubuntu 22.04 LTS+ / Debian 12+ | Ubuntu 24.04 LTS |
-| **Procesorius** | x86_64 (Intel/AMD) | „Intel Core i7“ arba geresnis |
-| **Atmintis (RAM)** | 8 GB | 16 GB arba daugiau |
-| **Vaizdo plokštė** | Nereikalinga (apdorojama procesoriumi) | „NVIDIA“ vaizdo plokštė su 4 GB ir daugiau VRAM (12 GB ir daugiau atblokuoja `GPU_PARALLEL`, 7 GB ir daugiau išlaiko „Texture Aware“ išjungtą vieno vaizdo kelyje) |
+| **Distribucija** | „Ubuntu“ 22.04 LTS+ / „Debian“ 12+ | „Ubuntu“ 24.04 LTS |
+| **Procesorius** | x86_64 (Intel/AMD) | Intel Core i7 ar geresnis |
+| **Atmintis (RAM)** | 8 GB | 16 GB ar daugiau |
+| **Vaizdo plokštė** | Nereikalinga (apdorojama procesoriumi) | „NVIDIA“ vaizdo plokštė su 4 GB ar daugiau VRAM (12 GB ar daugiau atrakina `GPU_PARALLEL`, 7 GB ar daugiau užtikrina, kad „Texture Aware“ neveiktų vieno vaizdo kelyje) |
 | **Saugykla** | 2 GB laisvos vietos | SSD su 10 GB ar daugiau laisvos vietos |
-| **Python** | Python 3.7+ (skirta SDK) | Python 3.10+ |
+| **Python** | Python 3.7 ar naujesnė versija (SDK) | Python 3.10 ar naujesnė versija |
 
-> **„Ubuntu 20.04“ ir „Debian 11“ nepalaikomi.** `.deb` priklausomybių sąrašas
-> sudarytas remiantis tuo, su kuo iš tikrųjų susiejamas Chloros užkulisinis modulis, ir tai apima
-> „`libc6 (>= 2.34)`“. „Focal“ ir „bullseye“ versijose yra įdiegta „glibc 2.31“, todėl „`apt`“ atsisako
-> įdiegti iš karto, o ne leidžia, kad įdiegimas žlugtų vėliau, vykdymo metu.
+> **„Ubuntu 20.04“ ir „Debian 11“ nepalaikomi.** „`.deb`“ priklausomybių sąrašas
+> sudarytas remiantis tuo, su kuo iš tikrųjų susiejamas Chloros užpakalinis modulis, ir tai apima
+> „`libc6`“, naujesnį už „glibc 2.31“, kurį pateikia „focal“ ir „bullseye“, todėl „`apt`“ atsisako
+> įdiegti iš karto, o ne leidžia, kad vėliau įdiegimas žlugtų vykdymo metu.
 
 ### Įdiegimas
 
 ```bash
-sudo dpkg -i chloros_1.2.0_amd64.deb
-sudo apt-get install -f    # pulls the declared dependencies (libibverbs1, libcap2-bin)
+sudo apt install ./chloros_1.3.0_amd64.deb
 ```
 
 {% hint style="info" %}
-`dpkg -i` neišsprendžia priklausomybių. Jei pranešama apie trūkstamus paketus, `sudo apt-get install -f` (arba `sudo apt --fix-broken install`) užbaigia diegimą — tai yra įprastas procesas, o ne klaida.
+**Naudokite „`apt install ./…`“, o ne „`dpkg -i`“.** „`apt`“ išsprendžia paketo priklausomybes ir taip pat įdiegia tai, ką rekomenduoja: Python SDK reikalavimus, `python3-numpy` ir `python3-requests`. `dpkg -i` neįdiegia nė vieno iš jų. CLI ir užkulisiai yra savarankiški ir veikia be jų, tačiau `import chloros_sdk` jų reikia; diegimo išvestyje nurodomi visi trūkstami elementai. Palikite `./`, kad `apt` įdiegs šį failą, o ne ieškos to paties pavadinimo paketo. Paketas taip pat deklaruoja `libgl1`, kurį įkelia pridedamas „OpenCV“, o minimaliame serverio atvaizde jo gali trūkti.
 {% endhint %}
 
 Patikrinkite diegimą:
 
-
-
-<!-- SCREENSHOT-NEEDED: Terminal on Ubuntu 22.04 immediately after `sudo dpkg -i chloros_1.2.0_amd64.deb`, showing the full postinst output: the "Chloros installed successfully!" banner, the Usage lines, the "Python SDK:" block naming the bundled wheel path under /usr/lib/chloros/sdk/, any "GPU Acceleration:" detection line, and the closing "Systemd Service (optional): sudo systemctl enable --now chloros-backend.service" hint -->
-
 ```bash
-chloros-cli --version    # prints "Chloros CLI 1.2.0"
-```***
+chloros-cli --version    # prints "Chloros CLI 1.3.0"
+```
+
+<!-- SCREENSHOT-NEEDED: Terminal on Ubuntu 22.04 immediately after `sudo apt install ./chloros_1.3.0_amd64.deb`, showing the full postinst output: the "Chloros installed successfully!" banner, the Usage lines, the "Python SDK:" block ("chloros_sdk 1.3.0 for python3" and the "In a virtualenv: pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl" line), any "GPU Acceleration:" detection line, and the closing "Systemd Service (optional): sudo systemctl enable --now chloros-backend@<user>.service" hint -->
+
+***
 
 ## Linux arm64 (NVIDIA Jetson)
 
@@ -52,44 +55,37 @@ chloros-cli --version    # prints "Chloros CLI 1.2.0"
 | Reikalavimas | Minimalus | Rekomenduojamas |
 | --- | --- | --- |
 | **Platforma** | „NVIDIA Jetson“ su „JetPack 6“ | „Jetson Orin NX“ 16 GB arba „AGX Orin“ |
-| **„JetPack“** | „JetPack 6.x“ | Naujausia „JetPack 6“ versija |
-| **Atmintis (RAM)** | 8 GB (bendrai naudojama GPU/CPU) | 16 GB+ bendrai naudojama (12 GB+ yra riba, reikalinga lygiagretiems GPU darbininkams) |
+| **„JetPack“** | „JetPack“ 6.x | Naujausia „JetPack“ 6 versija |
+| **Atmintis (RAM)** | 8 GB (bendra GPU/CPU) | 16 GB+ bendros atminties (12 GB+ yra riba lygiagrečiam apdorojimui) |
 | **Saugykla** | 2 GB laisvos vietos | NVMe SSD su 10 GB+ laisvos vietos |
-| **Python** | Python 3.7+ (skirta SDK) | Python 3.10+ |
+| **Python** | Python 3.7+ (SDK) | Python 3.10+ |
 
 ### Įdiegimas
 
 ```bash
-sudo dpkg -i chloros_1.2.0_arm64_jp6.deb
-sudo apt-get install -f
+sudo apt install ./chloros_1.3.0_arm64_jp6.deb
 chloros-cli --version
 ```
 
-Toks pats išdėstymas kaip ir amd64 `.deb`, su CUDA versija, pritaikyta „Jetson Orin“ / „Orin NX“ / „Orin Nano“. Informaciją apie „Jetson“ atmintį, šilumines savybes ir diegimą praktikoje rasite [„NVIDIA Jetson“ vadove](nvidia-jetson-guide.md).
+Toks pats išdėstymas kaip ir amd64 `.deb` (įtrauktas Python SDK, priėmimo buferiai ir užkulisinės paslaugos), skirtas „Jetson Orin“ / „Orin NX“ / „Orin Nano“ su **„JetPack 6“** (L4T R36). Jo „PyTorch“ yra „JetPack 6“ CUDA versija, skirta „Orin“, todėl GPU apdorojimas, įskaitant „Texture Aware“ debayerį, vyksta „Jetson“ GPU. Paketas pats neapima CUDA: jis naudoja CUDA ir cuDNN bibliotekas, kurias įdiegia „JetPack 6“ (`sudo apt install nvidia-jetpack` atvaizde, kuriame jų nėra). Jei CUDA GPU negalima naudoti, apdorojimas vyksta CPU, o „`--debayer texture-aware`“ naudoja standartinį „debayer“ (užkulisiai užregistruoja vieną „`[DEBAYER] … needs a CUDA GPU …`“ eilutę, paaiškinančią priežastį). Informaciją apie „Jetson“ atmintį, šiluminius parametrus ir veikimą lauke rasite [„NVIDIA Jetson“ vadove](nvidia-jetson-guide.md).***
 
-***
+## Python SDK diegimas (visoms Linux versijoms)**„`.deb`“ jūsų vardu įdiegia SDK.** Abu paketai (amd64 ir „Jetson“) įdiegia jį sistemai `python3`, todėl `import chloros_sdk` veikia iškart po įdiegimo, be „pip“ ir be tinklo. Jo paketai (`chloros_sdk`, `lattice_sdk`, `lattice_cam`, `arena_api` ir projekto įkėlėjai) patenka į `/usr/lib/python3/dist-packages`, priklausantį paketui: atnaujinimas juos pakeičia, o pašalinus paketą – ir jie pašalinami. Versija visada atitinka jūsų įdiegtą CLI ir užkurtį.
 
-## Python ir SDK diegimas (visi Linux)
+SDK reikalavimai, `python3-numpy` ir `python3-requests`, yra **rekomenduojami, o ne privalomi**: `sudo apt install ./chloros_<version>_<arch>.deb` juos įdiegia, o `dpkg -i` – ne. Įdiegimo išvestyje nurodoma SDK versija, kurią importuoja `python3`, bet kokie trūkstami reikalavimai, ir visus `chloros_sdk` elementus kitur `python3` kelyje, kurie užgožia paketo kopiją (pavyzdžiui, anksčiau įdiegtą su `pip install --user`).**„virtualenv“ aplinkoje**, kuri nemato sistemos paketų, į ją įdiekite pridedamą „wheel“ failą (visiškai neprisijungus prie interneto):
 
-„SDK“ yra grynasis „Python“ „HTTP“ klientas, skirtas užkulisiniam moduluii, todėl tas pats paketas veikia tiek „amd64“, tiek „arm64“ platformose. Du šaltiniai:**Iš PyPI** — paskelbta stabili versija:
+```bash
+pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl
+```
+
+**Iš PyPI** — tik kompiuteriui, kuriame neįdiegtas Chloros paketas, kurio SDK valdo kito kompiuterio užkurtį (žr. [Nuotolinio užkurtio režimas](../reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel)):
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Iš pridedamo „wheel“ failo** — garantuotai suderinamas su ką tik įdiegtu CLI/backend (naudokite tai, jei jūsų `.deb` yra naujesnis nei PyPI):
+Papildomos galimybės, skirtos diegimui naudojant „pip“ (virtualioje aplinkoje arba iš PyPI):
 
-```bash
-pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
-```
-
-{% hint style="warning" %}
-**PEP 668 distribucijos** (Ubuntu 23.10+, Debian 12+) neleidžia diegti per pip visoje sistemoje. Naudokite `pip install --user …`, virtualią aplinką arba `sudo pip install --break-system-packages …`. Paketų diegimo programa niekada automatiškai neįdiegia „SDK“ į jūsų sistemos „Python“ — šį sprendimą paliekame jums.
-{% endhint %}
-
-Pasirenkami priedai:
-
-| Priedas | Komanda | Prideda |
+| Papildoma galimybė | Komanda | Prideda |
 | --- | --- | --- |
 | `progress` | `pip install chloros-sdk[progress]` | `sseclient-py`, skirtas tiesioginiam pažangos transliavimui |
 | `camera` | `pip install chloros-sdk[camera]` | `bleak`, skirtas BLE (DAQ-M) perdavimui |
@@ -97,11 +93,11 @@ Pasirenkami priedai:
 Patikrinkite SDK:
 
 ```bash
-python -c "import chloros_sdk; print(chloros_sdk.__version__)"
+python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"
 ```
 
 {% hint style="info" %}
-`.deb` įdiegia Chloros, CLI ir užkulisinę sistemą. Python, SDK bendrauja su tuo užkulisiniu komponentu per vietinį HTTP API (`http://127.0.0.1:5000`) ir prireikus jį paleidžia automatiškai. Visada naudokite tiesioginį IPv4 adresą, o ne „`localhost`“ — „`localhost`“ gali būti išspręstas kaip „`::1`“ ir užtrukti maždaug dvi sekundes vienam užklausimui.
+Python SDK bendrauja su „`.deb`“ įdiegtu užkulisiu per vietinį HTTP API (`http://127.0.0.1:5000`). `ChlorosLocal` ir prisijungimo pagalbinės programos jį paleidžia automatiškai, kai reikia; išsaugoto projekto `connect_all()` to niekada nedaro, todėl kompiuteryje be monitoriaus paleiskite užkurtį kaip [paslaugą](#always-on-ptp-for-headless-hosts). Visada naudokite tiesioginį IPv4 adresą, o ne `localhost` — `localhost` gali būti išspręstas kaip `::1` ir užtrukti maždaug dvi sekundes vienam užklausimui.
 {% endhint %}
 
 ***
@@ -110,16 +106,16 @@ python -c "import chloros_sdk; print(chloros_sdk.__version__)"
 
 ### 1. Prisijunkite
 
-Prieigai prie CLI ir SDK reikalingas mokamas Chloros+ lygis (**Copper** ar aukštesnis), kuris taikomas serverio pusėje: atsijungęs vartotojas gauna `401 AUTH_REQUIRED`, o nemokamo lygio („Iron“) vartotojas – `403 PLAN_UPGRADE_REQUIRED`.
+Prieigai prie CLI ir SDK reikalingas mokamas „Chloros+“ lygis (**Copper** ar aukštesnis), kuris užtikrinamas serverio pusėje: atsijungęs skambintojas gauna adresą `401 AUTH_REQUIRED`, o nemokamo lygio (Iron) skambintojas gauna adresą `403 PLAN_UPGRADE_REQUIRED`.
 
 ```bash
 chloros-cli login your@email.com 'your-password'
 ```
 
-Prisijungimo duomenys yra išsaugomi `~/.chloros/user_session.json`.
+Prisijungimo duomenys saugomi `~/.chloros/user_session.json`.
 
-{% hint style="warning" %}
-**Po kiekvienos įdiegos ar atnaujinimo turite prisijungti iš naujo.** Paketo scenarijus „`prerm`“ sąmoningai išvalo „`~/.chloros/user_session.json`“ ir įkeptą licenciją kiekvienam kompiuterio vartotojui, todėl nauja versija visada iš naujo patvirtina licenciją, o ne pasikliauja pasenusiais įkeptais duomenimis.
+{% hint style="info" %}
+**Atnaujinus versiją jūsų prisijungimo duomenys išlieka; pašalinus versiją jie ištrinami.** Įdiegus naujesnę „`.deb`“ versiją ant esamos instaliacijos (įskaitant per „`chloros-cli update`“), „`~/.chloros/user_session.json`“ ir išsaugota licencija išlieka, todėl CLI / SDK užduotys be grafinės sąsajos toliau veikia. Pašalinus paketą (`sudo apt remove chloros`), ištrinami visų kompiuterio vartotojų išsaugoti prisijungimo duomenys ir licencijos talpyklos turinys, todėl naujai diegiant programą vėl reikės `chloros-cli login`.
 {% endhint %}
 
 ### 2. Patikrinkite savo licencijos būseną
@@ -128,7 +124,7 @@ Prisijungimo duomenys yra išsaugomi `~/.chloros/user_session.json`.
 chloros-cli status
 ```
 
-`chloros-cli status` veikia bet kuriame lygyje (įskaitant nemokamą), todėl visada galite pamatyti, kodėl prieiga yra arba nėra prieinama.
+`chloros-cli status` veikia bet kuriame pakete (įskaitant nemokamą), todėl visada galite pamatyti, kodėl prieiga yra arba nėra prieinama.
 
 ### 3. Vykdykite sistemos diagnostiką
 
@@ -140,15 +136,15 @@ Septyni patikrinimai atliekami eilės tvarka, o komanda baigiasi nulinės vertė
 
 | # | Patikrinimas | Ką patvirtina |
 | --- | --- | --- |
-| 1 | **Versija** | „CLI“ praneša savo versiją (`v1.2.0`). |
-| 2 | **Laisvas prievadas** | Prievadas 5000 yra laisvas, *arba* į jį jau atsakė tinkamai veikiantis „Chloros“ užpakalinis modulis (tai laikoma sėkmingu patikrinimu). |
+| 1 | **Versija** | Komandinė eilutė (CLI) praneša savo versiją (`v1.3.0`). |
+| 2 | **Laisvas prievadas** | Prievadas 5000 yra laisvas, *arba* jau atsakė veikiantis Chloros užpakalinis modulis (tai laikoma sėkme). |
 | 3 | **Užpakalinio modulio paleidimas** | Paleidžiamas užpakalinio modulio vykdomasis failas. |
-| 4 | **API testas (`/api/test`)** | Užkulisinė programa atsako `status: ok`. |
-| 5 | **Sistemos informacija** | Išspausdina `GPU: <name>, CUDA: <bool>, PyTorch: <version>` iš `/api/system-info`. |
-| 6 | **Triukšmo šalinimo modeliai** | Randa `*.pth.enc` modelius (Linux: `/usr/lib/chloros/models`). |
+| 4 | **API testas (`/api/test`)** | „Backend“ atsako `status: ok`. |
+| 5 | **Sistemos informacija** | Išspausdina „`GPU: <name>, CUDA: <bool>, PyTorch: <version>`“ iš „`/api/system-info`“. |
+| 6 | **Triukšmo šalinimo modeliai** | Randa „`*.pth.enc`“ modelius (Linux sistemoje: `/usr/lib/chloros/models`). |
 | 7 | **CUDA + triukšmo šalinimo įrankis**| „Texture Aware“ iš tiesų veikia — reikalinga CUDA**ir** bent vienas modelio failas. |
 
-Vykdymas baigiasi su „`N/7 checks passed`“, išvardijant visus nesėkmių atvejus pagal pavadinimus.
+Vykdymas baigiasi su `N/7 checks passed`, išvardijant visas nesėkmes pagal pavadinimus.
 
 ### 4. Apdorokite savo pirmąjį duomenų rinkinį
 
@@ -160,67 +156,74 @@ chloros-cli process ~/datasets/flight001
 
 ## Failai ir katalogai
 
-### Vartotojui
+### Vartotojui priskirti
 
-Chloros saugo savo prisijungimo duomenis ir CLI konfigūraciją viename tarpplatforminiame kataloge, **`~/.chloros/`** (Windows, `%USERPROFILE%\.chloros\`). Dvi Linux specifinės talpyklos laikosi XDG konvencijų — jos atsižvelgia į nustatymus `XDG_CONFIG_HOME` / `XDG_CACHE_HOME`, jei tokie yra nustatyti.
+Chloros saugo savo prisijungimo duomenis ir CLI konfigūraciją viename tarpplatforminiame kataloge, **`~/.chloros/`** (Windows sistemoje – `%USERPROFILE%\.chloros\`). Dvi Linux sistemoms būdingos talpyklos laikosi XDG konvencijų — jos naudoja katalogus „`XDG_CONFIG_HOME`“ / „`XDG_CACHE_HOME`“, jei jie yra nustatyti.
 
 | Kelias | Paskirtis |
 | --- | --- |
-| `~/.chloros/user_session.json` | Prisijungimo sesijos talpyklė, kurią įrašo `chloros-cli login` (išvaloma kiekvieną kartą įdiegiant ar atnaujinant paketą) |
+| `~/.chloros/user_session.json` | Prisijungimo sesijos talpyklė, sukurta `chloros-cli login` (išsaugoma atnaujinant paketą; išvaloma pašalinus paketą) |
 | `~/.chloros/working_directory.txt` | Numatytasis projekto aplanko perrašymas (`chloros-cli set-project-folder` / `get-project-folder` / `reset-project-folder`) |
-| `~/.chloros/cli_language.json` | CLI kalbos nustatymas (`chloros-cli language <code>`) |
-| `~/.chloros/user.json` | Kalbos nustatymas, bendras su Windows grafine vartotojo sąsaja — čia `language` turi pirmenybę prieš `cli_language.json` |
-| `~/.chloros/update_cache.json` | Vienos valandos talpyklė, skirta „Linux“/„Jetson“ paleidimo atnaujinimų patikrinimui |
-| `~/.chloros/backend.log` | Užpakalinės sistemos žurnalas, kai užpakalinė sistema buvo paleista per CLI |
+| `~/.chloros/cli_language.json` | Komandinės eilutės (CLI) kalbos nustatymas (`chloros-cli language <code>`) |
+| `~/.chloros/user.json` | Kalbos nustatymas, bendras su Windows grafine vartotojo sąsaja — čia nustatymas „`language`“ turi pirmenybę prieš „`cli_language.json`“ |
+| `~/.chloros/update_cache.json` | Vienos valandos talpyklos duomenys, skirti Linux/„Jetson“ paleidimo atnaujinimų patikrinimui |
+| `~/.chloros/backend.log` | Užkulisio žurnalas, kai užkulisio programa buvo paleista per CLI |
 | `~/.chloros/camera_cal/<serial>/<bundle_sha>/` | Į talpyklą įrašyti kiekvienos kameros „LATTICE“ kalibravimo paketai, susieti pagal serijos numerį ir paketo hash |
-| `~/.chloros/daq_cap_profiles/<u\|m\|e>/<cap_id>.json` | Pasirinktiniai vartotojo pakeitimai DAQ ribų koregavimo profiliams |
+| `~/.chloros/daq_cap_profiles/<u\|m\|e>/<cap_id>.json` | Pasirenkami vartotojo nustatymai, pakeičiantys DAQ „cap“ korekcijos profilius |
 | `~/.config/chloros/system_config.json` | „Dynamic Compute Adaptation“ įrenginio profilio talpyklos duomenys — ištrinkite juos, kad būtų priverstinai atliktas naujas įrenginio aptikimas |
-| `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` | Backend serverio žurnalai, po vieną failą kiekvienam paleidimui |
-| `~/Chloros Projects/` | Numatytasis projekto aplankas, kai nėra nustatytas joks pakeitimas |
+| `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` | Užkulisinio serverio žurnalai, po vieną failą kiekvienam paleidimui |
+| `~/Documents/MAPIR/Chloros Projects/` | Numatytasis projekto aplankas, kai nenustatytas joks perrašymas |
 
-### Visoje sistemoje
+### Visos sistemos
 
 | Kelias | Paskirtis |
 | --- | --- |
-| `/usr/bin/chloros-cli` | Apgaubimo scenarijus — nustato `LD_LIBRARY_PATH` įtrauktoms natūralioms bibliotekoms, tada paleidžia tikrąjį dvejetinį failą |
-| `/usr/bin/chloros-backend` | Apvyniojimo scenarijus — tas pats, plius `CHLOROS_PRODUCTION=1`, kad užkulisio autentiškumo patikrinimo vartai niekada negalėtų tyliai išsijungti |
-| `/usr/lib/chloros/chloros-cli`, `/usr/lib/chloros/chloros-backend` | Kompiliuoti binariniai failai |
-| `/usr/lib/chloros/arena_runtime/` | „Arena“ SDK vykdymo aplinka, reikalinga „LATTICE“ kameroms |
+| `/usr/bin/chloros-cli` | Apgaubimo scenarijus — nustato `LD_LIBRARY_PATH` įtrauktoms natūralioms bibliotekoms (ir `TMPDIR` į `/mnt/ssd/tmp`, jei tas aplankas egzistuoja), tada paleidžia tikrąjį binarinį failą |
+| `/usr/bin/chloros-backend` | Apgaubimo scenarijus — tas pats, skirtas užpakalinės dalies programai, kurią jis pažymi kaip įdiegtą gamybinę versiją |
+| `/usr/lib/chloros/cli/`, `/usr/lib/chloros/backend/` | Sukompiliuota CLI ir užkulisinė dalis, įdiegiamos išpakuotos (nauja 1.3.0 versijoje); programos yra `cli/chloros-cli` ir `backend/chloros-backend` |
+| `/usr/lib/chloros/chloros-cli`, `/usr/lib/chloros/chloros-backend` | Dviejų eilučių paleidimo scenarijai, kurie paleidžia aukščiau nurodytas tikrąsias programas — laikomi šiuose keliuose, nes SDK, CLI ir senesni scenarijai jų čia ieško |
+| `/usr/lib/chloros/arena_runtime/` | „Arena“ SDK-vykdymo aplinka, reikalinga „LATTICE“ kameroms |
 | `/usr/lib/chloros/models/*.pth.enc` | Šifruoti triukšmo šalinimo modeliai, kuriuos naudoja „Texture Aware“ debayeris |
-| `/usr/lib/chloros/sdk/chloros_sdk-*.whl` | Python SDK ratas, atitinkantis būtent šią versiją |
-| `/usr/lib/chloros/exiftool` | Pridėta „exiftool“ programa (simbolinė nuoroda į `/usr/local/bin/exiftool` nustatoma tik tuo atveju, jei sistemoje nėra „exiftool“) |
-| `/etc/chloros/update.conf` | Atnaujinimo kanalo konfigūracija, kurią nuskaito `chloros-cli update` |
-| `/etc/sysctl.d/60-chloros-ptp.conf` | Nustato `net.ipv4.ip_unprivileged_port_start = 319`, kad užkulisinis modulis galėtų priskirti PTP prievadus be root teisių |
-| `/etc/ld.so.conf.d/Arena_SDK.conf` | Dinaminį įkėlėją nukreipia į `/usr/lib/chloros/arena_runtime` |
+| `/usr/lib/python3/dist-packages/chloros_sdk/` (ir `lattice_sdk`, `lattice_cam`, `arena_api` – projekto įkėlėjai) | Python SDK, įdiegtas sistemai `python3` ir priklausantis paketui |
+| `/usr/lib/chloros/sdk/chloros_sdk-*.whl` | Python SDK „wheel“, atitinkantis būtent šią versiją, skirtas „virtualenv“ |
+| `/usr/lib/chloros/exiftool` | Įtrauktas „ExifTool“ paleidimo įrankis (simbolinė nuoroda į `/usr/local/bin/exiftool` nustatoma tik tuo atveju, jei sistemoje nėra „exiftool“). Nuo 1.3.0 versijos „ExifTool“ skriptas pateikiamas su savo „Perl“ biblioteka, esančia `/usr/lib/chloros/exiftool-dist/`, todėl jis veikia be sistemos `libimage-exiftool-perl` paketo |
+| `/etc/chloros/update.conf` | „Update-channel“ konfigūracija, kurią nuskaito `chloros-cli update` |
+| `/etc/sysctl.d/60-chloros-ptp.conf` | Nustato `net.ipv4.ip_unprivileged_port_start = 319`, kad užkulisinė programa galėtų priskirti PTP prievadus be „root“ teisių |
+| `/etc/sysctl.d/60-chloros-gige.conf` | Padidina branduolio lizdų priėmimo buferius (`net.core.rmem_max`, `net.core.rmem_default`) iki 32 MB, skirtus „LATTICE“ kamerų srautams, ir pritaiko juos diegimo metu (jei vertė jau yra nustatyta didesnė, ji paliekama nepakeista). Pagal branduolio numatytuosius nustatymus kameros paketai yra atmesti branduolyje, o masyvas praranda kadrus ir kadrų dažnį; `chloros-cli lattice network` praneša apie buferius, kai jų lygis yra žemas. Žr. [Linux kompiuteriai — lizdų priėmimo buferiai](../reference/cli-reference.md#linux-hosts--socket-receive-buffers) |
+| `/etc/ld.so.conf.d/Arena_SDK.conf` | Nukreipia dinaminį įkėlėją į `/usr/lib/chloros/arena_runtime` |
 | `/lib/udev/rules.d/70-chloros-daq.rules` | Suteikia prisijungusiam vartotojui prieigą prie DAQ-U USB serijinio tilto (CP2102N, `10c4:ea60`) |
-| `/lib/systemd/system/chloros-backend.service` | Įjungia nuolat veikiančią foninę paslaugą (įdiegta, **neįjungta**) |
-| `/usr/share/applications/chloros-cli.desktop` | Programų meniu punktas „Chloros CLI“, kuris atidaro terminalą |
+| `/lib/systemd/system/chloros-backend@.service` | Įjungia nuolat veikiančią užkulisinę paslaugą, kuri paleidžia užkulisinę dalį kaip jūsų nurodytą vartotoją (įdiegta, **neįjungta**) — norėdami ją įjungti, žr. [Always-On PTP](#always-on-ptp-for-headless-hosts) |
+| `/lib/systemd/system/chloros-backend.service` | Ta pati paslauga, vykdanti foninę programą kaip **root**(įdiegta,**neįjungta**), išlaikoma tam, kad kompiuteris, kuriame ji įjungta, toliau veiktų |
+| `/var/log/chloros/` | Išsamus „root“ paslaugos žurnalas, kurį gali skaityti grupė `adm` (ištrinamas, kai paketas pašalinamas) |
+| `/usr/share/applications/chloros-cli.desktop` | „Chloros CLI“ meniu punktas, atveriantis terminalą |
 
-## Fono programos vykdomojo failo vieta
+**Ugniasienė (nauja nuo 1.3.0 versijos).** Jei diegimo metu veikia `ufw` arba `firewalld`, paketas atidaro UDP prievadus `5002` (DAQ-E duomenys), `5353` (mDNS atradimas), `319` ir `320` (PTP), o pašalinus paketą šios taisyklės yra pašalinamos. Jei ugniasienė yra įdiegta, bet neveikia, ji nieko neprideda ir parodo prievadus, kuriuos reikės leisti, jei vėliau ją įjungsite. Ji neatidaro jokių TCP prievadų: DAQ-E programinės įrangos atnaujinimas, kurio metu jutiklis per TCP prisijungia prie šio kompiuterio, kad surinktų vaizdą, baigiasi nesėkme su kodu `… device never connected back on TCP <port> …`, jei aktyvi ugniasienė blokuoja tą ryšį.
 
-CLI ir SDK automatiškai aptinka foninę programą:
+## Vidinės programos vykdomojo failo vieta
+
+CLI ir SDK automatiškai aptinka vidinę programą:
 
 | Komponentas | Kelias |
 | --- | --- |
 | CLI | `/usr/bin/chloros-cli` |
-| Užkulisiai | `/usr/lib/chloros/chloros-backend` |
+| Backend | `/usr/lib/chloros/chloros-backend` (paleidimo programa, skirta `/usr/lib/chloros/backend/chloros-backend`) |
 
-Pakeiskite užpakalinės sistemos kelią naudodami vėliavėlę „`--backend-exe` CLI“ arba konstruktoriaus parametrą „`backend_exe` SDK“, o prievadą – naudojant `--port` (numatyta reikšmė – `5000`).
+Pakeiskite backend kelio nustatymą naudodami „`--backend-exe`“ CLI žymę arba „`backend_exe`“ SDK konstruktoriaus parametrą, o prievadą – naudojant `--port` (numatyta reikšmė – `5000`).
 
 {% hint style="info" %}
-`CHLOROS_BACKEND_URL` nukreipia į **`lattice`**,**`project`**ir**`daq pool-*`** komandų šeimas nuotolinėje galinėje dalyje. Pagrindinės komandos (`process`, `login`, `logout`, `status`, `export-status`, `time-sync`, `selftest`) sąmoningai jį ignoruoja ir visada nukreipia į `http://127.0.0.1:<port>`.
+`CHLOROS_BACKEND_URL` nukreipia **`lattice`**,**`project`**ir**`daq pool-*`** komandų šeimas nuotolinėje serveryje. Pagrindinės komandos (`process`, `login`, `logout`, `status`, `export-status`, `time-sync`, `selftest`) sąmoningai jį ignoruoja ir visada nukreipia į `http://127.0.0.1:<port>`.
 {% endhint %}
 
 ***
 
-## „LATTICE“ kameros ir DAQ šviesos jutikliai ant „Linux“
+## „LATTICE“ kameros ir DAQ šviesos jutikliai Linux sistemoje
 
-Visos „live-hardware“ komandų šeimos veikia „Linux“ (amd64 ir „Jetson“):
+Visos „live-hardware“ komandų grupės veikia Linux sistemoje (amd64 ir „Jetson“):
 
-* **`chloros-cli lattice`** — aptinka, prijungia, konfigūruoja ir fiksuoja vaizdą iš „LATTICE“ kamerų ir sinchronizuotų matricos. `.deb` įtraukia jiems reikalingą „Arena SDK“ vykdymo aplinką ir ją užregistruoja dinaminėje įkėlimo sistemoje.
-* **`chloros-cli daq pool-*`** — prijungti DAQ-U/M/E šviesos jutiklius per užkulisinį rezervą, transliuoti kalibruotus spektrus ir įrašyti `.daq` failus. Kompiliuotas „CLI“ pateikia tik „`pool-*`“ šeimos elementus: „`pool-connect`“, „`pool-disconnect`“, `pool-list`, `pool-latest`, `pool-stream`, `pool-record`, `pool-set-cap`.
-* **`chloros-cli project`** — paleiskite išsaugotą projektą (jo kameras, jutiklius ir apdorojimo nustatymus) be vartotojo sąsajos.
-* **`chloros-cli time-sync`** — patikrinti PTP „grandmaster“, kurį „Chloros“ užkulisinė programa naudoja „LATTICE“ kameroms ir „DAQ-E“ jutikliams.
+* **`chloros-cli lattice`** — aptinka, prijungia, konfigūruoja ir fiksuoja vaizdą iš „LATTICE“ kamerų bei sinchronizuotų masyvų. „`.deb`“ apima jiems reikalingą „Arena“ SDK-vykdymo aplinką ir ją registruoja dinaminėje įkrovimo sistemoje.
+* **`chloros-cli daq pool-*`** — prijungti DAQ-U/M/E šviesos jutiklius per užkulisinį pulą, transliuoti kalibruotus spektrus, įrašyti `.daq` failus ir keisti „cap“ profilius, o DAQ-E atveju – keisti jo tinklo nustatymus, iš naujo paleisti jį ir atnaujinti jo programinę įrangą. `chloros-cli daq discover` nuskaito jutiklius, kuriuos galite prijungti, o `chloros-cli daq --help` pateikia `pool-*` pakomandų sąrašą.
+* **`chloros-cli project`** — valdyti išsaugotą projektą (jo kameras, jutiklius ir apdorojimo nustatymus) be grafinės sąsajos.
+* **`chloros-cli time-sync`** — patikrinti PTP „grandmaster“, kurį Chloros užkulisinė programa naudoja „LATTICE“ kameroms ir „DAQ-E“ jutikliams.
 
 ```bash
 # DAQ-E at a known address — the reliable path on multi-homed hosts
@@ -234,10 +237,10 @@ chloros-cli daq pool-list
 chloros-cli daq pool-latest --sensor-id daq-e-a1b2c3 --json
 ```
 
-`--sensor-id` yra privalomas `pool-latest`, `pool-stream`, `pool-record` ir `pool-set-cap`; `pool-list` rodo ID, kurie šiuo metu yra rezervoje.
+`--sensor-id` yra privaloma komandai `pool-latest`, `pool-stream`, `pool-record` ir `pool-set-cap`; `pool-list` rodo šiuo metu rezervuotoje grupėje esančius ID.
 
 {% hint style="info" %}
-**Pirmojo DAQ-E prisijungimo prie kompiuterio su keliais tinklo adresais atveju rekomenduojama naudoti `--eth-host`.** Automatinis aptikimas naršo mDNS ir gali nepranešti apie jutiklio sąsają dėl tuščios ARP talpyklos, todėl pirmasis `pool-connect --eth` po paleidimo gali nepavykti net ir tada, kai jutiklis veikia nepriekaištingai. Nurodžius jutiklio IP adresą arba kompiuterio vardą, aptikimas visiškai praleidžiamas.
+**`--eth-host` praleidžia paiešką.** `pool-connect --eth` suranda „DAQ-E“ per mDNS, naudodamas ARP atsarginį variantą, kuris veikia iš tuščios ARP talpyklos; perduodant jutiklio IP adresą arba kompiuterio vardą su `--eth-host`, prisijungiama prie jo tiesiogiai.
 {% endhint %}
 
 **DAQ-U serijinės teisės** tvarkomos pagal įdiegtą „udev“ taisyklę (`uaccess` + grupė `dialout`). Jei jau prijungtas jutiklis lieka nepasiekiamas, perkraukite taisykles arba prijunkite jį iš naujo:
@@ -247,30 +250,39 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger --subsystem-match=tty
 ```
 
-Visą komandų rinkinį rasite [CLI nuorodoje](../CLI.md).
+Visą komandų rinkinį rasite [CLI žinyne](../CLI.md).
 
 ### Nuolat veikiantis PTP be monitoriaus kompiuteriams
 
-Pirmą kartą įdiegus, sukuriama „systemd“ vienetas `chloros-backend.service`, tačiau jis **nėra įjungtas**. Jei naudojate kompiuterį be monitoriaus „Jetson“ arba serverį, kuriame PTP laiko sinchronizavimas turi veikti nuolat, kad veiktų DAQ-E jutikliai ir „LATTICE“ kameros, įjunkite jį:
+Paketas įdiegia dvi „systemd“ paslaugas užkulisiniam procesui, tačiau nė viena iš jų nėra įjungta. „Jetson“ įrenginyje be monitoriaus arba serveryje, kuriame PTP laiko sinchronizavimas turi veikti nepertraukiamai „DAQ-E“ jutikliams ir „LATTICE“ kameroms, arba kur SDK skriptai jungia išsaugotus projektus (`connect_all()` niekada nepaleidžia užpakalinės dalies), įjunkite paslaugą **savo vartotojo vardu**:
 
 ```bash
-sudo systemctl enable --now chloros-backend.service
-sudo systemctl status chloros-backend.service
+sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
+systemctl status chloros-backend@$USER.service
 ```
 
-Be jo PTP veikia tik tada, kai veikia „Chloros“ užkulisinė programa — tai yra, aktyvios „CLI“ / „SDK“ sesijos metu.
+`chloros-backend@<user>.service` paleidžia backendą kaip tą vartotoją: jo įrašyti duomenys priklauso tam vartotojui, išsamus jo žurnalas yra to vartotojo `~/.cache/chloros/logs`, o jis naudoja to vartotojo `chloros-cli login` (`~/.chloros`), todėl pirmiausia vieną kartą prisijunkite kaip tas vartotojas. Įdiegus paketą, bus išspausdinta ši komanda su įrašytu jūsų vartotojo vardu.
 
-Įrenginys susieja foną su `127.0.0.1:5000` (`CHLOROS_HOST` / `CHLOROS_PORT` aplinkos nustatymai įrenginyje; perrašykite į `sudo systemctl edit chloros-backend.service`) ir, jei įvyksta gedimas, po 5 sekundžių jį paleidžia iš naujo.
+Be paslaugos foninis procesas (ir kartu su juo PTP grandmasteris) veikia tik tol, kol jį paleidžia kažkas — komanda „`chloros-cli`“ arba SDK-skriptas.
 
-**Kaip PTP gauna savo prievadus.** PTP naudoja UDP 319/320, abu žemiau įprastos 1024 privilegijuotų prievadų ribos. Paketo `postinst` įrašo `/etc/sysctl.d/60-chloros-ptp.conf` su `net.ipv4.ip_unprivileged_port_start = 319`, o tai leidžia užpakalinės dalies programai juos susieti, kai ji veikia jūsų vartotojo vardu. Be to, kaip papildoma apsaugos priemonė, `setcap cap_net_bind_service,cap_net_raw=+ep` pritaikomas ir užkulisinio modulio binariniam failui – būtent todėl `libcap2-bin` yra deklaruota paketo priklausomybė.***
+Įrenginys susieja foninį procesą su aplinkos nustatymais „`127.0.0.1:5000` (`CHLOROS_HOST` / `CHLOROS_PORT` aplinkos nustatymai modulyje; perrašykite naudojant `sudo systemctl edit chloros-backend@.service`) ir, įvykus gedimui, paleidžia jį iš naujo po 5 sekundžių.
+
+**„Root“ paslauga.**`chloros-backend.service` paleidžia užkurtį kaip**„root“**. Ji vis dar įdiegta, kad kompiuteris, kuriame ji įjungta, toliau veiktų, tačiau viskas, ką įrašo „root“ užkulisiai, priklauso „root“, todėl vartotojas negali ištrinti savo pačių įrašų; jos žurnalas yra `/var/log/chloros`, kurį gali skaityti `adm` grupė. Norėdami perjungti į savo vartotoją:
+
+```bash
+sudo systemctl disable --now chloros-backend.service
+sudo systemctl enable --now chloros-backend@$USER.service
+```
+
+**Paslaugos foninis procesas yra bendrai naudojamas, jo niekada nestabdo klientas.** „`chloros-cli`“ ir SDK skriptai jį naudoja taip, kaip randa: „`process`“ veikia jame, įkeldamas savo projektą vietoj paskutiniojo. Ten, kur CLI, kitais atvejais, paleistų foninę sistemą iš naujo (`--restart` arba `process`, kurio importas nieko nerado), jis nurodo modulio pavadinimą, išveda „`sudo systemctl restart <unit>`“ ir uždaro „`1`“, nes tokiu būdu sustabdytas foninis procesas liktų išjungtas. Paleiskite jį iš naujo patys naudodami „`sudo systemctl restart chloros-backend@$USER.service`“. Paslaugos užkulisiai niekada savaime nesustoja, kai neveikia, o „`chloros-cli backend stop`“ tai atmeta, nurodydama komandą „`systemctl stop`“.**Kaip PTP gauna savo prievadus.** PTP naudoja UDP 319/320, abu žemiau įprastos 1024 privilegijuotų prievadų ribos. Paketo komanda „`postinst`“ įrašo „`/etc/sysctl.d/60-chloros-ptp.conf`“ su „`net.ipv4.ip_unprivileged_port_start = 319`“, o tai leidžia foniniam procesui juos susieti, kai jis veikia jūsų vartotojo vardu. Nuo 1.3.0 versijos paketas nenustato jokių failų teisių (`setcap`) užpakalinėje dalyje, o `libcap2-bin` nebėra priklausomybė: išpakuotoje užpakalinėje dalyje failų teisės sutrukdytų jai paleisti, todėl patys jų nepridėkite.***
 
 ## „Bash“ skriptų pavyzdžiai
 
 {% hint style="info" %}
-**Skriptams pritaikyti išėjimo kodai.**`chloros-cli process` baigia veiklą su kodu `0` sėkmės atveju ir**su nelyginiu nuliui kodu nesėkmės atveju — įskaitant vykdymą, kurio metu buvo prašoma vaizdų produktų, bet nė vienas nebuvo įrašytas** (jis išveda `Processing finished but wrote no image products.` ir nurodo projekto aplanką bei įprastas priežastis). Sėkmingai įvykdyti vykdymai praneša, kiek vaizdų produktų buvo įrašyta (`Image products written: N`). Išeitimo kodai: `0` – sėkmė, `1` – nesėkmė, `2` – argumento klaida, `130` – nutraukta.
+**Skriptams pritaikyti išėjimo kodai.**`chloros-cli process` sėkmingai užbaigia `0`, o**nesėkmės atveju grąžina nelygų nuliui kodą — įskaitant vykdymą, kurio metu buvo užklausti vaizdo produktai, bet nė vienas nebuvo įrašytas** (jis išveda `Processing finished but wrote no image products.` ir nurodo projekto aplanką bei įprastas priežastis). Sėkmingi vykdymai praneša, kiek vaizdų produktų buvo įrašyta (`Image products written: N`, plius `(plus M clamp masks)`, kai buvo įrašytos kaukės). Išeitimo kodai: `0` – sėkmė, `1` – nesėkmė, `2` – argumento klaida, `130` – nutrauktas.
 {% endhint %}
 
-### Daugelio duomenų rinkinių apdorojimas
+### Kelių duomenų rinkinių apdorojimas
 
 ```bash
 #!/bin/bash
@@ -291,21 +303,22 @@ done
 chloros-cli process ~/datasets/field_a \
     --output ~/output/field_a \
     --format "TIFF (32-bit, Percent)" \
-    --indices NDVI NDRE GNDVI \
+    --indices NDVI GNDVI OSAVI \
     --debayer texture-aware \
     --no-vignette
 ```
 
-Galiojančių `--format` reikšmių yra lygiai keturios, ir jos turi tarpų — visada jas įrašykite kabutėse:
+Galiojančių `--format` verčių yra lygiai keturios, ir jos turi tarpų — visada įrašykite jas kabutėse:
 
-| `--format` reikšmė | Išvesties aplankas |
+| `--format` vertė | Išvesties aplankas |
 | --- | --- |
 | `TIFF (16-bit)` *(numatyta)* | `tiff16` |
+| `TIFF (8-bit)` | `tiff8` |
 | `TIFF (32-bit, Percent)` | `tiff32` |
 | `PNG (8-bit)` | `png8` |
 | `JPG (8-bit)` | `jpg8` |
 
-`--debayer` priima `standard` (numatyta reikšmė) arba `texture-aware` (Chloros+).
+`--debayer` priima `standard` (numatyta reikšmė) arba `texture-aware` („Chloros+“).
 
 ### Automatinis apdorojimas naudojant „Cron“
 
@@ -322,7 +335,7 @@ from chloros_sdk import process_folder
 # One-line processing
 result = process_folder(
     "/home/user/datasets/flight001",
-    indices=["NDVI", "NDRE"],
+    indices=["NDVI", "OSAVI"],
     export_format="TIFF (32-bit, Percent)"
 )
 ```
@@ -331,7 +344,7 @@ result = process_folder(
 
 ## Problemų sprendimas
 
-### CLI nerastas po įdiegimo
+### Po įdiegimo nerandama CLI
 
 ```bash
 # Check if the binary exists
@@ -345,25 +358,24 @@ dpkg -L chloros
 source ~/.bashrc
 ```
 
-### Prieiga uždrausta
+### Atsisakyta suteikti leidimą
 
 ```bash
 sudo chmod +x /usr/bin/chloros-cli
-sudo chmod +x /usr/lib/chloros/chloros-backend
+sudo chmod +x /usr/lib/chloros/chloros-backend /usr/lib/chloros/backend/chloros-backend
 ```
 
-### „setcap failed“ įdiegimo metu
+### Backend nepaleidžiamas po failų teisių pridėjimo
 
-`.deb` taiko `cap_net_bind_service` prie `/usr/lib/chloros/chloros-backend`, kad galėtų priskirti PTP prievadus 319/320 be root teisių. Jei diegimo metu trūko `libcap2-bin`, šis veiksmas praleidžiamas. Įdiekite jį ir iš naujo įdiekite paketą:
+Negalima paleisti `setcap` backend&#x27;e. Nuo 1.3.0 versijos paketas nenustato jokių failų galimybių, o PTP prievadai 319/320 nustatomi pagal `sysctl` parametrą, aprašytą skyriuje [Kaip PTP gauna savo prievadus](#always-on-ptp-for-headless-hosts). Failo galimybė perkelia išpakuotą užkurtį į saugaus vykdymo režimą, kuriame jis negali rasti savo bibliotekų, todėl nepaleidžiamas. Jei pridėjote tokią galimybę, pašalinkite ją:
 
 ```bash
-sudo apt install libcap2-bin
-sudo apt reinstall chloros
+sudo setcap -r /usr/lib/chloros/backend/chloros-backend
 ```
 
-### PTP nepaleidžiama / negali susieti 319 prievado
+### PTP nepaleidžiamas / negali prisijungti prie 319 prievado
 
-Patikrinkite, ar neprižiūrimų prievadų riba buvo sumažinta, ir, jei ne, pritaikykite ją dabartiniam paleidimui:
+Patikrinkite, ar buvo sumažintas neprivilegijuotų prievadų ribinis skaičius, ir, jei ne, vėl jį pritaikykite dabartiniam paleidimui:
 
 ```bash
 sysctl net.ipv4.ip_unprivileged_port_start     # expect 319
@@ -377,17 +389,16 @@ chloros-cli time-sync status
 chloros-cli time-sync peers
 ```
 
-### „Nerasti „LATTICE“ kamerų tvarkyklių“
+### `lattice` komandos baigiasi nesėkme su pranešimu „LATTICE kameros tvarkyklės nerastos“
 
-„Arena“ SDK vykdymo aplinka nėra nustatoma. Patikrinkite, ar yra ir ar atnaujinta paketo įrašoma įkėlimo konfigūracija:
+Backend negalėjo įkelti „LATTICE“ kameros vykdymo aplinkos, su kuria ji buvo įdiegta. Visos „`lattice`“ komandos vykdomos backend’e; pati CLI neturi jokių kameros tvarkyklių. Iš naujo įdiekite Chloros (`sudo apt install --reinstall ./chloros_1.3.0_<arch>.deb`): `.deb` įdiegia vykdymo aplinką šalia užkulisio, į `/usr/lib/chloros/arena_runtime`, ir užregistruoja ją dinaminio įkėlimo programoje. Norėdami patikrinti tą registraciją:
 
 ```bash
 cat /etc/ld.so.conf.d/Arena_SDK.conf     # expect /usr/lib/chloros/arena_runtime
-sudo ldconfig
 ls /usr/lib/chloros/arena_runtime | head
 ```
 
-### Nepavyko paleisti užkulisio
+### Nepavyko paleisti užpakalinės dalies
 
 ```bash
 # Check if port 5000 is already in use
@@ -400,22 +411,23 @@ kill $(lsof -t -i :5000)
 chloros-cli --port 5001 process ~/datasets/flight001
 ```
 
-Užkulisio žurnalai, susiję su nepavykusiu paleidimu, yra `~/.cache/chloros/logs/`.
+Failo „`~/.cache/chloros/logs/`“ yra užpakalinės dalies žurnalai, susiję su nepavykusiu paleidimu. Jei 5000 uostas priklauso užpakalinės dalies paslaugai (`systemctl status chloros-backend@$USER.service`), paleiskite paslaugą iš naujo, o ne nutraukite jos procesą.
 
 ### CUDA neaptikta
 
 ```bash
-# Check NVIDIA driver installation
+# Check NVIDIA driver installation (x86_64)
 nvidia-smi
 
 # Check CUDA availability
 nvcc --version
 
-# On Jetson, check JetPack version
+# On Jetson, check the L4T release (JetPack 6 is R36) and that JetPack's CUDA libraries are installed
 cat /etc/nv_tegra_release
+sudo apt install nvidia-jetpack
 ```
 
-`chloros-cli selftest` vienoje eilutėje praneša tą patį: `GPU: <name>, CUDA: <bool>, PyTorch: <version>`.
+`chloros-cli selftest` tą patį praneša vienoje eilutėje: `GPU: <name>, CUDA: <bool>, PyTorch: <version>`.
 
 ### Trūksta bendrųjų bibliotekų
 
@@ -423,13 +435,13 @@ cat /etc/nv_tegra_release
 sudo apt-get update
 sudo apt-get install -f
 
-# Check for missing libraries
-ldd /usr/lib/chloros/chloros-backend | grep "not found"
+# Check for missing libraries (the program itself, not the launcher script)
+ldd /usr/lib/chloros/backend/chloros-backend | grep "not found"
 ```
 
-### Lėtas paleidimas sistemose su SD kortele
+### Lėtas paleidimas sistemose su SD kortelėmis
 
-Kiekvieną kartą paleidžiant programą, kompiliuoti binariniai failai išsipakuojami į laikiną katalogą. Jei egzistuoja `/mnt/ssd/tmp`, Chloros jį naudoja automatiškai; priešingu atveju nustatykite `TMPDIR` į greitą failų sistemą:
+Nuo 1.3.0 versijos užkulisinė paslauga ir CLI yra įdiegiamos neišpakuotos, todėl jos nebėra išpakuojamos į laikiną katalogą kiekvieno paleidimo metu. Laikinieji failai automatiškai perkeliami į `/mnt/ssd/tmp`, jei tas katalogas egzistuoja; priešingu atveju galite nurodyti, kad jie būtų saugomi greitoje failų sistemoje:
 
 ```bash
 export TMPDIR=/mnt/nvme/tmp
@@ -437,9 +449,9 @@ export TMPDIR=/mnt/nvme/tmp
 
 ***
 
-## Chloros atnaujinimas Linux sistemoje
+## Chloros atnaujinimas Linux
 
-Komanda `update` veikia tik Linux/skirta tik „Jetson“. Ji patikrina versiją, paskelbtą atnaujinimų kanale, sukonfigūruotame `/etc/chloros/update.conf`, ir siūlo atsisiųsti bei įdiegti atitinkamą `.deb`:
+Komanda „`update`“ skirta tik Linux/Jetson. Ji patikrina versiją, paskelbtą atnaujinimų kanale, sukonfigūruotame „`/etc/chloros/update.conf`“, ir siūlo atsisiųsti bei įdiegti atitinkamą „`.deb`“:
 
 ```bash
 # Check for updates without installing
@@ -449,7 +461,9 @@ chloros-cli update --check
 chloros-cli update
 ```
 
-Linux/„Jetson“ sistemoje komanda CLI taip pat kiekvieno paleidimo metu atlieka neblokuojantį atnaujinimų patikrinimą (rezultatas saugomas `~/.chloros/update_cache.json` talpykloje vieną valandą) ir, jei yra naujesnė versija, išveda pranešimą `Update available: vX.Y.Z`. Jūsų nustatymai ir projektai išlieka po atnaujinimo; po to reikės vėl prisijungti.
+Linux/„Jetson“ sistemoje CLI taip pat kiekvieną kartą paleidžiant atlieka neblokuojantį atnaujinimų patikrinimą (rezultatas saugomas vieną valandą `~/.chloros/update_cache.json`) ir, jei yra naujesnė versija, išveda pranešimą `Update available: vX.Y.Z`. Jūsų nustatymai, projektai ir prisijungimo duomenys išlieka po atnaujinimo.
+
+Atnaujinant paketą, visos foninės paslaugos sustabdomos diegimo metu, todėl veikiantis skriptas praranda prieigą prie kamerų ir jutiklių, o po to vėl paleidžia kiekvieną iš jų, kuri yra įjungta (ta, kuri buvo paleista rankiniu būdu, bet niekada nebuvo įjungta, lieka sustabdyta, kaip ir po perkrovimo).
 
 ## Pašalinimas
 
@@ -457,14 +471,14 @@ Linux/„Jetson“ sistemoje komanda CLI taip pat kiekvieno paleidimo metu atlie
 sudo apt remove chloros
 ```
 
-Pašalinus programą sustabdoma `chloros-backend.service`, atkuriamas numatytasis neprivilegijuotų prievadų ribinis skaičius (1024), pašalinama „bundled-exiftool“ simbolinė nuoroda ir „Arena“ įkėlėjo konfigūracija, taip pat išvalomi talpykloje saugomi prisijungimo duomenys. Jūsų projektai ir „`~/.chloros/`“ duomenų failai lieka nepakitę.
+Pašalinimas sustabdo ir išjungia visas fonines paslaugas, atkuria numatytąjį neprivilegijuotų prievadų ribą (1024), pašalina priėmimo buferio nustatymų failą (veikiančios reikšmės išlieka iki perkrovimo), „bundled-exiftool“ simbolinę nuorodą, „Arena“ įkėlėjo konfigūraciją, paketo pridėtas ugniasienės taisykles ir jo įdiegtą Python SDK, taip pat išvalo talpyklos prisijungimo duomenis. Jūsų projektai ir `~/.chloros/` duomenų failai lieka nepaliesti. `sudo apt purge chloros` taip pat ištrina `/var/log/chloros`.
 
 ***
 
 ## Tolimesni veiksmai
 
 * [„NVIDIA Jetson“ vadovas](nvidia-jetson-guide.md) — „Jetson“ specifinė optimizacija ir diegimas
-* [CLI : Komandinė eilutė](../CLI.md) — „CLI“ vadovas
-* [API : Python SDK](../api-python-sdk.md) — vadovas „SDK“
-* [CLI nuoroda](../reference/cli-reference.md) ir [SDK nuoroda](../reference/sdk-reference.md) — išsamūs komandų /API sąrašai versijai 1.2.0
+* [CLI: Komandinė eilutė](../CLI.md) — CLI vadovas
+* [API: Python SDK](../api-python-sdk.md) — SDK vadovas
+* [CLI nuoroda](../reference/cli-reference.md) ir [SDK nuoroda](../reference/sdk-reference.md) — išsamūs komandų ir API sąrašai versijai 1.3.0
 * [Dinaminis skaičiavimo pritaikymas](../processing-architecture/dynamic-compute-adaptation.md) — kaip Chloros prisitaiko prie jūsų aparatinės įrangos

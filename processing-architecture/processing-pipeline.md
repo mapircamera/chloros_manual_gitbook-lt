@@ -1,6 +1,6 @@
-# Apdorojimo grandinė „
+# Apdorojimo grandinė
 
-Chloros“ 1.2.0 naudoja 4 siūlų apdorojimo grandinę, veikiančią kaip etapais suskirstyta surinkimo linija. Kiekvienas siūlas tvarko atskirą darbo eigos etapą, todėl vienu metu keli vaizdai gali būti apdorojami skirtinguose etapuose.
+Chloros 1.3.0 naudoja 4 sriegių apdorojimo grandinę, kuri veikia kaip etapais suskirstyta surinkimo linija. Kiekvienas sriegis tvarko atskirą darbo eigos etapą, todėl vienu metu keli vaizdai gali būti apdorojami skirtinguose etapuose.
 
 <figure><img src="../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 
@@ -13,9 +13,9 @@ Chloros“ 1.2.0 naudoja 4 siūlų apdorojimo grandinę, veikiančią kaip etapa
 Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: Processing] → [Thread 4: Export] → Files Out
 ```
 
-Kiekvienas vaizdas nuosekliai pereina per visus keturis sriegius. Naudojant „Chloros+“ daugiasriegių apdorojimą, keli vaizdai vienu metu užima skirtingus sriegius – kol 3-iasis sriegis apdoroja vieną vaizdą, 1-asis sriegis gali aptikti kitą, 2-asis sriegis kalibruoti dar vieną, o 4-asis sriegis įrašyti užbaigtą vaizdą į diską.
+Kiekvienas vaizdas paeiliui praeina per visus keturis sriegius. Naudojant „Chloros+“ daugiasiūlį apdorojimą, keli vaizdai vienu metu užima skirtingus sriegius — kol 3-iasis sriegis apdoroja vieną vaizdą, 1-asis sriegis gali aptikti kitą, 2-asis sriegis kalibruoti dar vieną, o 4-asis sriegis įrašyti baigtą vaizdą į diską.
 
-Pažanga pranešama pagal kiekvieną srautą ir perduodama per „Server-Sent Events“ (užkulisinė sistema juos skelbia `/api/events`). „CLI“ tiesioginiame pažangos ekrane keturi etapai pažymėti kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.***
+Apdorojimo pažanga pateikiama pagal kiekvieną srautą ir perduodama per „Server-Sent Events“ (užkulisinė sistema juos skelbia `/api/events`). Komandinės eilutės sąsajos (CLI) tiesioginiame pažangos rodinyje keturi etapai pažymėti kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.***
 
 ## Sriegių detalės
 
@@ -23,10 +23,10 @@ Pažanga pranešama pagal kiekvieną srautą ir perduodama per „Server-Sent Ev
 
 **Tikslas**: Įkelti vaizdus ir aptikti kalibravimo taškus.
 
-* Skaito vaizdo failus iš disko — „Survey3“ `.raw`+`.jpg` poras, „LATTICE“ `.tif`/`.tiff` kadrus ir `.dng`
+* Skaito vaizdų failus iš disko — Survey3 `.raw`+`.jpg` poras, „LATTICE“ `.tif`/`.tiff` kadrus ir `.dng`
 * Išskiria EXIF metaduomenis (GPS, fotoaparato modelį, laiko žymes, ekspoziciją)
-* Aptinka kalibravimo taškus: „ArUco“ žymėtus taškų geometrijos modelius „LATTICE“ užfiksuotuose vaizduose ir klasikinį plokštelinį detektorių „Survey3“ kalibravimo taškų nuotraukose
-* Rezultatai: vaizdo duomenys + metaduomenys + taškų aptikimo rezultatai
+* Aptinka kalibravimo taikinius: „ArUco“ žymėtus taikinių geometrijos elementus „LATTICE“ užfiksuotuose vaizduose ir klasikinį plokštelinį detektorių Survey3 kalibravimo taikinių nuotraukose
+* Rezultatai: vaizdo duomenys + metaduomenys + taikinių aptikimo rezultatai
 
 Pagrindinai įvesties/išvesties ir procesoriaus našumą ribojantis procesas.
 
@@ -34,22 +34,22 @@ Pagrindinai įvesties/išvesties ir procesoriaus našumą ribojantis procesas.
 
 **Tikslas**: Apskaičiuoti kalibravimo parametrus pagal aptiktus taikinius.
 
-* Apskaičiuoja atspindžio kalibravimo koeficientus iš taikinių vaizdų
+* Apskaičiuoja atspindžio kalibravimo koeficientus pagal taikinių vaizdus
 * Apskaičiuoja vinjetės korekcijos parametrus
 * Nustato kalibravimo kreives kiekvienam juostos diapazonui
 * Rezultatai: kalibravimo parametrai kiekvienam vaizdui
 
-Tai yra su procesoriaus našumu susijęs skaičiavimo srautas. 3-iasis srautas jo laukia, kai įjungtas atspindžio kalibravimas, todėl jo koeficientai yra parengti prieš pradedant apdoroti bet kurį vaizdą.
+Tai procesoriaus našumui priklausomas skaičiavimo srautas. Vykdant Survey3 arba mišrų ciklą, 3-iasis srautas laukia šio srauto, kai įjungtas atspindžio kalibravimas, todėl jo koeficientai būna paruošti prieš pradedant apdoroti bet kurį vaizdą. Vykdant tik „LATTICE“ ciklą, 3-iasis srautas veikia aptikimo metu: kiekvienas kadras pradedamas, kai jo taikinio atskaitos taškas yra galutinai nustatytas. Kadrą sudaro artimiausias laiko atžvilgiu taikinys iš abiejų pusių, todėl jis laukia, kol bus nuskaityti visi kameros kadrai, kurie laiko atžvilgiu yra arčiau nei dabartinis artimiausias taikinys. Rezultatai yra tie patys, tik gaunami anksčiau.
 
-### Srautas 3: Apdorojimas (GPU)
+### 3-iasis srautas: Apdorojimas (GPU)
 
-**Tikslas**: Taikyti korekcijas ir apskaičiuoti augmenijos indeksus.**Tai yra skaičiavimais labiausiai apkrautas srautas.*** **Debayering**: konvertuoja RAW Bayer duomenis į daugiakanalius vaizdus
+**Tikslas**: Taikyti korekcijas ir apskaičiuoti augmenijos indeksus.**Tai yra skaičiavimais labiausiai apkrautas sriegis.*** **Debayering**: konvertuoja RAW Bayer duomenis į daugiakanalius vaizdus
   * Standartinis (greitas, vidutinė kokybė) — numatytasis, `--debayer standard`
   * Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė) — tik „Chloros+“, `--debayer texture-aware`, naudoja AI/ML triukšmo šalinimo modelį
-  * „LATTICE mono“ (M3M) vaizdai yra vienos juostos: jiems praleidžiami demosaiko ir baltos spalvos balanso etapai (su vienos eilutės žurnalo pranešimu), o visi toje pačioje serijoje esantys M3C/Bayer vaizdai vis tiek juos gauna
-* **Vignette korekcija**: visame vaizde taiko objektyvo vignette korekciją
-* **Atspindžio kalibravimas**: taiko kalibravimo koeficientus, kad konvertuotų į atspindžio vertes
-* **Indeksų skaičiavimas**: apskaičiuoja augmenijos indeksus (NDVI, NDRE, GNDVI, …)
+  * „LATTICE mono“ (M3M) vaizdai yra vienos juostos: jiems praleidžiami demosaiko ir baltos spalvos balanso etapai (su vienos eilutės žurnalo pranešimu), o bet kokie to paties ciklo M3C/Bayer vaizdai vis tiek juos gauna
+* **Vignette correction**: taiko objektyvo vignette korekciją visame vaizde
+* **Reflectance calibration**: taiko kalibravimo koeficientus, kad konvertuotų į atspindžio vertes
+* **Index calculation**: apskaičiuoja augmenijos indeksus (NDVI, NDRE, GNDVI, …)
 * Rezultatai: apdoroti vaizdo duomenys, paruošti eksportui
 
 Šis procesas labiausiai pasinaudoja GPU pagreitinimu, ir būtent šį procesą optimizuoja [dinaminis skaičiavimo pritaikymas](dynamic-compute-adaptation.md).
@@ -58,26 +58,26 @@ Tai yra su procesoriaus našumu susijęs skaičiavimo srautas. 3-iasis srautas j
 
 **Tikslas**: Įrašyti apdorotus vaizdus į diską.
 
-* Įrašo išvesties failus pasirinktu formatu — `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`
-* Įterpia metaduomenis į išvesties failus (GPS, laiko žymes, apdorojimo parametrus)
-* Išvesties failus suskirsto projekto aplanke kaip „`<camera>/<format>/<Product>_Images/`“ — pavyzdžiui, „`LATT-M3M-L41-F550/tiff16/Reflectance_Calibrated_Images/`“. **Eksportuoti failai išlaiko šaltinio failo pavadinimą; produktą identifikuoja aplankas.**
-* LATTICE vaizdų atveju vienas šaltinio kadras gali būti suskaidytas į kelis produktus (Debayered, Preview, Radiance, Reflectance, Index), kurių kiekvienas saugomas atskirame produkto aplanke
-* Rezultatai: galutiniai failai diske
+* Įrašo išvesties failus pasirinktu formatu — `TIFF (16-bit)`, `TIFF (8-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`
+* Įterpia metaduomenis į išvesties failus (GPS, laiko žymes, apdorojimo parametrus) — įskaitant `Chloros:*` apdorojimo žymes, kurios nuo 1.3.0 versijos įrašomos kiekviename apdorojimo režime, tiek Survey3, tiek „LATTICE“
+* Išvesties failus tvarko projekto aplanke kaip „`<camera>/<format>/<Product>_Images/`“ — pavyzdžiui, „`LATT-M3M-L41-F550/tiff16/Reflectance_Calibrated_Images/`“. **Eksportuoti failai išlaiko šaltinio failo pavadinimą; aplankas identifikuoja produktą.**
+* „LATTICE“ įrašų atveju vienas šaltinio kadras gali būti suskaidytas į kelis produktus („Debayered“, „Preview“, „Radiance“, „Reflectance“, „Index“), kurių kiekvienas saugomas atskiroje produkto aplankėje. „Index“ produktai apskaičiuojami remiantis apdorojimo metu sukurtu atspindžio produktu (jei jo nėra – remiantis kitu apdorojimo metu sukurtu produktu, pvz., spinduliavimo). Daugiaspektrinių M3C kamerų spinduliavimo ir atspindžio produktai taip pat gali gauti pikselio lygio ribojimo kaukę `<format>/clamp_masks/` (žr. [Išvesties vaizdo formatai](../output-image-formats.md#clamp-masks))
+* Išvestis: galutiniai failai diske
 
-Daugiausia įvesties/išvesties apkrautasis procesas — SSD saugykla jį pastebimai pagerina.
+Pagrindinai įvesties/išvesties (I/O) apribotas sriegis — SSD saugykla pastebimai pagerina jo veikimą.
 
 ***
 
-## Veikimo principas: vykdytojai
+## Kaip veikia: vykdytojai
 
-3-iajame procese darbas su kiekvienu vaizdu lygiagrečiai atliekamas naudojant „Python“ standartinį `concurrent.futures`:
+3-iajame sriegyje darbas su kiekvienu vaizdu lygiagrečiai atliekamas taip:
 
-* **GPU strategijos**(`GPU_SINGLE`, `GPU_PARALLEL`) naudoja `ProcessPoolExecutor` su**spawn** pradžios metodą — kiekvienas darbininkas yra atskiras procesas su savo CUDA kontekstu (`fork` paveldėtų tėvo inicijuotą CUDA būseną ir sugadintų vaikus)
-* **`CPU_PARALLEL`** naudoja `ThreadPoolExecutor` — „NumPy“ ir „OpenCV“ atleidžia GIL, todėl pakanka siūlų
-* „Jetson“ įrenginiai su 8 GB ar mažiau bendros RAM visiškai praleidžia vykdytoją ir apdoroja duomenis pačiame procese, nuosekliai
-* „Texture Aware“ GPU su mažiau nei 7 GB VRAM taip pat veikia nuosekliai — triukšmo šalinimo modelis negali tilpti daugiau nei vieną kartą „
+* **GPU strategijos**(`GPU_SINGLE`, `GPU_PARALLEL`) naudoja**darbininkų procesų** grupę, kur kiekvienas procesas yra atskiras operacinės sistemos procesas su savo CUDA kontekstu. Chloros kiekvieną darbinį procesą paleidžia iš naujo paleisdamas savo įdiegtą užkulisinę programą — ne per „Python“ funkciją `multiprocessing`, kurios darbinio proceso paleidimas neveikia paketo viduje
+* **`CPU_PARALLEL`** naudoja siūlų grupę (Python funkcija `ThreadPoolExecutor`) — „NumPy“ ir „OpenCV“ atleidžia GIL, todėl siūlų pakanka
+* „Jetson“ įrenginiai, turintys 8 GB ar mažiau bendros RAM, visiškai praleidžia vykdytoją ir apdoroja duomenis pačiame procese, nuosekliai
+* „Texture Aware“ GPU, turinčiame mažiau nei 7 GB VRAM, taip pat veikia nuosekliai — triukšmo šalinimo modelis negali tilpti daugiau nei vieną kartą
 
-Chloros“ nenaudoja jokių trečiųjų šalių paskirstytųjų sistemų (pavyzdžiui, „Ray“). Kaip pasirenkama strategija ir darbuotojų skaičius, žr. [Dinaminis skaičiavimo pritaikymas](dynamic-compute-adaptation.md).
+Chloros nenaudoja jokių trečiųjų šalių paskirstytųjų sistemų (pavyzdžiui, „Ray“). Žr. [Dinaminis skaičiavimo pritaikymas](dynamic-compute-adaptation.md), kaip pasirenkama strategija ir darbuotojų skaičius.
 
 ***
 
@@ -85,7 +85,7 @@ Chloros“ nenaudoja jokių trečiųjų šalių paskirstytųjų sistemų (pavyzd
 
 ### Laisvasis režimas (sekcinis)
 
-Nemokamoje „Chloros“ versijoje vaizdai apdorojami **po vieną**, nuosekliai per visus keturis etapus:
+Nemokamoje Chloros versijoje vaizdai apdorojami **po vieną**, nuosekliai per visus keturis etapus:
 
 ```
 
@@ -95,9 +95,9 @@ Image 1: [Detect] → [Calibrate] → [Process] → [Export]
 
 GUI nemokamajame režime rodo supaprastintą pažangos juostą; jos nuoseklūs etapai nurodomi kaip **Tikslo aptikimas**, o po to –**Apdorojimas**.
 
-### „Chloros“ režimas (konvejerinis)
+### „Chloros+“ režimas (konvejerinis)
 
-Turint „Chloros“ licenciją, visi keturi srautai veikia **vienu metu** su skirtingais vaizdais:
+Turint „Chloros+“ licenciją, visi keturi srautai veikia **vienu metu** su skirtingais vaizdais:
 
 ```
 
@@ -107,56 +107,56 @@ Thread 3:                     [Image 1] [Image 2] ...
 Thread 4:                               [Image 1] ...
 ```
 
-GUI pažangos juosta rodo keturis etapus; užveskite pelę ant jos, kad pamatytumėte kiekvieno srauto pažangą. „CLI“ programoje tie patys keturi etapai rodomi tiesiogiai kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.
+GUI pažangos juosta rodo keturis etapus; užveskite pelę ant jos, kad pamatytumėte kiekvieno srauto pažangą. Komandinėje eilutėje (CLI) tie patys keturi etapai rodomi realiuoju laiku kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.
 
 {% hint style="info" %}
-**Viena etiketė, du pavadinimai.** „CLI“ 3-iąjį etapą vadina _Apdorojimas_. Backend&#x27;o „premium“ režimo pažangos srautas — tas, kurį atvaizduoja GUI pažangos juosta — tą patį etapą vadina _Kalibravimas_. Tai tas pats procesas, atliekantis tą patį darbą (3-iasis procesas: „debayer“, korekcijos, indeksai).
+**Viena etiketė, du pavadinimai.** CLI-je 3-iasis etapas vadinamas _Apdorojimas_. Backend’o „premium“ režimo pažangos sraute — tą, kurį atvaizduoja GUI pažangos juosta — tas pats etapas pavadintas _Kalibravimas_. Tai tas pats procesas, atliekantis tą patį darbą (3-iasis procesas: „debayer“, korekcijos, indeksai).
 {% endhint %}
 
 {% hint style="success" %}
-**Apdorojimas konvejeriu naudojant „Chloros“+** gali būti 3–5 kartus greitesnis už nuoseklųjį apdorojimą, priklausomai nuo jūsų aparatinės įrangos ir duomenų rinkinio dydžio. Didžiausias greičio padidėjimas pasiekiamas sistemose su greitais GPU ir SSD.
+**Apdorojimas konvejeriu naudojant „Chloros+“** gali būti 3–5 kartus greitesnis nei nuoseklusis apdorojimas, priklausomai nuo jūsų aparatinės įrangos ir duomenų rinkinio dydžio. Didžiausias greičio padidėjimas pasiekiamas sistemose su greitais GPU ir SSD.
 {% endhint %}
 
 ***
 
 ## 4-ojo srauto eksporto pažanga
 
-Eksporto srautas turi savo pažangos stebėjimo sistemą, kurią galite tikrinti atskirai:**CLI:**
+Eksporto srautas turi savo pažangos stebėjimo sistemą, kurią galite tikrinti atskirai:**Komandinės eilutės sąsaja (CLI):**
 
 ```bash
 chloros-cli export-status
 ```
 
-**SDK:**
+**Programavimo rinkinys (SDK):**
 
 ```python
 status = chloros.get_status()
 print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase']}")
 ```
 
-Apdorojimas baigtas, kai 4-asis sriegis pasiekia 100 %.
+Apdorojimas baigtas, kai 4-ojo srauto pažanga pasiekia 100 %.
 
 {% hint style="info" %}
-**Vykdymas, kurio metu nerašomi jokie vaizdai, laikomas nesėkme.**Sėkmingai užbaigus, `chloros-cli process` praneša, kiek vaizdų produktų buvo įrašyta (`Image products written: N`). Jei buvo užklausti produktai, bet**nė vienas**nebuvo įrašytas — tik `project.json` ir `calibration_data.json` — „CLI“ išspausdina `Processing finished but wrote no image products.` ir**baigia veikimą su nelygiu nuliui rezultatu**, nurodydama projekto aplanką ir įprastas priežastis (įvesties aplankas nebuvo atpažintas kaip įrašymo šaltinis — patikrinkite išdėstymą ir `--input-level` — arba nė vienas iš prašytų produktų nebuvo taikytinas toms kameroms). Skriptai gali remtis išėjimo kodu.
+**Vykdymas, kurio metu neįrašoma jokių vaizdų, laikomas nesėkme.**Sėkmingai užbaigus, `chloros-cli process` praneša, kiek vaizdų produktų buvo įrašyta (`Image products written: N`). Jei buvo užklausti produktai, bet**nė vienas**nebuvo įrašytas — tik `project.json` ir `calibration_data.json` — CLI išspausdina `Processing finished but wrote no image products.` ir**baigia veikimą su nelygiu nuliui rezultatu**, nurodydama projekto aplanką ir įprastas priežastis (įvesties aplankas nebuvo atpažintas kaip įrašymo šaltinis — patikrinkite išdėstymą ir `--input-level` — arba nė vienas užsakytas produktas nebuvo taikytinas toms kameroms). Skriptai gali remtis išėjimo kodu.
 {% endhint %}
 
 ***
 
-## Ryšys su dinamine skaičiavimo adaptacija
+## Ryšys su dinamišku skaičiavimo pritaikymu
 
-[Dinaminė skaičiavimo adaptacija](dynamic-compute-adaptation.md) pirmiausia veikia **3-iąjį srautą (apdorojimą)**:
+[Dinamiškas skaičiavimo pritaikymas](dynamic-compute-adaptation.md) pirmiausia veikia **3-iąjį srautą (apdorojimą)**:
 
 * **`GPU_PARALLEL`**: 3-iasis srautas vienu metu apdoroja kelis vaizdus per GPU, naudodamas `fused_gpu` apdorojimo grandinę
-* **`GPU_SINGLE`**: 3-iasis srautas serijizuoja prieigą prie GPU naudodamas semaforą, o darbo procesai vykdo sutampančius įvesties/išvesties veiksmus, naudodami `fused_gpu` arba atminties tausojantį `tiled_gpu` srautą
-* **`CPU_PARALLEL`**: 3-iasis sriegis naudoja CPU pagrįstą apdorojimą su daugiasriegiu lygiagretiškumu
+* **`GPU_SINGLE`**: 3-iasis srautas serijina prieigą prie GPU naudodamas semaforą, o darbiniai procesai persidengia įvesties/išvesties operacijas, naudodami `fused_gpu` arba atminties tausojantį `tiled_gpu` srautą
+* **`CPU_PARALLEL`**: 3-iasis sriegis naudoja CPU pagrįstą apdorojimą su daugiasrieginiu lygiagretumu
 
-3-iojo srauto GPU atminties paskirstymas taip pat didėja, kai 1-asis ir 2-asis srautai baigia veiklą — žr. [Dinaminis GPU atminties paskirstymas](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
+3-iojo sriegio GPU atminties paskirstymas taip pat didėja, kai 1-asis ir 2-asis sriegiai baigia darbą — žr. [Dinaminis GPU atminties paskirstymas](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
 
 ***
 
 ## Tolimesni veiksmai
 
-* [Dinaminis skaičiavimo pritaikymas](dynamic-compute-adaptation.md) — kaip „Chloros“ pasirenka optimalią strategiją jūsų aparatinei įrangai
-* [„NVIDIA Jetson“ vadovas](../linux/nvidia-jetson-guide.md) — platformai būdingas apdorojimo srauto elgesys „Jetson“
+* [Dinaminis skaičiavimo pritaikymas](dynamic-compute-adaptation.md) — kaip Chloros pasirenka optimalią strategiją jūsų aparatinei įrangai
+* [„NVIDIA Jetson“ vadovas](../linux/nvidia-jetson-guide.md) — platformai būdingas srauto veikimas „Jetson“
 * [Apdorojimo stebėjimas](../processing-images-gui/monitoring-the-processing.md) — pažangos stebėjimas per grafinę vartotojo sąsają
-* [„CLI“ nuoroda](../reference/cli-reference.md) — `process`, `export-status`, išėjimo kodai ir išvesties išdėstymas
+* [CLI žinynas](../reference/cli-reference.md) — `process`, `export-status`, išėjimo kodai ir išvesties išdėstymas
