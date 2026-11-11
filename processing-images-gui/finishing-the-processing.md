@@ -1,7 +1,6 @@
 # Apdorojimo užbaigimas
 
-Kai Chloros
-užbaigs apdorojimą, atėjo laikas peržiūrėti rezultatus, patikrinti išvesties kokybę ir paruošti apdorotus vaizdus naudojimui jūsų darbo eigoje. Šiame puslapyje pateikiami nurodymai, kaip atlikti paskutinius veiksmus ir tolesnius veiksmus.
+Kai Chloros užbaigs apdorojimą, atėjo laikas peržiūrėti rezultatus, patikrinti išvesties kokybę ir paruošti apdorotus vaizdus naudojimui jūsų darbo eigoje. Šiame puslapyje pateikiami nurodymai, kaip atlikti paskutinius veiksmus ir tolesnius veiksmus.
 
 ## Apdorojimo užbaigimo rodikliai
 
@@ -13,10 +12,7 @@ Sėkmingai užbaigus apdorojimą, pamatysite keletą rodiklių:
 * ✅ **Išvesties failai**: visi apdoroti vaizdai išsaugoti projekto išvesties medžio struktūroje (žemiau)
 
 {% hint style="warning" %}
-**Apdorojimo ciklas, kurio metu neįrašoma jokių vaizdų, laikomas nesėkme.** Jei užklausėte vaizdų produktų, o apdorojimo ciklas jų neįrašė, Chloros
-tai praneša kaip nesėkmę — `[RUN-SUMMARY]` žurnalo pavadinime nurodo galimą priežastį (nieko neimportuota, neaptiktas joks taikinys arba visi užklausti produktai praleisti kaip netaikytini). Atitinkamas CLI
-komandos rezultatas yra nelygus nuliui. Sąmoningas vykdymas, skirtas tik metaduomenims (visi eksporto produktai išjungti, be indeksų), vis tiek laikomas sėkmingu. Žr. [CLI
-žinyną](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+**Apdorojimo ciklas, kurio metu neįrašoma jokių vaizdų, laikomas nesėkme.** Jei užklausėte vaizdų produktų, o apdorojimo ciklas jų neįrašė, Chloros tai praneša kaip nesėkmę — `[RUN-SUMMARY]` žurnalo pavadinime nurodo galimą priežastį (nieko neimportuota, neaptiktas joks taikinys arba visi užklausti produktai praleisti kaip netaikytini). Atitinkamas CLI komandos rezultatas yra nelygus nuliui. Sąmoningas vykdymas, skirtas tik metaduomenims (visi eksporto produktai išjungti, be indeksų), vis tiek laikomas sėkmingu. Žr. [CLI žinyną](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 {% endhint %}
 
 ***
@@ -48,10 +44,8 @@ Produktai įrašomi **projekto aplanke, sugrupuoti pagal fotoaparatą, o po to �
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-* **Fotoaparato aplankas**: `LATT-<sensor>-<lens>-F<filter>` – „LATTICE“ (atitinka įrašo EXIF duomenis `Model`), `<model>_<filter>` – Survey3
-(pvz., `Survey3N_RGN`). Dvi kameros, turinčios tą patį jutiklį ir filtrą, bet skirtingus objektyvus, turi atskiras medžių struktūras — skiriasi vinjetė, matymo laukas ir iškraipymas.
-* **Formato aplankas**: atitinka jūsų eksporto formato nustatymus — `tiff16`, `tiff8`, `png8`, `jpg8`, arba `tiff32`, jei naudojamas TIFF
-as (32 bitai, procentais). Spinduliavimas visada yra „float32“ tipo ir visada įrašomas į aplanką „`tiff32`“.
+* **Fotoaparato aplankas**: `LATT-<sensor>-<lens>-F<filter>` – „LATTICE“ (atitinka įrašo EXIF duomenis `Model`), `<model>_<filter>` – Survey3 (pvz., `Survey3N_RGN`). Dvi kameros, turinčios tą patį jutiklį ir filtrą, bet skirtingus objektyvus, turi atskiras medžių struktūras — skiriasi vinjetė, matymo laukas ir iškraipymas.
+* **Formato aplankas**: atitinka jūsų eksporto formato nustatymus — `tiff16`, `tiff8`, `png8`, `jpg8`, arba `tiff32`, jei naudojamas TIFFas (32 bitai, procentais). Spinduliavimas visada yra „float32“ tipo ir visada įrašomas į aplanką „`tiff32`“.
 * **Produkto aplankai**:
   * „`Reflectance_Calibrated_Images/`“ — kalibruotas atspindžio koeficientas
   * `Debayered_Images/` — linijinis debayeringas (LATTICE): pašalintas tamsus poslinkis ir atliktas demosaicingas, be plokščio lauko korekcijos ar atskyrimo, išlaikant jutiklio natūralią orientaciją
@@ -70,8 +64,7 @@ as (32 bitai, procentais). Spinduliavimas visada yra „float32“ tipo ir visad
 
 ### Kiek failų turėtų būti?
 
-Neskaičiuokite pagal formulę — išvesties skaičius priklauso nuo to, kurie produktai buvo įjungti ir kurie taikomi kiekvienai kamerai (pvz., RGB
-kameros negauna spinduliavimo/atspindžio duomenų). Patikimas skaičius nurodytas žurnale: paskutinėje eilutėje „`[RUN-SUMMARY]`“ tiksliai nurodoma, kiek failų buvo įrašyta, o paaiškinamosiose eilutėse paaiškinama, kas buvo praleista.
+Neskaičiuokite pagal formulę — išvesties skaičius priklauso nuo to, kurie produktai buvo įjungti ir kurie taikomi kiekvienai kamerai (pvz., RGB kameros negauna spinduliavimo/atspindžio duomenų). Patikimas skaičius nurodytas žurnale: paskutinėje eilutėje „`[RUN-SUMMARY]`“ tiksliai nurodoma, kiek failų buvo įrašyta, o paaiškinamosiose eilutėse paaiškinama, kas buvo praleista.
 
 ***
 
@@ -79,32 +72,24 @@ kameros negauna spinduliavimo/atspindžio duomenų). Patikimas skaičius nurodyt
 
 ### Greitas peržiūrėjimas failų naršyklėje
 
-**Windows
-integruota peržiūra:**
+**Windows integruota peržiūra:**
 
 1. Pereikite į produkto aplanką (pvz., `tiff16/Reflectance_Calibrated_Images/`)
 2. Pasirinkite vaizdo failą
-3. Peržiūra pasirodys Windows
-naršyklės peržiūros lange
+3. Peržiūra pasirodys Windows naršyklės peržiūros lange
 4. Naudokite rodyklių klavišus, kad peržiūrėtumėte vaizdus
 
 ### Peržiūra išorinėse vaizdų peržiūros programose
 
 **Rekomenduojamos peržiūros programos:*** **QGIS** – nemokama GIS programinė įranga (geriausiai tinka georeferencinei multispektrinei analizei)
-* **„IrfanView“** – greita, lengva vaizdų peržiūros programa (palaiko TIFF
-formatą)
-* **„Adobe Photoshop“** – profesionalus redagavimas (palaiko TIFF
-formatą)
+* **„IrfanView“** – greita, lengva vaizdų peržiūros programa (palaiko TIFF formatą)
+* **„Adobe Photoshop“** – profesionalus redagavimas (palaiko TIFF formatą)
 * **„GIMP“** – nemokama „Photoshop“ alternatyva
-* **„Windows
-Photos“** – pagrindinė peržiūra (gali nepalaikyti 16 bitų TIFF
-formato)
+* **„Windows Photos“** – pagrindinė peržiūra (gali nepalaikyti 16 bitų TIFF formato)
 
-### Peržiūra Chloros
-vaizdų peržiūros programoje
+### Peržiūra Chloros vaizdų peržiūros programoje
 
-Naudokite „Chloros
-“ integruotą vaizdų peržiūros programą išplėstinei vizualizacijai:
+Naudokite „Chloros “ integruotą vaizdų peržiūros programą išplėstinei vizualizacijai:
 
 1. Spustelėkite vaizdo miniatiūrą failų naršyklėje
 2. Vaizdas atsidarys pagrindinėje peržiūros srityje
@@ -123,9 +108,7 @@ Atspindžio koeficientas saugomas kaip sveikasis skaičius DN, o **DN, reiškian
 | Šaltinis          | ρ = 1,0 yra | Kaip nustatyti                                        |
 | --------------- | ---------- | -------------------------------------------------- |
 | LATTICE (M3C/M3M) | **32768** (rezervas iki ρ 2,0) | Failui priskirta XMP žyma `Chloros:PixelScale=32768` |
-| Survey3
-         | **65535** (apribota iki ρ 1,0)     | Nėra žymės `Chloros:PixelScale` — jos nebuvimas yra ženklas (Survey3
-produktai turi kitas apdorojimo žymes, pvz., `Chloros:*`) |
+| Survey3          | **65535** (apribota iki ρ 1,0)     | Nėra žymės `Chloros:PixelScale` — jos nebuvimas yra ženklas (Survey3 produktai turi kitas apdorojimo žymes, pvz., `Chloros:*`) |
 
 **Perskaitykite `Chloros:PixelScale` žymą ir padalinkite iš jos**, o ne laikykitės vienodo 65535 dydžio — padalijus LATTICE atspindžio koeficientą iš 65535, kiekviena reikšmė tyliai sumažinama perpus. Atspindžio failas, sukurtas iki versijos 1.3.0 ir užrašytas kaip 8 bitų, buvo apkarpytas, o ne perskalintas, ir neturi mastelio žymės: vietoj dalijimo jį eksportuokite iš naujo kaip 16 bitų arba 32 bitų. Išsamią informaciją rasite skyriuje [Išvesties vaizdo formatai](../output-image-formats.md).***
 
@@ -153,15 +136,12 @@ sugadina LATTICE išvestį), o `ExifImageWidth` / `ExifImageHeight` yra neįtrau
 nes jos apibūdina pradinį įrašą — kitaip eksportas, kurio dydis buvo pakeistas,
 nurodytų matmenis, prieštaraujančius pačiam rasteriui.
 
-Chloros
-taip pat įrašo savo `Chloros:*` XMP žymes, apibūdinančias, kas buvo padaryta su kiekvienu produktu
+Chloros taip pat įrašo savo `Chloros:*` XMP žymes, apibūdinančias, kas buvo padaryta su kiekvienu produktu
 (pavyzdžiui, `Chloros:ProcessingLevel`, `Chloros:CalibrationApplied`,
-`Chloros:VignetteCorrected`). Nuo 1.3.0 versijos Survey3
-produktai juos turi kiekviename apdorojimo
+`Chloros:VignetteCorrected`). Nuo 1.3.0 versijos Survey3 produktai juos turi kiekviename apdorojimo
 režimu, indeksiniai produktai apibūdina patį indeksą (`Chloros:ProcessingLevel=index`,
 formulę ir tai, ar jis buvo apskaičiuotas pagal atspindžio koeficientą ar spinduliavimo intensyvumą), o ne kartoja
-šaltinio neapdorotų duomenų žymes, o produktai, esantys aplankuose, kurių pavadinimai ilgesni nei 260 simbolių, taip pat išlaiko savo metaduomenis
-. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#index-products).
+šaltinio neapdorotų duomenų žymes, o produktai, esantys aplankuose, kurių pavadinimai ilgesni nei 260 simbolių, taip pat išlaiko savo metaduomenis. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#index-products).
 
 ***
 
@@ -174,23 +154,19 @@ formulę ir tai, ar jis buvo apskaičiuotas pagal atspindžio koeficientą ar sp
 2. Peržiūrėkite pranešimus
 3. Ieškokite geltonų įspėjimų arba raudonų klaidų
 4. Perskaitykite eilutes `[RUN-SUMMARY]` ir visus patarimus
-5. Kreipkitės į MAPIR
-pagalbos tarnybą, jei reikia pagalbos
+5. Kreipkitės į MAPIR pagalbos tarnybą, jei reikia pagalbos
 
 ### Žurnalo išsaugojimas
 
-Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR
-techninės pagalbos tarnybai:
+Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR techninės pagalbos tarnybai:
 
 1. Spustelėkite mygtuką **„Kopijuoti“**arba**„Atsisiųsti“**
 
 2. Išsaugokite kaip tekstinį failą projekto aplanke
 3. Pridėkite prie projekto dokumentacijos
-4. Jei iškilo problemų, nusiųskite jį MAPIR
-techninės pagalbos tarnybai
+4. Jei iškilo problemų, nusiųskite jį MAPIR techninės pagalbos tarnybai
 
-Norėdami problemą nusiųsti tiesiai MAPIR
-, naudokite klaidos piktogramą (**Pranešti apie klaidą**) skirtuko „Debug Log“ viršuje — žr. [Pranešimas apie klaidą iš skirtuko „Log“](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Norėdami problemą nusiųsti tiesiai MAPIR, naudokite klaidos piktogramą (**Pranešti apie klaidą**) skirtuko „Debug Log“ viršuje — žr. [Pranešimas apie klaidą iš skirtuko „Log“](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
 
 ## Dažnos išvesties problemos ir jų sprendimai
 
@@ -198,8 +174,7 @@ Norėdami problemą nusiųsti tiesiai MAPIR
 
 **Galimos priežastys:**
 
-* Produktas netaikomas tai kamerai (pvz., spinduliavimo/atspindžio koeficientai RGB
-kameroms — tai nurodyta žurnale)
+* Produktas netaikomas tai kamerai (pvz., spinduliavimo/atspindžio koeficientai RGB kameroms — tai nurodyta žurnale)
 * Trūko privalomos nuorodos (pvz., atspindžio koeficientas be tikslo ir be `.daq` žemyn nukreipto spinduliavimo)
 * Projekto nustatymuose buvo išjungtas produkto eksporto žymimasis langelis
 * Eksporto metu baigėsi vietos diske
@@ -216,16 +191,14 @@ kameroms — tai nurodyta žurnale)
 **Galimos priežastys:**
 
 * Išjungta vinjetavimo korekcija
-* Kameros/objektyvo nėra Chloros
-profilių duomenų bazėje
+* Kameros/objektyvo nėra Chloros profilių duomenų bazėje
 * Ekstremalus vinjetavimas, kurio neįmanoma ištaisyti
 
 **Sprendimai:**
 
 1. Patikrinkite, ar „Projekto nustatymuose“ buvo įjungta vinjetavimo korekcija
 2. Patikrinkite, ar kameros modelis buvo teisingai atpažintas
-3. Jei vinjetavimas išlieka, susisiekite su MAPIR
-technine pagalba
+3. Jei vinjetavimas išlieka, susisiekite su MAPIR technine pagalba
 
 ### Problema: neteisingos spalvos arba vertės
 
@@ -243,11 +216,9 @@ technine pagalba
 3. Patikrinkite tikslų vaizdų kokybę
 4. Pakartotinai apdorokite, pažymėdami tinkamus tikslus
 
-### Problema: NDVI
-reikšmės atrodo neteisingos
+### Problema: NDVI reikšmės atrodo neteisingos
 
-**Numatomi NDVI
-intervalai:*** **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
+**Numatomi NDVI intervalai:*** **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
 * **Retas/nesveikas augmenijos dangalas**: nuo 0,2 iki 0,4
 * **Vidutinio tankumo augmenijos dangalas**: nuo 0,4 iki 0,6
 * **Sveika, tanki augmenija**: nuo 0,6 iki 0,9**Jei reikšmės neatitinka šių intervalų:**
@@ -274,10 +245,8 @@ intervalai:*** **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
    * „WebODM“
 2. **Išsaugokite EXIF metaduomenis**: užtikrinkite, kad GPS duomenys būtų išsaugoti geotagavimui
 3. **Kalibruotos darbo eigos**: naudokite atspindžio vaizdus siekiant mokslinio tikslumo — „LATTICE“ atspindžio vaizduose yra XMP kalibravimo žymės, kurias skaito „Pix4D“
-4. **Apdorokite indeksines mozaikas**: sukurkite NDVI
-ortomozaikas iš atskirų indeksinių vaizdų
-5. **Eksportuokite georeferencinius GeoTIFF
-failus**: naudojimui GIS programose
+4. **Apdorokite indeksines mozaikas**: sukurkite NDVI ortomozaikas iš atskirų indeksinių vaizdų
+5. **Eksportuokite georeferencinius GeoTIFF failus**: naudojimui GIS programose
 
 ### GIS analizei
 
@@ -285,11 +254,8 @@ failus**: naudojimui GIS programose
 
 1.**Įkelkite į „QGIS“, „ArcGIS“ ar panašią programą**
 
-2.**Naudokite 16 bitų TIFF
-** atspindžio vaizdus daugiabandinei analizei (padalinkite iš failo `Chloros:PixelScale`)
-3. **Naudokite indeksinius vaizdus** (NDVI
-, NDRE
-) kaip paruoštus naudoti augmenijos sluoksnius
+2.**Naudokite 16 bitų TIFF** atspindžio vaizdus daugiabandinei analizei (padalinkite iš failo `Chloros:PixelScale`)
+3. **Naudokite indeksinius vaizdus** (NDVI, NDRE) kaip paruoštus naudoti augmenijos sluoksnius
 4. **Rastro skaičiuoklė**: sujunkite juostas individualiai analizei
 5. **Eksportuokite**: kurkite klasifikacinius žemėlapius, pokyčių aptikimą, augmenijos būklės žemėlapius
 
@@ -298,8 +264,7 @@ failus**: naudojimui GIS programose
 **Rekomenduojama darbo eiga:**
 
 1.**Naudokite indeksinius vaizdus su LUT spalvomis** vizualiosioms ataskaitoms
-2. **Išgaukite statistinius duomenis**: vidutinis NDVI
-kiekvienam laukui / sklypui
+2. **Išgaukite statistinius duomenis**: vidutinis NDVI kiekvienam laukui / sklypui
 3. **Laiko eilutės**: palyginkite indeksus iš skirtingų sesijų
 4. **Sukurkite ataskaitas**: įtraukite žemėlapius, statistinius duomenis ir vizualizacijas***
 
@@ -336,27 +301,17 @@ Jei yra kelios sesijos / duomenų rinkiniai:**1 variantas: GUI – keli projekta
 * Naudokite nuoseklius šablono nustatymus
 * Apdorokite po vieną
 
-**2 variantas: Chloros
-CLI
-(tik „Chloros
-+“)**
+**2 variantas: Chloros CLI (tik „Chloros+“)**
 
 * Automatizuokite paketinį apdorojimą
 * Apdorokite kelis aplankus naudodami skriptus
-* Žr. [CLI
-dokumentaciją](../CLI.md) ir [CLI
-žinyną](../reference/cli-reference.md)
+* Žr. [CLI dokumentaciją](../CLI.md) ir [CLI žinyną](../reference/cli-reference.md)
 
-**3 variantas: Python
-SDK
-(tik Chloros
-+)**
+**3 variantas: Python SDK (tik Chloros+)**
 
 * Programinis valdymas
 * Integracija su analizės procesų grandinėmis
-* Žr. [API
-dokumentaciją](../api-python-sdk.md) ir [SDK
-žinyną](../reference/sdk-reference.md)
+* Žr. [API dokumentaciją](../api-python-sdk.md) ir [SDK žinyną](../reference/sdk-reference.md)
 
 ***
 
@@ -387,15 +342,13 @@ Jei kyla problemų:
 * 📧 **El. paštas**: info@mapir.camera (pridėkite „Debug Log“)
 * 🌐 **Pagalba**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **DUK**: [Dažnai užduodami klausimai](../faq.md)
-* 📖 **Dokumentacija**: [Chloros
-vadovas](../)
+* 📖 **Dokumentacija**: [Chloros vadovas](../)
 
 ***
 
 ## Santrauka: Visas darbo srautas
 
-Dabar baigėte visą Chloros
-apdorojimo darbo srautą:
+Dabar baigėte visą Chloros apdorojimo darbo srautą:
 
 1. ✅ **Sukurtas projektas** – Žr. [Projektai](../projects.md)
 2. ✅ **Pridėjote failus** – žr. [Failų pridėjimas](adding-files-to-a-project.md)
@@ -417,13 +370,9 @@ apdorojimo darbo srautą:
 
 ### Automatizavimas ir integracija
 
-* [**CLI
-dokumentacija**](../CLI.md) – Komandinės eilutės paketinis apdorojimas
-* [**Python
-SDK
-**](../api-python-sdk.md) – Programinis automatizavimas
-* [**„Chloros
-+“ funkcijos**](../#chloros) – Išplėstinės apdorojimo galimybės
+* [**CLI dokumentacija**](../CLI.md) – Komandinės eilutės paketinis apdorojimas
+* [**Python SDK**](../api-python-sdk.md) – Programinis automatizavimas
+* [**„Chloros+“ funkcijos**](../#chloros) – Išplėstinės apdorojimo galimybės
 
 ### Pagalba ir mokymasis
 

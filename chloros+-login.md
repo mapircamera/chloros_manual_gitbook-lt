@@ -16,49 +16,21 @@ Prisijungus bus rodomi jūsų paskyros duomenys:
 | Planas | `plan_id` | Tipas |
 | --- | --- | --- |
 | „Iron“ | `0` | Nemokamas |
-| „Copper“ | `1` | Mokamas („Chloros
-
-+“) |
-| „Bronze“ | `2` | Mokamas („Chloros
-
-+“) |
-| „Silver“ | `3` | Mokamas („Chloros
-
-+“) |
-| Auksas | `4` | Mokamas („Chloros
-
-+“) |
+| „Copper“ | `1` | Mokamas („Chloros+“) |
+| „Bronze“ | `2` | Mokamas („Chloros+“) |
+| „Silver“ | `3` | Mokamas („Chloros+“) |
+| Auksas | `4` | Mokamas („Chloros+“) |
 
 Kiekvieno mokamo lygio paslaugų sąrašą rasite [planuose ir kainoraštyje](https://cloud.mapir.camera/pricing).
 
-### Norint naudotis CLI
+### Norint naudotis CLI / SDK, reikalingas mokamas lygis
 
-/ SDK
+Prieigai prie CLI ir Python SDK reikalingas **bet kuris mokamas „Chloros+“ lygis („Copper“ ar aukštesnis)**. Tai užtikrinama**serverio pusėje** — kiekvienas CLI/SDK užklausimas turi turėti tiek aktyvią sesiją, tiek mokamą planą:
 
-, reikalingas mokamas lygis
-
-Prieigai prie CLI
-
-ir Python
-
-SDK
-
-reikalingas **bet kuris mokamas „Chloros
-
-+“ lygis („Copper“ ar aukštesnis)**. Tai užtikrinama**serverio pusėje** — kiekvienas CLI
-
-/SDK
-
-užklausimas turi turėti tiek aktyvią sesiją, tiek mokamą planą:
-
-| HTTP
-
-būsena | `error_code` | Reikšmė | Sprendimas |
+| HTTP būsena | `error_code` | Reikšmė | Sprendimas |
 | --- | --- | --- | --- |
 | `401` | `AUTH_REQUIRED` | Neprisijungta šiame kompiuteryje | `chloros-cli login <email> <password>` |
-| `403` | `PLAN_UPGRADE_REQUIRED` | Prisijungta, bet plano lygis per žemas (nemokamas „Iron“ lygis) | Atnaujinkite į bet kurį mokamą „Chloros
-
-+“ planą |
+| `403` | `PLAN_UPGRADE_REQUIRED` | Prisijungta, bet plano lygis per žemas (nemokamas „Iron“ lygis) | Atnaujinkite į bet kurį mokamą „Chloros+“ planą |
 
 `chloros-cli status` lieka pasiekiamas nemokamoje pakopoje, todėl visada galite pamatyti savo dabartinį planą ir priežastį, dėl kurios prieiga atsisakyta.
 
@@ -77,13 +49,7 @@ Kiekviename plane nustatytas ribinis skaičius, kiek „LATTICE“ kamerų ir DA
 
 
 
-Prisijunkite naudodami savo „Chloros
-
-+“ prisijungimo duomenis, kad įgalintumėte CLI
-
-apdorojimą. Linux
-
-sistemoje (be grafinės sąsajos) tai yra vienintelis būdas aktyvuoti licenciją.
+Prisijunkite naudodami savo „Chloros+“ prisijungimo duomenis, kad įgalintumėte CLI apdorojimą. Linux sistemoje (be grafinės sąsajos) tai yra vienintelis būdas aktyvuoti licenciją.
 
 **Sintaksė:**
 
@@ -92,15 +58,7 @@ chloros-cli login <email> <password>
 ```
 
 {% hint style="info" %}
-**SDK
-
-vartotojai**: Python
-
-SDK
-
-taip pat teikia programinį metodą `logout()`, skirtą išvalyti talpyklos duomenis. Daugiau informacijos rasite [SDK
-
-žinyne](reference/sdk-reference.md).
+**SDK vartotojai**: Python SDK taip pat teikia programinį metodą `logout()`, skirtą išvalyti talpyklos duomenis. Daugiau informacijos rasite [SDK žinyne](reference/sdk-reference.md).
 {% endhint %}
 
 **Pavyzdys:**
@@ -127,23 +85,13 @@ Išsaugoti autentifikavimo duomenys ir konfigūracija **visose platformose** sau
 | **Windows** | `%USERPROFILE%\.chloros\` |
 | **Linux** | `~/.chloros/` |
 
-Įdiegus naujesnę versiją vietoj esamos, jūsų prisijungimo duomenys išlieka Windows
-
-(įdiegimo programoje) ir Linux
-
-(kataloge „`.deb`“, įskaitant „`chloros-cli update`“). Pašalinus Chloros
-
-— arba pašalinus Linux
-
-paketą — išvaloma prisijungimo informacija iš talpyklos, todėl po naujos įdiegos turėsite prisijungti iš naujo.
+Įdiegus naujesnę versiją vietoj esamos, jūsų prisijungimo duomenys išlieka Windows (įdiegimo programoje) ir Linux (kataloge „`.deb`“, įskaitant „`chloros-cli update`“). Pašalinus Chloros — arba pašalinus Linux paketą — išvaloma prisijungimo informacija iš talpyklos, todėl po naujos įdiegos turėsite prisijungti iš naujo.
 
 ### Plano galiojimo pabaiga ir atidėjimo laikotarpis
 
 GUI rodomas plano galiojimo pabaigos laikas, kai jūsų licencija taps negaliojanti. Kiekvieną mėnesį atnaujinamų prenumeratų galiojimas baigiasi mėnesio pabaigoje; metinių prenumeratų – praėjus metams nuo prenumeratos pradžios.
 
-Chloros
-
-tikrina jūsų licenciją internete, tačiau darbas neprisijungus prie interneto palaikomas per atidėjimo laikotarpį:
+Chloros tikrina jūsų licenciją internete, tačiau darbas neprisijungus prie interneto palaikomas per atidėjimo laikotarpį:
 
 * Sėkmingi serverio patikrinimai išsaugomi talpykloje **5 minutes**, todėl įprastinio naudojimo metu licencijos patikrinimų atliekama labai nedaug.
 * Pasirašyta, prie kompiuterio pririšta licencijos talpykla užtikrina ilgesnį veikimą neprisijungus: **30 dienų mėnesiniams planams**ir**iki jūsų prenumeratos galiojimo pabaigos datos (ne daugiau kaip 365 dienos) metiniams planams**.
@@ -151,13 +99,7 @@ tikrina jūsų licenciją internete, tačiau darbas neprisijungus prie interneto
 
 ### Įrenginių skaičiaus riba
 
-Kiekvienas „Chloros
-
-+“ planas siūlo skirtingą registruotų įrenginių skaičių. Kiekvienas įrenginys, prie kurio prisijungiate naudodami „Chloros
-
-+“ paskyrą, įskaičiuojamas į jūsų registruotų įrenginių skaičių. Savo „MAPIR
-
-Cloud“ paskyros puslapyje galite pervardyti ir pašalinti įrenginį.
+Kiekvienas „Chloros+“ planas siūlo skirtingą registruotų įrenginių skaičių. Kiekvienas įrenginys, prie kurio prisijungiate naudodami „Chloros+“ paskyrą, įskaičiuojamas į jūsų registruotų įrenginių skaičių. Savo „MAPIR Cloud“ paskyros puslapyje galite pervardyti ir pašalinti įrenginį.
 
 <table><thead><tr><th width="168.5999755859375" align="right">„Chloros+“ planas</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Palaikomi įrenginiai</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
 

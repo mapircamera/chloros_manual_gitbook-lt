@@ -43,7 +43,7 @@ Serverio įrankiai apima tai, ką atlieka [Python SDK](api-python-sdk.md). Jis �
 claude mcp add chloros -- chloros-mcp
 ```
 
-**„Claude Desktop“:**įtraukite šį įrašą į „`claude_desktop_config.json`“ (atidarykite meniu**„Nustatymai“ &gt; „Kūrėjas“ &gt; „Redaguoti konfigūraciją“**), tada iš naujo paleiskite „Claude Desktop“.**„Cursor“** naudoja tą patį įrašą „`~/.cursor/mcp.json`“.
+**„Claude Desktop“:**įtraukite šį įrašą į „`claude_desktop_config.json`“ (atidarykite meniu**„Nustatymai“ > „Kūrėjas“ > „Redaguoti konfigūraciją“**), tada iš naujo paleiskite „Claude Desktop“.**„Cursor“** naudoja tą patį įrašą „`~/.cursor/mcp.json`“.
 
 ```json
 {
@@ -123,7 +123,7 @@ Kiekvienas iš šių pavyzdžių yra realus, patikrintas Chloros 1.3.0 elgesys �
 * **Nereikia sudėtingų nustatymų.**SDK „smart-connect“ pagalbinės funkcijos (`connect_camera`, `connect_array`, `connect_daq_sensor`) ir apdorojimo įėjimo taškai (`ChlorosLocal`, `process_folder`)**automatiškai paleidžia vietinį backendą**. Sukurtam skriptui nereikia atidarytos GUI ar rankiniu būdu paleisto serverio — jam reikia tik įdiegtos darbalaukio arba CLI paketo versijos.
 * **Visas procesas vyksta vienu iškvietimu.** `chloros_sdk.process_folder("path", indices=["NDVI"])` nuo pradžios iki pabaigos atlieka importą → kalibravimą → atspindžio matavimą → indekso eksportą. Mažesnis paviršiaus plotas reiškia mažiau vietų, kuriose sukurtas scenarijus gali suklysti.
 * **Vykdymo ciklai be išvesties atlieka savidiagnostiką.** Po `process()` vykdymo ciklo santrauka pridedama prie rezultato, o kiekviena apdorojimo užuomina (pvz., *kodėl* vykdymas nesukūrė išvesties) taip pat iš naujo pateikiamas kaip Python `UserWarning` — taigi net ir skriptas, kuris niekada netikrina rezultatų žodyno, pateikia diagnozę.
-* **CLI&#x27;as aiškiai rodo klaidą.**`chloros-cli process` vykdymas, kuris prašė rezultatų, bet jų neužrašė, išspausdina `Processing finished but wrote no image products.` ir**baigiasi nelygiu nuliui kodu**, todėl apvalkalo skriptai ir CI tai aptinka paprastai patikrindami baigimo kodą. Sėkmingi vykdymai praneša apie `Image products written: N`, o jei buvo įrašytos kaukės – dar ir apie `(plus M clamp masks)`. Įrašymo komandos taip pat nurodo kiekvieną failą, kurio nepavyko įrašyti, ir baigia veikimą su kodu `1`.
+* **CLI'as aiškiai rodo klaidą.**`chloros-cli process` vykdymas, kuris prašė rezultatų, bet jų neužrašė, išspausdina `Processing finished but wrote no image products.` ir**baigiasi nelygiu nuliui kodu**, todėl apvalkalo skriptai ir CI tai aptinka paprastai patikrindami baigimo kodą. Sėkmingi vykdymai praneša apie `Image products written: N`, o jei buvo įrašytos kaukės – dar ir apie `(plus M clamp masks)`. Įrašymo komandos taip pat nurodo kiekvieną failą, kurio nepavyko įrašyti, ir baigia veikimą su kodu `1`.
 * **Santykiniai keliai reiškia tai, ko tikisi skriptas.** Naudojant vietinį backendą, santykinis išvesties kelias (`-o out/` CLI, `output_dir="out/"` SDK) nustatomas pagal aplanką, iš kurio vykdoma komanda ar skriptas.
 
 Viena asimetrija, kurią asistentas turėtų žinoti: SDK komandos „`process()`“ sąmoningai **nesukelia** išimties, kai vykdymo rezultatas yra nulinis — vietoj to ji pateikia ataskaitą per santrauką/patarimus. Jei Python procesų grandinė turi sustoti, kai vykdymo rezultatas yra tuščias, patikrinkite santrauką (taip daroma 2-ajame recepte).

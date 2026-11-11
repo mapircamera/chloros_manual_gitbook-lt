@@ -26,28 +26,10 @@ Trijų režimų mygtukai skydelio viršuje:
 | **Nuolatinis**| Įrašai atliekami vienas po kito, kol įvyksta sustabdymo sąlyga. | Sustabdyti pagal**nuotraukų skaičių** (numatyta reikšmė 1) *arba* **fotografavimo trukmę** (numatyta reikšmė 10 s; vienetai: sekundės / minutės / valandos / dienos). |
 | **Intervalas**(laiko tarpas) | Serijos pagal laikmatį. |**Nuotraukų skaičius per intervalą**(numatyta reikšmė 1) ·**Kas**N vienetų (numatyta reikšmė 5 s) ·**Per** N vienetų (numatyta reikšmė 1 m). |
 
-Nuolatinio arba intervalinio režimo metu mygtukas „Užfiksuoti viską“ veikimo metu tampa mygtuku **„Sustabdyti (N)“**, skaičiuojant kadrus, kai jie pasiekia sistemą. Pilnas diskas sustabdo veikimą (žr. [„Užfiksuoti viską“ eigą](#the-capture-all-flow)).**Nuolatinis režimas masyvuose veikia vidiniame serveryje (nauja funkcija nuo 1.3.0 versijos).** Kai kiekviena sąraše esanti kamera priklauso masyvui (atskiros kameros paslėptos arba išskirtos), „Continuous“ nebeatsiunčia po vieną užklausą kiekvienam užfiksavimui: Chloros
-
-užkulisiai patys vykdo užfiksavimo ciklą, įrašydami vieną sinchronizuotą grupę, kol parenka kitą, o mygtukas tikrina jų skaičių. Jei sąraše yra atskirų kamerų, Chloros
-
-užfiksuoja duomenis po vieną, kaip ir anksčiau.
+Nuolatinio arba intervalinio režimo metu mygtukas „Užfiksuoti viską“ veikimo metu tampa mygtuku **„Sustabdyti (N)“**, skaičiuojant kadrus, kai jie pasiekia sistemą. Pilnas diskas sustabdo veikimą (žr. [„Užfiksuoti viską“ eigą](#the-capture-all-flow)).**Nuolatinis režimas masyvuose veikia vidiniame serveryje (nauja funkcija nuo 1.3.0 versijos).** Kai kiekviena sąraše esanti kamera priklauso masyvui (atskiros kameros paslėptos arba išskirtos), „Continuous“ nebeatsiunčia po vieną užklausą kiekvienam užfiksavimui: Chloros užkulisiai patys vykdo užfiksavimo ciklą, įrašydami vieną sinchronizuotą grupę, kol parenka kitą, o mygtukas tikrina jų skaičių. Jei sąraše yra atskirų kamerų, Chloros užfiksuoja duomenis po vieną, kaip ir anksčiau.
 
 {% hint style="warning" %}
-**Greitas įrašymas Windows
-
-sistemoje: Chloros
-
-užkulisį reikia išskirti iš „Microsoft Defender“ skenavimo.** „MAPIR
-
-“ testuose nustatyta, kad kiekvieno failo, kurį įrašo didelės spartos įrašymo funkcija, skenavimas realiuoju laiku atima apie 30 % įrašymo spartos (šimtai failų per sekundę esant mažam ROI). Windows
-
-diegimo programa siūlo parinktį **„Išskirti Chloros
-
-backendą iš „Microsoft Defender“ nuskaitymo (žymiai greitesnis kameros fiksavimas; rekomenduojama)“**, kuri pagal numatytuosius nustatymus yra pažymėta, o pašalinant programą ši išimtis panaikinama. Jei šią parinktį atžymėjote, paleiskite diegimo programą iš naujo su pažymėta parinktimi arba pridėkite „Defender“ proceso išimtį „`chloros-backend.exe`“ (Chloros
-
-“ diegimo aplanko „`backend`“ aplanke). Kai „Defender“ naudoja vieną ar daugiau procesoriaus branduolių, kol vyksta nuolatinis masyvo vaizdo įrašymas, Chloros
-
-užkulisinė programa tai vieną kartą užregistruoja savo žurnale, nurodydama tuos pačius du sprendimus.
+**Greitas įrašymas Windows sistemoje: Chloros užkulisį reikia išskirti iš „Microsoft Defender“ skenavimo.** „MAPIR “ testuose nustatyta, kad kiekvieno failo, kurį įrašo didelės spartos įrašymo funkcija, skenavimas realiuoju laiku atima apie 30 % įrašymo spartos (šimtai failų per sekundę esant mažam ROI). Windows diegimo programa siūlo parinktį **„Išskirti Chloros backendą iš „Microsoft Defender“ nuskaitymo (žymiai greitesnis kameros fiksavimas; rekomenduojama)“**, kuri pagal numatytuosius nustatymus yra pažymėta, o pašalinant programą ši išimtis panaikinama. Jei šią parinktį atžymėjote, paleiskite diegimo programą iš naujo su pažymėta parinktimi arba pridėkite „Defender“ proceso išimtį „`chloros-backend.exe`“ (Chloros “ diegimo aplanko „`backend`“ aplanke). Kai „Defender“ naudoja vieną ar daugiau procesoriaus branduolių, kol vyksta nuolatinis masyvo vaizdo įrašymas, Chloros užkulisinė programa tai vieną kartą užregistruoja savo žurnale, nurodydama tuos pačius du sprendimus.
 {% endhint %}
 
 <!-- SCREENSHOT-NEEDED: the capture-mode area of Capture Settings with Interval selected — showing the "Captures / interval", "Every N (unit)" and "For N (unit)" rows with their defaults (1, 5 s, 1 m). -->
@@ -67,26 +49,16 @@ užkulisinė programa tai vieną kartą užregistruoja savo žurnale, nurodydama
 
 Yra šeši eksporto tipai: **Raw, Debayered, Radiance, Reflectance, Preview, Index**. Kiekvienos kameros eilutėje rodomi tik tie tipai, kurie jai taikomi:
 
-| Eksporto tipas | Turinys | RGB
-
-(FRGB) | „Bayer“ multispektrinis (FRGN/FOCN/FNGB) | Mono (M3M) |
+| Eksporto tipas | Turinys | RGB (FRGB) | „Bayer“ multispektrinis (FRGN/FOCN/FNGB) | Mono (M3M) |
 | --- | --- | --- | --- | --- |
 | **Raw** | „Bayer“ mozaika (mono: viena juosta) tiesiai iš jutiklio | ✓ | ✓ | ✓ |
-| **Debayered** | Linijinis demozėjimas: iš „raw“ pašalinamas kalibravimo paketo tamsos poslinkis (DSNU), tada atliekamas kraštų atpažįstantis demozėjimas — be linijiškumo korekcijos, plokščio lauko ar atskyrimo. Išsaugoma kaip 3 kanalų RGB
-
-TIFF
-
-(mono: 1 kanalas pilkosios skalės) | ✓ | ✓ | ✓ |
-| **Peržiūra** | Visas vaizdo apdorojimo grandinė (baltos spalvos balansas + gama pagal fotoaparato profilį, taip pat RGB
-
-fotoaparato „Highlights“ nustatymas; multispektrinis: dirbtinių spalvų išplėtimas) | ✓ | ✓ | ✓ |
+| **Debayered** | Linijinis demozėjimas: iš „raw“ pašalinamas kalibravimo paketo tamsos poslinkis (DSNU), tada atliekamas kraštų atpažįstantis demozėjimas — be linijiškumo korekcijos, plokščio lauko ar atskyrimo. Išsaugoma kaip 3 kanalų RGB TIFF (mono: 1 kanalas pilkosios skalės) | ✓ | ✓ | ✓ |
+| **Peržiūra** | Visas vaizdo apdorojimo grandinė (baltos spalvos balansas + gama pagal fotoaparato profilį, taip pat RGB fotoaparato „Highlights“ nustatymas; multispektrinis: dirbtinių spalvų išplėtimas) | ✓ | ✓ | ✓ |
 | **Spinduliavimas** | „float32“ W/m²/sr/nm per visą radiometrinę grandinę | — (nėra) | ✓ | ✓ |
 | **Atspindžio koeficientas** | „uint16“ ρ (32768 = 1,0) | — (nėra siūloma) | ✓ — rodoma tik tada, kai kamera turi DAQ šviesos jutiklį (savo arba paveldėtą iš masyvo) | tas pats kaip daugiaspektrinė |
 | **Indeksas** | Augmenijos indeksas (LUT) atvaizdavimas | — | ✓ — reikalauja, kad kameroje būtų įjungtas, ne tuščias indekso išraiška, ir nesiūloma kombinuotų masyvų nariams (masyvas turi vieną bendrą indeksą) | — (indeksui reikia ≥2 juostų; žr. [Mono kameros ir augmenijos indeksai](mono-indices.md)) |
 
-RGB
-
-kameroms niekada nesiūlomas spinduliavimas ir atspindys — spinduliavimas pagal „Bayer“ sistemą nėra reikšmingas plačiajuosčio fotometrinio jutiklio atveju.
+RGB kameroms niekada nesiūlomas spinduliavimas ir atspindys — spinduliavimas pagal „Bayer“ sistemą nėra reikšmingas plačiajuosčio fotometrinio jutiklio atveju.
 
 ### Greičiausias fiksavimas
 
@@ -151,15 +123,11 @@ Paspauskite **„Capture All“** šoninės juostos kamerų sąraše:
 * **Viena ypatybė, kurią reikia žinoti:** ekrano lygis saugomas aplanke, pavadintame „`preview/`“, o failų pavadinimuose išlieka „`_display`“ — aplankas ir priesaga skiriasi tik tam lygiui.
 * Nežinomi lygiai automatiškai perkeliami į aplanką, pavadintą jų pačių pavadinimu; jei nepavyksta sukurti pakatalogo, failas įrašomas į „captures“ šakninį katalogą, o ne prarandamas.
 * Užfiksuoti TIFF failai pagal numatytuosius nustatymus suspaudžiami be nuostolių (DEFLATE) ir visus kalibravimo bei apdorojimo metaduomenis saugo **failo XMP viduje** — įrašai yra savaime aprašomi, be jokių papildomų failų, išskyrus „`.daq`“ įrašą (ir jo „`.daq.cameras.json`“).
-* **Fiksavimo kaukės (nauja funkcija versijoje 1.3.0).**Ten, kur 3×3 spektrinis atskyrimas turėjo fiksuoti juostą iki 0 bent viename pikselyje, spinduliavimo, atspindžio ir indekso produktai gauna kaukę kiekvienam pikseliui, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bitas 0 = juosta produkto R kanale, bitas 1 = G, bitas 2 = B); produkto `Chloros:UnmixClampMask` XMP žymė nurodo į ją. Kaukės saugomos**šalia** produkto aplankų, niekada jų viduje, todėl tokį produkto aplanką kaip `reflectance/` galima perduoti fotogrametrijos programinei įrangai tokiu, koks jis yra. „Chloros
-
-“ importavimo funkcija kaukes praleidžia.
+* **Fiksavimo kaukės (nauja funkcija versijoje 1.3.0).**Ten, kur 3×3 spektrinis atskyrimas turėjo fiksuoti juostą iki 0 bent viename pikselyje, spinduliavimo, atspindžio ir indekso produktai gauna kaukę kiekvienam pikseliui, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bitas 0 = juosta produkto R kanale, bitas 1 = G, bitas 2 = B); produkto `Chloros:UnmixClampMask` XMP žymė nurodo į ją. Kaukės saugomos**šalia** produkto aplankų, niekada jų viduje, todėl tokį produkto aplanką kaip `reflectance/` galima perduoti fotogrametrijos programinei įrangai tokiu, koks jis yra. „Chloros “ importavimo funkcija kaukes praleidžia.
 * **Orientacija (1.3.0).** Atskiros kameros „Preview“, „Radiance“, „Reflectance“ ir „Index“ produktai pasukami pagal jos „Mirror/Rotation“ nustatymą; „Raw“ ir „Debayered“ lieka tokie, kokius juos nuskaitė jutiklis. Visi masyvo narių failai išlieka nepakeisti. Kiekviename faile šis nustatymas įrašomas į XMP, todėl pakartotinio apdorojimo metu jis taikomas taip pat.
 * **Kuriai kamerai priklauso „`.daq`“ (1.3.0).** Apdorojimo metu užfiksuoto vaizdo „`.daq`“ atitikmuo randamas tik tarp vaizdų iš tų kamerų, kurių pavadinimai nurodyti jo „`.daq.cameras.json`“ laukelyje. Todėl atskira kamera, neturinti savo šviesos jutiklio, nebeperima kitos kameros rodmenų — priskirkite jai jutiklį arba įrašykite jį skirtuke „Šviesos jutikliai“. Šviesos jutiklio įrašas (ir bet kuris `.daq` be to failo, įskaitant senesnius įrašus) vis dar tinka kiekvienai kamerai.
 
-Tai tas pats išdėstymas, kurį `chloros-cli lattice capture` / `array-capture` įrašo į savo `-o` katalogą — aprašyta [CLI
-
-žinyne § Kaip atrodo įrašų aplankas](../reference/cli-reference.md#what-a-captures-folder-looks-like).
+Tai tas pats išdėstymas, kurį `chloros-cli lattice capture` / `array-capture` įrašo į savo `-o` katalogą — aprašyta [CLI žinyne § Kaip atrodo įrašų aplankas](../reference/cli-reference.md#what-a-captures-folder-looks-like).
 
 <!-- SCREENSHOT-NEEDED: OS file explorer showing a real <project>/captures/ folder after a multi-level array capture — the raw/debayered/radiance/reflectance/preview subfolders, the daq/ and clamp_masks/ folders, and sync_<ts>_SN<serial>_<level>.tif filenames visible inside one subfolder. -->
 
@@ -179,11 +147,7 @@ chloros-cli process "C:/ChlorosProjects/MyField/captures"
 Tiesioginis lygio pakatalogio pavadinimo nurodymas (pvz., `…/captures/raw/`) taip pat veikia, tačiau palieka aplanką „`daq/`“ – nukopijuokite jį kartu, kai-iš `raw/` gaunate radiometrinį produktą, kitaip laiko žymos atitikimas neturės su kuo susieti.
 
 {% hint style="warning" %}
-**Apdorojimas visada prasideda nuo `raw`.** Kiekviename įraše neapdorotas kadras yra apdorojimo grandinės šaltinis; `debayered`, `radiance`, `reflectance`, o `preview` pateikiami kaip peržiūros režimai, tačiau niekada nėra grąžinami atgal į apdorojimo grandinę — pakartotinis išvestinio produkto apdorojimas vėl pritaikytų vinjetę, spalvą ir spinduliavimo skaičiavimus, kurie jau yra įtraukti į jo pikselius, todėl Chloros
-
-atsisako tokio apdorojimo, o ne atlieka dvigubą apdorojimą. `index/` ir `composite/` atvaizdai visiškai neapdorojami (jie yra išvesties duomenys, o ne užfiksuoti vaizdai). „Captures“ aplankas, išsaugotas **be** neapdorotų duomenų importo, rodomas įprastai, tačiau „`process`“ jį praleidžia ir apie tai praneša; „`--input-level {raw,debayered,processed}`“ yra sąmoningai numatytas išeities variantas, priverčiantis nustatyti įėjimo tašką. Tikslius praleidimo pranešimus rasite [CLI
-
-žinyne](../reference/cli-reference.md#what-a-captures-folder-looks-like).
+**Apdorojimas visada prasideda nuo `raw`.** Kiekviename įraše neapdorotas kadras yra apdorojimo grandinės šaltinis; `debayered`, `radiance`, `reflectance`, o `preview` pateikiami kaip peržiūros režimai, tačiau niekada nėra grąžinami atgal į apdorojimo grandinę — pakartotinis išvestinio produkto apdorojimas vėl pritaikytų vinjetę, spalvą ir spinduliavimo skaičiavimus, kurie jau yra įtraukti į jo pikselius, todėl Chloros atsisako tokio apdorojimo, o ne atlieka dvigubą apdorojimą. `index/` ir `composite/` atvaizdai visiškai neapdorojami (jie yra išvesties duomenys, o ne užfiksuoti vaizdai). „Captures“ aplankas, išsaugotas **be** neapdorotų duomenų importo, rodomas įprastai, tačiau „`process`“ jį praleidžia ir apie tai praneša; „`--input-level {raw,debayered,processed}`“ yra sąmoningai numatytas išeities variantas, priverčiantis nustatyti įėjimo tašką. Tikslius praleidimo pranešimus rasite [CLI žinyne](../reference/cli-reference.md#what-a-captures-folder-looks-like).
 {% endhint %}
 
 Dar du elgesio atvejai, kuriuos verta žinoti kuriant pakartotinio apdorojimo scenarijus:
@@ -191,15 +155,11 @@ Dar du elgesio atvejai, kuriuos verta žinoti kuriant pakartotinio apdorojimo sc
 * `chloros-cli process` vykdymas, kurio metu buvo prašoma sukurti produktus, bet **nebuvo sukurta jokių vaizdo produktų, baigiasi akivaizdžia nesėkme ir išeina su nelygiu nuliui rezultatu** — jūs niekada negausite tylaus tuščio vykdymo. Sėkmingi vykdymai praneša apie produktų skaičių. (Sąmoningas vykdymas, skirtas tik metaduomenims, vis tiek laikomas sėkmingu.)
 * Pakartotinai importuoti apdoroti eksportai niekada neužima neapdoroto įrašo vietos — originalus neapdorotas įrašas visada lieka apdorojimo grandinės šaltiniu.
 
-## CLI
-
-ekvivalentai
+## CLI ekvivalentai
 
 Viską, kas pateikta šiame puslapyje, galima valdyti be grafinės sąsajos. GUI įrašymo režimai tiesiogiai atitinka `chloros-cli lattice array-capture`:
 
-| GUI | CLI
-
-|
+| GUI | CLI |
 | --- | --- |
 | Vienkartinis | `chloros-cli lattice array-capture` |
 | Nuolatinis | `array-capture --continuous [--count N] [--duration S]` |
@@ -210,6 +170,4 @@ Viską, kas pateikta šiame puslapyje, galima valdyti be grafinės sąsajos. GUI
 | Vaizdo įrašo indeksas | `chloros-cli lattice array-record` |
 | Neapdorotų serijos kadrų įrašymas / Vaizdo įrašo sudarymas | `chloros-cli lattice array-burst` / `array-build-video` |
 
-Išsamios žymių lentelės, „Smart-AE“ fiksuoto įrašymo parinktis (`--smart`) ir pastovaus greičio modelis aprašyti skyriuje [CLI
-
-nuoroda § Įrašymo režimai, įrašymo įrenginiai ir neprisijungus atliekamas perdirbimas](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).
+Išsamios žymių lentelės, „Smart-AE“ fiksuoto įrašymo parinktis (`--smart`) ir pastovaus greičio modelis aprašyti skyriuje [CLI nuoroda § Įrašymo režimai, įrašymo įrenginiai ir neprisijungus atliekamas perdirbimas](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).

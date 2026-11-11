@@ -367,7 +367,7 @@ sudo chmod +x /usr/lib/chloros/chloros-backend /usr/lib/chloros/backend/chloros-
 
 ### Backend nepaleidžiamas po failų teisių pridėjimo
 
-Negalima paleisti `setcap` backend&#x27;e. Nuo 1.3.0 versijos paketas nenustato jokių failų galimybių, o PTP prievadai 319/320 nustatomi pagal `sysctl` parametrą, aprašytą skyriuje [Kaip PTP gauna savo prievadus](#always-on-ptp-for-headless-hosts). Failo galimybė perkelia išpakuotą užkurtį į saugaus vykdymo režimą, kuriame jis negali rasti savo bibliotekų, todėl nepaleidžiamas. Jei pridėjote tokią galimybę, pašalinkite ją:
+Negalima paleisti `setcap` backend'e. Nuo 1.3.0 versijos paketas nenustato jokių failų galimybių, o PTP prievadai 319/320 nustatomi pagal `sysctl` parametrą, aprašytą skyriuje [Kaip PTP gauna savo prievadus](#always-on-ptp-for-headless-hosts). Failo galimybė perkelia išpakuotą užkurtį į saugaus vykdymo režimą, kuriame jis negali rasti savo bibliotekų, todėl nepaleidžiamas. Jei pridėjote tokią galimybę, pašalinkite ją:
 
 ```bash
 sudo setcap -r /usr/lib/chloros/backend/chloros-backend

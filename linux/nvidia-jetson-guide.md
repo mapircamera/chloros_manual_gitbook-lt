@@ -1,8 +1,6 @@
 # „NVIDIA Jetson“ vadovas
 
-Chloros
-programinė įranga, veikianti „NVIDIA Jetson“ platformoje, leidžia apdoroti daugiaspektrinius vaizdus „edge“ aplinkoje – lauke, nepilotuojamuose orlaiviuose (UAV) ir nuotolinėse įrangos vietose. Chloros
-1.3.0 paleidimo metu atpažįsta jūsų „Jetson“ modelį ir optimizuoja apdorojimo strategiją pagal aptiktą aparatinę įrangą. **Rankinis nustatymas nereikalingas.**
+Chloros programinė įranga, veikianti „NVIDIA Jetson“ platformoje, leidžia apdoroti daugiaspektrinius vaizdus „edge“ aplinkoje – lauke, nepilotuojamuose orlaiviuose (UAV) ir nuotolinėse įrangos vietose. Chloros 1.3.0 paleidimo metu atpažįsta jūsų „Jetson“ modelį ir optimizuoja apdorojimo strategiją pagal aptiktą aparatinę įrangą. **Rankinis nustatymas nereikalingas.**
 {% hint style="info" %}
 **„Jetson“ paketas 1.3.0 apdoroja duomenis „Jetson“ GPU.** „`chloros_1.3.0_arm64_jp6.deb`“ sukurtas „JetPack 6“ ir naudoja „JetPack 6“ CUDA versiją „PyTorch“, todėl apdorojimas, įskaitant „Texture Aware“ debayerį, vyksta „Orin“ GPU. Paketas pats neturi CUDA: jis naudoja CUDA ir cuDNN bibliotekas, kurias įdiegia „JetPack 6“ (`sudo apt install nvidia-jetpack` – atvaizde, kuriame jų nėra). Jei CUDA GPU negalima naudoti, apdorojimas vyksta CPU, o „Texture Aware“ naudoja standartinį „debayer“.
 {% endhint %}
@@ -18,8 +16,7 @@ programinė įranga, veikianti „NVIDIA Jetson“ platformoje, leidžia apdorot
 | **Jetson Orin Nano** | 8 GB bendros atminties     | `GPU_SINGLE` (1 darbinis procesas, nuoseklusis)                     | Pradinio lygio krašto skaičiavimai                                 |
 
 {% hint style="info" %}
-Linux
-arm64 paketui reikalingas **„JetPack 6“**, kuris yra prieinamas „Jetson Orin“ šeimos įrenginiuose. Senesni modeliai („Nano“, „TX2“, „Xavier NX“) negali paleisti „JetPack 6“ ir nėra palaikomi dabartiniame pakete.
+Linux arm64 paketui reikalingas **„JetPack 6“**, kuris yra prieinamas „Jetson Orin“ šeimos įrenginiuose. Senesni modeliai („Nano“, „TX2“, „Xavier NX“) negali paleisti „JetPack 6“ ir nėra palaikomi dabartiniame pakete.
 {% endhint %}
 
 ***
@@ -28,10 +25,7 @@ arm64 paketui reikalingas **„JetPack 6“**, kuris yra prieinamas „Jetson Or
 
 * **„JetPack 6.x“** (rekomenduojama naujausia versija)
 * **„NVIDIA CUDA“ ir „cuDNN“** iš „JetPack 6“ (`sudo apt install nvidia-jetpack`, jei jūsų atvaizde jų nėra)
-* **Mokamas „Chloros
-+“ planas** — „Copper“ lygis ar aukštesnis (būtinas visai prieigai prie CLI
-ir SDK
-; taikomas serverio pusėje)
+* **Mokamas „Chloros+“ planas** — „Copper“ lygis ar aukštesnis (būtinas visai prieigai prie CLI ir SDK; taikomas serverio pusėje)
 
 ## Įdiegimas
 
@@ -48,15 +42,10 @@ python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"   # the .deb ins
 chloros-cli selftest
 ```
 
-`.deb` įdiegia Python
-SDK
-sistemai `python3`, atitinkančią šią versiją. Tik į „virtualenv“ reikia įdiegti pridedamą „wheel“ failą: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (visiškai neprisijungus prie interneto). Bendrą informaciją apie diegimą Linux
-sistemoje, failų vietas ir trikčių šalinimą rasite [Linux
-diegimo vadove](linux-installation.md).
+`.deb` įdiegia Python SDK sistemai `python3`, atitinkančią šią versiją. Tik į „virtualenv“ reikia įdiegti pridedamą „wheel“ failą: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (visiškai neprisijungus prie interneto). Bendrą informaciją apie diegimą Linux sistemoje, failų vietas ir trikčių šalinimą rasite [Linux diegimo vadove](linux-installation.md).
 
 {% hint style="info" %}
-**Paleidžiant programą nebereikia išpakuoti.** Nuo 1.3.0 versijos užkulisinė dalis ir CLI
-yra įdiegiamos neišpakuotos į katalogą `/usr/lib/chloros/`, todėl jos nebeišpakuojamos į laikiną katalogą kiekvieną kartą paleidžiant. Laikinieji failai vis dar automatiškai perkeliami į `/mnt/ssd/tmp`, jei tas katalogas egzistuoja; priešingu atveju galite nustatyti `TMPDIR` kaip kelią į savo NVMe (`export TMPDIR=/mnt/nvme/tmp`).
+**Paleidžiant programą nebereikia išpakuoti.** Nuo 1.3.0 versijos užkulisinė dalis ir CLI yra įdiegiamos neišpakuotos į katalogą `/usr/lib/chloros/`, todėl jos nebeišpakuojamos į laikiną katalogą kiekvieną kartą paleidžiant. Laikinieji failai vis dar automatiškai perkeliami į `/mnt/ssd/tmp`, jei tas katalogas egzistuoja; priešingu atveju galite nustatyti `TMPDIR` kaip kelią į savo NVMe (`export TMPDIR=/mnt/nvme/tmp`).
 {% endhint %}
 
 ***
@@ -65,8 +54,7 @@ yra įdiegiamos neišpakuotos į katalogą `/usr/lib/chloros/`, todėl jos nebei
 
 ### Kaip tai veikia
 
-Paleidimo metu Chloros
-sudaro jūsų sistemos profilį:
+Paleidimo metu Chloros sudaro jūsų sistemos profilį:
 
 1. **Aptinka „Jetson“ modelį** per „`/proc/device-tree/model`“
 2. **Nuskaito laisvą bendrą GPU/CPU atmintį** (Jetson naudoja suvienodintą atmintį)
@@ -110,13 +98,10 @@ Išsamią informaciją apie skaičiavimo pritaikymą rasite [Dinaminis skaičiav
 
 ## GPU dažnio riba „Texture Aware“ funkcijai „Nano“ ir „Orin Nano“ modeliuose
 
-„Texture Aware“ debayeris vykdo GPU neuroninio tinklo išvadų darymą, kuris, esant maksimaliam GPU takto dažniui, gali sukelti **per didelės srovės įspėjimus**mažos galios „Jetson“ modeliuose (10–15 W klasės). Kai perduodate `--debayer texture-aware`**„Jetson Nano“ arba „Orin Nano“**, CLI
-patikrina maksimalų GPU dažnį ir, jei jis šiuo metu yra didesnis, apriboja jį iki **510 MHz** (510000000):
+„Texture Aware“ debayeris vykdo GPU neuroninio tinklo išvadų darymą, kuris, esant maksimaliam GPU takto dažniui, gali sukelti **per didelės srovės įspėjimus**mažos galios „Jetson“ modeliuose (10–15 W klasės). Kai perduodate `--debayer texture-aware`**„Jetson Nano“ arba „Orin Nano“**, CLI patikrina maksimalų GPU dažnį ir, jei jis šiuo metu yra didesnis, apriboja jį iki **510 MHz** (510000000):
 
-* Jei CLI
-gali įrašyti į GPU dažnio „sysfs“ mazgą, apribojimas **taikomas automatiškai** ir ekrane parodomas patvirtinimas.
-* Jei ne (reikia root teisių), CLI
-išveda tikslią komandą „`sudo`“, skirtą ribai taikyti rankiniu būdu, palaukia akimirką, kad galėtumėte ją perskaityti, tada tęsia veiklą — apdorojimas vis dar vyksta, tačiau gali rodyti persrovės įspėjimus.
+* Jei CLI gali įrašyti į GPU dažnio „sysfs“ mazgą, apribojimas **taikomas automatiškai** ir ekrane parodomas patvirtinimas.
+* Jei ne (reikia root teisių), CLI išveda tikslią komandą „`sudo`“, skirtą ribai taikyti rankiniu būdu, palaukia akimirką, kad galėtumėte ją perskaityti, tada tęsia veiklą — apdorojimas vis dar vyksta, tačiau gali rodyti persrovės įspėjimus.
 
 Norėdami patys nustatyti ribą prieš apdorojimą:
 
@@ -127,20 +112,18 @@ echo 510000000 | sudo tee /sys/devices/platform/bus@0/17000000.gpu/devfreq/17000
 Didesnės galios modeliai („Orin NX“ 25 W, „AGX Orin“ 60 W) veikia visu GPU greičiu; riba netaikoma. Standartinis „debayer“ niekada nesukelia ribos taikymo jokiam modeliui.
 
 {% hint style="info" %}
-**„Texture Aware“ „Jetson“ platformoje visada apdoroja po vieną vaizdą.** Kiekvienam darbininkui reikėtų savo CUDA konteksto (~1 GB) ir savo triukšmo šalinimo modelio kopijos, o tai viršija suvienodintos atminties pajėgumus — todėl „Jetson“ platformoje „Texture Aware“ apdorojimo kelias priskiriamas vienam darbininkui, o prieiga prie GPU yra serijinė. Tikėtina, kad „Texture Aware“ bet kuriame „Jetson“ įrenginyje veiks žymiai lėčiau nei „Standard“. „Texture Aware“ taikoma Survey3
-vaizdams: „LATTICE“ užfiksuoti vaizdai visada apdorojami naudojant „Standard“ debayerį. Jei nėra tinkamo CUDA GPU, vykdymo metu naudojamas „Standard“ režimas, o užkulisinė sistema užregistruoja vieną eilutę „`[DEBAYER] … needs a CUDA GPU …`“, paaiškinančią priežastį (parodyta su „`chloros-cli --verbose`“).
+**„Texture Aware“ „Jetson“ platformoje visada apdoroja po vieną vaizdą.** Kiekvienam darbininkui reikėtų savo CUDA konteksto (~1 GB) ir savo triukšmo šalinimo modelio kopijos, o tai viršija suvienodintos atminties pajėgumus — todėl „Jetson“ platformoje „Texture Aware“ apdorojimo kelias priskiriamas vienam darbininkui, o prieiga prie GPU yra serijinė. Tikėtina, kad „Texture Aware“ bet kuriame „Jetson“ įrenginyje veiks žymiai lėčiau nei „Standard“. „Texture Aware“ taikoma Survey3 vaizdams: „LATTICE“ užfiksuoti vaizdai visada apdorojami naudojant „Standard“ debayerį. Jei nėra tinkamo CUDA GPU, vykdymo metu naudojamas „Standard“ režimas, o užkulisinė sistema užregistruoja vieną eilutę „`[DEBAYER] … needs a CUDA GPU …`“, paaiškinančią priežastį (parodyta su „`chloros-cli --verbose`“).
 {% endhint %}
 
 ***
 
 ## Šilumos valdymas
 
-„Jetson“ įrenginiai turi ribotą šiluminį rezervą, ypač uždarose arba ore esančiose aplinkose. Chloros
-stebi SoC temperatūrą ir automatiškai riboja partijų dydžius:
+„Jetson“ įrenginiai turi ribotą šiluminį rezervą, ypač uždarose arba ore esančiose aplinkose. Chloros stebi SoC temperatūrą ir automatiškai riboja partijų dydžius:
 
 | Temperatūra         | Veiksmas                                            |
 | ------------------- | ------------------------------------------------- |
-| **&lt; 70 °C**          | Įprastas veikimas — pilnas apdorojimo greitis          |
+| **< 70 °C**          | Įprastas veikimas — pilnas apdorojimo greitis          |
 | **70 °C** (Įspėjimas)  | Partijos dydis palaipsniui mažinamas (nuo 100 % iki 50 % esant temperatūrai nuo 70 °C iki 80 °C) |
 | **80 °C** (Kritinis) | Agresyvus ribojimas (nuo 80 °C iki 90 °C – nuo 50 % iki 0 %) |
 | **90 °C** (Išjungimas) | Visiškai sustabdyti GPU apdorojimą – reikia atvėsinti |
@@ -157,8 +140,7 @@ stebi SoC temperatūrą ir automatiškai riboja partijų dydžius:
 
 ### Įspėjimas dėl keitimosi atminties ir rekomendacijos
 
-Prieš pradedant apdorojimą „Jetson“ įrenginyje, CLI
-suskaičiuoja RAW vaizdus jūsų įvesties aplanke (`.tif`, `.tiff`, `.raw`, `.dng` — JPG peržiūros neįskaičiuojamos), įvertina didžiausią procesui reikalingą atminties kiekį ir **įspėja prieš pradedant**, jei RAM + keitimo sritis greičiausiai bus nepakankama. Įspėjimo antraštė yra „`LOW MEMORY WARNING - Jetson Detected`“, jame nurodomas vaizdų skaičius, RAM, dabartinį keitimosi atminties kiekį ir numatomą didžiausią kiekį, tada pateikia tikslias komandas „`fallocate`“ / „`chmod`“ / „`mkswap`“ / „`swapon`“, pritaikytas jūsų projektui jūsų projektui (niekada ne mažesnės nei 8 GB). Ji sustabdo veikimą kelioms sekundėms, kad pranešimas nepasimestų slinkties istorijoje, tada apdorojimas tęsiamas.**Įspėjime naudojami atminties įvertinimai:**
+Prieš pradedant apdorojimą „Jetson“ įrenginyje, CLI suskaičiuoja RAW vaizdus jūsų įvesties aplanke (`.tif`, `.tiff`, `.raw`, `.dng` — JPG peržiūros neįskaičiuojamos), įvertina didžiausią procesui reikalingą atminties kiekį ir **įspėja prieš pradedant**, jei RAM + keitimo sritis greičiausiai bus nepakankama. Įspėjimo antraštė yra „`LOW MEMORY WARNING - Jetson Detected`“, jame nurodomas vaizdų skaičius, RAM, dabartinį keitimosi atminties kiekį ir numatomą didžiausią kiekį, tada pateikia tikslias komandas „`fallocate`“ / „`chmod`“ / „`mkswap`“ / „`swapon`“, pritaikytas jūsų projektui jūsų projektui (niekada ne mažesnės nei 8 GB). Ji sustabdo veikimą kelioms sekundėms, kad pranešimas nepasimestų slinkties istorijoje, tada apdorojimas tęsiamas.**Įspėjime naudojami atminties įvertinimai:**
 
 | „Debayer“ režimas | Bazinis | Vienam vaizdui |
 | --- | --- | --- |
@@ -188,8 +170,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 ### OOM (Out of Memory) tvarkymas
 
-Apdorojimo metu Chloros
-stebi GPU atmintį ir, užuot sugriuvęs, sklandžiai sumažina našumą:
+Apdorojimo metu Chloros stebi GPU atmintį ir, užuot sugriuvęs, sklandžiai sumažina našumą:
 
 1. Kai GPU atminties panaudojimas viršija **85 %**, partijų dydžiai prevenciškai sumažinami
 2. Jei vis tiek įvyksta atminties trūkumo atvejis, partijos dydis **sumažinamas perpus**, o kiekvieno paskesnio OOM atvejo metu – dar perpus; kiekviena sėkmingai apdorota partija šią baudą sumažina vienu žingsniu
@@ -220,9 +201,7 @@ Suplanuokite energijos sąnaudas, kad užtikrintumėte nepertraukiamą apdorojim
 ### Darbas be monitoriaus per SSH
 
 
-Chloros
-CLI
-yra idealus sprendimas „Jetson“ diegimui be monitoriaus:
+Chloros CLI yra idealus sprendimas „Jetson“ diegimui be monitoriaus:
 
 ```bash
 # SSH into the Jetson
@@ -237,16 +216,14 @@ chloros-cli export-status
 
 ### Nuolat veikiantis užpakalinis serveris „LATTICE“ / „DAQ-E“ laiko sinchronizavimui
 
-Jei jūsų „Jetson“ be monitoriaus valdo „LATTICE“ kameras arba „DAQ-E“ šviesos jutiklius, įjunkite „systemd“ paslaugą **savo vartotojo vardu**, kad PTP „grandmaster“ veiktų nepertraukiamai, o SDK
-skriptai rastų veikiančią paslaugą (modulis yra įdiegtas, bet pagal numatytuosius nustatymus neįjungtas):
+Jei jūsų „Jetson“ be monitoriaus valdo „LATTICE“ kameras arba „DAQ-E“ šviesos jutiklius, įjunkite „systemd“ paslaugą **savo vartotojo vardu**, kad PTP „grandmaster“ veiktų nepertraukiamai, o SDK skriptai rastų veikiančią paslaugą (modulis yra įdiegtas, bet pagal numatytuosius nustatymus neįjungtas):
 
 ```bash
 sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
 chloros-cli time-sync status
 ```
 
-Tuomet foninė sistema veiks kaip jūsų vartotojas: jos įrašomi duomenys priklausys jums, o ji naudos jūsų `chloros-cli login`. Išsamią informaciją, įskaitant „root“ `chloros-backend.service` ir tai, kaip paketas leidžia priskirti PTP prievadus 319/320 be „root“ teisių, rasite [Linux
-diegimo](linux-installation.md#always-on-ptp-for-headless-hosts) skyriuje.
+Tuomet foninė sistema veiks kaip jūsų vartotojas: jos įrašomi duomenys priklausys jums, o ji naudos jūsų `chloros-cli login`. Išsamią informaciją, įskaitant „root“ `chloros-backend.service` ir tai, kaip paketas leidžia priskirti PTP prievadus 319/320 be „root“ teisių, rasite [Linux diegimo](linux-installation.md#always-on-ptp-for-headless-hosts) skyriuje.
 
 ### Automatinis apdorojimas naudojant „systemd“
 
@@ -306,9 +283,7 @@ chloros-cli process /data/flights/flight_042 \
     --indices NDVI GNDVI OSAVI
 ```
 
-### Python
-SDK
-„Jetson“ platformoje
+### Python SDK „Jetson“ platformoje
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -352,26 +327,15 @@ Naudojimui lauke ir ore apsvarstykite šias „Jetson Orin NX 16GB“ nešiklio 
 * **Atšiauriomis lauko sąlygomis**: IP67/IP69K atsparūs vandeniui korpusai su PoE GigE kameros jungtimi
 * **Minimalūs/ekonominiai**: Kūrėjų rinkiniai su papildomais korpusais
 
-Susisiekite su [MAPIR
-palaikymo tarnyba](https://www.mapir.camera/community/contact), kad gautumėte konkrečius aparatinės įrangos rekomendavimus, pritaikytus jūsų diegimo scenarijui.
+Susisiekite su [MAPIR palaikymo tarnyba](https://www.mapir.camera/community/contact), kad gautumėte konkrečius aparatinės įrangos rekomendavimus, pritaikytus jūsų diegimo scenarijui.
 
 ***
 
 ## Tolimesni veiksmai
 
-* [Linux
-diegimas](linux-installation.md) — Bendroji informacija apie Linux
-diegimą
+* [Linux diegimas](linux-installation.md) — Bendroji informacija apie Linux diegimą
 * [Dinaminis skaičiavimo pritaikymas](../processing-architecture/dynamic-compute-adaptation.md) — Išsamus skaičiavimo strategijos vadovas
 * [Apdorojimo srautas](../processing-architecture/processing-pipeline.md) — 4 sriegių srauto supratimas
-* [CLI: Komandinė eilutė](../CLI.md) — CLI
-vadovas
-* [API
-: Python
-SDK
-](../api-python-sdk.md) — SDK
-vadovas
-* [CLI
-vadovas](../reference/cli-reference.md) ir [SDK
-vadovas](../reference/sdk-reference.md) — Išsamūs komandų ir API
-sąrašai versijai 1.3.0
+* [CLI: Komandinė eilutė](../CLI.md) — CLI vadovas
+* [API: Python SDK](../api-python-sdk.md) — SDK vadovas
+* [CLI vadovas](../reference/cli-reference.md) ir [SDK vadovas](../reference/sdk-reference.md) — Išsamūs komandų ir API sąrašai versijai 1.3.0

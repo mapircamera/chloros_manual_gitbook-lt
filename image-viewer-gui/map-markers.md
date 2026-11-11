@@ -84,7 +84,7 @@ Kiekvienas vaizdas su GPS duomenimis gauna žymeklį jo koordinatėse.
 
 Pasirinkite žemėlapio sluoksnio tipą naudodami mygtukus (iš kairės į dešinę):
 
-![](&lt;../.gitbook/assets/image (14).png&gt;)
+![](<../.gitbook/assets/image (14).png>)
 
 | Tipas                 | Rodo                                                                |
 | -------------------- | -------------------------------------------------------------------- |

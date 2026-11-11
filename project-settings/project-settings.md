@@ -2,9 +2,7 @@
 
 <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line">
 
-šoninėje juostoje esantys Chloros
-
-projekto nustatymai leidžia konfigūruoti visus vaizdo apdorojimo, kalibravimo taškų aptikimo, multispektrinių indeksų skaičiavimo ir projekto eksporto parinktis. Šie nustatymai išsaugomi kartu su projektu ir gali būti išsaugoti kaip šablonai, kuriuos galima pakartotinai naudoti įvairiuose projektuose.
+šoninėje juostoje esantys Chloros projekto nustatymai leidžia konfigūruoti visus vaizdo apdorojimo, kalibravimo taškų aptikimo, multispektrinių indeksų skaičiavimo ir projekto eksporto parinktis. Šie nustatymai išsaugomi kartu su projektu ir gali būti išsaugoti kaip šablonai, kuriuos galima pakartotinai naudoti įvairiuose projektuose.
 
 ## Kaip patekti į projekto nustatymus
 
@@ -40,9 +38,7 @@ Norėdami patekti į projekto nustatymus:
 
 ## Taikinio aptikimas
 
-Šie nustatymai kontroliuoja, kaip Chloros
-
-aptinka ir apdoroja kalibravimo taikinius jūsų vaizduose. Abu jie aktyvūs tik tada, kai įjungta **Atspindžio kalibravimas / baltos spalvos balansas** (kitu atveju jie yra išblukinti, nes taikinio aptikimas visiškai praleidžiamas).
+Šie nustatymai kontroliuoja, kaip Chloros aptinka ir apdoroja kalibravimo taikinius jūsų vaizduose. Abu jie aktyvūs tik tada, kai įjungta **Atspindžio kalibravimas / baltos spalvos balansas** (kitu atveju jie yra išblukinti, nes taikinio aptikimas visiškai praleidžiamas).
 
 ### Mažiausias kalibravimo mėginio plotas (px)
 
@@ -68,9 +64,7 @@ aptinka ir apdoroja kalibravimo taikinius jūsų vaizduose. Abu jie aktyvūs tik
 
 ## Apdorojimas
 
-Šie nustatymai kontroliuoja, kaip Chloros
-
-apdoroja ir kalibruoja jūsų vaizdus.
+Šie nustatymai kontroliuoja, kaip Chloros apdoroja ir kalibruoja jūsų vaizdus.
 
 ### Vigneto korekcija
 
@@ -84,9 +78,7 @@ apdoroja ir kalibruoja jūsų vaizdus.
 * **Tipas**: Varnelė
 * **Numatytasis**: Įjungta (pažymėta)
 * **Aprašymas**: Įjungia atspindžio kalibravimą — remiantis aptiktais kadre esančiais kalibravimo taškais ir (arba) DAQ šviesos jutiklio žemyn nukreiptų spindulių duomenimis, priklausomai nuo kameros ir to, kas yra prieinama. Tai normalizuoja atspindžio vertes visame duomenų rinkinyje ir užtikrina nuoseklius matavimus nepriklausomai nuo apšvietimo sąlygų.
-* **Kai išjungta**: Tikslo aptikimas visiškai praleidžiamas, ir**nė viena kamera negali sukurti atspindžio produkto** — nei Survey3
-
-, veikianti pagal tikslus, nei „LATTICE DAQ“, veikianti pagal duomenų surinkimą. Priklausomi nustatymai (*Eksportuoti atspindį*, *Minimalus pakalibravimo intervalas* ir tikslo aptikimo slenksčiai) yra išblukinti.
+* **Kai išjungta**: Tikslo aptikimas visiškai praleidžiamas, ir**nė viena kamera negali sukurti atspindžio produkto** — nei Survey3, veikianti pagal tikslus, nei „LATTICE DAQ“, veikianti pagal duomenų surinkimą. Priklausomi nustatymai (*Eksportuoti atspindį*, *Minimalus pakalibravimo intervalas* ir tikslo aptikimo slenksčiai) yra išblukinti.
 
 ### Nekalibruoti atsarginiai produktai: Eksportuoti jutiklio atsaką / Eksportuoti su koreguotu vinjetavimu
 
@@ -103,45 +95,25 @@ Projektai, kuriuose yra LATTICE kadrų, kiekvienas importuotas LATTICE kadras vi
 
 | Nustatymas | Išvesties aplankas | Kas eksportuojama |
 | --- | --- | --- |
-| **Eksportuoti be „debayeringo“** | `Debayered_Images/` | Linijinis vaizdas be „debayeringo“: pašalintas kalibravimo paketo tamsos poslinkis, tada atliktas kraštų atpažinimu pagrįstas demozėjimas, be linijiškumo korekcijos, plokščio lauko ar spalvų atskyrimo — tas pats failas, kurį įrašas išsaugo debayeringo lygiu. Išsaugoma jutiklio natūrali orientacija (įrašyta XMP). Taikoma RGB
-
-ir multispektrinėms kameroms. |
-| **Eksportuoti peržiūrą** | `Preview_Images/` | Ekrano peržiūra. RGB
-
-= baltos spalvos balansas (DAQ šviesos šaltinis, jei yra, kitaip – „gray-world“) + gama; daugiaspektrinė = dirbtinių spalvų išplėtimas. |
-| **Eksportuoti spinduliavimą** | `Radiance_Images/` | „Float32“ spektrinis spinduliavimas, išreikštas W/m²/sr/nm. Tik daugiaspektrinėms (M3C/M3M) kameroms — netaikoma RGB
-
-pagrindiniams vaizdams. Visada įrašoma kaip 32 bitų TIFF
-
-, nepriklausomai nuo *Kalibruoto vaizdo formato* nustatymo. |
+| **Eksportuoti be „debayeringo“** | `Debayered_Images/` | Linijinis vaizdas be „debayeringo“: pašalintas kalibravimo paketo tamsos poslinkis, tada atliktas kraštų atpažinimu pagrįstas demozėjimas, be linijiškumo korekcijos, plokščio lauko ar spalvų atskyrimo — tas pats failas, kurį įrašas išsaugo debayeringo lygiu. Išsaugoma jutiklio natūrali orientacija (įrašyta XMP). Taikoma RGB ir multispektrinėms kameroms. |
+| **Eksportuoti peržiūrą** | `Preview_Images/` | Ekrano peržiūra. RGB = baltos spalvos balansas (DAQ šviesos šaltinis, jei yra, kitaip – „gray-world“) + gama; daugiaspektrinė = dirbtinių spalvų išplėtimas. |
+| **Eksportuoti spinduliavimą** | `Radiance_Images/` | „Float32“ spektrinis spinduliavimas, išreikštas W/m²/sr/nm. Tik daugiaspektrinėms (M3C/M3M) kameroms — netaikoma RGB pagrindiniams vaizdams. Visada įrašoma kaip 32 bitų TIFF, nepriklausomai nuo *Kalibruoto vaizdo formato* nustatymo. |
 | **Eksportuoti atspindžio koeficientą**| `Reflectance_Calibrated_Images/` | „Uint16“ atspindžio koeficientas, mastelis toks, kad**32768 = atspindžio koeficientas 1,0** (pažymėta kaip XMP `Chloros:PixelScale`). Taikoma tik daugiaspektriniams vaizdams, įrašoma, kai atitinkamas `.daq` žemyn nukreiptas įrašas (arba kokybės patikrinimą išlaikęs kadro vidinis taikinys) apima kadrą. |
 
-* RGB
-
-pagrindinės kameros perduoda debayeringą + peržiūrą; spinduliavimas/atspindžio koeficientas joms praleidžiami, nes netaikomi.
+* RGB pagrindinės kameros perduoda debayeringą + peržiūrą; spinduliavimas/atspindžio koeficientas joms praleidžiami, nes netaikomi.
 * Debayeringo/peržiūros bitų gylis priklauso nuo nustatymo *Kalibruotas vaizdo formatas*; spinduliavimas visada yra „float32“.
-* Šie keturi perjungikliai neturi įtakos Survey3
-
-apdorojimui.
+* Šie keturi perjungikliai neturi įtakos Survey3 apdorojimui.
 * Multispektrinių M3C kamerų spinduliavimo ir atspindžio produktai taip pat gali įrašyti pikselio lygio **fiksavimo kaukę** į `clamp_masks/` aplanką šalia produktų aplankų, užfiksuodamos, kur juostos atskyrimo procesas apkarpė neigiamą vertę iki nulio. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#clamp-masks).
 
-Tie patys keturi perjungikliai egzistuoja be vartotojo sąsajos kaip „`chloros-cli process --debayered / --preview / --radiance / --reflectance`“. Jie pakeitė senąjį CLI
-
-„`--radiometric-output`“ žymeklį, kurio jau nebėra.
+Tie patys keturi perjungikliai egzistuoja be vartotojo sąsajos kaip „`chloros-cli process --debayered / --preview / --radiance / --reflectance`“. Jie pakeitė senąjį CLI „`--radiometric-output`“ žymeklį, kurio jau nebėra.
 
 {% hint style="warning" %}
-**Išjungus visus taikytinus produktus, apdorojimo ciklas baigiasi nesėkme.** Nuo 1.2.0 versijos apdorojimo ciklas, kuriam buvo užklausti produktai, bet nebuvo įrašytas joks vaizdo produktas, praneša apie nesėkmę, o CLI
-
-baigia veikimą su nelygiu nuliui rezultatu, vietoj to, kad tyliai praneštų apie sėkmę. Žurnale nurodomas produktas, kurio nepavyko įrašyti, ir priežastis. Tyčinis apdorojimo ciklas, skirtas tik metaduomenims (nieko neprašyta) vis tiek laikomas sėkmingu.
+**Išjungus visus taikytinus produktus, apdorojimo ciklas baigiasi nesėkme.** Nuo 1.2.0 versijos apdorojimo ciklas, kuriam buvo užklausti produktai, bet nebuvo įrašytas joks vaizdo produktas, praneša apie nesėkmę, o CLI baigia veikimą su nelygiu nuliui rezultatu, vietoj to, kad tyliai praneštų apie sėkmę. Žurnale nurodomas produktas, kurio nepavyko įrašyti, ir priežastis. Tyčinis apdorojimo ciklas, skirtas tik metaduomenims (nieko neprašyta) vis tiek laikomas sėkmingu.
 {% endhint %}
 
-### Atšvaitumo šaltinis (projekto nustatymas, nustatomas per CLI
+### Atšvaitumo šaltinis (projekto nustatymas, nustatomas per CLI)
 
-)
-
-Projekte taip pat saugoma informacija, kokį **atšvaitumo etaloną** naudoja LATTICE atšvaitumo produktas. Nustatymų skydelyje nėra specialaus valdiklio; reikšmė saugoma projekto konfigūracijoje kaip `Processing → "Target reflectance source"` ir nustatoma naudojant `chloros-cli process --reflectance-source {auto,target,daq}` (SDK
-
-parametras `configure()` neturi tam skirto raktinio žodžio):
+Projekte taip pat saugoma informacija, kokį **atšvaitumo etaloną** naudoja LATTICE atšvaitumo produktas. Nustatymų skydelyje nėra specialaus valdiklio; reikšmė saugoma projekto konfigūracijoje kaip `Processing → "Target reflectance source"` ir nustatoma naudojant `chloros-cli process --reflectance-source {auto,target,daq}` (SDK parametras `configure()` neturi tam skirto raktinio žodžio):
 
 * **`auto`** (numatyta reikšmė): kokybės užtikrinimo (QA) reikalavimus atitinkantis kalibravimo taikinys kadre tampa absoliučiu etalonu; jei taikinio nėra arba QA nepavyksta, grįžtama prie DAQ žemyn nukreipto spinduliavimo dalinio (ρ = πL/E). Tikslas, kuris išlaiko kokybės patikrinimą su žymekliu (nukritęs skydelis arba neveikianti juosta), nėra automatiškai teikiamas pirmenybė: tikslo, tikslo+DAQ ir tik DAQ grandinės bandomos pagal jų išmatuotą balą ant atidėtų skydelių.
 * **`target`**: griežtas, tikslu grindžiamas atspindžio koeficientas — be DAQ pakeitimo.
@@ -154,30 +126,18 @@ Išsaugota reikšmė atitinkama neatsižvelgiant į didžiųjų ir mažųjų rai
 * **Tipas**: pasirinkimas iš išskleidžiamojo meniu
 * **Parinktys**:
   * Standartinis (greitas, vidutinė kokybė)
-  * Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė) \[Chloros
-
-+]
+  * Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė) \[Chloros+]
 * **Numatytasis**: Standartinis (greitas, vidutinė kokybė)
-* **Aprašymas**: Pasirenkamas demozėjimo algoritmas, naudojamas neapdorotiems „Bayer“ modelio jutiklio duomenims konvertuoti į spalvotus vaizdus. Metodas „Standartinis (greitas, vidutinė kokybė)“ užtikrina optimalų apdorojimo greičio ir vaizdo kokybės balansą. „Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė)“ \[Chloros
-
-+] naudoja aukštos kokybės, kraštus atpažįstantį demosaicingą, derinamą su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą demosaicingo triukšmą. „Atsižvelgiantis į tekstūrą“ modelis veikimui reikalauja GPU atminties (VRAM). Rekomenduojame jį naudoti, jei turite &gt;4 GB VRAM, kad apdorojimas vyktų greičiau.
-* **Tik tuo atveju, jei eilutė yra išskleidžiamasis meniu**: dviejų variantų išskleidžiamasis meniu pasirodo tik tada, kai**abi** sąlygos yra teisingos — esate prisijungę su tinkamu „Chloros
-
-+“ abonementu, **ir** projekte nėra „LATTICE“ įrašų. Kitais atvejais eilutė rodoma kaip paprastas tekstas „`Standard (Fast, Medium Quality)`“, be jokios pasirinkimo galimybės.
-* **„LATTICE“ pastaba**: Nėra „LATTICE“ apmokyto „Texture Aware“ modelio, o apdorojimo grandinė priverčia taikyti standartinį demozikavimą „LATTICE“ kadrams, nepriklausomai nuo išsaugotos vertės. Jei į projektą, kuriame jau buvo pasirinkta „Texture Aware“, įtraukiate „LATTICE“ aplanką, Chloros
-
-perrašo nustatymą atgal į „Standard“, o ne palieka pasenusią vertę „`project.json`.
+* **Aprašymas**: Pasirenkamas demozėjimo algoritmas, naudojamas neapdorotiems „Bayer“ modelio jutiklio duomenims konvertuoti į spalvotus vaizdus. Metodas „Standartinis (greitas, vidutinė kokybė)“ užtikrina optimalų apdorojimo greičio ir vaizdo kokybės balansą. „Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė)“ \[Chloros+] naudoja aukštos kokybės, kraštus atpažįstantį demosaicingą, derinamą su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą demosaicingo triukšmą. „Atsižvelgiantis į tekstūrą“ modelis veikimui reikalauja GPU atminties (VRAM). Rekomenduojame jį naudoti, jei turite >4 GB VRAM, kad apdorojimas vyktų greičiau.
+* **Tik tuo atveju, jei eilutė yra išskleidžiamasis meniu**: dviejų variantų išskleidžiamasis meniu pasirodo tik tada, kai**abi** sąlygos yra teisingos — esate prisijungę su tinkamu „Chloros+“ abonementu, **ir** projekte nėra „LATTICE“ įrašų. Kitais atvejais eilutė rodoma kaip paprastas tekstas „`Standard (Fast, Medium Quality)`“, be jokios pasirinkimo galimybės.
+* **„LATTICE“ pastaba**: Nėra „LATTICE“ apmokyto „Texture Aware“ modelio, o apdorojimo grandinė priverčia taikyti standartinį demozikavimą „LATTICE“ kadrams, nepriklausomai nuo išsaugotos vertės. Jei į projektą, kuriame jau buvo pasirinkta „Texture Aware“, įtraukiate „LATTICE“ aplanką, Chloros perrašo nustatymą atgal į „Standard“, o ne palieka pasenusią vertę „`project.json`.
 
 ### Mažiausias pakartotinio kalibravimo intervalas
 
 * **Tipas**: Skaičius
 * **Diapazonas**: nuo 0 iki 3 600 sekundžių
 * **Numatytasis**: 0 sekundžių
-* **Aprašymas**: Nustato minimalų laiko intervalą (sekundėmis) tarp kalibravimo taškų naudojimo. Nustačius 0, Chloros
-
-naudos kiekvieną aptiktą kalibravimo tašką. Nustačius didesnę vertę, Chloros
-
-naudos tik tuos kalibravimo taškus, kurie yra atskirti bent jau šiuo sekundžių skaičiumi, taip sutrumpindamas duomenų rinkinių, kuriuose dažnai fiksuojami kalibravimo taškai, apdorojimo laiką.
+* **Aprašymas**: Nustato minimalų laiko intervalą (sekundėmis) tarp kalibravimo taškų naudojimo. Nustačius 0, Chloros naudos kiekvieną aptiktą kalibravimo tašką. Nustačius didesnę vertę, Chloros naudos tik tuos kalibravimo taškus, kurie yra atskirti bent jau šiuo sekundžių skaičiumi, taip sutrumpindamas duomenų rinkinių, kuriuose dažnai fiksuojami kalibravimo taškai, apdorojimo laiką.
 * **Kada reguliuoti**:
   * Nustatykite 0, kad pasiektumėte maksimalų kalibravimo tikslumą, kai apšvietimo sąlygos kinta
   * Padidinkite (pvz., iki 60–300 sekundžių), kad apdorojimas vyktų greičiau, kai apšvietimas yra pastovus ir turite dažnai užfiksuotus kalibravimo taškų vaizdus
@@ -193,11 +153,7 @@ naudos tik tuos kalibravimo taškus, kurie yra atskirti bent jau šiuo sekundži
 
 * **Tipas**: Varnelė
 * **Numatytasis**: Išjungta (nepažymėta)
-* **Aprašymas**: Įjungia galimybę naudoti PPK (Post-Processed Kinematic) korekcijas iš MAPIR
-
-DAQ įrašymo įrenginių, turinčių GPS (GNSS). Įjungus šią funkciją, Chloros
-
-naudos visus .daq žurnalo failus, kuriuose yra ekspozicijos pin duomenys, esančius jūsų projekto kataloge, ir pritaikys tikslias geolokacijos korekcijas jūsų vaizdams.
+* **Aprašymas**: Įjungia galimybę naudoti PPK (Post-Processed Kinematic) korekcijas iš MAPIR DAQ įrašymo įrenginių, turinčių GPS (GNSS). Įjungus šią funkciją, Chloros naudos visus .daq žurnalo failus, kuriuose yra ekspozicijos pin duomenys, esančius jūsų projekto kataloge, ir pritaikys tikslias geolokacijos korekcijas jūsų vaizdams.
 * **Reikalavimas**: jūsų projekto kataloge turi būti .daq žurnalo failas su ekspozicijos žymių įrašais
 * **Kada įjungti**: rekomenduojama visada įjungti PPK korekciją, jei jūsų .daq žurnalo faile yra ekspozicijos grįžtamojo ryšio įrašai.
 
@@ -246,9 +202,7 @@ Kiekvienoje eilutėje nurodytas failas, jutiklio modelis ir tam failui faktiška
 * **Parinktys**: `Auto` ir difuzoriaus dangtelio korekcijos profiliai, galiojantys projekte esantiems jutiklių tipams
 * **Numatytasis**: „Auto“
 * **Išsaugota kaip**: `Processing → "DAQ cap id"` (numatyta reikšmė `auto`)
-* **Aprašymas**: `Auto` naudoja kiekviename faile užregistruotą dangtelį (jei nieko neužregistruota, daroma prielaida, kad tai „Sunshine“ dangtelis, tačiau DAQ-U, DAQ-M ir DAQ-E tiekiami be dangtelio, o Chloros
-
-negali matyti, kas yra uždėta, todėl apdorojimo metu rodomas įspėjimas dėl numanomo dangtelio: pasirinkite tą dangtelį, kuris buvo uždėtas). Pasirinkus konkretų dangtelį, jis pakeičia **visus** projekte esančius žemyn nukreiptus failus, išskyrus DAQ-E-S failus, kurių difuzorius yra kalibravimo dalis; projekte, kuriame yra tik DAQ-E-S, išskleidžiamasis meniu nerodomas: neapdoroti įrašai koreguojami naudojant jį, o įrašams, kuriuose jau yra taikytas dangtelis, nustatoma nauja atskaita (įrašyta korekcija atšaukiama ir pritaikoma pasirinktoji).
+* **Aprašymas**: `Auto` naudoja kiekviename faile užregistruotą dangtelį (jei nieko neužregistruota, daroma prielaida, kad tai „Sunshine“ dangtelis, tačiau DAQ-U, DAQ-M ir DAQ-E tiekiami be dangtelio, o Chloros negali matyti, kas yra uždėta, todėl apdorojimo metu rodomas įspėjimas dėl numanomo dangtelio: pasirinkite tą dangtelį, kuris buvo uždėtas). Pasirinkus konkretų dangtelį, jis pakeičia **visus** projekte esančius žemyn nukreiptus failus, išskyrus DAQ-E-S failus, kurių difuzorius yra kalibravimo dalis; projekte, kuriame yra tik DAQ-E-S, išskleidžiamasis meniu nerodomas: neapdoroti įrašai koreguojami naudojant jį, o įrašams, kuriuose jau yra taikytas dangtelis, nustatoma nauja atskaita (įrašyta korekcija atšaukiama ir pritaikoma pasirinktoji).
 * **Svarbu**: Pasirinktas dangtelis turi atitikti tą, kuris buvo fiziškai uždėtas įrašymo metu. Nei jutiklis, nei programinė įranga negali aptikti fizinio dangtelio — netinkamas dangtelio ID klaidingai koreguoja spektrus.
 
 Sąmoningai numatytas **vienas** visam projektui bendras nustatymas, o ne atskiri išskleidžiamieji meniu kiekvienam failui: šis nustatymas taikomas kiekvienam žemyn nukreiptam šaltiniui projekte.***
@@ -292,54 +246,26 @@ Tos pačios trys parinktys be priesagos yra `chloros-cli process --array-alignme
 ### Pridėti indeksą
 
 * **Tipas**: Specialus indeksų konfigūracijos skydelis
-* **Aprašymas**: Atidaro interaktyvų skydelį, kuriame galite pasirinkti ir konfigūruoti multispektrinius augmenijos indeksus (NDVI
-
-, NDRE
-
-, EVI
-
-ir kt.), kurie bus apskaičiuojami vaizdo apdorojimo metu. Galite pridėti kelis indeksus, kiekvienam nustatydami atskirus vizualizavimo parametrus.
-* **Galimi indeksai**: Grafinės vartotojo sąsajos išskleidžiamajame meniu yra**27** iš anksto apibrėžtos daugiaspektrinių indeksų formulės (visą sąrašą, įskaitant pavadinimus, kuriuos taip pat priima CLI
-
-/SDK
-
-`--indices` parinktis).
+* **Aprašymas**: Atidaro interaktyvų skydelį, kuriame galite pasirinkti ir konfigūruoti multispektrinius augmenijos indeksus (NDVI, NDRE, EVI ir kt.), kurie bus apskaičiuojami vaizdo apdorojimo metu. Galite pridėti kelis indeksus, kiekvienam nustatydami atskirus vizualizavimo parametrus.
+* **Galimi indeksai**: Grafinės vartotojo sąsajos išskleidžiamajame meniu yra**27** iš anksto apibrėžtos daugiaspektrinių indeksų formulės (visą sąrašą, įskaitant pavadinimus, kuriuos taip pat priima CLI/SDK `--indices` parinktis).
 * **Funkcijos**:
   * Pasirinkite iš iš anksto apibrėžtų indeksų formulių
   * Perkelkite savo kameros filtro kanalus į formulės juostų lizdus
   * Nustatykite vizualizacijos spalvų gradientus (LUT – paieškos lentelės)
   * Nustatykite slenkstines vertes ir apribojimo režimus
   * Sukurkite pasirinktines indeksų formules
-* **Pastaba**: Indeksai neskaičiuojami vienos juostos „LATTICE M3M“ monochromatinėms kameroms — daugiajuostiniai indeksai vienoje juostoje nėra apibrėžti. Tai neturi įtakos Survey3
-
-ir „LATTICE M3C“ kameroms.
+* **Pastaba**: Indeksai neskaičiuojami vienos juostos „LATTICE M3M“ monochromatinėms kameroms — daugiajuostiniai indeksai vienoje juostoje nėra apibrėžti. Tai neturi įtakos Survey3 ir „LATTICE M3C“ kameroms.
 
 <!-- SCREENSHOT-NEEDED: Project Settings > Index section with one index added and expanded: the filter dropdown, the formula dropdown open showing preset names, the coloured channel circles above the rendered formula, and the "+ Add LUT" button below it. -->
 
 
 
-Kiekvienas jūsų pridėtas indeksas pateikia savo formulę kaip matematinį išraišką, su spalvotu apskritimu kiekvienoje juostos lizdo vietoje: raudona = Red
+Kiekvienas jūsų pridėtas indeksas pateikia savo formulę kaip matematinį išraišką, su spalvotu apskritimu kiekvienoje juostos lizdo vietoje: raudona = Red, žalia = Green, mėlyna = Blue, oranžinė = Orange, ciano = Cyan, violetinė = NIR, magenta = RE. Norėdami susieti, vilkite ratą iš eilutės virš formulės į lizdą; norėdami išvalyti susietą lizdą, dukart spustelėkite jį. Indeksas apskaičiuojamas tik tada, kai kiekviename lizde, kurį naudoja formulė, yra kanalas.
 
-, žalia = Green
-
-, mėlyna = Blue
-
-, oranžinė = Orange
-
-, ciano = Cyan
-
-, violetinė = NIR
-
-, magenta = RE. Norėdami susieti, vilkite ratą iš eilutės virš formulės į lizdą; norėdami išvalyti susietą lizdą, dukart spustelėkite jį. Indeksas apskaičiuojamas tik tada, kai kiekviename lizde, kurį naudoja formulė, yra kanalas.
-
-### Pasirinktinės formulės („Chloros
-
-+“ funkcija)
+### Pasirinktinės formulės („Chloros+“ funkcija)
 
 * **Tipas**: Pasirinktinių formulių apibrėžimų masyvas
-* **Prieinamumas**: Reikia prisijungti su atitinkamu „Chloros
-
-+“ abonementu.
+* **Prieinamumas**: Reikia prisijungti su atitinkamu „Chloros+“ abonementu.
 * **Aprašymas**: Leidžia kurti ir išsaugoti pasirinktines multispektrinių indeksų formules, naudojant juostų matematiką. Pasirinktinės formulės išsaugomos kartu su jūsų projekto nustatymais ir gali būti naudojamos taip pat kaip ir įdiegtieji indeksai.
 * **Kaip sukurti**:
   1. Indekso konfigūracijos skydelyje atidarykite pasirinktinių formulių skaičiuoklę
@@ -349,20 +275,8 @@ Kiekvienas jūsų pridėtas indeksas pateikia savo formulę kaip matematinį iš
   * Juostų lizdai: `x`, `y`, `z`, `a`, `b`, `c` — šešios pozicijos, kurias priskiriate realiems kanalams vilkdami
   * Operatoriai: `+`, `-`, `*`, `/`, `^` ir `()`, skirti grupavimui
   * Funkcijos: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
-* **Kodėl simboliai, o ne grupių pavadinimai**: formulė, užrašyta kaip `(y-x)/(y+x)`, veikia su bet kuria kamera, nes „vilk ir paleisk“ priskyrimas nusprendžia, ar `y` yra NIR
-
-filtras su 850 nm bangos ilgiu (RGN
-
-) ar NIR
-
-filtras su 808 nm bangos ilgiu (OCN
-
-). Įdiegtos išankstinės nustatymų parinktys saugomos tuo pačiu būdu — tikslią visų 27 simbolių formą rasite [Daugiaspektrinių indeksų formulėse](multispectral-index-formulas.md).
-* **Kur jos veikia**: pasirinktinės formulės išsaugomos kartu su projekto nustatymais ir gali būti naudojamos tiek [Indekso/LUT bandymų aplinkoje](../image-viewer-gui/index-lut-sandbox.md), tiek apdorojimo metu. Jų**nepriima** CLI
-
-/SDK
-
-`--indices` vardų sąrašas, kuris išplečia tik 22 įdiegtų nustatymų pavadinimus.
+* **Kodėl simboliai, o ne grupių pavadinimai**: formulė, užrašyta kaip `(y-x)/(y+x)`, veikia su bet kuria kamera, nes „vilk ir paleisk“ priskyrimas nusprendžia, ar `y` yra NIR filtras su 850 nm bangos ilgiu (RGN) ar NIR filtras su 808 nm bangos ilgiu (OCN). Įdiegtos išankstinės nustatymų parinktys saugomos tuo pačiu būdu — tikslią visų 27 simbolių formą rasite [Daugiaspektrinių indeksų formulėse](multispectral-index-formulas.md).
+* **Kur jos veikia**: pasirinktinės formulės išsaugomos kartu su projekto nustatymais ir gali būti naudojamos tiek [Indekso/LUT bandymų aplinkoje](../image-viewer-gui/index-lut-sandbox.md), tiek apdorojimo metu. Jų**nepriima** CLI/SDK `--indices` vardų sąrašas, kuris išplečia tik 22 įdiegtų nustatymų pavadinimus.
 
 ***
 
@@ -374,49 +288,19 @@ filtras su 808 nm bangos ilgiu (OCN
 
 * **Tipas**: Išskleidžiamas meniu
 * **Parinktys**:
-  * **TIFF
-
-(16 bitų)** – Nesuspaustas 16 bitų TIFF
-
-formatas
-  * **TIFF
-
-(8 bitai)** – nesuspaustas 8 bitų TIFF
-
-formatas
-  * **TIFF
-
-(32 bitai, procentais)** – 32 bitų slankiojo kablelio TIFF
-
-su atspindžio vertėmis procentais
-  * **PNG
-
-(8 bitai)** – suspaustas 8 bitų PNG
-
-formatas
-  * **JPG (8 bitų)** – suspaustas 8 bitų JPEG
-
-formatas
-* **Numatytasis**: TIFF
-
-(16 bitų); visiškai 8 bitų projekte rodomas TIFF
-
-(8 bitų) ir siūlomi tik 8 bitų formatai
+  * **TIFF (16 bitų)** – Nesuspaustas 16 bitų TIFF formatas
+  * **TIFF (8 bitai)** – nesuspaustas 8 bitų TIFF formatas
+  * **TIFF (32 bitai, procentais)** – 32 bitų slankiojo kablelio TIFF su atspindžio vertėmis procentais
+  * **PNG (8 bitai)** – suspaustas 8 bitų PNG formatas
+  * **JPG (8 bitų)** – suspaustas 8 bitų JPEG formatas
+* **Numatytasis**: TIFF (16 bitų); visiškai 8 bitų projekte rodomas TIFF (8 bitų) ir siūlomi tik 8 bitų formatai
 * **Aprašymas**: Pasirenkamas failo formatas, kuriuo bus išsaugoti apdoroti ir kalibruoti vaizdai. Eksportuoti vaizdai išsaugomi atitinkamo formato pakatalogiuose, esančiuose kiekvienos kameros aplanke (`tiff16`, `tiff32`, `png8`, `jpg8`), kur kiekvienam produktui skiriamas po vieną „`<Product>_Images/`“ aplanką. Eksportuoti failai išlaiko šaltinio failo pavadinimą – produktą identifikuoja aplankas, o ne failo pavadinimo priesaga.
 * **Rekomenduojami formatai**:
-  * **TIFF
-
-(16 bitų)**: Rekomenduojamas mokslinei analizei ir profesionaliems darbo procesams. Užtikrina maksimalią duomenų kokybę be suspaudimo artefaktų. Geriausiai tinka multispektrinei analizei ir tolesniam apdorojimui GIS programinėje įrangoje.
-  * **TIFF
-
-(32 bitai, procentais)**: Geriausiai tinka darbo procesams, kuriuose atspindžio vertės turi būti pateiktos procentais (0–100 %). Užtikrina maksimalų radiometrinių matavimų tikslumą.
-  * **PNG
-
-(8 bitai)**: Tinka peržiūrai internete ir bendrai vizualizacijai. Mažesni failų dydžiai su nesuspaudimu be nuostolių, tačiau sumažintas dinaminis diapazonas.
+  * **TIFF (16 bitų)**: Rekomenduojamas mokslinei analizei ir profesionaliems darbo procesams. Užtikrina maksimalią duomenų kokybę be suspaudimo artefaktų. Geriausiai tinka multispektrinei analizei ir tolesniam apdorojimui GIS programinėje įrangoje.
+  * **TIFF (32 bitai, procentais)**: Geriausiai tinka darbo procesams, kuriuose atspindžio vertės turi būti pateiktos procentais (0–100 %). Užtikrina maksimalų radiometrinių matavimų tikslumą.
+  * **PNG (8 bitai)**: Tinka peržiūrai internete ir bendrai vizualizacijai. Mažesni failų dydžiai su nesuspaudimu be nuostolių, tačiau sumažintas dinaminis diapazonas.
   * **JPG (8 bitai)**: Mažiausi failų dydžiai, geriausiai tinka tik peržiūrai ir rodymui internete. Naudojamas suspaudimas su nuostoliais, kuris netinka mokslinei analizei.
-* **Pastaba**: „LATTICE“ spinduliavimas visada eksportuojamas kaip 32 bitų plūduriuojančiojo kintamojo tipo TIFF
-
-, nepriklausomai nuo šio nustatymo.
+* **Pastaba**: „LATTICE“ spinduliavimas visada eksportuojamas kaip 32 bitų plūduriuojančiojo kintamojo tipo TIFF, nepriklausomai nuo šio nustatymo.
 
 ***
 
@@ -427,22 +311,12 @@ formatas
 * **Tipas**: Teksto įvedimas + mygtukas „Išsaugoti“
 * **Aprašymas**: Įveskite aprašomąjį pavadinimą savo nustatymų šablonui ir spustelėkite išsaugojimo piktogramą. Šablone bus išsaugoti visi dabartiniai projekto nustatymai (tikslo aptikimas, apdorojimo parinktys, indeksai, ir eksporto formatą), kad juos būtų galima lengvai pakartotinai naudoti būsimuose projektuose. Šablonai saugomi aplanke „`Project Templates/`“, esančiame jūsų projekto išsaugojimo aplanke, taip pat juos galima pasirinkti arba eksportuoti iš pagrindinio meniu (*Pasirinkti šabloną* / *Išsaugoti šabloną* / *Eksportuoti šabloną*).
 * **Naudojimo atvejai**:
-  * Sukurkite šablonus skirtingoms kamerų sistemoms (RGB
-
-, multispektrinėms, NIR
-
-)
+  * Sukurkite šablonus skirtingoms kamerų sistemoms (RGB, multispektrinėms, NIR)
   * Išsaugokite standartines konfigūracijas konkrečioms pasėlių rūšims ar analizės darbo eigoms
   * Dalinkitės nuosekliais nustatymais su visa komanda
 * **Kaip naudoti**:
   1. Nustatykite visus norimus projekto parametrus
-  2. Įveskite šablono pavadinimą (pvz., „RedEdge
-
-Survey3
-
-NDVI
-
-Standard“)
+  2. Įveskite šablono pavadinimą (pvz., „RedEdge Survey3 NDVI Standard“)
   3. Spustelėkite išsaugojimo piktogramą
   4. Dabar šabloną galima įkelti kuriant naujus projektus
 
@@ -453,54 +327,28 @@ Standard“)
 Šis nustatymas nurodo, kur pagal numatytuosius nustatymus išsaugomi nauji projektai.
 
 * **Tipas**: Katalogo kelio rodymas + mygtukas „Redaguoti“
-* **Numatytasis (Windows
-
-)**: „`Documents\MAPIR\Chloros Projects`“ jūsų aplanke „Dokumentai“ — paprastai „`C:\Users\[Username]\Documents\MAPIR\Chloros Projects`“, arba ten, kur „OneDrive“ ar klajojantis profilis perkėlė aplanką „Dokumentai“
-* **Numatytasis (Linux
-
-)**: `~/Documents/MAPIR/Chloros Projects`
-* **Aprašymas**: Rodo dabartinį numatytąjį katalogą, kuriame kuriami nauji Chloros
-
-projektai. Spustelėkite redagavimo piktogramą, kad pasirinkite kitą katalogą. Šis pakeitimas saugomas kaip viena teksto eilutė faile „`~/.chloros/working_directory.txt`“ — Windows
-
-sistemoje tai yra „`C:\Users\<Username>\.chloros\working_directory.txt`“. Jei to failo nėra arba jame nurodytas nebeegzistuojantis kelias, Chloros
-
-grįžta prie aukščiau nurodyto numatytojo. CLI
-
-skaito ir rašo tą patį failą, todėl „`chloros-cli`“ ir GUI visada sutaria dėl projektų buvimo vietos.
+* **Numatytasis (Windows)**: „`Documents\MAPIR\Chloros Projects`“ jūsų aplanke „Dokumentai“ — paprastai „`C:\Users\[Username]\Documents\MAPIR\Chloros Projects`“, arba ten, kur „OneDrive“ ar klajojantis profilis perkėlė aplanką „Dokumentai“
+* **Numatytasis (Linux)**: `~/Documents/MAPIR/Chloros Projects`
+* **Aprašymas**: Rodo dabartinį numatytąjį katalogą, kuriame kuriami nauji Chloros projektai. Spustelėkite redagavimo piktogramą, kad pasirinkite kitą katalogą. Šis pakeitimas saugomas kaip viena teksto eilutė faile „`~/.chloros/working_directory.txt`“ — Windows sistemoje tai yra „`C:\Users\<Username>\.chloros\working_directory.txt`“. Jei to failo nėra arba jame nurodytas nebeegzistuojantis kelias, Chloros grįžta prie aukščiau nurodyto numatytojo. CLI skaito ir rašo tą patį failą, todėl „`chloros-cli`“ ir GUI visada sutaria dėl projektų buvimo vietos.
 * **Projekto šablonai** saugomi šio katalogo `Project Templates/` pakatalogyje.
 * **Kada keisti**:
   * Nustatykite tinklo diską, jei dirbate komandoje
   * Perkelkite į diską su didesne saugojimo vieta, jei dirbate su dideliais duomenų rinkiniais
   * Suskirstykite projektus pagal metus, klientą ar projekto tipą į skirtingus aplankus
 * **Pastaba**: Šio parametro pakeitimas turi įtakos tik NAUJIEMS projektams. Esami projektai lieka savo pradinėse vietose.
-* **Windows
-
-kelio ilgis**: jei Windows
-
-ilgi keliai nėra įjungti (diegimo programos parinktis **Įjungti Windows
-
-ilgus kelius**), projekto aplankas, kurio pavadinimas ilgesnis nei maždaug 130 simbolių, prieš apdorojimą bus atmestas, nes jo rezultatai viršytų „Windows
-
-“ 260 simbolių kelio ribą. Žr. [Apdorojimo pradžia](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
+* **Windows kelio ilgis**: jei Windows ilgi keliai nėra įjungti (diegimo programos parinktis **Įjungti Windows ilgus kelius**), projekto aplankas, kurio pavadinimas ilgesnis nei maždaug 130 simbolių, prieš apdorojimą bus atmestas, nes jo rezultatai viršytų „Windows “ 260 simbolių kelio ribą. Žr. [Apdorojimo pradžia](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
 
 ***
 
 ## Nustatymų išsaugojimas
 
-Chloros
-
-projektas yra **aplankas**. Visi projekto nustatymai išsaugomi jame esančiame `project.json`; kartu su jais prisijungusi įranga įsimenama failuose „`cameras.json`“ ir „`sensors.json`“, todėl vėl atidarius projektą, vėl prisijungia jo kameros ir šviesos jutikliai. Vėl atidarius projektą, visi nustatymai atkuriami tiksliai taip, kaip juos palikote. Išsaugotus projektus taip pat galima valdyti be grafinės sąsajos naudojant „`chloros-cli project`“ arba SDK
-
-„`open_project`“.
+Chloros projektas yra **aplankas**. Visi projekto nustatymai išsaugomi jame esančiame `project.json`; kartu su jais prisijungusi įranga įsimenama failuose „`cameras.json`“ ir „`sensors.json`“, todėl vėl atidarius projektą, vėl prisijungia jo kameros ir šviesos jutikliai. Vėl atidarius projektą, visi nustatymai atkuriami tiksliai taip, kaip juos palikote. Išsaugotus projektus taip pat galima valdyti be grafinės sąsajos naudojant „`chloros-cli project`“ arba SDK „`open_project`“.
 
 ### Nustatymų hierarchija
 
 Nustatymai taikomi tokia tvarka:
 
-1. **Sistemos numatyti nustatymai** – Chloros
-
-apibrėžti įdiegti numatyti nustatymai 2. **Šablono nustatymai** – jei kurdami projektą įkeliate šabloną
+1. **Sistemos numatyti nustatymai** – Chloros apibrėžti įdiegti numatyti nustatymai 2. **Šablono nustatymai** – jei kurdami projektą įkeliate šabloną
 3. **Išsaugoti projekto nustatymai** – su projekto failu išsaugoti nustatymai
 4. **Rankiniai koregavimai** – bet kokie pakeitimai, kuriuos atliekate per dabartinę sesiją
 
@@ -516,11 +364,7 @@ Apdorojimo nustatymai nuskaitomi, kai pradedamas apdorojimo ciklas. Nustatymo pa
 
 ## Konfigūracijos raktų žinynas
 
-Automatizavimui (CLI
-
-: `--config`, SDK
-
-: `configure` arba tiesioginiam `project.json` skaitymui) šie yra tikslūs raktai, esantys po `Project Settings`:
+Automatizavimui (CLI: `--config`, SDK: `configure` arba tiesioginiam `project.json` skaitymui) šie yra tikslūs raktai, esantys po `Project Settings`:
 
 | Raktų kelias | Tipas | Numatytasis |
 | --- | --- | --- |
@@ -555,23 +399,11 @@ Jie yra tame pačiame `Project Settings` medyje ir yra nuskaitomi apdorojimo met
 
 | Raktų kelias | Tipas | Numatytasis | Nustato |
 | --- | --- | --- | --- |
-| `Processing → LATTICE input level` | `"auto" \| "raw" \| "debayered" \| "processed"` | `"auto"` | `chloros-cli process --input-level`, SDK
-
-`input_level=`. Pakeičia „LATTICE“ įvesties TIFF
-
-failų interpretavimą; `auto` nustato remdamasis kiekvieno failo `Chloros:ProcessingLevel` XMP žyma ir kanalų skaičiumi. Ignoruojama Survey3
-
-`.raw` įrašams. Sąmoningai nėra GUI nustatymo — „auto“ yra teisingas pasirinkimas visais įprastais atvejais. |
-| `Processing → Target reflectance dir` | kelio eilutė | `""` | `chloros-cli process --target-reflectance-dir`, arba projekto tikslinis API
-
-|
+| `Processing → LATTICE input level` | `"auto" \| "raw" \| "debayered" \| "processed"` | `"auto"` | `chloros-cli process --input-level`, SDK `input_level=`. Pakeičia „LATTICE“ įvesties TIFF failų interpretavimą; `auto` nustato remdamasis kiekvieno failo `Chloros:ProcessingLevel` XMP žyma ir kanalų skaičiumi. Ignoruojama Survey3 `.raw` įrašams. Sąmoningai nėra GUI nustatymo — „auto“ yra teisingas pasirinkimas visais įprastais atvejais. |
+| `Processing → Target reflectance dir` | kelio eilutė | `""` | `chloros-cli process --target-reflectance-dir`, arba projekto tikslinis API |
 | `Processing → Target reflectance config` | žodynas, suskirstytas pagal kameros serijinį numerį | `{}` | Tikslo, esančio kadre, registravimas (režimas `fixed_block` / `fixed_strip` / `aruco`) |
-| `Processing → DAQ-U log path` | kelio eilutė | `""` | SDK
-
-`process_folder(daq_log_path=…)`. Nurodo į `.daq` įrašą arba jų aplanką |
-| `Target Detection → Minimum calibration target squares` | skaičius | `4` | Senoji numatytoji reikšmė; be valdymo ir be CLI
-
-žymės |
+| `Processing → DAQ-U log path` | kelio eilutė | `""` | SDK `process_folder(daq_log_path=…)`. Nurodo į `.daq` įrašą arba jų aplanką |
+| `Target Detection → Minimum calibration target squares` | skaičius | `4` | Senoji numatytoji reikšmė; be valdymo ir be CLI žymės |
 | `UI → Grid thumbnail size` | skaičius | `160` | Pats vaizdų tinklelio miniatiūrų mastelio slankiklis |
 
 Dvi peržiūros nuostatos saugomos **aukščiausiame `project.json` lygyje**, visiškai už `Project Settings` ribų, nes jos yra susijusios su rodymo būsena, o ne apdorojimo nustatymais:
@@ -584,26 +416,16 @@ Dvi peržiūros nuostatos saugomos **aukščiausiame `project.json` lygyje**, vi
 
 ## Geriausia praktika
 
-1. **Pradėkite nuo numatytųjų nustatymų**: Numatytieji nustatymai puikiai tinka daugumai MAPIR
-
-kamerų sistemų ir tipinių darbo eigų.
+1. **Pradėkite nuo numatytųjų nustatymų**: Numatytieji nustatymai puikiai tinka daugumai MAPIR kamerų sistemų ir tipinių darbo eigų.
 2. **Sukurkite šablonus**: Optimizavę nustatymus konkrečiam darbo srautui ar kamerai, išsaugokite juos kaip šabloną, kad užtikrintumėte nuoseklumą visuose projektuose.
 3. **Išbandykite prieš pradedant visą apdorojimą**: Eksperimentuodami su naujais nustatymais, išbandykite juos su nedideliu vaizdų rinkiniu, prieš apdorodami visą duomenų rinkinį.
-4. **Užfiksuokite savo nustatymus**: Naudokite aprašomuosius šablonų pavadinimus, nurodančius kamerų sistemą, apdorojimo tipą ir numatytą paskirtį (pvz., „Survey3
-
-\_RGB\_NDVI\_Agriculture“).
+4. **Užfiksuokite savo nustatymus**: Naudokite aprašomuosius šablonų pavadinimus, nurodančius kamerų sistemą, apdorojimo tipą ir numatytą paskirtį (pvz., „Survey3\_RGB\_NDVI\_Agriculture“).
 5. **Eksporto formato pasirinkimas**: Pasirinkite eksporto formatą atsižvelgdami į galutinę paskirtį:
    * Mokslinė analizė → „TIFF“ (16 bitų arba 32 bitų)
-   * GIS apdorojimas → TIFF
-
-(16 bitų)
-   * Greitas vizualizavimas → PNG
-
-(8 bitai)
+   * GIS apdorojimas → TIFF (16 bitų)
+   * Greitas vizualizavimas → PNG (8 bitai)
    * Dalijimasis internete → „JPG“ (8 bitai)
 
 ***
 
-Daugiau informacijos apie daugiaspektrinius indeksus Chloros
-
-programoje rasite puslapyje [Daugiaspektrinių indeksų formulės](multispectral-index-formulas.md).
+Daugiau informacijos apie daugiaspektrinius indeksus Chloros programoje rasite puslapyje [Daugiaspektrinių indeksų formulės](multispectral-index-formulas.md).

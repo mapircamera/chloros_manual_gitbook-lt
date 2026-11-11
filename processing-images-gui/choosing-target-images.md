@@ -161,7 +161,7 @@ Jei „Chloros“ netinkamai aptinka jūsų tikslus, pakoreguokite šiuos nustat
 **Galimos priežastys:**
 
 * Tiksliniai vaizdai nepažymėti failų naršyklėje
-* Tikslas kadre per mažas (&lt; 30 % vaizdo)
+* Tikslas kadre per mažas (< 30 % vaizdo)
 * Blogas apšvietimas (šešėliai, atspindžiai)
 * Per griežti tikslo aptikimo nustatymai
 

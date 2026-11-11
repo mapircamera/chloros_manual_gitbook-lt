@@ -1,10 +1,8 @@
 # Jutiklių korpusų profiliai ir kalibruotas matavimo diapazonas
 
-> Patys dangteliai — kuris dangtelis tiekiamas su kuriuo jutikliu, kaip jie montuojami ir kokios yra jų optinės savybės — aprašyti **[DAQ vartotojo vadove](https://mapir.gitbook.io/daq)**. Šiame puslapyje aptariama, kaip *nurodyti* Chloros
-sumontuotą dangtelį, nes būtent tai užtikrina teisingą korekciją.
+> Patys dangteliai — kuris dangtelis tiekiamas su kuriuo jutikliu, kaip jie montuojami ir kokios yra jų optinės savybės — aprašyti **[DAQ vartotojo vadove](https://mapir.gitbook.io/daq)**. Šiame puslapyje aptariama, kaip *nurodyti* Chloros sumontuotą dangtelį, nes būtent tai užtikrina teisingą korekciją.
 
-Kiekvieno DAQ šviesos jutiklio gamyklinis radiometrinis kalibravimas apibūdina *grynąjį* jutiklį. Fizinis dangtelis, uždėtas ant difuzoriaus, keičia tai, kokią šviesą surenka jutiklis, todėl Chloros
-kalibravimo paketui taiko gamykliniu būdu išmatuotą **dangtelio korekcijos profilį**. Teisingo dangtelio deklaravimas yra dalis kalibruotų duomenų gavimo proceso — šiame puslapyje aprašoma, kokie dangteliai yra kiekvienam modeliui, kaip juos deklaruoti ir koks iš tikrųjų yra jutiklio kalibruotas spektrinis diapazonas.
+Kiekvieno DAQ šviesos jutiklio gamyklinis radiometrinis kalibravimas apibūdina *grynąjį* jutiklį. Fizinis dangtelis, uždėtas ant difuzoriaus, keičia tai, kokią šviesą surenka jutiklis, todėl Chloros kalibravimo paketui taiko gamykliniu būdu išmatuotą **dangtelio korekcijos profilį**. Teisingo dangtelio deklaravimas yra dalis kalibruotų duomenų gavimo proceso — šiame puslapyje aprašoma, kokie dangteliai yra kiekvienam modeliui, kaip juos deklaruoti ir koks iš tikrųjų yra jutiklio kalibruotas spektrinis diapazonas.
 
 ## Dangtelių prieinamumas pagal modelį
 
@@ -50,30 +48,22 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local --cap-id sunshine_cos
 chloros-cli daq pool-set-cap --sensor-id daq-e-def330 --cap-id fov_45
 ```
 
-CLI
-sintaksiškai priima visą `cap_id` sąrašą (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); kiekvienas profilis prisijungimo metu patikrinamas pagal jutiklio modelį, todėl jei nurodytas neprieinamas ribos identifikatorius (pavyzdžiui, tik „E“ identifikatorius naudojant DAQ-U), sistema pateikia aiškią klaidą, o ne atlieka neteisingą koregavimą. Jei nieko nepateikiama, foninio proceso numatytasis nustatymas yra `sunshine_cosine`.
+CLI sintaksiškai priima visą `cap_id` sąrašą (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); kiekvienas profilis prisijungimo metu patikrinamas pagal jutiklio modelį, todėl jei nurodytas neprieinamas ribos identifikatorius (pavyzdžiui, tik „E“ identifikatorius naudojant DAQ-U), sistema pateikia aiškią klaidą, o ne atlieka neteisingą koregavimą. Jei nieko nepateikiama, foninio proceso numatytasis nustatymas yra `sunshine_cosine`.
 
-Python
-SDK
-: prisijungimo metu pavadinkite jungtį naudodami `connect_daq_sensor(cap_id="sunshine_cosine")` arba pakeiskite ją vykdymo metu naudodami `DAQSensorSession.set_cap("fov_45")`; žr. [SDK
-žinyną](../reference/sdk-reference.md#daq-sensor-sessions).
+Python SDK: prisijungimo metu pavadinkite jungtį naudodami `connect_daq_sensor(cap_id="sunshine_cosine")` arba pakeiskite ją vykdymo metu naudodami `DAQSensorSession.set_cap("fov_45")`; žr. [SDK žinyną](../reference/sdk-reference.md#daq-sensor-sessions).
 
-Išplėstinė informacija: profiliai pateikiami Chloros
-diegimo pakete kaip `daq/cap_profiles/<u|m|e>/<cap_id>.json` ir gali būti perrašyti kiekvienam vartotojui atskirai kaip `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
+Išplėstinė informacija: profiliai pateikiami Chloros diegimo pakete kaip `daq/cap_profiles/<u|m|e>/<cap_id>.json` ir gali būti perrašyti kiekvienam vartotojui atskirai kaip `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json`.
 
 Be ribų, jutikliai, kurie niekada nebuvo pakalibruoti, automatiškai gauna nedidelį, iš įrenginių parko gautą tamsos nuokrypio patikslinimą — vartotojo veiksmų nereikia.
 
 ## DAQ-E-S: fiksuotas difuzorius ir pakreipimas
 
-**DAQ-E-S** yra „DAQ-E“ su dviem skirtumais, kurie svarbūs Chloros
-sistemai. Viskas kita (aptikimas, prisijungimas, PTP, įrašymas, įrenginio nustatymai) veikia lygiai taip pat kaip ir „DAQ-E“ atveju.
+**DAQ-E-S** yra „DAQ-E“ su dviem skirtumais, kurie svarbūs Chloros sistemai. Viskas kita (aptikimas, prisijungimas, PTP, įrašymas, įrenginio nustatymai) veikia lygiai taip pat kaip ir „DAQ-E“ atveju.
 
-* **Jo difuzorius yra nuolatinis, todėl nereikia jokios dangtelio korekcijos.** Difuzorius buvo pritvirtintas prie įrenginio, kai buvo atliekamas jo gamyklinis kalibravimas, todėl kalibravimas jau rodo tikrąjį žemyn nukreiptą spinduliavimą. Chloros
-jam netaiko jokio ribos profilio, kad ir ko būtų prašoma: jam pavadinta riba ignoruojama su pranešimu, jo įrašuose nurodoma, kad riba buvo nustatyta pagal modelį, o įspėjimas apie numanomą ribą jam niekada nepasireiškia. Meniu „Project Settings“ → „DAQ Light Sensor“ jo eilutėje nerodomas joks ribojimas, o visam projektui taikomas ribojimo perrašymas jam netaikomas. Netaikykite ribojimo jo duomenims rankiniu būdu: „Sunshine“ korekcija šiuo atveju rodytų maždaug 11 kartų didesnę vertę.
+* **Jo difuzorius yra nuolatinis, todėl nereikia jokios dangtelio korekcijos.** Difuzorius buvo pritvirtintas prie įrenginio, kai buvo atliekamas jo gamyklinis kalibravimas, todėl kalibravimas jau rodo tikrąjį žemyn nukreiptą spinduliavimą. Chloros jam netaiko jokio ribos profilio, kad ir ko būtų prašoma: jam pavadinta riba ignoruojama su pranešimu, jo įrašuose nurodoma, kad riba buvo nustatyta pagal modelį, o įspėjimas apie numanomą ribą jam niekada nepasireiškia. Meniu „Project Settings“ → „DAQ Light Sensor“ jo eilutėje nerodomas joks ribojimas, o visam projektui taikomas ribojimo perrašymas jam netaikomas. Netaikykite ribojimo jo duomenims rankiniu būdu: „Sunshine“ korekcija šiuo atveju rodytų maždaug 11 kartų didesnę vertę.
 * **Jame įmontuotas 3 ašių akselerometras.** Difuzoriaus kosinusinė charakteristika galioja tik tada, kai jis yra horizontalioje padėtyje, todėl pakreiptas jutiklis rodo neteisingą spinduliavimo intensyvumą be jokių kitų požymių. Todėl kiekvienas „DAQ-E-S“ rodmuo apima jo pakreipimą, pasvirimą ir polinkį, o iš vieno iš jų įrašytas „`.daq`“ juos saugo šalia kiekvieno spektro (`imu_tilt_deg`, `imu_roll_deg`, `imu_pitch_deg`, …), todėl galite atskirti debesį nuo pakrypusio laikiklio.
 
-Apie kiekvieną padėties lauką ir tai, kaip pranešama apie padėties srauto gedimą, žr. [„DAQ-E-S“ CLI
-žinyne](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
+Apie kiekvieną padėties lauką ir tai, kaip pranešama apie padėties srauto gedimą, žr. [„DAQ-E-S“ CLI žinyne](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
 
 ## „Sunshine cap“ veikimas (konfigūracija lauke)
 
@@ -97,7 +87,6 @@ Bet kokiam kiekybiniam spinduliavimo intensyvumo skaičiui — įskaitant atspin
 | Spektrinis diskretizavimas | 340–1010 nm 5 nm žingsniais (135 taškai) |
 | Radiometriškai kalibruotas diapazonas | **~374–974 nm** (nustatoma programine įranga) |
 
-Jutiklis pateikia visą 340–1010 nm tinklelį, tačiau NIST standartais atsekamas radiometrinis stiprinimas apima ~374–974 nm. Chloros
-**atmeta absoliučiojo atspindžio padalijimą** bet kuriam kameros diapazonui, kurio mažiau nei pusė spektrinio svorio patenka į tą intervalą, ir pateikia praleidimo priežastį `dls-uncalibrated-band-<nm>`, o ne sukuria nekalibruotą rezultatą. Iš visų parduodamų kamerų modelių tik F988 filtras nepatenka į šį diapazoną; jo atveju vietoj to naudojama atspindžio plokštės darbo eiga — žr. [Atspindžio darbo eigos](reflectance.md).
+Jutiklis pateikia visą 340–1010 nm tinklelį, tačiau NIST standartais atsekamas radiometrinis stiprinimas apima ~374–974 nm. Chloros **atmeta absoliučiojo atspindžio padalijimą** bet kuriam kameros diapazonui, kurio mažiau nei pusė spektrinio svorio patenka į tą intervalą, ir pateikia praleidimo priežastį `dls-uncalibrated-band-<nm>`, o ne sukuria nekalibruotą rezultatą. Iš visų parduodamų kamerų modelių tik F988 filtras nepatenka į šį diapazoną; jo atveju vietoj to naudojama atspindžio plokštės darbo eiga — žr. [Atspindžio darbo eigos](reflectance.md).
 
 Apie jutiklių modelius, perdavimo būdus ir jutiklių ID žr. [DAQ apžvalgą](README.md). Apie tai, kaip apdorojimo metu naudojamas „cap“ žymėjimas, žr. [Įrašymas ir .daq formatas](recording.md).

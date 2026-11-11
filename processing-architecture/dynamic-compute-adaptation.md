@@ -1,17 +1,14 @@
 # Dinaminis skaičiavimo pritaikymas
 
-Chloros
-1.3.0 naudoja aparatinės įrangos atpažinimą ir automatinį apdorojimo strategijos pasirinkimą. Apdorojimo variklis prisitaiko prie jūsų aparatinės įrangos – nuo „Jetson Orin Nano“ iki darbo stoties su keliais GPU – be jokio rankinio konfigūravimo.
+Chloros 1.3.0 naudoja aparatinės įrangos atpažinimą ir automatinį apdorojimo strategijos pasirinkimą. Apdorojimo variklis prisitaiko prie jūsų aparatinės įrangos – nuo „Jetson Orin Nano“ iki darbo stoties su keliais GPU – be jokio rankinio konfigūravimo.
 
 ***
 
 ## Kaip tai veikia
 
-Paleidus Chloros
-, programa atlieka jūsų sistemos profiliavimą:
+Paleidus Chloros, programa atlieka jūsų sistemos profiliavimą:
 
-1. **Aptinka operacinę sistemą** — Windows
-arba Linux
+1. **Aptinka operacinę sistemą** — Windows arba Linux
 2. **Nustato procesoriaus branduolius ir bendrą RAM atminties kiekį**
 
 3.**Aptinka GPU buvimą** — „NVIDIA CUDA“ palaikymą, VRAM, modelį
@@ -24,19 +21,16 @@ Aptiktas profilis sesijos metu išsaugomas atmintyje ir diske, todėl vėlesni p
 
 | Platforma | Išsaugotas profilis |
 | --- | --- |
-| **Linux
-/ „Jetson“** | `~/.config/chloros/system_config.json` (atsižvelgia į `XDG_CONFIG_HOME`) |
+| **Linux / „Jetson“** | `~/.config/chloros/system_config.json` (atsižvelgia į `XDG_CONFIG_HOME`) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
-Ištrinkite tą failą, kad priverstumėte sistemą atlikti naują aptikimą — tai naudinga po GPU arba papildomos RAM atminties įdiegimo. Chloros
-taip pat automatiškai atlieka pakartotinį aptikimą, jei talpyklą užrašė nesuderinama senesnė versija.
+Ištrinkite tą failą, kad priverstumėte sistemą atlikti naują aptikimą — tai naudinga po GPU arba papildomos RAM atminties įdiegimo. Chloros taip pat automatiškai atlieka pakartotinį aptikimą, jei talpyklą užrašė nesuderinama senesnė versija.
 
 ***
 
 ## Skaičiavimo strategijos
 
-Chloros
-pasirenka vieną iš trijų skaičiavimo strategijų, atsižvelgdamas į jūsų aparatinę įrangą:
+Chloros pasirenka vieną iš trijų skaičiavimo strategijų, atsižvelgdamas į jūsų aparatinę įrangą:
 
 | Strategija | Pasirenkama, kai | Darbininkai | Vykdytojas | Konvejeris |
 | --- | --- | --- | --- | --- |
@@ -50,11 +44,7 @@ pasirenka vieną iš trijų skaičiavimo strategijų, atsižvelgdamas į jūsų 
 **GPU strategijoms reikalingas „PyTorch“, galintis naudoti CUDA.** Kompiuteris, kurio „PyTorch“ neturi tinkamo CUDA įrenginio, gauna `CPU_PARALLEL`, nepriklausomai nuo jo GPU. „Jetson“ 1.3.0 paketas naudoja „JetPack 6“ CUDA versiją „PyTorch“, todėl „Jetson“ atitinka reikalavimus, kai tik įdiegiamos „JetPack“ CUDA ir „cuDNN“ bibliotekos. „Jetson“ su mažiau nei 12 GB RAM visada apdoroja po vieną vaizdą vienu metu, vykdymo metu (užregistruojama kaip `GPU_SINGLE`).
 {% endhint %}
 
-GPU strategijos vykdo darbininkų procesų grupę, kur kiekvienas procesas yra atskiras operacinės sistemos procesas su savo „CUDA“ kontekstu, kurį Chloros
-paleidžia vėl paleisdamas savo pačios įdiegtą užkulisinę programą (ne per „Python
-“ `multiprocessing`, kurio darbininkų paleidimas neveikia paketo viduje). CPU strategija naudoja siūlų grupę (Python
-„`ThreadPoolExecutor`“). Chloros
-nenaudoja jokių trečiųjų šalių paskirstytųjų sistemų (pavyzdžiui, „Ray“).
+GPU strategijos vykdo darbininkų procesų grupę, kur kiekvienas procesas yra atskiras operacinės sistemos procesas su savo „CUDA“ kontekstu, kurį Chloros paleidžia vėl paleisdamas savo pačios įdiegtą užkulisinę programą (ne per „Python “ `multiprocessing`, kurio darbininkų paleidimas neveikia paketo viduje). CPU strategija naudoja siūlų grupę (Python „`ThreadPoolExecutor`“). Chloros nenaudoja jokių trečiųjų šalių paskirstytųjų sistemų (pavyzdžiui, „Ray“).
 
 ### Apdorojimo grandinių tipai
 
@@ -75,8 +65,7 @@ Nustatykite aplinkos kintamąjį `CHLOROS_STRATEGY`, kad priverstinai taikytumė
 CHLOROS_STRATEGY=CPU_PARALLEL chloros-cli process ~/datasets/flight001
 ```
 
-Kintamasis atpažįstamas neatsižvelgiant į didžiųjų ir mažųjų raidžių skirtumą; viskas, kas nėra vienas iš trijų pavadinimų, ignoruojama, o automatinis nustatymas vyksta įprastai. Perrašymo atveju Chloros
-vis tiek parenka darbininkų skaičių už jus:
+Kintamasis atpažįstamas neatsižvelgiant į didžiųjų ir mažųjų raidžių skirtumą; viskas, kas nėra vienas iš trijų pavadinimų, ignoruojama, o automatinis nustatymas vyksta įprastai. Perrašymo atveju Chloros vis tiek parenka darbininkų skaičių už jus:
 
 | Perrašymas | Naudojamas darbininkų skaičius |
 | --- | --- |
@@ -124,8 +113,7 @@ Diskretiški GPU sistemai rezervuoja tik 0,5 GB, nes jie nesidalija sistemos RAM
 
 ## Dinaminis GPU atminties paskirstymas
 
-Chloros
-naudoja [4 sriegių apdorojimo grandinę](processing-pipeline.md):
+Chloros naudoja [4 sriegių apdorojimo grandinę](processing-pipeline.md):
 
 * **1-asis sriegis** (aptikimas) — vaizdo įkėlimas, EXIF duomenų analizė, objekto aptikimas
 * **2-asis sriegis** (kalibravimas) — atspindžio kalibravimo skaičiavimai
@@ -152,26 +140,23 @@ Vykdymo metu faktiškai naudojama vertė yra **mažesnė** iš platformos profil
 
 ## Tekstūrą atpažįstantis apdorojimas
 
-„Texture Aware“ debayeris (**tik „Chloros
-+“** — `--debayer texture-aware`) naudoja AI/ML triukšmo šalinimo modelį, kuriam vienam kopijavimui reikia maždaug 1,75 GB VRAM FP16 formatu, todėl jis naudoja žymiai daugiau GPU atminties nei standartinis metodas:
+„Texture Aware“ debayeris (**tik „Chloros+“** — `--debayer texture-aware`) naudoja AI/ML triukšmo šalinimo modelį, kuriam vienam kopijavimui reikia maždaug 1,75 GB VRAM FP16 formatu, todėl jis naudoja žymiai daugiau GPU atminties nei standartinis metodas:
 
 * Sistemos su **mažiau nei 7 GB VRAM**apdoroja „Texture Aware“**sinchronine kilpa, po vieną vaizdą** — keli modelio kopijos netelpa, o darbininkų grupė tik padidintų konkurenciją
 * Sistemos su **7 GB ir daugiau VRAM** gali apdoroti „Texture Aware“ lygiagrečiai, nors ir su mažesniu darbininkų skaičiumi, palyginti su „Standard“
 * **„Jetson“** sistemose „Texture Aware“ visada priskiriamas vienam darbininkui
 * Jei **nėra tinkamo CUDA GPU**, vykdymo metu naudojamas standartinis „debayer“, o užkulisiai užregistruoja vieną eilutę „`[DEBAYER] … needs a CUDA GPU …`“, paaiškinančią priežastį
-* Mažos galios „Jetson“ įrenginiuose („Nano“, „Orin Nano“) CLI
-, kai prašoma naudoti „Texture Aware“, taiko GPU dažnio apribojimą — žr. [„NVIDIA Jetson“ vadovą](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
+* Mažos galios „Jetson“ įrenginiuose („Nano“, „Orin Nano“) CLI, kai prašoma naudoti „Texture Aware“, taiko GPU dažnio apribojimą — žr. [„NVIDIA Jetson“ vadovą](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
 
 ## Šilumos valdymas („Jetson“)
 
-„Jetson“ įrenginiai turi šiluminius apribojimus, ypač uždarose arba ore esančiose diegimo vietose. Chloros
-stebi „Jetson“ integruotus temperatūros jutiklius ir automatiškai reguliuoja partijų dydžius:
+„Jetson“ įrenginiai turi šiluminius apribojimus, ypač uždarose arba ore esančiose diegimo vietose. Chloros stebi „Jetson“ integruotus temperatūros jutiklius ir automatiškai reguliuoja partijų dydžius:
 
 | Temperatūra | Reakcija |
 | --- | --- |
-| **&lt; 70 °C** | Įprastas veikimas — pilnas greitis |
+| **< 70 °C** | Įprastas veikimas — pilnas greitis |
 | **70 °C** (Įspėjimas) | Partijos dydis palaipsniui mažinamas (nuo 100 % iki 50 % esant temperatūrai nuo 70 °C iki 80 °C) |
 | **80 °C** (Kritinis) | Agresyvus našumo ribojimas (nuo 50 % iki 0 % temperatūrai svyruojant nuo 80 °C iki 90 °C) |
 | **90 °C** (Išjungimas) | Visiškai sustabdomas GPU apdorojimas |
@@ -182,11 +167,9 @@ Stacionariuose kompiuteriuose su pakankamu aušinimu terminis greičio ribojimas
 
 ## Atminties apkrovos valdymas
 
-Chloros
-apdorojimo metu nuolat stebi GPU atmintį ir reaguoja trimis lygiais.
+Chloros apdorojimo metu nuolat stebi GPU atmintį ir reaguoja trimis lygiais.
 
-**Partijos dydžio nustatymas.** Partija prasideda nuo 8 vaizdų, padaugintų iš platformos daugiklio, nurodyto aukščiau pateiktose lentelėse. Tada Chloros
-patikrina laisvą VRAM, 20 % jos rezervuoja „PyTorch“ vidinėms reikmėms ir numato maždaug 100 MB GPU atminties vienam 12 MP vaizdui — partijos dydis yra mažesnis iš dviejų: atminties nustatytas limitas arba platformos bazinis dydis. Jis niekada nesumažėja žemiau 1.
+**Partijos dydžio nustatymas.** Partija prasideda nuo 8 vaizdų, padaugintų iš platformos daugiklio, nurodyto aukščiau pateiktose lentelėse. Tada Chloros patikrina laisvą VRAM, 20 % jos rezervuoja „PyTorch“ vidinėms reikmėms ir numato maždaug 100 MB GPU atminties vienam 12 MP vaizdui — partijos dydis yra mažesnis iš dviejų: atminties nustatytas limitas arba platformos bazinis dydis. Jis niekada nesumažėja žemiau 1.
 
 **Prevencinis mažinimas.**Viršijus**85 % VRAM panaudojimą**, partijų dydžiai sumažinami dar prieš įvykstant bet kokiam gedimui.**Paskirstymo mažinimas pagal kiekvieną srautą.** Didėjant realiajam panaudojimui, kiekvieno srauto GPU biudžetas mažinamas: ×0,75, kai panaudojimas viršija 80 %, ×0,5 – kai viršija 90 %. Stebėjimo ribos yra 70 % (konservatyvi), 85 % (įprasta veikimo riba) ir 95 % (OOM rizika).**OOM atsitraukimas ir atkūrimas.** Jei vis dėlto įvyksta atminties trūkumo įvykis:
 
@@ -194,8 +177,7 @@ patikrina laisvą VRAM, 20 % jos rezervuoja „PyTorch“ vidinėms reikmėms ir
 * aktyvių sriegių paskirstymai sumažinami iki 70 % jų dabartinės vertės, o paskirstytojas pereina prie konservatyvios strategijos, kurią vėl sušvelnina po sėkmingų paskirstymų serijos
 * esant dideliam apkrovimui, apdorojimo grandinė pereina iš `fused_gpu` į `tiled_gpu`, o kraštutiniu atveju – į `cpu_fallback`
 
-**Pagrindinio kompiuterio RAM (Jetson).** Prieš apdorojimą CLI
-, remdamasi vaizdų skaičiumi ir „debayer“ režimu, įvertina didžiausią priimančiojo kompiuterio atminties poreikį ir įspėja, jei RAM bei failais pagrįsta keitimo atmintis gali būti nepakankama, pateikdama tikslias komandas keitimo atminties pridėjimui — žr. [„NVIDIA Jetson“ vadovą](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
+**Pagrindinio kompiuterio RAM (Jetson).** Prieš apdorojimą CLI, remdamasi vaizdų skaičiumi ir „debayer“ režimu, įvertina didžiausią priimančiojo kompiuterio atminties poreikį ir įspėja, jei RAM bei failais pagrįsta keitimo atmintis gali būti nepakankama, pateikdama tikslias komandas keitimo atminties pridėjimui — žr. [„NVIDIA Jetson“ vadovą](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
 
@@ -219,22 +201,17 @@ Jo 7 patikrinimai apima versiją, prievadų prieinamumą, užpakalinės dalies p
 
 ### Užkulisio žurnalai
 
-Strategija ir darbininkų skaičius pasirenkami vidiniame modulyje kiekvieno vykdymo pradžioje — nėra jokio CLI
--pranešimo, kuris juos skelbtų. Kai kas nors elgiasi netikėtai (GPU kelio grįžimas prie atsarginio varianto, atminties trūkumas (OOM), triukšmo šalinimo modulis, kuris neįsikrauna), tai atsispindi tos sesijos vidinio modulio žurnale:
+Strategija ir darbininkų skaičius pasirenkami vidiniame modulyje kiekvieno vykdymo pradžioje — nėra jokio CLI-pranešimo, kuris juos skelbtų. Kai kas nors elgiasi netikėtai (GPU kelio grįžimas prie atsarginio varianto, atminties trūkumas (OOM), triukšmo šalinimo modulis, kuris neįsikrauna), tai atsispindi tos sesijos vidinio modulio žurnale:
 
 | Platforma | Žurnalų vieta |
 | --- | --- |
-| **Linux
-/ „Jetson“** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (vienas failas kiekvienam paleidimui) |
-| **Linux
-, per CLI
-paleistas backend** | taip pat `~/.chloros/backend.log` |
+| **Linux / „Jetson“** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (vienas failas kiekvienam paleidimui) |
+| **Linux, per CLI paleistas backend** | taip pat `~/.chloros/backend.log` |
 | **Windows** | `%LOCALAPPDATA%\Chloros\logs\` |
 
 ### Vykdymo eiga realiuoju laiku
 
-Vykdymo metu CLI
-rodo realaus laiko pažangą pagal kiekvieną srautą (aptikimas, analizė, apdorojimas, eksportavimas), perduodamą per „Server-Sent Events“ — tai praktiškas būdas įvertinti, ar 3-iasis srautas yra kliūtis. Žr. [Apdorojimo srautas](processing-pipeline.md).
+Vykdymo metu CLI rodo realaus laiko pažangą pagal kiekvieną srautą (aptikimas, analizė, apdorojimas, eksportavimas), perduodamą per „Server-Sent Events“ — tai praktiškas būdas įvertinti, ar 3-iasis srautas yra kliūtis. Žr. [Apdorojimo srautas](processing-pipeline.md).
 
 ***
 
@@ -242,8 +219,5 @@ rodo realaus laiko pažangą pagal kiekvieną srautą (aptikimas, analizė, apdo
 
 * [Apdorojimo srautas](processing-pipeline.md) — 4 siūlų srauto architektūros supratimas
 * [„NVIDIA Jetson“ vadovas](../linux/nvidia-jetson-guide.md) — „Jetson“ specifinis diegimas ir optimizavimas
-* [CLI
-: Komandinė eilutė](../CLI.md) — CLI
-vadovas
-* [CLI
-nuoroda](../reference/cli-reference.md) — Išsamus 1.3.0 versijos komandų sąrašas
+* [CLI: Komandinė eilutė](../CLI.md) — CLI vadovas
+* [CLI nuoroda](../reference/cli-reference.md) — Išsamus 1.3.0 versijos komandų sąrašas

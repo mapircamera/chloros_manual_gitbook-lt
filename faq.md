@@ -27,15 +27,9 @@ Taip. Chloros 1.3.0 versija visapusiškai palaiko „LATTICE M3C“ ir „M3M“
 
 <summary>Ar galiu kalibruoti savo vaizdus pagal atspindžio koeficientą be kalibravimo taikinio?</summary>
 
-**Survey3
+**Survey3:** Ne. Jei nekalibravimo taikinio nuotrauka nebuvo užfiksuota tuo pačiu metu, kai buvo fotografuojami kiti vaizdai, negalėsite susieti vaizdo pikselių verčių su žinomu atspindžio procentu. Jei taip pat neįtrauksite MAPIR šviesos jutiklio duomenų, aplinkos šviesos spektras nebus išmatuotas, o atspindžio rezultatai nebus tikslūs.
 
-:** Ne. Jei nekalibravimo taikinio nuotrauka nebuvo užfiksuota tuo pačiu metu, kai buvo fotografuojami kiti vaizdai, negalėsite susieti vaizdo pikselių verčių su žinomu atspindžio procentu. Jei taip pat neįtrauksite MAPIR
-
-šviesos jutiklio duomenų, aplinkos šviesos spektras nebus išmatuotas, o atspindžio rezultatai nebus tikslūs.
-
-**LATTICE:** Taip. Atspindžio koeficientą galima susieti su žemyn nukreiptu spinduliavimo intensyvumu, išmatuotu DAQ šviesos jutikliu, o ne plokštele (ρ = π·L/E). Kai kadre *yra* kokybės užtikrinimo reikalavimus atitinkantis taikinys, jis pagal numatytuosius nustatymus tampa absoliučiu etalonu (`--reflectance-source auto`), išskyrus atvejus, kai jis atitinka reikalavimus su žymekliu – tuomet taikinys ir DAQ grandinės konkuruoja dėl išmatuoto balo. Viena išimtis: „F988 atspindžio koeficientas kalibruojamas naudojant kadre esantį atspindžio plokštelę: juosta yra už DAQ šviesos jutiklio kalibruoto diapazono ribų, todėl Chloros
-
-taiko jūsų naujausią plokštelės užfiksavimą ir išlaiko jį tarp plokštelės stebėjimų.“ Žr. [Kalibravimo taikiniai](calibration-targets.md).
+**LATTICE:** Taip. Atspindžio koeficientą galima susieti su žemyn nukreiptu spinduliavimo intensyvumu, išmatuotu DAQ šviesos jutikliu, o ne plokštele (ρ = π·L/E). Kai kadre *yra* kokybės užtikrinimo reikalavimus atitinkantis taikinys, jis pagal numatytuosius nustatymus tampa absoliučiu etalonu (`--reflectance-source auto`), išskyrus atvejus, kai jis atitinka reikalavimus su žymekliu – tuomet taikinys ir DAQ grandinės konkuruoja dėl išmatuoto balo. Viena išimtis: „F988 atspindžio koeficientas kalibruojamas naudojant kadre esantį atspindžio plokštelę: juosta yra už DAQ šviesos jutiklio kalibruoto diapazono ribų, todėl Chloros taiko jūsų naujausią plokštelės užfiksavimą ir išlaiko jį tarp plokštelės stebėjimų.“ Žr. [Kalibravimo taikiniai](calibration-targets.md).
 
 </details>
 
@@ -43,9 +37,7 @@ taiko jūsų naujausią plokštelės užfiksavimą ir išlaiko jį tarp plokšte
 
 <summary>Ar man reikia DAQ šviesos jutiklio?</summary>
 
-Ne, jei matuojate spinduliavimą: „LATTICE“ spinduliavimo eksportai gaunami remiantis kiekvienos kameros gamykliniu radiometriniu kalibravimu, todėl nereikia nei DAQ jutiklio, nei taikinio. **Atspindžio**matavimui reikalingas aplinkos šviesos etalonas – tai gali būti DAQ šviesos jutiklio žemyn nukreiptas matavimas arba kadre esantis kalibravimo taikinys. DAQ jutiklis leidžia gauti kalibruotą atspindžio koeficientą**net neįdedant jokių plokščių į kadrą**. Įrašyti `.daq` failai automatiškai susiejami su jūsų vaizdais pagal laiko žymą. Žr. [Kalibravimo taikiniai](calibration-targets.md) ir [CLI
-
-nuorodą](reference/cli-reference.md).
+Ne, jei matuojate spinduliavimą: „LATTICE“ spinduliavimo eksportai gaunami remiantis kiekvienos kameros gamykliniu radiometriniu kalibravimu, todėl nereikia nei DAQ jutiklio, nei taikinio. **Atspindžio**matavimui reikalingas aplinkos šviesos etalonas – tai gali būti DAQ šviesos jutiklio žemyn nukreiptas matavimas arba kadre esantis kalibravimo taikinys. DAQ jutiklis leidžia gauti kalibruotą atspindžio koeficientą**net neįdedant jokių plokščių į kadrą**. Įrašyti `.daq` failai automatiškai susiejami su jūsų vaizdais pagal laiko žymą. Žr. [Kalibravimo taikiniai](calibration-targets.md) ir [CLI nuorodą](reference/cli-reference.md).
 
 </details>
 
@@ -143,9 +135,7 @@ Failų naršyklės lentelėje iš anksto pažymėjus tikslinius vaizdus dešinė
 
 <summary>Jei ketinu įkelti savo vaizdus į „<a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud“,</a> ar turėčiau juos apdoroti Chloros prieš įkeliant?</summary>
 
-Jei planuojate įkelti vaizdus į mūsų internetinę apdorojimo platformą [„MAPIR
-
-Cloud“](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), prieš įkeliant jų neredaguokite. „Cloud“ atliks visą tą patį apdorojimą ir dar daugiau.
+Jei planuojate įkelti vaizdus į mūsų internetinę apdorojimo platformą [„MAPIR Cloud“](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), prieš įkeliant jų neredaguokite. „Cloud“ atliks visą tą patį apdorojimą ir dar daugiau.
 
 </details>
 
@@ -185,9 +175,7 @@ Taip! Chloros turi [dinaminio skaičiavimo pritaikymo](processing-architecture/d
 
 <summary>Kas yra 4-siūlų apdorojimo srautas?</summary>
 
-Chloros
-naudoja 4-siūlų konvejerinę architektūrą „Chloros
-+“ vartotojams: 1-asis srautas (aptikimas) įkelia vaizdus ir aptinka kalibravimo taškus, 2-asis srautas (kalibravimas) apskaičiuoja atspindžio kalibravimą, 3-asis srautas (apdorojimas) atlieka GPU pagreitintą „debayering“ ir indekso skaičiavimą, o 4-asis srautas (eksportavimas) įrašo išvesties failus. Siekiant maksimalaus našumo, keli vaizdai vienu metu gali būti apdorojami skirtinguose sruogose. Daugiau informacijos rasite skyriuje [Apdorojimo srautas](processing-architecture/processing-pipeline.md).
+Chloros naudoja 4-siūlų konvejerinę architektūrą „Chloros+“ vartotojams: 1-asis srautas (aptikimas) įkelia vaizdus ir aptinka kalibravimo taškus, 2-asis srautas (kalibravimas) apskaičiuoja atspindžio kalibravimą, 3-asis srautas (apdorojimas) atlieka GPU pagreitintą „debayering“ ir indekso skaičiavimą, o 4-asis srautas (eksportavimas) įrašo išvesties failus. Siekiant maksimalaus našumo, keli vaizdai vienu metu gali būti apdorojami skirtinguose sruogose. Daugiau informacijos rasite skyriuje [Apdorojimo srautas](processing-architecture/processing-pipeline.md).
 
 </details>
 

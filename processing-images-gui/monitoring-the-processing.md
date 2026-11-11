@@ -1,10 +1,6 @@
 # Apdorojimo stebėjimas
 
-Pradėjus apdorojimą, Chloros
-
-siūlo keletą būdų stebėti pažangą, tikrinti, ar nėra problemų, ir suprasti, kas vyksta su jūsų duomenų rinkiniu. Šiame puslapyje paaiškinama, kaip stebėti apdorojimo eigą ir interpretuoti Chloros
-
-teikiamą informaciją.
+Pradėjus apdorojimą, Chloros siūlo keletą būdų stebėti pažangą, tikrinti, ar nėra problemų, ir suprasti, kas vyksta su jūsų duomenų rinkiniu. Šiame puslapyje paaiškinama, kaip stebėti apdorojimo eigą ir interpretuoti Chloros teikiamą informaciją.
 
 ## Pažangos juostos apžvalga
 
@@ -12,9 +8,7 @@ Viršutinėje antraštėje esanti pažangos juosta rodo apdorojimo būseną real
 
 ### „Free Mode“ pažangos juosta
 
-Vartotojams, neturintiems „Chloros
-
-+“ licencijos:
+Vartotojams, neturintiems „Chloros+“ licencijos:
 
 **2 etapų pažangos rodymas:**
 
@@ -25,13 +19,9 @@ Vartotojams, neturintiems „Chloros
 * Dabartinio etapo pavadinimą
 * Paprastą horizontalios juostos vizualizaciją
 
-### „Chloros
+### „Chloros+“ pažangos juosta
 
-+“ pažangos juosta
-
-Vartotojams, turintiems „Chloros
-
-+“ licenciją:
+Vartotojams, turintiems „Chloros+“ licenciją:
 
 **4 etapų pažangos rodymas:**
 
@@ -44,11 +34,7 @@ Vartotojams, turintiems „Chloros
 * Kiekviename etape rodoma atskira pažanga (0–100 %)
 
 {% hint style="info" %}
-**CLI
-
-atitikimas**: vykdant `chloros-cli process`, tie patys keturi srautai rodomi kaip „Aptikimas“, „Analizė“, „Apdorojimas“, „Eksportavimas“, o `chloros-cli export-status` rodo 4-ojo srauto eksporto pažangą realiuoju laiku iš kito terminalo. Žr. [CLI
-
-žinyną](../reference/cli-reference.md).
+**CLI atitikimas**: vykdant `chloros-cli process`, tie patys keturi srautai rodomi kaip „Aptikimas“, „Analizė“, „Apdorojimas“, „Eksportavimas“, o `chloros-cli export-status` rodo 4-ojo srauto eksporto pažangą realiuoju laiku iš kito terminalo. Žr. [CLI žinyną](../reference/cli-reference.md).
 {% endhint %}
 
 ***
@@ -63,9 +49,7 @@ atitikimas**: vykdant `chloros-cli process`, tie patys keturi srautai rodomi kai
 
 **Kas vyksta:**
 
-* Chloros
-
-nuskaito vaizdus, kuriuos pažymėjote žymimuoju langeliu „Tikslas“ (visus vaizdus, jei nė vienas nėra pažymėtas)
+* Chloros nuskaito vaizdus, kuriuos pažymėjote žymimuoju langeliu „Tikslas“ (visus vaizdus, jei nė vienas nėra pažymėtas)
 * Kompiuterinio regėjimo algoritmai atpažįsta kalibravimo plokštes
 * Iš kiekvienos plokštės išgaunamos atspindžio vertės
 * Užregistruojami tikslų laiko žymos, kad būtų galima tinkamai suplanuoti kalibravimą
@@ -94,9 +78,7 @@ nuskaito vaizdus, kuriuos pažymėjote žymimuoju langeliu „Tikslas“ (visus 
 * Vaizdų EXIF metaduomenų skaitymas (laiko žymos, ekspozicijos nustatymai)
 * Kalibravimo strategijos nustatymas remiantis tikslų laiko žymomis ir turimais DAQ žemyn nukreiptų spindulių duomenimis
 * Vaizdų apdorojimo eilės organizavimas
-* Lygiagretaus apdorojimo procesų paruošimas (tik „Chloros
-
-+“)
+* Lygiagretaus apdorojimo procesų paruošimas (tik „Chloros+“)
 
 **Trukmė:** 5–30 sekundžių**Pažangos indikatorius:**
 
@@ -123,9 +105,7 @@ nuskaito vaizdus, kuriuos pažymėjote žymimuoju langeliu „Tikslas“ (visus 
 * Apdoroti vaizdai / Visi vaizdai
 
 **Apdorojimo režimai:*** **Laisvasis režimas**: Apdoroja po vieną vaizdą paeiliui
-* **„Chloros
-
-+“ režimas**: Naudoja prie aparatinės įrangos prisitaikantį darbininkų pulką — 1–4 vienu metu veikiančius darbininkus GPU sistemose (priklausomai nuo VRAM), po vieną darbininką kiekvienam fiziniam branduoliui (atėmus vieną) sistemose, turinčiose tik CPU. Žr. [Dinaminis skaičiavimo pritaikymas](../processing-architecture/dynamic-compute-adaptation.md)
+* **„Chloros+“ režimas**: Naudoja prie aparatinės įrangos prisitaikantį darbininkų pulką — 1–4 vienu metu veikiančius darbininkus GPU sistemose (priklausomai nuo VRAM), po vieną darbininką kiekvienam fiziniam branduoliui (atėmus vieną) sistemose, turinčiose tik CPU. Žr. [Dinaminis skaičiavimo pritaikymas](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU pagreitinimas**: Žymiai pagreitina šį etapą**Į ką reikia atkreipti dėmesį:**
 
 * Nuoseklus pažangos rodymas pagal vaizdų skaičių
@@ -171,17 +151,13 @@ kairiajame šoniniame meniu
 
 ### Žurnalo pranešimų supratimas
 
-Chloros
-
-žurnalo eilutės prasideda skliaustuose esančiomis žymėmis, nurodančiomis posistemį — pavyzdžiui, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Svarbiausia žinoti **vykdymo santrauką**, pateikiamą kiekvieno vykdymo pabaigoje (įskaitant sustabdytus vykdymus):
+Chloros žurnalo eilutės prasideda skliaustuose esančiomis žymėmis, nurodančiomis posistemį — pavyzdžiui, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Svarbiausia žinoti **vykdymo santrauką**, pateikiamą kiekvieno vykdymo pabaigoje (įskaitant sustabdytus vykdymus):
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
 ```
 
-Papildomos `[RUN-SUMMARY]` paaiškinamosios eilutės pateikiamos tada, kai reikia ką nors paaiškinti — pavyzdžiui, jei vykdymo metu nebuvo gauta jokių rezultatų, arba kamera, kurios prašytas rezultatas buvo praleistas kaip netaikytinas. `[EXPORT-CHECK]` eilutės paaiškina praleidimus pagal kamerą (pvz., kodėl RGB
-
-kamera negavo spinduliavimo rezultato).
+Papildomos `[RUN-SUMMARY]` paaiškinamosios eilutės pateikiamos tada, kai reikia ką nors paaiškinti — pavyzdžiui, jei vykdymo metu nebuvo gauta jokių rezultatų, arba kamera, kurios prašytas rezultatas buvo praleistas kaip netaikytinas. `[EXPORT-CHECK]` eilutės paaiškina praleidimus pagal kamerą (pvz., kodėl RGB kamera negavo spinduliavimo rezultato).
 
 Bendros pranešimų svarbos kategorijos (toliau pateikti pavyzdžiai yra iliustraciniai, o ne pažodiniai):
 
@@ -195,9 +171,7 @@ Nekritinės problemos, kurios nesustabdo apdorojimo — pvz., trūkstami GPS duo
 
 **Veiksmas:** Peržiūrėkite įspėjimus po apdorojimo, bet nepertraukite jo
 
-#### Klaidų pranešimai (raudoni – Red
-
-)
+#### Klaidų pranešimai (raudoni – Red)
 
 Kritinės problemos, dėl kurių apdorojimas gali žlugti – pvz., užpildytas diskas, sugadintas vaizdo failas arba neaptikti objektai, kai buvo prašoma atlikti atspindžio kalibravimą.
 
@@ -212,17 +186,9 @@ Kritinės problemos, dėl kurių apdorojimas gali žlugti – pvz., užpildytas 
 | Taikinių nerasta                      | Nerasta kalibravimo taikinių               | Pažymėkite taikinių vaizdus arba išjunkite atspindžio kalibravimą |
 | Nepakanka vietos diske               | Nepakanka vietos išvesties duomenims                 | Atlaisvinkite vietos diske                                    |
 | Praleidžiamas sugadintas failas               | Vaizdo failas yra sugadintas                         | Pakartotinai nukopijuokite failą iš SD kortelės                             |
-| `[IMPORT-LEVEL] Skipping ... no raw source` | Negalima apdoroti įrašo be „raw“ kadro | Pakartotinai užfiksuokite su „raw“, arba naudokite CLI
-
-`--input-level`  |
+| `[IMPORT-LEVEL] Skipping ... no raw source` | Negalima apdoroti įrašo be „raw“ kadro | Pakartotinai užfiksuokite su „raw“, arba naudokite CLI `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | Vykdymo metu nebuvo sukurta jokių vaizdų produktų — pranešta apie nesėkmę su patarimais | Perskaitykite patarimų eilutes; patikrinkite, kas buvo praleista ir kodėl |
-| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows
-
-ilgieji keliai išjungti, o projekto aplankas yra per giliai, kad tilptų į 260 simbolių kelio ribą; niekas nebuvo apdorota | Naudokite trumpesnį projekto aplanką (pranešime nurodytas ilgiausias tinkamas kelias), arba įjunkite Windows
-
-ilgus kelius ir iš naujo paleiskite Chloros
-
-— žr. [Apdorojimo paleidimas](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows ilgieji keliai išjungti, o projekto aplankas yra per giliai, kad tilptų į 260 simbolių kelio ribą; niekas nebuvo apdorota | Naudokite trumpesnį projekto aplanką (pranešime nurodytas ilgiausias tinkamas kelias), arba įjunkite Windows ilgus kelius ir iš naujo paleiskite Chloros — žr. [Apdorojimo paleidimas](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Nepavyko įrašyti „LATTICE“ produkto fiksavimo kaukės; pats produktas veikia tinkamai ir rodo `Chloros:UnmixClampMask=unavailable` | Patikrinkite disko vietą ir aplanko teises, tada, jei kaukė jums reikalinga, apdorokite dar kartą |
 
 ### Žurnalo duomenų kopijavimas
@@ -232,32 +198,18 @@ Norėdami nukopijuoti žurnalą trikčių šalinimo ar techninės pagalbos tiksl
 1. Atidarykite „Debug Log“ skydelį
 2. Spustelėkite mygtuką **„Copy“**(žurnalas nukopijuojamas į iškarpinę) arba**„Download“**, kad jį išsaugotumėte kaip tekstinį failą
 3. Įklijuokite į tekstinį failą arba el. laišką
-4. Jei reikia, nusiųskite į MAPIR
-
-techninę pagalbą
+4. Jei reikia, nusiųskite į MAPIR techninę pagalbą
 
 ### Klaidos pranešimas iš žurnalo skirtuko
 
-Nauja 1.3.0 versijoje: klaidos piktograma (**Pranešti apie klaidą**) „Debug Log“ skirtuko viršuje siunčia pranešimą tiesiai į MAPIR
-
-.
+Nauja 1.3.0 versijoje: klaidos piktograma (**Pranešti apie klaidą**) „Debug Log“ skirtuko viršuje siunčia pranešimą tiesiai į MAPIR.
 
 1. Spustelėkite klaidos piktogramą „Debug Log“ skirtuko viršuje
 2. Aprašykite problemą: ką darėte, ko tikėjotės ir kas įvyko vietoj to (privaloma)
 3. Jei norite, pažymėkite **Pridėti keletą paveikslėlių (iki 10)**ir pasirinkite paveikslėlius iš atidaryto projekto arba naudokite**Naršyti...**, kad pasirinkite bet kurį kitą paveikslėlio failą
 4. Spustelėkite **Siųsti**
 
-Ataskaitoje pateikiamas jūsų aprašymas, visi pridėti paveikslėliai, Chloros
-
-žurnalai ir sistemos duomenys (Chloros
-
-versija, operacinė sistema, GPU ir projekto nustatymai). Norėdami išsiųsti ataskaitą, turite būti prisijungę prie Chloros
-
-(„Vartotojas“ skirtuke). Siuntimo metu galite uždaryti langą; kai siuntimas bus baigtas, į žurnalą bus įrašytas nuorodos numeris, pvz., `Bug report sent. Reference: BR-…` — jį nurodykite, kai kreipsitės į MAPIR
-
-. Jei ataskaitos nepavyksta įkelti (pavyzdžiui, dėl interneto ryšio nebuvimo), Chloros
-
-ją išsaugo jūsų kompiuteryje ir parodo jos kelią, kad galėtumėte ją išsiųsti el. paštu adresu support@mapir.camera.
+Ataskaitoje pateikiamas jūsų aprašymas, visi pridėti paveikslėliai, Chloros žurnalai ir sistemos duomenys (Chloros versija, operacinė sistema, GPU ir projekto nustatymai). Norėdami išsiųsti ataskaitą, turite būti prisijungę prie Chloros („Vartotojas“ skirtuke). Siuntimo metu galite uždaryti langą; kai siuntimas bus baigtas, į žurnalą bus įrašytas nuorodos numeris, pvz., `Bug report sent. Reference: BR-…` — jį nurodykite, kai kreipsitės į MAPIR. Jei ataskaitos nepavyksta įkelti (pavyzdžiui, dėl interneto ryšio nebuvimo), Chloros ją išsaugo jūsų kompiuteryje ir parodo jos kelią, kad galėtumėte ją išsiųsti el. paštu adresu support@mapir.camera.
 
 ***
 
@@ -271,33 +223,25 @@ ją išsaugo jūsų kompiuteryje ir parodo jos kelią, kad galėtumėte ją išs
 * Kiti branduoliai neveikia arba yra laisvi
 * Sistema išlieka reaguojanti
 
-**Chloros
-
-lygiagretusis režimas:**
+**Chloros lygiagretusis režimas:**
 
 * Keli branduoliai veikia dideliu našumu — kiek tiksliai, priklauso nuo strategijos, pasirinktos naudojant [dinaminį skaičiavimo pritaikymą](../processing-architecture/dynamic-compute-adaptation.md)
 * Sistema gali atrodyti mažiau reaguojanti
 
 **Kaip stebėti:**
 
-* Windows
-
-užduočių tvarkyklė (Ctrl+Shift+Esc)
+* Windows užduočių tvarkyklė (Ctrl+Shift+Esc)
 * Skirtukas „Našumas“ → skyrius „Procesorius“
-* Ieškokite procesų „Chloros
-
-“ arba „chloros-backend“
+* Ieškokite procesų „Chloros “ arba „chloros-backend“
 
 ### Atminties (RAM) naudojimas
 
 **Tipinis naudojimas:**
 
-* Maži projektai (&lt; 100 vaizdų): 2–4 GB
+* Maži projektai (< 100 vaizdų): 2–4 GB
 * Vidutinio dydžio projektai (100–500 vaizdų): 4–8 GB
 * Didelio dydžio projektai (500+ vaizdų): 8–16 GB
-* „Chloros
-
-+“ lygiagretusis režimas naudoja daugiau RAM
+* „Chloros+“ lygiagretusis režimas naudoja daugiau RAM
 
 **Jei trūksta atminties:**
 
@@ -305,9 +249,7 @@ užduočių tvarkyklė (Ctrl+Shift+Esc)
 * Uždarykite kitas programas
 * Jei reguliariai apdorojate didelius duomenų rinkinius, padidinkite RAM
 
-### GPU naudojimas („Chloros
-
-+“ su CUDA)
+### GPU naudojimas („Chloros+“ su CUDA)
 
 Kai įjungtas GPU pagreitinimas:
 
@@ -345,11 +287,7 @@ Kai įjungtas GPU pagreitinimas:
 
 * Patikrinkite „Debug Log“ dėl klaidų
 * Patikrinkite, ar yra laisvos vietos diske
-* Patikrinkite „Task Manager“, ar veikia Chloros
-
-
-
-**Dažnai rodomi klaidų pranešimai:**
+* Patikrinkite „Task Manager“, ar veikia Chloros **Dažnai rodomi klaidų pranešimai:**
 
 * Sustabdykite apdorojimą ir peržiūrėkite klaidas
 * Dažniausios priežastys: vietos trūkumas diske, sugadinti failai, atminties problemos
@@ -357,9 +295,7 @@ Kai įjungtas GPU pagreitinimas:
 
 **Sistema nereaguoja:**
 
-* Chloros
-
-lygiagretusis režimas naudoja per daug išteklių
+* Chloros lygiagretusis režimas naudoja per daug išteklių
 * Apsvarstykite galimybę sumažinti vienu metu vykdomų užduočių skaičių arba atnaujinti aparatinę įrangą
 * Laisvasis režimas naudoja mažiau išteklių
 
@@ -398,9 +334,7 @@ Sustabdykite apdorojimą, jei pastebite:
 
 1. Jei procesas ką tik prasidėjo ir yra „Aptikimo“ etape: sustabdykite, pažymėkite tikslinius vaizdus, paleiskite iš naujo
 2. Ateityje: naudokite SSD, sumažinkite indeksų skaičių, atnaujinkite aparatinę įrangą
-3. Apsvarstykite galimybę naudoti CLI
-
-, norint apdoroti didelius duomenų rinkinius partijomis
+3. Apsvarstykite galimybę naudoti CLI, norint apdoroti didelius duomenų rinkinius partijomis
 
 ### Įspėjimai apie „diskų vietą“
 
@@ -410,9 +344,7 @@ Sustabdykite apdorojimą, jei pastebite:
 2. Perkelkite projektą į diską, kuriame yra daugiau vietos
 3. Sumažinkite eksportuotinų indeksų skaičių
 4. Išjunkite nereikalingus „LATTICE“ eksporto produktus („Project Settings“ → „Processing“)
-5. Vietoj TIFF
-
-naudokite „JPG“ formatą (mažesni failai)
+5. Vietoj TIFF naudokite „JPG“ formatą (mažesni failai)
 
 ### Dažni pranešimai apie „sugadintus failus“
 
@@ -429,9 +361,7 @@ naudokite „JPG“ formatą (mažesni failai)
 
 1. Užtikrinkite tinkamą ventiliaciją
 2. Nuvalykite dulkes iš kompiuterio ventiliacijos angų
-3. Sumažinkite apdorojimo apkrovą (naudokite „Free“ režimą vietoj „Chloros
-
-+“)
+3. Sumažinkite apdorojimo apkrovą (naudokite „Free“ režimą vietoj „Chloros+“)
 4. Apdorokite vėsesniu paros metu
 
 ***

@@ -232,7 +232,7 @@ Kompiuteryje, kuriame yra **tik** „`pip install chloros-sdk`“ ir nėra Chlor
 
 ## AI asistentai — `chloros-mcp`
 
-SDK&#x27;e yra `chloros-mcp` – MCP serveris, leidžiantis „Claude Desktop“, „Claude Code“, „Cursor“ ir kitiems MCP klientams valdyti Chloros: apdoroti vaizdus ir valdyti „LATTICE“ kameras, matricas bei DAQ šviesos jutiklius. Jo įrankiai apima visas šio SDK funkcijas. Jis įdiegiamas kartu su SDK, todėl „Claude Code“ nustatymui pakanka vienos eilutės:
+SDK'e yra `chloros-mcp` – MCP serveris, leidžiantis „Claude Desktop“, „Claude Code“, „Cursor“ ir kitiems MCP klientams valdyti Chloros: apdoroti vaizdus ir valdyti „LATTICE“ kameras, matricas bei DAQ šviesos jutiklius. Jo įrankiai apima visas šio SDK funkcijas. Jis įdiegiamas kartu su SDK, todėl „Claude Code“ nustatymui pakanka vienos eilutės:
 
 ```bash
 claude mcp add chloros -- chloros-mcp

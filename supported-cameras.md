@@ -6,23 +6,10 @@ metaLinks:
 
 # Palaikomos kameros
 
-Chloros
-apdoroja vaizdus iš dviejų MAPIR
-kamerų serijų **visose platformose** (Windows
-, Linux
-amd64 ir Linux
-arm64/„Jetson“):
+Chloros apdoroja vaizdus iš dviejų MAPIR kamerų serijų **visose platformose** (Windows, Linux amd64 ir Linux arm64/„Jetson“):
 
-* **Survey3** — Survey3W
-(plačiakampės) ir Survey3N
-(siaurakampės) kameros. Įvestis: `RAW+JPG`.
-* **LATTICE**— M3C ir M3M multispektrinių kamerų moduliai. Įvestis: `.tif`/`.tiff` įrašai. „LATTICE“ kameras taip pat galima**valdyti realiuoju laiku** iš Chloros
-— per GUI skirtuką „Cameras“ (Windows
-) arba `chloros-cli lattice` / Python
-SDK
-(Windows
-ir Linux
-) — įskaitant sinchronizuotus kelių kamerų masyvus. Žr. [„LATTICE“ vadovą](lattice/).
+* **Survey3** — Survey3W (plačiakampės) ir Survey3N (siaurakampės) kameros. Įvestis: `RAW+JPG`.
+* **LATTICE**— M3C ir M3M multispektrinių kamerų moduliai. Įvestis: `.tif`/`.tiff` įrašai. „LATTICE“ kameras taip pat galima**valdyti realiuoju laiku** iš Chloros — per GUI skirtuką „Cameras“ (Windows) arba `chloros-cli lattice` / Python SDK (Windows ir Linux) — įskaitant sinchronizuotus kelių kamerų masyvus. Žr. [„LATTICE“ vadovą](lattice/).
 
 Apdorojimo grandinė taip pat priima `.dng` įvesties failus.
 
@@ -36,9 +23,7 @@ Apdorojimo grandinė taip pat priima `.dng` įvesties failus.
 <sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
 ```
 
-Chloros
-
-ją rodo su priešdėliu „`LATT-`“ (pavyzdžiui, „`LATT-M3M-L41-F550`“), o modelio eilutė lemia viską tolesniuose etapuose — jutiklio profilis, juostų išdėstymas ir kalibravimas nustatomi automatiškai; nereikia nieko konfigūruoti kiekvienai kamerai atskirai. Objektyvo numeris reiškia **horizontalų matymo kampą laipsniais**: „`L41`“ = siauras 41°, „`L87`“ = platus 87°.
+Chloros ją rodo su priešdėliu „`LATT-`“ (pavyzdžiui, „`LATT-M3M-L41-F550`“), o modelio eilutė lemia viską tolesniuose etapuose — jutiklio profilis, juostų išdėstymas ir kalibravimas nustatomi automatiškai; nereikia nieko konfigūruoti kiekvienai kamerai atskirai. Objektyvo numeris reiškia **horizontalų matymo kampą laipsniais**: „`L41`“ = siauras 41°, „`L87`“ = platus 87°.
 
 Yra dvi jutiklio konfigūracijos:
 
@@ -49,52 +34,20 @@ Yra dvi jutiklio konfigūracijos:
 
 ### M3C (Bayer) filtro parinktys
 
-| Filtras | Juostos (pavadinimas @ centras nm / FWHM
-
-nm)       |
+| Filtras | Juostos (pavadinimas @ centras nm / FWHM nm)       |
 | ------ | ---------------------------------------- |
-| `FRGB` | Blue
+| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
+| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
+| `FOCN` | Orange 618,4/46 · Cyan 494,1/40 · NIR 821,6/54 (išmatuota — žr. žemiau) |
+| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
 
-475/30 · Green
-
-550/30 · Red
-
-625/30  |
-| `FRGN` | Red
-
-660/21 · Green
-
-550/30 · NIR
-
-850/30   |
-| `FOCN` | Orange
-
-618,4/46 · Cyan
-
-494,1/40 · NIR
-
-821,6/54 (išmatuota — žr. žemiau) |
-| `FNGB` | Blue
-
-475/30 · Green
-
-550/30 · NIR
-
-850/30  |
-
-`FOCN` atveju šios reikšmės yra **išmatuotas** filtro pusės maksimumo juostos plotis (Chloros
-
-1.3.0 ir vėlesnėse versijose; ankstesnėse versijose buvo naudojamos techninių duomenų lape nurodytos reikšmės 615/21 · 490/38 · 808/14). Juostų pavadinimai išlieka tokie patys: `Orange_615`, `Cyan_490` ir `NIR_808`, o išmatuotas centras ir plotis yra tie, kuriuos Chloros
-
-įrašo į kiekvieną kalibruotą eksportą.
+`FOCN` atveju šios reikšmės yra **išmatuotas** filtro pusės maksimumo juostos plotis (Chloros 1.3.0 ir vėlesnėse versijose; ankstesnėse versijose buvo naudojamos techninių duomenų lape nurodytos reikšmės 615/21 · 490/38 · 808/14). Juostų pavadinimai išlieka tokie patys: `Orange_615`, `Cyan_490` ir `NIR_808`, o išmatuotas centras ir plotis yra tie, kuriuos Chloros įrašo į kiekvieną kalibruotą eksportą.
 
 ### M3M (mono) filtrų katalogas — 23 SKU
 
 F-skaičius yra SKU žymė; išmatuotas juostos plotis (įrašytas į kiekvieną kalibruotą eksportą) yra kiekvienos partijos filtro skenavimo duomenys:
 
-| SKU    | Centras (nm, išmatuotas) | FWHM
-
-kraštai (nm) | Plotis (nm) |
+| SKU    | Centras (nm, išmatuotas) | FWHM kraštai (nm) | Plotis (nm) |
 | ------ | --------------------- | --------------- | ---------- |
 | F385   | 379,4                 | 367–392         | 25         |
 | F405   | 403,9                 | 390–417         | 27         |
@@ -120,14 +73,8 @@ kraštai (nm) | Plotis (nm) |
 | F950   | 945,1                 | 929–961         | 32         |
 | F988 † | 985,3                 | 968–1003        | 35         |
 
-_„Juostų kraštai matuojami kaip pusės maksimumo plotis, remiantis „MAPIR
+_„Juostų kraštai matuojami kaip pusės maksimumo plotis, remiantis „MAPIR “ atliktais kiekvienos partijos filtrų skenavimais — tie patys dydžiai, kuriuos Chloros įrašo į kiekvieną kalibruotą eksportą.“_ „— (nominalus)“ = partijos skenavimas dar neatliktas; tų SKU atveju nurodytas centras yra SKU numeris, o plotis – gamintojo pateiktas skaičius.
 
-“ atliktais kiekvienos partijos filtrų skenavimais — tie patys dydžiai, kuriuos Chloros
-
-įrašo į kiekvieną kalibruotą eksportą.“_ „— (nominalus)“ = partijos skenavimas dar neatliktas; tų SKU atveju nurodytas centras yra SKU numeris, o plotis – gamintojo pateiktas skaičius.
-
-† „F988 atspindžio koeficientas kalibruojamas naudojant atspindžio plokštelę, esančią matymo lauke: juosta yra už DAQ šviesos jutiklio kalibruoto diapazono ribų, todėl Chloros
-
-taiko jūsų naujausią plokštelės nuskaitymo duomenį ir išlaiko jį tarp plokštelės matavimų.“ Žr. [Kalibravimo taikiniai](calibration-targets.md).
+† „F988 atspindžio koeficientas kalibruojamas naudojant atspindžio plokštelę, esančią matymo lauke: juosta yra už DAQ šviesos jutiklio kalibruoto diapazono ribų, todėl Chloros taiko jūsų naujausią plokštelės nuskaitymo duomenį ir išlaiko jį tarp plokštelės matavimų.“ Žr. [Kalibravimo taikiniai](calibration-targets.md).
 
 Dėl kameros valdymo realiuoju laiku, matricos, tinklo nustatymų ir radiometrinio apdorojimo grandinės žr. [„LATTICE“ vadovą](lattice/).

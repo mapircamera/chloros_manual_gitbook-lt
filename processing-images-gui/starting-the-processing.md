@@ -62,7 +62,7 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 2. **Apdorojimas** – kalibravimo taikymas ir vaizdų eksportavimas**Apdorojimo trukmė:**
 
 * Žymiai lėčiau nei „Chloros+“ lygiagretaus apdorojimo režime
-* Tinka mažoms ir vidutinio dydžio duomenų rinkiniams (&lt; 200 vaizdų)
+* Tinka mažoms ir vidutinio dydžio duomenų rinkiniams (< 200 vaizdų)
 
 ### „Chloros+“ režimas (lygiagretus apdorojimas)
 
@@ -305,7 +305,7 @@ Visą semantiką rasite [CLI žinyne](../reference/cli-reference.md#a-run-that-w
 **Sprendimai:**
 
 1. Laikykite projektus trumpesnėje aplankoje — pakeiskite**Darbinį katalogą** [Projekto nustatymuose](../project-settings/project-settings.md) ir vėl sukurkite projektą, arba
-2. Įjunkite Windows ilgus kelius ir iš naujo paleiskite „Chloros“: vėl paleiskite Chloros diegimo programą, pažymėję parinktį **Įjungti Windows ilgus kelius** (ji pažymėta pagal numatytuosius nustatymus), arba naudokite grupės politiką: *Kompiuterio konfigūracija &gt; Administraciniai šablonai &gt; Sistema &gt; Failų sistema &gt; Įjungti „Win32“ ilgus kelius*.
+2. Įjunkite Windows ilgus kelius ir iš naujo paleiskite „Chloros“: vėl paleiskite Chloros diegimo programą, pažymėję parinktį **Įjungti Windows ilgus kelius** (ji pažymėta pagal numatytuosius nustatymus), arba naudokite grupės politiką: *Kompiuterio konfigūracija > Administraciniai šablonai > Sistema > Failų sistema > Įjungti „Win32“ ilgus kelius*.
 
 ### Įspėjimas „Nerasta tikslų“
 

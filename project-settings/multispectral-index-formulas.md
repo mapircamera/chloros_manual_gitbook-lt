@@ -163,7 +163,7 @@ $$
 
 GUI ir CLI/SDK nustatymų sąraše tai yra simbolio formulė `(z/y)*(x/y)`, kur x = Red, y = Green, z = NIR (RGN kameros juostos); „LATTICE“ indekso variklio išankstinis nustatymas yra `nir * red / green**2`. Kiekvienam paviršiui apskaičiuojamas tas pats indeksas.
 
-_Šaltinis: Vincini, M., E. Frazzi ir P. D&#x27;Alessio. „Plataus dažnių diapazono lapų chlorofilo augmenijos indeksas medžių lajos mastu“. „Precision Agriculture“ 9 (2008): 303–319._
+_Šaltinis: Vincini, M., E. Frazzi ir P. D'Alessio. „Plataus dažnių diapazono lapų chlorofilo augmenijos indeksas medžių lajos mastu“. „Precision Agriculture“ 9 (2008): 303–319._
 
 ***
 
@@ -205,7 +205,7 @@ $$
 
 Miškingose vietovėse FCI1 vertės bus mažesnės dėl mažesnio medžių atspindžio ir šešėlių buvimo medžių lajos viduje.
 
-_Šaltinis: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Patikimi miško dangos indeksai daugiaspektriniams vaizdams“. „Photogrammetric Engineering &amp; Remote Sensing“ 84.8 (2018): 505–512._
+_Šaltinis: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Patikimi miško dangos indeksai daugiaspektriniams vaizdams“. „Photogrammetric Engineering & Remote Sensing“ 84.8 (2018): 505–512._
 
 ***
 
@@ -221,7 +221,7 @@ $$
 
 Miškingose vietovėse FCI2 vertės bus mažesnės dėl mažesnio medžių atspindžio ir šešėlių buvimo medžių lajos viduje.
 
-_Šaltinis: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Patikimi miško dangos indeksai daugiaspektriniams vaizdams“. „Photogrammetric Engineering &amp; Remote Sensing“ 84.8 (2018): 505–512._
+_Šaltinis: Becker, Sarah J., Craig S.T. Daughtry ir Andrew L. Russ. „Patikimi miško dangos indeksai daugiaspektriniams vaizdams“. „Photogrammetric Engineering & Remote Sensing“ 84.8 (2018): 505–512._
 
 ***
 
@@ -487,7 +487,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Šaltinis: Bannari, A., H. Asalhi ir P. Teillet. „Transformuotas skirtumo augmenijos indeksas (TDVI) augmenijos dangos kartografavimui“. Įtraukta į „Geoscience and Remote Sensing Symposium, IGARSS &#x27;02, IEEE International“ konferencijos medžiagą, 5 tomas (2002)._
+_Šaltinis: Bannari, A., H. Asalhi ir P. Teillet. „Transformuotas skirtumo augmenijos indeksas (TDVI) augmenijos dangos kartografavimui“. Įtraukta į „Geoscience and Remote Sensing Symposium, IGARSS '02, IEEE International“ konferencijos medžiagą, 5 tomas (2002)._
 
 ***
 

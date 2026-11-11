@@ -1,8 +1,6 @@
 # DAQ-E tinklo konfigūracija ir laiko sinchronizavimas
 
-> Fizinė jutiklio tinklo konfigūracija – kabelių montavimas, PoE, IP adresų priskyrimas ir paties įrenginio tinklo nustatymai – aprašyta **[DAQ vartotojo vadove](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Šiame puslapyje aptariama Chloros
-
-pusė: prijungimas, laiko sinchronizavimas ir ką daryti, jei paieška neduoda rezultatų.
+> Fizinė jutiklio tinklo konfigūracija – kabelių montavimas, PoE, IP adresų priskyrimas ir paties įrenginio tinklo nustatymai – aprašyta **[DAQ vartotojo vadove](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Šiame puslapyje aptariama Chloros pusė: prijungimas, laiko sinchronizavimas ir ką daryti, jei paieška neduoda rezultatų.
 
 DAQ-E yra „DAQ“ šeimos narys, veikiantis per „Ethernet“ tinklą: maitinamas per PoE, aptinkamas per mDNS (paslauga `_daq-e._tcp`), o jo adresas nustatomas pagal kompiuterio vardą, sudarytą iš jutiklio ID — `daq-e-<6 hex>.local`, pvz., `daq-e-def330.local`. Šiame puslapyje aprašoma, kaip jis perduoda duomenis tinkle ir kaip dalyvauja PTP laiko sinchronizavime.
 
@@ -13,35 +11,17 @@ DAQ-E yra „DAQ“ šeimos narys, veikiantis per „Ethernet“ tinklą: maitin
 | **Daugiaadresis** (numatyta) | UDP `239.10.10.10:5002` | Bet koks skaičius tame pačiame LAN tinkle gauna tą patį srautą | Kiekviena datagrama patikrinama pagal CRC-16/CCITT |
 | **Neapdoroti duomenys** | TCP prievadas `5000` | Tiksliai vienas klientas (išskirtinis) | Suderinamas su DAQ-U baitų lygiu |
 
-Chloros
-
-pagal numatytuosius nustatymus naudoja daugiaadresinį perdavimą, o tai leidžia GUI, CLI
-
-ir SDK
-
-vienu metu stebėti vieną jutiklį.
+Chloros pagal numatytuosius nustatymus naudoja daugiaadresinį perdavimą, o tai leidžia GUI, CLI ir SDK vienu metu stebėti vieną jutiklį.
 
 ## Tinklo reikalavimai
 
-* **Tas pats transliacijos domenas.** Kompiuteris, kuriame veikia Chloros
-
-, turi būti tame pačiame L2 tinklo segmente kaip ir jutiklis — mDNS atradimas neperžengia maršrutizatorių.
-* **Ugniasienė.** Windows
-
-sistemoje diegimo programa kiekviename tinklo profilyje prideda **„Chloros
-
-Backend (UDP-In)“**ugniasienės taisyklę, kuri apima DAQ-E duomenis (UDP 5002), mDNS (UDP 5353) ir PTP (UDP 319/320), taip pat taisyklę**„Chloros
-
-Backend (TCP-In)“**, apribotą vietiniu potinkliu, skirtą DAQ-E ryšiui su kompiuteriu programinės įrangos atnaujinimo metu. Linux
-
-sistemoje „`.deb`“ atidaro UDP prievadus „`ufw`“ arba „`firewalld`“, jei ta ugniasienė yra aktyvi diegimo metu. Trečiosios šalies ugniasienėje arba vėliau įjungtoje ugniasienėje turi būti leidžiami tie patys prievadai.
+* **Tas pats transliacijos domenas.** Kompiuteris, kuriame veikia Chloros, turi būti tame pačiame L2 tinklo segmente kaip ir jutiklis — mDNS atradimas neperžengia maršrutizatorių.
+* **Ugniasienė.** Windows sistemoje diegimo programa kiekviename tinklo profilyje prideda **„Chloros Backend (UDP-In)“**ugniasienės taisyklę, kuri apima DAQ-E duomenis (UDP 5002), mDNS (UDP 5353) ir PTP (UDP 319/320), taip pat taisyklę**„Chloros Backend (TCP-In)“**, apribotą vietiniu potinkliu, skirtą DAQ-E ryšiui su kompiuteriu programinės įrangos atnaujinimo metu. Linux sistemoje „`.deb`“ atidaro UDP prievadus „`ufw`“ arba „`firewalld`“, jei ta ugniasienė yra aktyvi diegimo metu. Trečiosios šalies ugniasienėje arba vėliau įjungtoje ugniasienėje turi būti leidžiami tie patys prievadai.
 * **PoE maitinimas, nėra būsenos šviesos diodo.** „DAQ-E“ neturi savo šviesos diodo — maitinimą patikrinkite per jungiklio arba įpurškimo prievado „link/PoE“ indikatorių ir po įjungimo palaukite keletą sekundžių, kol įrenginys įkels sistemą ir prisijungs prie tinklo.
 
 ## Prijungimas
 
-**GUI:** Skirtukas „Šviesos jutikliai“ → „Prijungti jutiklį“ → Įrenginio tipas „DAQ-E (Ethernet)“. Paieška vyksta tik tol, kol ekrane rodomas prisijungimo dialogas (mDNS paieška ir ARP nuskaitymas Windows
-
-sistemoje), kartojasi kas 15 sekundžių; mygtukas „Atnaujinti“ iškart atlieka pakartotinę paiešką. Aptikti jutikliai rodomi išskleidžiamajame meniu; automatiškai pasirenkamas pirmasis aptiktas jutiklis.
+**GUI:** Skirtukas „Šviesos jutikliai“ → „Prijungti jutiklį“ → Įrenginio tipas „DAQ-E (Ethernet)“. Paieška vyksta tik tol, kol ekrane rodomas prisijungimo dialogas (mDNS paieška ir ARP nuskaitymas Windows sistemoje), kartojasi kas 15 sekundžių; mygtukas „Atnaujinti“ iškart atlieka pakartotinę paiešką. Aptikti jutikliai rodomi išskleidžiamajame meniu; automatiškai pasirenkamas pirmasis aptiktas jutiklis.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -67,23 +47,9 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Įrenginio nustatymai ir programinė įranga
 
-Pats jutiklis saugo savo tinklo nustatymus: DHCP (gamyklinis nustatymas, kuris, jei DHCP serveris neatsako, persijungia į 169.254.x.x vietinį adresą) arba statinį adresą. Jis taip pat saugo nustatymą, ar įjungus maitinimą pradėti duomenų srautą. Šiuos nustatymus galite keisti GUI (jutiklio nustatymų meniu, **Tinklas**:**Keisti…**,**Transliuoti įjungus maitinimą**,**Perkrauti jutiklį**; žr. [skirtuką „DAQ“](gui.md)), arba per CLI
+Pats jutiklis saugo savo tinklo nustatymus: DHCP (gamyklinis nustatymas, kuris, jei DHCP serveris neatsako, persijungia į 169.254.x.x vietinį adresą) arba statinį adresą. Jis taip pat saugo nustatymą, ar įjungus maitinimą pradėti duomenų srautą. Šiuos nustatymus galite keisti GUI (jutiklio nustatymų meniu, **Tinklas**:**Keisti…**,**Transliuoti įjungus maitinimą**,**Perkrauti jutiklį**; žr. [skirtuką „DAQ“](gui.md)), arba per CLI ir SDK, naudodami komandas `pool-set-network`, `pool-set-auto-stream` ir `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; žr. [CLI žinyną](../reference/cli-reference.md#daq-e-device-settings)). Jutiklis iš naujo paleidžiamas, kad būtų pritaikyti tinklo pakeitimai, o Chloros vėl jį prijungia. Chloros veikiančio kompiuterio tinkle turi būti nustatytas statinis adresas: Chloros atmeta adresą, kurio negalėjo pasiekti po paleidimo iš naujo. Jutiklio ID ir jo `daq-e-<id>.local` kompiuterio vardas niekada nesikeičia. Nauja 1.3.0 versijoje.
 
-ir SDK
-
-, naudodami komandas `pool-set-network`, `pool-set-auto-stream` ir `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; žr. [CLI
-
-žinyną](../reference/cli-reference.md#daq-e-device-settings)). Jutiklis iš naujo paleidžiamas, kad būtų pritaikyti tinklo pakeitimai, o Chloros
-
-vėl jį prijungia. Chloros
-
-veikiančio kompiuterio tinkle turi būti nustatytas statinis adresas: Chloros
-
-atmeta adresą, kurio negalėjo pasiekti po paleidimo iš naujo. Jutiklio ID ir jo `daq-e-<id>.local` kompiuterio vardas niekada nesikeičia. Nauja 1.3.0 versijoje.
-
-**Programinės įrangos atnaujinimai yra integruoti į grafinę vartotojo sąsają (GUI).** Kai prijungtas „DAQ-E“ naudoja senesnę programinę įrangą nei ta, kuri yra pridedama prie jūsų Chloros
-
-versijos, jo jutiklio eilutėje rodomas gintarinis piktogramos žymeklis **„Update Available“**, o nustatymų lange su ratuko piktograma pasirodo <version>mygtukas</version>
+**Programinės įrangos atnaujinimai yra integruoti į grafinę vartotojo sąsają (GUI).** Kai prijungtas „DAQ-E“ naudoja senesnę programinę įrangą nei ta, kuri yra pridedama prie jūsų Chloros versijos, jo jutiklio eilutėje rodomas gintarinis piktogramos žymeklis **„Update Available“**, o nustatymų lange su ratuko piktograma pasirodo <version>mygtukas</version>
 
 „Update to <version>“. Atnaujinimas per tinklą atsisiunčiamas per maždaug 30 sekundžių; jutiklis automatiškai paleidžiamas iš naujo ir vėl prisijungia, o nutrauktas perdavimas nepažeidžia esamos programinės įrangos. Naudodamiesi CLI arba SDK, taip pat Linux sistemoje, kurioje nėra GUI, paleiskite komandą „`chloros-cli daq pool-update-firmware --sensor-id <id>`“ (`DAQSensorSession.update_firmware()`).
 

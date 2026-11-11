@@ -43,9 +43,7 @@ Kiekvienam prijungtam jutikliui skiriama viena eilutė (plius viena eilutė kiek
 | Transporto ženkliukas | `DAQ-U` / `DAQ-M` / `DAQ-E` arba žalia `REF` žymė, skirta „Ambient+Object“ atspindžio grupei. |
 | Įrenginio pavadinimas | Pagal numatytuosius nustatymus – jutiklio serijos numeris (jo pastovus identifikatorius kalibravimui, `.daq` failų pavadinimams ir importo atitikimui); pasirinktiniai pavadinimai išlieka kiekviename projekte. |
 | **Kalibruota** piktograma (žalia) | Rodoma, kai įkeltas gamintojo kalibravimo rinkinys, t. y. spektrai yra tikslūs W/m²/nm. |
-| **Galimas atnaujinimas** piktograma (gintarinė, tik DAQ-E) | Veikianti programinė įranga yra senesnė nei vaizdas, pridedamas prie šios Chloros
-
-versijos. Atnaujinimo metu rodoma tiesioginė pažanga (`Flashing… N%`, `Restarting sensor…`, tada `Updated X → Y` arba `Failed`). |
+| **Galimas atnaujinimas** piktograma (gintarinė, tik DAQ-E) | Veikianti programinė įranga yra senesnė nei vaizdas, pridedamas prie šios Chloros versijos. Atnaujinimo metu rodoma tiesioginė pažanga (`Flashing… N%`, `Restarting sensor…`, tada `Updated X → Y` arba `Failed`). |
 | Akis | Įjungia arba išjungia šio jutiklio matomumą diagramoje. |
 | Ratukas | Atidaro atskirų jutiklių nustatymų langą (žemiau). |
 | ✕ (raudonas) | Atjungia jutiklį arba pašalina „Ambient+Object“ grupę. |
@@ -84,15 +82,9 @@ Atidarykite paspaudę ratuko piktogramą jutiklio eilutėje. Turinys eilės tvar
 
 mygtukas</version\>
 
-**Atnaujinti į \<version\>** pasirodo, kai ši Chloros
-
-versija apima naujesnį „DAQ-E“ programinės įrangos atvaizdą. Atnaujinimas per tinklą įvyksta per maždaug 30 sekundžių; jutiklis automatiškai paleidžiamas iš naujo ir vėl prisijungia, o nutrauktas perdavimas palieka dabartinę programinę įrangą nepakitusią. Atnaujinimo eiga rodoma realiuoju laiku (`Flashing… N%` → `Restarting sensor…` → `Updated X → Y`), o langelyje rodomas `Up to date`, kai atnaujinimas vyksta.
-* **PTP sinchronizavimas** — tiesioginė PTP būsena (grįžta prie `unknown`). DAQ-E programinė įranga v1.2.0+ dalyvauja IEEE 1588 PTPv2 standarte tik kaip pavaldusis laikrodis; Chloros
-
-pagrindinio kompiuterio užkulisiai yra PTP „grandmaster“, o kiekvienas DAQ-E ir „LATTICE“ fotoaparatas vietiniame tinkle (LAN) veikia kaip jo pavaldinys 0 domeno ribose, išlaikydamas laiko žymes su maždaug 1 ms tikslumu.
-* **Tinklas**— adresas, kuriuo veikia įrenginys, ir kaip jis jį gavo (DHCP, „link-local“ arba statinis), taip pat išsaugotas nustatymas, kuris taikomas po perkrovimo.**Keisti…**atidaro formą:**Automatinis (DHCP)**arba**Statinis IP**su IP adresu, potinklio kauke ir pasirinktiniu šliuzu.**Taikyti ir paleisti iš naujo** išsaugo nustatymus, iš naujo paleidžia jutiklį ir vėl jį prijungia. Statinis adresas, esantis už šio kompiuterio tinklo ribų, atmetamas, nes Chloros
-
-po perkrovimo negalėtų pasiekti jutiklio; tuomet pasirodo langelis, leidžiantis tai padaryti vis tiek, jei kompiuteris bus peradresuotas arba nukreiptas į tą tinklą. **Transliuoti įjungus maitinimą**nustato, ar jutiklis pradės transliuoti iškart, kai bus įjungtas maitinimas, dar prieš prisijungiant bet kuriai programinei įrangai.**„Restart sensor“** (Perkrauti jutiklį) – perkrauna jutiklį ir vėl prijungia jį su esamais nustatymais. Perkrovimas neleidžiamas, kol jutiklis atlieka įrašymą. Nauja funkcija versijoje 1.3.0.
+**Atnaujinti į \<version\>** pasirodo, kai ši Chloros versija apima naujesnį „DAQ-E“ programinės įrangos atvaizdą. Atnaujinimas per tinklą įvyksta per maždaug 30 sekundžių; jutiklis automatiškai paleidžiamas iš naujo ir vėl prisijungia, o nutrauktas perdavimas palieka dabartinę programinę įrangą nepakitusią. Atnaujinimo eiga rodoma realiuoju laiku (`Flashing… N%` → `Restarting sensor…` → `Updated X → Y`), o langelyje rodomas `Up to date`, kai atnaujinimas vyksta.
+* **PTP sinchronizavimas** — tiesioginė PTP būsena (grįžta prie `unknown`). DAQ-E programinė įranga v1.2.0+ dalyvauja IEEE 1588 PTPv2 standarte tik kaip pavaldusis laikrodis; Chloros pagrindinio kompiuterio užkulisiai yra PTP „grandmaster“, o kiekvienas DAQ-E ir „LATTICE“ fotoaparatas vietiniame tinkle (LAN) veikia kaip jo pavaldinys 0 domeno ribose, išlaikydamas laiko žymes su maždaug 1 ms tikslumu.
+* **Tinklas**— adresas, kuriuo veikia įrenginys, ir kaip jis jį gavo (DHCP, „link-local“ arba statinis), taip pat išsaugotas nustatymas, kuris taikomas po perkrovimo.**Keisti…**atidaro formą:**Automatinis (DHCP)**arba**Statinis IP**su IP adresu, potinklio kauke ir pasirinktiniu šliuzu.**Taikyti ir paleisti iš naujo** išsaugo nustatymus, iš naujo paleidžia jutiklį ir vėl jį prijungia. Statinis adresas, esantis už šio kompiuterio tinklo ribų, atmetamas, nes Chloros po perkrovimo negalėtų pasiekti jutiklio; tuomet pasirodo langelis, leidžiantis tai padaryti vis tiek, jei kompiuteris bus peradresuotas arba nukreiptas į tą tinklą. **Transliuoti įjungus maitinimą**nustato, ar jutiklis pradės transliuoti iškart, kai bus įjungtas maitinimas, dar prieš prisijungiant bet kuriai programinei įrangai.**„Restart sensor“** (Perkrauti jutiklį) – perkrauna jutiklį ir vėl prijungia jį su esamais nustatymais. Perkrovimas neleidžiamas, kol jutiklis atlieka įrašymą. Nauja funkcija versijoje 1.3.0.
 
 „Ambient+Object“ grupės atveju dantukų meniu rodomi tik grupės šaltinio jutikliai, įrenginio pavadinimas ir grafiko linijos spalva.
 
@@ -102,9 +94,7 @@ po perkrovimo negalėtų pasiekti jutiklio; tuomet pasirodo langelis, leidžiant
 
 ### Dangtelio pasirinkimas
 
-Išskleidžiamajame meniu **Dangtelis** nurodoma Chloros
-
-, koks fizinis dangtelis uždėtas ant jutiklio difuzoriaus, ir kiekvienam spektrui pritaikomas to dangtelio gamykliniu būdu išmatuotas korekcijos profilis. Pasirinkimai priklauso nuo modelio:
+Išskleidžiamajame meniu **Dangtelis** nurodoma Chloros, koks fizinis dangtelis uždėtas ant jutiklio difuzoriaus, ir kiekvienam spektrui pritaikomas to dangtelio gamykliniu būdu išmatuotas korekcijos profilis. Pasirinkimai priklauso nuo modelio:
 
 | Modelis | Dangtelio pasirinkimai |
 | --- | --- |
@@ -112,9 +102,7 @@ Išskleidžiamajame meniu **Dangtelis** nurodoma Chloros
 | DAQ-M | Nėra (atviras jutiklis), „Sunshine“ (kosinusinis korektorius) |
 | DAQ-E | Nėra (atviras jutiklis), FOV 15°, FOV 45°, FOV 90°, „Sunshine“ (kosinusinis korektorius) |
 
-**Kiekvieno modelio numatytasis nustatymas yra „Sunshine“ (kosinusinis korektorius)** — MAPIR
-
-kiekvieną DAQ pristato su įmontuotu „Sunshine“ dangteliu, ir tai yra standartinė lauko konfigūracija: 180° pusrutulio matymo kampas su kosinusine paklaida ≤ ±4 % iki 60° ir ≤ ±4,5 % iki 70° (nerekomenduojama, kai saulės aukštis mažesnis nei ~15°), silpninimas pagal konstrukciją (~12×). Jūsų pasirinkimas išlieka projekte.
+**Kiekvieno modelio numatytasis nustatymas yra „Sunshine“ (kosinusinis korektorius)** — MAPIR kiekvieną DAQ pristato su įmontuotu „Sunshine“ dangteliu, ir tai yra standartinė lauko konfigūracija: 180° pusrutulio matymo kampas su kosinusine paklaida ≤ ±4 % iki 60° ir ≤ ±4,5 % iki 70° (nerekomenduojama, kai saulės aukštis mažesnis nei ~15°), silpninimas pagal konstrukciją (~12×). Jūsų pasirinkimas išlieka projekte.
 
 {% hint style="warning" %}
 **Dangtelio pasirinkimas turi atitikti fiziškai uždėtą dangtelį.**Nei jutiklis, nei programinė įranga negali nustatyti, koks dangtelis yra uždėtas. Pasirinkimas lemia tiek realaus laiko korekciją, tiek žymą, įrašomą į kiekvieną `.daq` failą — atsižvelgiant į „Sunshine“ dangtelio ~12× silpninimą, nedeklaruotas dangtelio pakeitimas spektrus koreguoja netiksliai maždaug tuo koeficientu. (Nuimant ir vėl uždedant tą patį dangtelį, paklaida siekia apie 1,5 %.) Pasirinkite**„None“ (nuogas jutiklis)** tik tada, kai dangtelis fiziškai nuimtas; „DAQ-E“ atveju pasirinkus „None“ vis tiek taikomas gamyklinis geometrijos profilis įdubusiam stikliniam difuzoriui – tai nėra neveikianti funkcija – o „nuogas“ „DAQ-E“ yra laboratorinė konfigūracija, o ne palaikoma lauko konfigūracija.
@@ -152,13 +140,7 @@ Kiekvieno jutiklio **spektro diagrama** rodo:
 Po diagramos sąrašo peržiūros režimu, atnaujinama kas 500 ms:
 
 * **Visi modeliai**: Šviesos spalvos pavyzdys (sRGB pagal CIE XYZ), Pasotintas (Taip/Ne), CIE 1931 X/Y/Z, Chromatinumas x/y, CIE u′/v′, CCT (K), CRI (Ra), dominuojantis bangos ilgis (nm), didžiausias bangos ilgis (nm), sužadinimo grynumas, Duv, CIE L\*/a\*/b\* ir Munsell H/V/C.
-* **Tik kalibruoti jutikliai**(bet kuris iš DAQ-U / DAQ-M / DAQ-E, kai įkeltas gamyklinis kalibravimo rinkinys — tai rodo žalia žymė**Kalibruotas** jutiklio eilutėje): Bendra galia (W/m²), fotopinis liuksas (lx), skotopinis liuksas (lx), S/P santykis, PPFD ir PPFD Red
-
-/Green
-
-/Blue
-
-(µmol/m²/s), taip pat opiniai spinduliavimo stiprumai — S-konas, melanopinis, rodopinis, M-konas, L-konas (visi W/m²).
+* **Tik kalibruoti jutikliai**(bet kuris iš DAQ-U / DAQ-M / DAQ-E, kai įkeltas gamyklinis kalibravimo rinkinys — tai rodo žalia žymė**Kalibruotas** jutiklio eilutėje): Bendra galia (W/m²), fotopinis liuksas (lx), skotopinis liuksas (lx), S/P santykis, PPFD ir PPFD Red /Green /Blue (µmol/m²/s), taip pat opiniai spinduliavimo stiprumai — S-konas, melanopinis, rodopinis, M-konas, L-konas (visi W/m²).
 
 <!-- SCREENSHOT-NEEDED: list view live data table for a DAQ-E showing both the colorimetric rows and the power-calibrated rows (Total Power, Photopic/Scotopic Lux, PPFD, opic irradiances) -->
 
@@ -171,9 +153,7 @@ Du sujungti jutikliai gali būti sujungti į realaus laiko atspindžio rodinį �
 1. Tinklelinio vaizdo režime spustelėkite **+**ant diagramos plytelių ir pasirinkite**Sujungti aplinkos + objekto**.
 2. Pasirinkite **Aplinkos šviesos šaltinio**jutiklį ir**Objekto skaitytuvo**jutiklį (du skirtingus jutiklius), tada spustelėkite**Sukurti**.
 
-Chloros
-
-apskaičiuoja R(λ) = objektas(λ) / aplinka(λ) kiekvienam bangos ilgiui iš dviejų tiesioginių srautų (0, kai aplinka ≤ 0). Grupės pavadinimas priklauso nuo jutiklių kalibravimo klasės:
+Chloros apskaičiuoja R(λ) = objektas(λ) / aplinka(λ) kiekvienam bangos ilgiui iš dviejų tiesioginių srautų (0, kai aplinka ≤ 0). Grupės pavadinimas priklauso nuo jutiklių kalibravimo klasės:
 
 * Abu jutikliai kalibruoti (paketas įkeltas) → **„Matomas atspindžio koeficientas“**.
 * Jei bent vienas jutiklis nekalibruotas → **„Santykinis atspindžio koeficientas“**.
@@ -188,34 +168,10 @@ Meniu **+**taip pat siūlo parinktį**Pridėti naują jutiklį** su trimis išd�
 
 ### Augmenijos indekso lentelė
 
-Sąrašo peržiūroje po atspindžio grupės diagramos pateikiama augmenijos indekso lentelė, apskaičiuota remiantis realiuoju atspindžiu juostų centruose **mėlyna 450 / žalia 550 / raudona 670 / NIR
+Sąrašo peržiūroje po atspindžio grupės diagramos pateikiama augmenijos indekso lentelė, apskaičiuota remiantis realiuoju atspindžiu juostų centruose **mėlyna 450 / žalia 550 / raudona 670 / NIR 800 nm** (reikšmės iki 4 skaičių po kablelio, `---`, kai neįmanoma apskaičiuoti; užveskite pelę ant indekso pavadinimo, kad pamatytumėte jo pilną pavadinimą):
 
-800 nm** (reikšmės iki 4 skaičių po kablelio, `---`, kai neįmanoma apskaičiuoti; užveskite pelę ant indekso pavadinimo, kad pamatytumėte jo pilną pavadinimą):
-
-* **Visada rodoma** (nepriklausoma nuo masto, bet koks jutiklių derinys): NDVI
-
-, GNDVI
-
-, ENDVI, WDRVI
-
-, GRVI
-
-, CVI
-
-, GCI
-
-, MSR.
-* **Tik tada, kai abu jutikliai yra kalibruoti pagal galią** (įkelti abu paketai): EVI
-
-, SAVI
-
-, OSAVI
-
-, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI
-
-, NLI, MNLI, FCI, GEMI
-
-.
+* **Visada rodoma** (nepriklausoma nuo masto, bet koks jutiklių derinys): NDVI, GNDVI, ENDVI, WDRVI, GRVI, CVI, GCI, MSR.
+* **Tik tada, kai abu jutikliai yra kalibruoti pagal galią** (įkelti abu paketai): EVI, SAVI, OSAVI, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI, NLI, MNLI, FCI, GEMI.
 
 <!-- SCREENSHOT-NEEDED: an Ambient+Object reflectance group in list view — reflectance chart labeled "Apparent Reflectance" with the vegetation index table below it showing live NDVI etc. -->
 
@@ -239,13 +195,9 @@ Norint gauti kiekybinius spinduliavimo stiprio rodiklius, reikia apskaičiuoti b
 ## Daugialypės jutiklių išdėstymo schemos ir projekto išsaugojimas
 
 * Sujunkite kelis jutiklius viename grafike (bendros ašys), išlaikykite atskirus grafikus (automatinis tinklelio išdėstymas), perkelkite jutiklius iš vieno grafiko į kitą, vilkdami pertvarkykite eiles/plyteles ir paslėpkite atskirus jutiklius naudodami akies mygtuką.
-* Kiekvienam projektui Chloros
-
-išsaugo: įrenginių pavadinimus, grafikų spalvas, diagramos dydį, peržiūros režimą ir kiekvieno jutiklio nustatymus (integravimo laiką, kadrų vidurkavimą, AE būseną, dangtelio pasirinkimą).
+* Kiekvienam projektui Chloros išsaugo: įrenginių pavadinimus, grafikų spalvas, diagramos dydį, peržiūros režimą ir kiekvieno jutiklio nustatymus (integravimo laiką, kadrų vidurkavimą, AE būseną, dangtelio pasirinkimą).
 * **Atidarius projektą iš naujo, jo jutikliai automatiškai vėl prisijungia** pagal adresą – COM prievadą „DAQ-U“ atveju, BLE įrenginį „DAQ-M“ atveju, mDNS hosto vardą DAQ-E atveju (nustatomas net jei įrenginio IP adresas pasikeitė) — ir vėl pritaiko kiekvieno jutiklio išsaugotą „cap“ profilį, kadrų vidurkavimą, AE būseną ir rankinį integracijos laiką.***
 
 ## Kameros suporavimas (DLS)
 
-Nereikia nieko suporuoti. Skirtingai nuo dronų DLS darbo eigos, kurioje šviesos jutiklis su kamera susiejamas iš anksto, Chloros
-
-suderina DAQ duomenis su vaizdais vėlesniame etape: importavimo/apdorojimo metu „`.daq`“ rodmenys interpoliuojami pagal kiekvieno kadro ekspozicijos laiko žymą. Įrašykite naudodami bet kurį prijungtą jutiklį (`.daq` automatiškai patenka į projektą), o atspindžio apdorojimas pagal laiką suranda reikiamus rodmenis — kaip naudojami žemyn nukreipti duomenys, žr. [DAQ šviesos jutikliai](README.md). **Tiesioginių**LATTICE įrašų atveju vietoj to pasirinkite jutiklį skirtuke „Kameros“ esančiame išskleidžiamajame meniu**Šviesos jutiklis**; tuomet kiekvienas įrašas išsaugo naudotą rodmenį, susietą tik su to įrašo kameromis (žr. [Atspindžio darbo eigos](reflectance.md)).</version\>
+Nereikia nieko suporuoti. Skirtingai nuo dronų DLS darbo eigos, kurioje šviesos jutiklis su kamera susiejamas iš anksto, Chloros suderina DAQ duomenis su vaizdais vėlesniame etape: importavimo/apdorojimo metu „`.daq`“ rodmenys interpoliuojami pagal kiekvieno kadro ekspozicijos laiko žymą. Įrašykite naudodami bet kurį prijungtą jutiklį (`.daq` automatiškai patenka į projektą), o atspindžio apdorojimas pagal laiką suranda reikiamus rodmenis — kaip naudojami žemyn nukreipti duomenys, žr. [DAQ šviesos jutikliai](README.md). **Tiesioginių**LATTICE įrašų atveju vietoj to pasirinkite jutiklį skirtuke „Kameros“ esančiame išskleidžiamajame meniu**Šviesos jutiklis**; tuomet kiekvienas įrašas išsaugo naudotą rodmenį, susietą tik su to įrašo kameromis (žr. [Atspindžio darbo eigos](reflectance.md)).</version\>

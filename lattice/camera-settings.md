@@ -1,12 +1,8 @@
 # Kameros nustatymai
 
-Skirtukas **„Kameros“** yra „Chloros
+Skirtukas **„Kameros“** yra „Chloros “ tiesioginio valdymo sąsaja, skirta „LATTICE“ kameroms: pagrindinė vaizdo srauto sritis, kurioje kiekviena prijungta kamera rodoma kaip tiesioginio vaizdo langelis, ir šoninė juosta, kuria galima perjungti tris puslapius – **kamerų sąrašą**,**nustatymų langą**(kiekvienos kameros, masyvo arba įrašymo nustatymai – po vieną), ir**indekso skaičiuoklė**. Šiame puslapyje aprašomi visi kameros sąrašo, kiekvienos kameros nustatymų lango ir masyvo nustatymų lango valdikliai. Įrašymo režimai, eksporto tipo pasirinkimas ir „Capture All“ srautas aprašyti gretimame puslapyje [Įrašymo nustatymai ir režimai](capture.md).
 
-“ tiesioginio valdymo sąsaja, skirta „LATTICE“ kameroms: pagrindinė vaizdo srauto sritis, kurioje kiekviena prijungta kamera rodoma kaip tiesioginio vaizdo langelis, ir šoninė juosta, kuria galima perjungti tris puslapius – **kamerų sąrašą**,**nustatymų langą**(kiekvienos kameros, masyvo arba įrašymo nustatymai – po vieną), ir**indekso skaičiuoklė**. Šiame puslapyje aprašomi visi kameros sąrašo, kiekvienos kameros nustatymų lango ir masyvo nustatymų lango valdikliai. Įrašymo režimai, eksporto tipo pasirinkimas ir „Capture All“ srautas aprašyti gretimame puslapyje [Įrašymo nustatymai ir režimai](capture.md).
-
-Skirtukas „Kameros“ pasirodo šoninėje juostoje, kai Chloros
-
-užkulisinė sistema yra pasirengusi. Visi žemiau esantys valdikliai bendrauja su vietine užkulisine sistema per `127.0.0.1:5000`; pakeitimai iš karto taikomi tiesioginiam kameros vaizdui, jei nenurodyta kitaip.
+Skirtukas „Kameros“ pasirodo šoninėje juostoje, kai Chloros užkulisinė sistema yra pasirengusi. Visi žemiau esantys valdikliai bendrauja su vietine užkulisine sistema per `127.0.0.1:5000`; pakeitimai iš karto taikomi tiesioginiam kameros vaizdui, jei nenurodyta kitaip.
 
 ## Šiame puslapyje naudojami kamerų tipai
 
@@ -14,40 +10,12 @@ Valdymo elementai rodomi arba paslepiami priklausomai nuo to, kokio tipo kamera 
 
 | Terminas | Reikšmė | Filtro kanalai |
 | --- | --- | --- |
-| **RGB
-
-kamera** | „LATTICE M3C“ su FRGB filtru (modelyje yra `-FRGB`) | Red
-
-/ Green
-
-/ Blue
-
-|
-| **Bayer daugiaspektrinė** | „LATTICE M3C“ su FRGN, FOCN arba FNGB | FRGN: Red
-
-/ Green
-
-/ NIR
-
-· FOCN: Orange
-
-/ Cyan
-
-/ NIR
-
-· FNGB: NIR
-
-/ Green
-
-/ Blue
-
-|
+| **RGB kamera** | „LATTICE M3C“ su FRGB filtru (modelyje yra `-FRGB`) | Red / Green / Blue |
+| **Bayer daugiaspektrinė** | „LATTICE M3C“ su FRGN, FOCN arba FNGB | FRGN: Red / Green / NIR · FOCN: Orange / Cyan / NIR · FNGB: NIR / Green / Blue |
 | **Mono (M3M)** | „LATTICE M3M“ — vienas siaurajuostis filtras, viena kalibruota juosta | Viena juosta |
 | **Masyvo narys** | Kamera, prijungta kaip sinchronizuoto masyvo dalis (bendras arba atskiras ekranas) | Pagal jos filtrą |
 
-RGB
-
-kameroms taikomas fotometrinis apdorojimas (baltos spalvos balansas, spalvų profiliai, gama); daugiaspektrinėms ir mono kameroms taikoma radiometrinė grandinė, o fotometriniai parametrai praleidžiami. Masyvo nariai perduoda srauto lygio nustatymus (pikselių formatą, skiriamąją gebą, pikselių sujungimas, trigeris, kadrų dažnis) masyvui — šios eilutės tampa tik skaitymo režimu atskirų kamerų lange ir perkeliama į masyvo nustatymų langą.
+RGB kameroms taikomas fotometrinis apdorojimas (baltos spalvos balansas, spalvų profiliai, gama); daugiaspektrinėms ir mono kameroms taikoma radiometrinė grandinė, o fotometriniai parametrai praleidžiami. Masyvo nariai perduoda srauto lygio nustatymus (pikselių formatą, skiriamąją gebą, pikselių sujungimas, trigeris, kadrų dažnis) masyvui — šios eilutės tampa tik skaitymo režimu atskirų kamerų lange ir perkeliama į masyvo nustatymų langą.
 
 ## Pagrindinė vaizdo srauto sritis
 
@@ -55,9 +23,7 @@ kameroms taikomas fotometrinis apdorojimas (baltos spalvos balansas, spalvų pro
 
 
 
-Jei kameros neprijungtos, vaizdo srauto srityje rodomas pradinis ekranas **„Prijunkite kamerą, kad galėtumėte pradėti“**su dviem mygtukais:**Prijungti kamerą**(žalias, atidaro vienos kameros prijungimo dialogą) ir**Prijungti masyvą** (mėlynas, atidaro masyvo prijungimo dialogą). Patys prijungimo dialogai aprašyti skyriuje [Kamerų prijungimas](connecting.md); masyvo sąvokos (sinchronizavimas, lygiai, pralaidumas) – skyriuje [Daugiakameriniai masyvai](arrays.md). Atidarius išsaugotą projektą, kuriame yra kamerų, pradžios ekrane vietoj to rodomas sukasi ratas su užrašu „Iš naujo atidaroma N išsaugotų kamerų…“, kol Chloros
-
-atkuria srautus iš paskutinės sesijos.
+Jei kameros neprijungtos, vaizdo srauto srityje rodomas pradinis ekranas **„Prijunkite kamerą, kad galėtumėte pradėti“**su dviem mygtukais:**Prijungti kamerą**(žalias, atidaro vienos kameros prijungimo dialogą) ir**Prijungti masyvą** (mėlynas, atidaro masyvo prijungimo dialogą). Patys prijungimo dialogai aprašyti skyriuje [Kamerų prijungimas](connecting.md); masyvo sąvokos (sinchronizavimas, lygiai, pralaidumas) – skyriuje [Daugiakameriniai masyvai](arrays.md). Atidarius išsaugotą projektą, kuriame yra kamerų, pradžios ekrane vietoj to rodomas sukasi ratas su užrašu „Iš naujo atidaroma N išsaugotų kamerų…“, kol Chloros atkuria srautus iš paskutinės sesijos.
 
 <!-- SCREENSHOT-NEEDED: Cameras tab empty state — the "Connect a camera to get started" splash with the green Connect Camera and blue Connect Array buttons. -->
 
@@ -122,21 +88,11 @@ Atidarykite spustelėdami **ratuką** kameros eilutėje. Langas pasislenka virš
 
 ### Tiesioginis histogramas
 
-Langelio viršuje yra tiesioginis šviesos histogramas, apskaičiuojamas iš JPEG
+Langelio viršuje yra tiesioginis šviesos histogramas, apskaičiuojamas iš JPEG peržiūros ~8 Hz dažniu. Vidurkis yra svertinis pagal „Bayer“ metodą — (R+2G+B)/4 — kad atitiktų pačios kameros automatinio ekspozicijos matavimo (AE) nustatymus.
 
-peržiūros ~8 Hz dažniu. Vidurkis yra svertinis pagal „Bayer“ metodą — (R+2G+B)/4 — kad atitiktų pačios kameros automatinio ekspozicijos matavimo (AE) nustatymus.
-
-* **Oranžinė (Orange
-
-) punktyrinė linija**= AE tikslas.**Pavelkite ją horizontaliai, kad pakeistumėte tikslą** — atleidus pelę siunčiamas vienas komandos signalas, o vilkdami perjungiate AE tikslo režimą į „Manual“ (Rankinis).
-* **Žalia (Green
-
-) ištisinė linija** = faktinis vidutinis šviesos lygis (tai, ką šiuo metu užtikrina AE).
-* **RGB
-
-mygtukas** (dešinėje viršuje): perjungia kiekvienos juostos perdengiamąsias histogramas, nuspalvintas pagal fotoaparato filtrą (pvz., naudojant FRGN: pilka NIR
-
-, žalia, raudona). Mono (M3M) fotoaparatuose mygtukas pažymėtas „MONO“ ir yra išjungtas — mono režimas visada rodo vienos juostos šviesos histogramą.
+* **Oranžinė (Orange) punktyrinė linija**= AE tikslas.**Pavelkite ją horizontaliai, kad pakeistumėte tikslą** — atleidus pelę siunčiamas vienas komandos signalas, o vilkdami perjungiate AE tikslo režimą į „Manual“ (Rankinis).
+* **Žalia (Green) ištisinė linija** = faktinis vidutinis šviesos lygis (tai, ką šiuo metu užtikrina AE).
+* **RGB mygtukas** (dešinėje viršuje): perjungia kiekvienos juostos perdengiamąsias histogramas, nuspalvintas pagal fotoaparato filtrą (pvz., naudojant FRGN: pilka NIR, žalia, raudona). Mono (M3M) fotoaparatuose mygtukas pažymėtas „MONO“ ir yra išjungtas — mono režimas visada rodo vienos juostos šviesos histogramą.
 * X ašies žymės atitinka dabartinio pikselių formato jutiklio bitų gylį: 0..255, 0..1023, 0..4095 arba 0..65535.
 
 ### Kameros informacijos eilutės
@@ -148,56 +104,22 @@ mygtukas** (dešinėje viršuje): perjungia kiekvienos juostos perdengiamąsias 
 | Eilutė | Veikimas |
 | --- | --- |
 | **Modelis** | Tik skaitymo (pvz., `LATT-M3C-L87-FRGN`). |
-| **Radiometrinis kalibravimas** | Žalia (Green
-
-) **„Aktyvi“**žymė su antrašte, kurioje nurodytas kalibravimo lygis, hash, kalibravimo data ir juostų sąrašas, įkeltas iš kameros kalibravimo paketo (žr. [Gamybinis radiometrinis kalibravimas](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**Paslėpta RGB
-
-kameroms** — jos turi fotometrinį baltos spalvos balanso kalibravimą, o ne spinduliavimo kalibravimą pagal atskirus juostos. |
-| **Kalibravimo ataskaita**| Mygtukas**„Atsisiųsti“** — atidaro kameros serijinio numerio NIST kalibravimo sertifikatą PDF formatu jūsų operacinės sistemos peržiūroje. Jei sertifikatas dar nėra išsaugotas talpykloje, Chloros
-
-vietoj to rodo užuominą. |
+| **Radiometrinis kalibravimas** | Žalia (Green) **„Aktyvi“**žymė su antrašte, kurioje nurodytas kalibravimo lygis, hash, kalibravimo data ir juostų sąrašas, įkeltas iš kameros kalibravimo paketo (žr. [Gamybinis radiometrinis kalibravimas](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**Paslėpta RGB kameroms** — jos turi fotometrinį baltos spalvos balanso kalibravimą, o ne spinduliavimo kalibravimą pagal atskirus juostos. |
+| **Kalibravimo ataskaita**| Mygtukas**„Atsisiųsti“** — atidaro kameros serijinio numerio NIST kalibravimo sertifikatą PDF formatu jūsų operacinės sistemos peržiūroje. Jei sertifikatas dar nėra išsaugotas talpykloje, Chloros vietoj to rodo užuominą. |
 | **Serijinis numeris** | Tik skaityti. |
 | **Programinė įranga**| Rodo dabartinę versiją, tada nustato šiam modeliui prieinamą versiją (išsaugoma pagal modelį — N kamerų masyvas patikrina serverį vieną kartą). Būsenos: „Tikrinama…“ → mygtukas**„Atnaujinti į X“**→ „Atnaujinama…“ → „Atnaujinta iš A į B“ / „Nepavyko: …“ / „Praleista: …“ / žalia**„Atnaujinta“**. Atnaujinimo mygtuko paaiškinimas: „Gamyklinių nustatymų atstatymas + atnaujinimas + „UserSet1“ perprogramavimas. ~2–3 minutės; neatjunkite.“ |
 | **IP** | Tik skaityti. |
 | **Temperatūra** | Tik skaityti, atnaujinama kas 3 s. Tampa oranžinė, kai temperatūra ≥65 °C, ir raudona su ⚠, kai ≥75 °C. |
-| **Kalibravimo taikinys** varnelė | Įjungia „ArUco“ atspindžio taikinio aptikimą su kiekvienam skydeliui skirta NDVI
-
-patvirtinimo lentele po tiesioginio vaizdo (sąrašo peržiūra) — žr. [Kalibravimo taikinio lentelę](#the-calibration-target-table). Veikia tik sesijos metu — visada atidaroma išjungta. |
+| **Kalibravimo taikinys** varnelė | Įjungia „ArUco“ atspindžio taikinio aptikimą su kiekvienam skydeliui skirta NDVI patvirtinimo lentele po tiesioginio vaizdo (sąrašo peržiūra) — žr. [Kalibravimo taikinio lentelę](#the-calibration-target-table). Veikia tik sesijos metu — visada atidaroma išjungta. |
 | **Šviesos jutiklis** išskleidžiamasis meniu | Priskiria DAQ šviesos jutiklį (DAQ-E/M/U, iš skirtuko „Šviesos jutikliai“ sąrašo) prie šios kameros, kad būtų atliekama žemyn nukreiptos šviesos (DLS) apšvietimo korekcija ir prognozuojamas automatinis ekspozicijos nustatymas. „Pasirinkus „Nėra“ susiejimas panaikinamas. Jei nėra prijungtų jutiklių, išskleidžiamajame meniu rodomas pranešimas „(jutikliai neprijungti — atidarykite skirtuką „DAQ“)“. Susiejimas išsaugomas kartu su projektu. |
 
 #### Kalibravimo taikinio lentelė
 
 Lentelė yra **skirta tik patikrinimui** („tik patikrinimui — nekeičia kalibravimo“). Jos antraštėje nurodomas kameros serijos numeris, filtras, taikinio numeris ir žymės dydis pikseliais, o kiekvienam skydeliui skirta po vieną eilutę:
 
-* **Plokštė**, po to – po vieną stulpelį kiekvienai juostai su plokštės verte – „Bayer“ kamera rodo tris juostas pagal pavadinimą ir bangos ilgį (pvz., FRGN: Red
-
-660 nm / Green
-
-550 nm / NIR
-
-850 nm); **mono (M3M) kamera rodo vieną juostą** (pvz., `F750`) ir neturi NDVI
-
-stulpelių.
+* **Plokštė**, po to – po vieną stulpelį kiekvienai juostai su plokštės verte – „Bayer“ kamera rodo tris juostas pagal pavadinimą ir bangos ilgį (pvz., FRGN: Red 660 nm / Green 550 nm / NIR 850 nm); **mono (M3M) kamera rodo vieną juostą** (pvz., `F750`) ir neturi NDVI stulpelių.
 * **Sat** — prisotintų panelės pikselių dalis (gintarinė spalva nuo 1 %, raudona nuo 5 %).
-* **NDVI
-
-Meas**,**NDVI
-
-Theo** (ekrano etaloninis atspindžio NDVI
-
-) ir **Δ**— tik „Bayer“ multispektrinėms kameroms. Mažas ženklas po „NDVI
-
-Meas“ nurodo, iš ko buvo apskaičiuotas išmatuotas NDVI
-
-:**ρ**(atspindys — yra šviesos jutiklio rodmenys),**L**(spinduliavimas — nėra šviesos jutiklio rodmenų) arba**DN**(neapdoroti kameros duomenys). Tik**ρ** NDVI
-
-galima lyginti su NDVI
-
-Theo: L ir DN atveju stulpelis Δ yra užblokuotas, o pastaboje nurodoma („Nėra šviesos jutiklio rodmenų: NDVI
-
-apskaičiuotas pagal spinduliavimą, todėl Δ nėra kalibravimo patikrinimas“ / „NDVI
-
-apskaičiuotas pagal neapdorotus kameros duomenis, todėl Δ nėra kalibravimo patikrinimas“). Naudojant ρ, Δ yra žalias, jei mažesnis nei 0,02, gintarinis – jei mažesnis nei 0,05, o kitais atvejais – raudonas.
+* **NDVI Meas**,**NDVI Theo** (ekrano etaloninis atspindžio NDVI) ir **Δ**— tik „Bayer“ multispektrinėms kameroms. Mažas ženklas po „NDVI Meas“ nurodo, iš ko buvo apskaičiuotas išmatuotas NDVI:**ρ**(atspindys — yra šviesos jutiklio rodmenys),**L**(spinduliavimas — nėra šviesos jutiklio rodmenų) arba**DN**(neapdoroti kameros duomenys). Tik**ρ** NDVI galima lyginti su NDVI Theo: L ir DN atveju stulpelis Δ yra užblokuotas, o pastaboje nurodoma („Nėra šviesos jutiklio rodmenų: NDVI apskaičiuotas pagal spinduliavimą, todėl Δ nėra kalibravimo patikrinimas“ / „NDVI apskaičiuotas pagal neapdorotus kameros duomenis, todėl Δ nėra kalibravimo patikrinimas“). Naudojant ρ, Δ yra žalias, jei mažesnis nei 0,02, gintarinis – jei mažesnis nei 0,05, o kitais atvejais – raudonas.
 
 <!-- SCREENSHOT-NEEDED: a 1.3.0 Calibration Target table under a live feed in list view — a Bayer camera's table showing the band columns, Sat, and "NDVI Meas ρ" / NDVI Theo / Δ; ideally next to a mono camera's single-band table with no NDVI columns. -->
 
@@ -205,7 +127,7 @@ apskaičiuotas pagal neapdorotus kameros duomenis, todėl Δ nėra kalibravimo p
 
 <!-- SCREENSHOT-NEEDED: per-camera Exposure & Gain section — Exposure (us) and Gain (dB) rows with Auto/Manual toggles, AE Target Brightness, AE Smoothing slider, AE Region of Interest row with the Aim button, and (on an array camera) AE Tune Speed and Highlight Protection rows. -->
 
-Visi čia esantys skaitmeniniai įvesties laukeliai naudoja „laikyk ir pagreitink“ tipo slankiklius: bakstelėjimas = ±1, laikymas &gt;1,5 s = ±10, laikymas &gt;3 s = ±100. Vertė perduodama kamerai, kai atleidžiate slankiklį.
+Visi čia esantys skaitmeniniai įvesties laukeliai naudoja „laikyk ir pagreitink“ tipo slankiklius: bakstelėjimas = ±1, laikymas >1,5 s = ±10, laikymas >3 s = ±100. Vertė perduodama kamerai, kai atleidžiate slankiklį.
 
 | Valdymas | Diapazonas / pasirinkimai | Numatytasis | Taikoma | Ką daro |
 | --- | --- | --- | --- | --- |
@@ -218,21 +140,11 @@ Visi čia esantys skaitmeniniai įvesties laukeliai naudoja „laikyk ir pagreit
 | **Aukštų šviesų apsauga** | Griežta (1 %) / Įprasta (5 %) / Švelni (15 %) | Griežta | Kameros, kuriose galima nustatyti šį parametrą | Kokia kadro dalis gali būti apkarpyta iki baltos spalvos, kol AE patamsina vaizdą. |
 
 {% hint style="info" %}
-**Apšvietimo reikalavimai „Bayer“ multispektrinėms kameroms (RGN
-
-/ OCN
-
-/ NGB
-
-):** scenoje turi būti pakankamai šviesos visuose trijuose kanaluose, kitaip kalibravimas neveiks tinkamai — vieno jutiklio ekspozicija apima visus tris spektrus. Naudokite DAQ šviesos jutiklį šviesai matuoti arba perjunkite į visiškai monokromatinį režimą (M3M), kad kiekvienai juostai būtų nustatyta atskira ekspozicija. Jei fotografuojant šis reikalavimas pažeidžiamas, Chloros
-
-tai aptinka ir įspėja jus (pranešimas apie juostų atskyrimo apribojimą). Tiesioginiame vaizde kanalo padalijimo langelyje rodomas užrašas **„Mažo patikimumo juostos duomenys · N %“**, kai „unmix“ apribojo tą juostą 25 % ar daugiau jos pikselių.
+**Apšvietimo reikalavimai „Bayer“ multispektrinėms kameroms (RGN / OCN / NGB):** scenoje turi būti pakankamai šviesos visuose trijuose kanaluose, kitaip kalibravimas neveiks tinkamai — vieno jutiklio ekspozicija apima visus tris spektrus. Naudokite DAQ šviesos jutiklį šviesai matuoti arba perjunkite į visiškai monokromatinį režimą (M3M), kad kiekvienai juostai būtų nustatyta atskira ekspozicija. Jei fotografuojant šis reikalavimas pažeidžiamas, Chloros tai aptinka ir įspėja jus (pranešimas apie juostų atskyrimo apribojimą). Tiesioginiame vaizde kanalo padalijimo langelyje rodomas užrašas **„Mažo patikimumo juostos duomenys · N %“**, kai „unmix“ apribojo tą juostą 25 % ar daugiau jos pikselių.
 {% endhint %}
 
 {% hint style="info" %}
-**Kaip automatinė ekspozicija naudoja ekspozicijos trukmę ir stiprinimą (1.3.0).** Kai stiprinimas nustatytas į „Auto“, Chloros
-
-išlaiko stiprinimą 0 dB lygyje, kol ekspozicija pasiekia ilgiausią leidžiamą vertę (AE viršutinę ribą, masyvo suaktyvinimo laikotarpį arba DAQ ekspozicijos ribą); tik tada stiprinimas padidėja. Masyve pirmenybė teikiama suaktyvinimo dažniui: automatinė ekspozicija užpildo laikotarpį, kurį nustato dažnis, o tada padidina stiprinimą, todėl tamsėjanti scena nebesumažina automatinio sužadinimo dažnio (1.2.0 versijoje taip buvo). **Rankinė**ekspozicija masyvo naryje, trunkanti ilgiau nei sužadinimo laikotarpis, sulėtina masyvo sužadinimą, kad jis jai atitiktų; automatinis dažnis atsinaujina, kai kiekvienas elementas, kuris jį sulėtino, vėl pereina į automatinę ekspoziciją. Kai**Ekspozicija**ir**AE tikslinis ryškumas** nustatyti į „Auto“, o DAQ šviesos jutiklis teikia rodmenis, kiekvienos kameros ekspozicija išlaikoma, kai tik automatinė ekspozicija stabilizuojasi, tol, kol išmatuotas šviesos lygis išlieka maždaug ±25 % ribose; didesnis, ilgalaikis šviesos pokytis, nustatymų perkrovimas (pavyzdžiui, ROI pakeitimas) arba jūsų pačių atliktas ekspozicijos pakeitimas vėl ją aktyvuoja.
+**Kaip automatinė ekspozicija naudoja ekspozicijos trukmę ir stiprinimą (1.3.0).** Kai stiprinimas nustatytas į „Auto“, Chloros išlaiko stiprinimą 0 dB lygyje, kol ekspozicija pasiekia ilgiausią leidžiamą vertę (AE viršutinę ribą, masyvo suaktyvinimo laikotarpį arba DAQ ekspozicijos ribą); tik tada stiprinimas padidėja. Masyve pirmenybė teikiama suaktyvinimo dažniui: automatinė ekspozicija užpildo laikotarpį, kurį nustato dažnis, o tada padidina stiprinimą, todėl tamsėjanti scena nebesumažina automatinio sužadinimo dažnio (1.2.0 versijoje taip buvo). **Rankinė**ekspozicija masyvo naryje, trunkanti ilgiau nei sužadinimo laikotarpis, sulėtina masyvo sužadinimą, kad jis jai atitiktų; automatinis dažnis atsinaujina, kai kiekvienas elementas, kuris jį sulėtino, vėl pereina į automatinę ekspoziciją. Kai**Ekspozicija**ir**AE tikslinis ryškumas** nustatyti į „Auto“, o DAQ šviesos jutiklis teikia rodmenis, kiekvienos kameros ekspozicija išlaikoma, kai tik automatinė ekspozicija stabilizuojasi, tol, kol išmatuotas šviesos lygis išlieka maždaug ±25 % ribose; didesnis, ilgalaikis šviesos pokytis, nustatymų perkrovimas (pavyzdžiui, ROI pakeitimas) arba jūsų pačių atliktas ekspozicijos pakeitimas vėl ją aktyvuoja.
 {% endhint %}
 
 {% hint style="info" %}
@@ -273,34 +185,18 @@ Viskas šiame skyriuje yra **tik ekrano pusėje**— tai keičia tai, ką matote
 | --- | --- | --- | --- | --- |
 | **Renderinimo skiriamoji geba** | 360p (greičiausia) / 480p / 720p / 1080p / Natūrali jutiklio skiriamoji geba (lėčiausia) | 720p | Visi | Aukštis, kuriame užkulisinė sistema vykdo radiometrinės peržiūros grandinę. Mažesnė reikšmė užtikrina didesnį kadrų dažnį, nekeičiant matymo lauko. |
 | **Indeksas**| Žymės langelis „Įjungti“ + ratukas | Išjungta | Tik „Bayer“ multispektrinė,**ne** kombinuotojo masyvo nariai | Tiesioginė augmenijos indekso peržiūra. Paspaudus ratuką atsidaro bendrai naudojamas [Indekso skaičiuoklė](#index-calculator-pane), kurioje iš anksto įkelti kameros filtro natūralūs juostų nustatymai (pvz., `Red_660_RGN`, `Green_550_RGN`, `NIR_850_RGN`). Kiekviename peržiūros kadre apskaičiuojama pasirinktinė išraiška ir LUT (įjungta/išjungta, numatytas lygis 7 stopai, numatytas min. 0,2, numatytas maks. 1) apskaičiuojama kiekviename peržiūros kadre. Kombinuoto masyvo nariai paslepia šią eilutę — masyvas turi vieną bendrą indeksą. |
-| **Baltojo balanso nustatymas** | Išjungta / Vienkartinis / Nuolatinis + pakartotinio fiksavimo mygtukas | Nuolatinis | Tik RGB
-
-| Baltos spalvos balansas realiuoju laiku. Atnaujinimo mygtukas iš naujo užfiksuoja baltos spalvos balansą iš dabartinio DLS spektro (išjungtas, kai režimas yra „Išjungta“). |
-| **Gama** | Įjungta / Išjungta | Įjungta | Tik RGB
-
-| Rodo gamą (γ = 2,2 LUT) tiesioginiame peržiūros ekrane. Išsaugoti kadrai išlieka linijiniai. |
+| **Baltojo balanso nustatymas** | Išjungta / Vienkartinis / Nuolatinis + pakartotinio fiksavimo mygtukas | Nuolatinis | Tik RGB | Baltos spalvos balansas realiuoju laiku. Atnaujinimo mygtukas iš naujo užfiksuoja baltos spalvos balansą iš dabartinio DLS spektro (išjungtas, kai režimas yra „Išjungta“). |
+| **Gama** | Įjungta / Išjungta | Įjungta | Tik RGB | Rodo gamą (γ = 2,2 LUT) tiesioginiame peržiūros ekrane. Išsaugoti kadrai išlieka linijiniai. |
 | **Triukšmo šalinimas** | Varnelė + stiprumas 0–100 | Išjungta / 50 | Visi (kiekvienai kamerai atskirai, net masyvuose) | Dvipusis filtras tiesioginiame peržiūros ekrane. Didesnis stiprumas = sklandesnis, bet švelnesnis detalumas. |
 | **Ryškumas** | Varnelė + stiprumas 0–100 | Išjungta / 30 | Visi | Neaštraus kaukės taikymas tiesioginiame peržiūros lange, taikomas paskutinis. Gali sustiprinti triukšmą. Tik peržiūrai. |
 | **Vignette**| Varnelė + stiprumas 0–100 | Išjungta / 0 | Visi | Rankinis likutinis vignetės pašalinimas (išryškina kampus), uždedamas ant masyvo „Smart Vignette“ įvertinimo.**Radiometrinis — veikia tiesioginį vaizdą IR eksportą**, skirtingai nei triukšmo pašalinimas ir ryškumas. |
-| **Spalvų profilis** | „Raw“ / „Linear“ / „Natural“ / „Enhanced“ / Pasirinktinė temperatūra | „Natural“ | Tik RGB
-
-| Žr. toliau. |
-| **Spalvų temperatūra** | 2000–10000 K, žingsnis 100 | 5500 K | Tik RGB
-
-, tik pasirinktinis temperatūros profilis | Nustato baltos spalvos balansą pagal fiksuotą koreliuotą spalvų temperatūrą (DLS įvestis ignoruojama). Paskutinė pasirinkta Kelvino vertė išsaugoma keičiant profilius. |
-| **Šviesios sritys** | nuo −100 iki 0, žingsnis 1 | 0 (išjungta) | Tik RGB
-
-| Nauja funkcija versijoje 1.3.0. Patamsina ryškiausias, baltiausias vaizdo sritis (0 = nepakeista, −100 = stipriausias). Taikoma tiesioginiam peržiūros vaizdui **ir ekrano lygio (peržiūros) kadrams**, kuriuose įrašomas šis nustatymas (`Chloros:DisplayHighlights`); spinduliavimo ir atspindžio eksportams tai niekada neturi įtakos. Ši funkcija negali atkurti apkarpytų jutiklio duomenų — tam reikia sumažinti ekspoziciją. „Zebra“ perdanga atitinka patamsintą vaizdą. Išjungta naudojant „Raw“ spalvų profilį („Netaikoma naudojant „Raw“ spalvų profilį“). |
-| **Sotumas** | 0–200 (100 = neutralus) | 100 | Tik RGB
-
-| HSV sotumas tiesioginiame peržiūros ekrane. |
-| **Kontrastas** | 0–200 (100 = neutralus) | 100 | Tik RGB
-
-| Tiesinis kontrastas aplink vidutinę pilką spalvą tiesioginiame peržiūros lange. |
+| **Spalvų profilis** | „Raw“ / „Linear“ / „Natural“ / „Enhanced“ / Pasirinktinė temperatūra | „Natural“ | Tik RGB | Žr. toliau. |
+| **Spalvų temperatūra** | 2000–10000 K, žingsnis 100 | 5500 K | Tik RGB, tik pasirinktinis temperatūros profilis | Nustato baltos spalvos balansą pagal fiksuotą koreliuotą spalvų temperatūrą (DLS įvestis ignoruojama). Paskutinė pasirinkta Kelvino vertė išsaugoma keičiant profilius. |
+| **Šviesios sritys** | nuo −100 iki 0, žingsnis 1 | 0 (išjungta) | Tik RGB | Nauja funkcija versijoje 1.3.0. Patamsina ryškiausias, baltiausias vaizdo sritis (0 = nepakeista, −100 = stipriausias). Taikoma tiesioginiam peržiūros vaizdui **ir ekrano lygio (peržiūros) kadrams**, kuriuose įrašomas šis nustatymas (`Chloros:DisplayHighlights`); spinduliavimo ir atspindžio eksportams tai niekada neturi įtakos. Ši funkcija negali atkurti apkarpytų jutiklio duomenų — tam reikia sumažinti ekspoziciją. „Zebra“ perdanga atitinka patamsintą vaizdą. Išjungta naudojant „Raw“ spalvų profilį („Netaikoma naudojant „Raw“ spalvų profilį“). |
+| **Sotumas** | 0–200 (100 = neutralus) | 100 | Tik RGB | HSV sotumas tiesioginiame peržiūros ekrane. |
+| **Kontrastas** | 0–200 (100 = neutralus) | 100 | Tik RGB | Tiesinis kontrastas aplink vidutinę pilką spalvą tiesioginiame peržiūros lange. |
 | **Veidrodinis H / Veidrodinis V** | Žymimieji langeliai | Išjungta | Visi | Apsukti peržiūrą horizontaliai / vertikaliai. |
-| **Pasukimas**| 0° / 90° / 180° / 270° | 0° | Visi | Pasukti peržiūrą. Orientavimas taikomas peržiūros grandinės pabaigoje.**Išsaugoti kadrai (1.3.0):**atskiro fotoaparato „Peržiūra“, „Spinduliavimas“, „Atspindys“ ir „Indeksas“ produktai pasukami naudojant „Veidrodinis atspindys“ / „Pasukimas“, o**„Raw“ ir „Debayered“ išlieka kameros natūralioje orientacijoje**; kiekviename užfiksuotame faile šis nustatymas įrašomas į XMP, todėl vėliau apdorojant „raw“ failą jis taikomas taip pat.**Masyvo narių failai išlieka natūralūs** (nustatymas įrašomas, bet netaikomas), o masyvo sudėtiniai vaizdai jo ignoruoja. |**Spalvų profilio semantika** (RGB
-
-kameros):
+| **Pasukimas**| 0° / 90° / 180° / 270° | 0° | Visi | Pasukti peržiūrą. Orientavimas taikomas peržiūros grandinės pabaigoje.**Išsaugoti kadrai (1.3.0):**atskiro fotoaparato „Peržiūra“, „Spinduliavimas“, „Atspindys“ ir „Indeksas“ produktai pasukami naudojant „Veidrodinis atspindys“ / „Pasukimas“, o**„Raw“ ir „Debayered“ išlieka kameros natūralioje orientacijoje**; kiekviename užfiksuotame faile šis nustatymas įrašomas į XMP, todėl vėliau apdorojant „raw“ failą jis taikomas taip pat.**Masyvo narių failai išlieka natūralūs** (nustatymas įrašomas, bet netaikomas), o masyvo sudėtiniai vaizdai jo ignoruoja. |**Spalvų profilio semantika** (RGB kameros):
 
 * **„Raw“** — visiškai apeina apdorojimo grandinę.
 * **„Linear“** — tamsusis signalas + plokščias laukas + baltos spalvos balansas; be spalvų matricos, be gama.
@@ -325,20 +221,12 @@ Jos veikia tik vartotojo sąsajoje — piešiamos ant vaizdo, niekada neliesdamo
 | **Tinklelis** | Išjungta / 3 × 3 / 9 × 9 | Išjungta | Kompozicijos tinklelis. |
 | **Histograma** | Varnelė + plotis 0,10–0,90 kadro | Išjungta / 0,25 | Histogramos juosta tiesioginiame sraute. |
 | **Fokuso pikas** | Varnelė + slenkstis 20–200 + spalvų pavyzdys | Išjungta / 80 / `#ff5722` | Sobelio krašto paryškinimas fokusavimui. |
-| **Kanalų padalijimai** | „Rodyti padalijimus (Red
-
-/ Green
-
-/ NIR
-
-)“ / mygtukas „Paslėpti padalijimus“ | Paslėpta | Prie sudėtinio vaizdo prideda tris nepriklausomus pilkosios skalės langelius kiekvienam kanalui (mygtuko pavadinimas atitinka kameros filtro kanalus). Kiekvieną padalijimo langelį galima perkelti, o jo spalva atitinka kameros rėmo spalvą. Nėra prieinama monochromatinėse kamerose. Išsaugoma kartu su projektu. |
+| **Kanalų padalijimai** | „Rodyti padalijimus (Red / Green / NIR)“ / mygtukas „Paslėpti padalijimus“ | Paslėpta | Prie sudėtinio vaizdo prideda tris nepriklausomus pilkosios skalės langelius kiekvienam kanalui (mygtuko pavadinimas atitinka kameros filtro kanalus). Kiekvieną padalijimo langelį galima perkelti, o jo spalva atitinka kameros rėmo spalvą. Nėra prieinama monochromatinėse kamerose. Išsaugoma kartu su projektu. |
 
 ### Taškinis matuoklis
 
 * **Spustelėkite, kad paimtumėte mėginį**žymės langelis: spustelėkite tiesioginį vaizdą, kad paimtumėte vieno pikselio mėginį (jį pažymi kryžminis tinklelis), arba spustelėkite ir vilkite sritį, kad gautumėte pikselių vidurkį.**Išvalyti**ištrina mėginį ir tinklelį. Ši funkcija nesuderinama su AE-ROI**Nukreipimo** režimu.
-* ****Rodyti**išskleidžiamasis meniu:**Neapdoroti duomenys (bitų gylis)**— natūralūs skaitmeniniai skaičiai, atitinkantys jutiklio bitų gylį (pvz., 12 bitų → 0..4095) — arba**Ekranas (8 bitai)** (numatyta reikšmė). Kai aktyvus tiesioginis indeksas, „Display“ vietoj to rodo apskaičiuotą indekso vertę (pvz., NDVI
-
-).
+* ****Rodyti**išskleidžiamasis meniu:**Neapdoroti duomenys (bitų gylis)**— natūralūs skaitmeniniai skaičiai, atitinkantys jutiklio bitų gylį (pvz., 12 bitų → 0..4095) — arba**Ekranas (8 bitai)** (numatyta reikšmė). Kai aktyvus tiesioginis indeksas, „Display“ vietoj to rodo apskaičiuotą indekso vertę (pvz., NDVI).
 * Rodymo skydelyje pateikiamos pikselių koordinatės, kadro dydis, pikselių formatas, bitų gylis ir kanalų lentelė (Chan / Value / %) su juostų pavadinimais ir bangų ilgiais; „Bayer“ žalios poros yra vidurkinamos; regionų mėginiai rodomi kaip „N px avg“.
 
 Taškinio matuoklio būsena galioja tik sesijos metu.
@@ -360,18 +248,10 @@ Taškinio matuoklio būsena galioja tik sesijos metu.
 | **Scenos atspindžio koeficientas**| Mygtukas**„Recalibrate ρ“** | — | Iš naujo įvertina scenos atspindžio koeficientą, kurį naudoja sprendiklis. |
 
 {% hint style="info" %}
-**Masyvo jungimas pagal numatytuosius nustatymus išjungia prognozuojamą AE** — masyvų atveju ekspoziciją valdo „Chloros
-
-“ išmanioji AE ir kameros pusėje esanti automatinė ekspozicija (su prisotinimo apsauga), o prognozuojamos AE vienos scenosatspindžio įvertinimas nėra saugus mišriose scenose. Čia galite jį vėl įjungti kiekvienai kamerai atskirai, jei konkrečiai norite DLS valdomos radiometrinės ekspozicijos.
+**Masyvo jungimas pagal numatytuosius nustatymus išjungia prognozuojamą AE** — masyvų atveju ekspoziciją valdo „Chloros “ išmanioji AE ir kameros pusėje esanti automatinė ekspozicija (su prisotinimo apsauga), o prognozuojamos AE vienos scenosatspindžio įvertinimas nėra saugus mišriose scenose. Čia galite jį vėl įjungti kiekvienai kamerai atskirai, jei konkrečiai norite DLS valdomos radiometrinės ekspozicijos.
 {% endhint %}
 
-**DAQ valdomas ekspozicijos ribinis dydis ir nuo krintančios šviesos priklausoma AE.** Neatsižvelgiant į aukščiau nurodytą žymės langelį, kai DAQ šviesos jutiklis priskiriamas RGB
-
-kamerai, Chloros
-
-apskaičiuoja — remiantis išmatuotu absoliučiu žemyn nukreiptu spinduliavimo intensyvumu — maksimalią ekspoziciją × stiprinimą, kuriuo 100 % atspindžio paviršius išlieka žemiau apkarpymo ribos, ir taiko ją kaip **ribą**automatinei ekspozicijai. Nuo 1.3.0 versijos riba taikoma tik tada, kai kalibravimo taikinys yra tos kameros matymo lauke (matomas kadre per paskutines 10 s); kai taikinio nėra matymo lauke, vietoj to veikia įprasta kameros automatinė ekspozicija su savo apsauga nuo peršvietimo, todėl likusi scenos dalis nėra išlaikoma tamsesnė nei reikia. Kol riba yra aktyvi, kamera veikia**pririšta prie krintančios šviesos**: ji veikia atvirosios grandinės režimu pagal krintančios šviesos matavimus, esant 0 dB stiprinimui — ekspozicija seka matuojamą šviesą, o ne scenos turinį. Kadangi viršutinė riba gali tik sutrumpinti ekspoziciją, ji pati negali sukelti vaizdo apkarpymo. Nuo 1.3.0 versijos viršutinė riba apskaičiuojama naudojant pačios kameros ekspozicijos konstantą iš jos kalibravimo paketo (parko vidutinė vertė taikoma tik tada, kai pakete jos nėra). Viršutinė riba automatiškai išjungiama — ir atnaujinama įprasta scenos automatinė ekspozicija — kai kadre nėra kalibravimo taikinio, trūksta DAQ rodmenų, jie yra pasenę (&gt;30 s), tamsus arba jei ≥15 % kadro yra apkarpyta esant fiksuotai ekspozicijai (tai reiškia, kad jutiklis ir kamera mato skirtingą apšvietimą). Nėra GUI jungiklio; tai yra standartinis elgesys, kai RGB
-
-kamera yra susieta su DAQ.
+**DAQ valdomas ekspozicijos ribinis dydis ir nuo krintančios šviesos priklausoma AE.** Neatsižvelgiant į aukščiau nurodytą žymės langelį, kai DAQ šviesos jutiklis priskiriamas RGB kamerai, Chloros apskaičiuoja — remiantis išmatuotu absoliučiu žemyn nukreiptu spinduliavimo intensyvumu — maksimalią ekspoziciją × stiprinimą, kuriuo 100 % atspindžio paviršius išlieka žemiau apkarpymo ribos, ir taiko ją kaip **ribą**automatinei ekspozicijai. Nuo 1.3.0 versijos riba taikoma tik tada, kai kalibravimo taikinys yra tos kameros matymo lauke (matomas kadre per paskutines 10 s); kai taikinio nėra matymo lauke, vietoj to veikia įprasta kameros automatinė ekspozicija su savo apsauga nuo peršvietimo, todėl likusi scenos dalis nėra išlaikoma tamsesnė nei reikia. Kol riba yra aktyvi, kamera veikia**pririšta prie krintančios šviesos**: ji veikia atvirosios grandinės režimu pagal krintančios šviesos matavimus, esant 0 dB stiprinimui — ekspozicija seka matuojamą šviesą, o ne scenos turinį. Kadangi viršutinė riba gali tik sutrumpinti ekspoziciją, ji pati negali sukelti vaizdo apkarpymo. Nuo 1.3.0 versijos viršutinė riba apskaičiuojama naudojant pačios kameros ekspozicijos konstantą iš jos kalibravimo paketo (parko vidutinė vertė taikoma tik tada, kai pakete jos nėra). Viršutinė riba automatiškai išjungiama — ir atnaujinama įprasta scenos automatinė ekspozicija — kai kadre nėra kalibravimo taikinio, trūksta DAQ rodmenų, jie yra pasenę (>30 s), tamsus arba jei ≥15 % kadro yra apkarpyta esant fiksuotai ekspozicijai (tai reiškia, kad jutiklis ir kamera mato skirtingą apšvietimą). Nėra GUI jungiklio; tai yra standartinis elgesys, kai RGB kamera yra susieta su DAQ.
 
 ### Duomenų surinkimas ir suaktyvinimas
 
@@ -421,11 +301,7 @@ Rodomas tiek sujungtiems, tiek atskiriems masyvams:
 
 Savo grupė, esanti iškart po aplinkos šviesos jutiklio, tiek sujungtiems, tiek atskiriems masyvams:
 
-* Varnelė **Įjungti** — „Aptikti MAPIR
-
-ArUco taikinį ir patvirtinti NDVI
-
-, palyginus su skydelio atspindžio LUT“; valdo sujungto plytelių rinkinio taikinio perdangą ir patvirtinimo lenteles. **Atskirame** masyve įjungia kiekvieno elemento atskirą [Kalibravimo taikinio lentelę](#the-calibration-target-table) (po vieną kiekvienai kamerai sąrašo peržiūroje).
+* Varnelė **Įjungti** — „Aptikti MAPIR ArUco taikinį ir patvirtinti NDVI, palyginus su skydelio atspindžio LUT“; valdo sujungto plytelių rinkinio taikinio perdangą ir patvirtinimo lenteles. **Atskirame** masyve įjungia kiekvieno elemento atskirą [Kalibravimo taikinio lentelę](#the-calibration-target-table) (po vieną kiekvienai kamerai sąrašo peržiūroje).
 
 ### Įrašymas — vienodi jutiklių nustatymai
 

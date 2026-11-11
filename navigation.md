@@ -22,19 +22,7 @@ Viršutinėje antraštėje iš kairės į dešinę yra:
 * **Prisijungti prie šviesos jutiklio** — pereiti į [Šviesos jutikliai skirtuką](daq/), kad prijungtumėte DAQ šviesos jutiklį. Veikia ir neatidarius projekto.
 
 {% hint style="info" %}
-**Tik Windows**: Chloros
-
-darbalaukio grafinė vartotojo sąsaja (GUI) prieinama Windows
-
-sistemoje. Linux
-
-vartotojai, norėdami atlikti apdorojimą be grafinės sąsajos, turėtų susipažinti su [CLI
-
-](CLI.md) ir [Python
-
-SDK
-
-](api-python-sdk.md) dokumentacija.
+**Tik Windows**: Chloros darbalaukio grafinė vartotojo sąsaja (GUI) prieinama Windows sistemoje. Linux vartotojai, norėdami atlikti apdorojimą be grafinės sąsajos, turėtų susipažinti su [CLI](CLI.md) ir [Python SDK](api-python-sdk.md) dokumentacija.
 {% endhint %}
 
 ### <img src=".gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -49,15 +37,9 @@ Vykdymo juosta <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
 
 
 
-Nemokamame Chloros
+Nemokamame Chloros režime, kuriame visi failai apdorojami paeiliui, vykdymo juosta rodo 2 etapus: objekto aptikimą ir apdorojimą.
 
-režime, kuriame visi failai apdorojami paeiliui, vykdymo juosta rodo 2 etapus: objekto aptikimą ir apdorojimą.
-
-Mokamame „Chloros
-
-+“ licencijuotame režime, kuriame visi failai apdorojami vienu metu, vykdymo juosta rodo 4 etapus: aptikimą, analizę, kalibravimą ir eksportavimą. Jei užvesite pelės žymeklį ant „Chloros
-
-+“ pažangos juostos, atsivers išplėstinis 4 etapų pažangos juostos skydelis, kad galėtumėte stebėti procesą. Spustelėjus viršutinę pažangos juostą, išskleidžiamas skydelis bus užfiksuotas, o spustelėjus dar kartą – atblokuotas.
+Mokamame „Chloros+“ licencijuotame režime, kuriame visi failai apdorojami vienu metu, vykdymo juosta rodo 4 etapus: aptikimą, analizę, kalibravimą ir eksportavimą. Jei užvesite pelės žymeklį ant „Chloros+“ pažangos juostos, atsivers išplėstinis 4 etapų pažangos juostos skydelis, kad galėtumėte stebėti procesą. Spustelėjus viršutinę pažangos juostą, išskleidžiamas skydelis bus užfiksuotas, o spustelėjus dar kartą – atblokuotas.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

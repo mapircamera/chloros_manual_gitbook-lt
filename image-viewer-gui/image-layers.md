@@ -4,11 +4,7 @@
 
 ## Kas yra vaizdo sluoksniai?
 
-Chloros
-
-sistemoje „sluoksnis“ yra vienas **produkto failas**, susietas su vienu šaltinio vaizdu. Importuojant gaunami šaltinio failai; apdorojimo metu kiekvienam apdorojimo ciklo metu sukurtam produktui pridedamas atskiras sluoksnis. Eksportuoti failai išlaiko šaltinio failo pavadinimą — produktą identifikuoja**aplankas**, o sluoksnio pavadinimas yra „Chloros
-
-“ suteikta to aplanko etiketė.
+Chloros sistemoje „sluoksnis“ yra vienas **produkto failas**, susietas su vienu šaltinio vaizdu. Importuojant gaunami šaltinio failai; apdorojimo metu kiekvienam apdorojimo ciklo metu sukurtam produktui pridedamas atskiras sluoksnis. Eksportuoti failai išlaiko šaltinio failo pavadinimą — produktą identifikuoja**aplankas**, o sluoksnio pavadinimas yra „Chloros “ suteikta to aplanko etiketė.
 
 <!-- SCREENSHOT-NEEDED: Image Viewer full screen with the layer dropdown open on a processed LATTICE multispectral image, showing the full list: TIFF base, RAW (Original), RAW (Debayered), RAW (Preview), RAW (Radiance), RAW (Reflectance), and one RAW (NDVI Index) entry. -->
 
@@ -20,24 +16,12 @@ sistemoje „sluoksnis“ yra vienas **produkto failas**, susietas su vienu šal
 
 | Sluoksnis | Kas tai yra |
 | --- | --- |
-| **JPG**(arba**PNG
-
-**/**TIFF
-
-**) | Pagrindinis failas, gautas kartu su užfiksuotu vaizdu. Survey3
-
-importuoja „`.JPG`“ šalia kiekvieno „`.RAW`“; „LATTICE“ užfiksuoti vaizdai pateikia PNG
-
-arba TIFF
-
-peržiūros pavyzdį. Pažymėtas pagal tai, kas iš tikrųjų buvo importuota |
+| **JPG**(arba**PNG**/**TIFF**) | Pagrindinis failas, gautas kartu su užfiksuotu vaizdu. Survey3 importuoja „`.JPG`“ šalia kiekvieno „`.RAW`“; „LATTICE“ užfiksuoti vaizdai pateikia PNG arba TIFF peržiūros pavyzdį. Pažymėtas pagal tai, kas iš tikrųjų buvo importuota |
 | **RAW (Originalus)** | Šaltinis – neapdorotas kadras, išskaidytas spalvų atkūrimui, be jokių korekcijų. Prieinamas nuo importavimo momento – nereikia jokio apdorojimo |
 
 „LATTICE“ užfiksuotas vaizdas, kurio bazinis failas **yra** jo neapdorotas kadras, neturi atskiro bazinio įrašo: jį jau apima „`RAW (Original)`“.
 
-### Survey3
-
-apdorojimo produktai
+### Survey3 apdorojimo produktai
 
 | Sluoksnis | Įrašomas į | Egzistuoja, kai |
 | --- | --- | --- |
@@ -57,31 +41,19 @@ LATTICE vienu apdorojimo etapu išskirsto duomenis į šiuos lygius. Kurie iš j
 
 | Sluoksnis | Įrašoma į | Taikoma |
 | --- | --- | --- |
-| **RAW (be bayerio)** | `Debayered_Images/` | RGB
-
-ir multispektrinis |
+| **RAW (be bayerio)** | `Debayered_Images/` | RGB ir multispektrinis |
 | **RAW (peržiūra)** | `Preview_Images/` | Multispektrinė (netikrų spalvų išplėtimas) |
-| **Baltojo balanso** | `Preview_Images/` | RGB
-
-pagrindinės kameros — RGB
-
-peržiūra registruojama šiuo pavadinimu, kad atitiktų to paties pavadinimo Survey3
-
-sluoksnį |
+| **Baltojo balanso** | `Preview_Images/` | RGB pagrindinės kameros — RGB peržiūra registruojama šiuo pavadinimu, kad atitiktų to paties pavadinimo Survey3 sluoksnį |
 | **RAW (spinduliavimas)** | `Radiance_Images/` | Tik daugiaspektrinis |
 | **RAW (atspindžio koeficientas)** | `Reflectance_Calibrated_Images/` | Tik daugiaspektrinė, ir tik tada, kai atitinkamas „`.daq`“ žemyn nukreiptas įrašas arba kokybės patikrinimą išlaikęs kadro viduje esantis taikinys užima visą kadrą |
 
-RGB
-
--pagrindinės kameros neturi radiometrijos pagal juostas, todėl spinduliavimas ir atspindys joms praleidžiami kaip **netaikytini** — tai nurodoma žurnale, o ne tyliai ignoruojama.
+RGB-pagrindinės kameros neturi radiometrijos pagal juostas, todėl spinduliavimas ir atspindys joms praleidžiami kaip **netaikytini** — tai nurodoma žurnale, o ne tyliai ignoruojama.
 
 {% hint style="info" %}
 **Neapdoroti ir debayeringo apdoroti sluoksniai suderinami su produktais (nauja funkcija versijoje 1.3.0).**LATTICE neapdoroti ir debayeringo apdoroti failai išsaugomi pagal jutiklio natūralią orientaciją, o XMP įraše nurodoma jiems priklausanti orientacija; kiti produktai išsaugomi jau pritaikius tą orientaciją. Peržiūros programa ir vaizdų tinklelis, rodydami vaizdus, perjungia**RAW (Original)**ir**RAW (Debayered)** pagal tą įrašą, todėl kadras nebeapsiverčia, kai perjungiate tarp produkto sluoksnio ir neapdoroto sluoksnio. Tai taikoma tik rodymui — failai niekada nėra perrašomi. Failai be orientacijos įrašo (užfiksuoti iki 1.3.0 versijos arba sukurti kita programine įranga) rodomi taip, kaip buvo išsaugoti. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#orientation).
 {% endhint %}
 
-Fiksavimo kaukės (`*_clampmask.tif`, esančios `clamp_masks/` aplanke) nėra sluoksniai: Chloros
-
-jas praleidžia importuojant. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#clamp-masks).
+Fiksavimo kaukės (`*_clampmask.tif`, esančios `clamp_masks/` aplanke) nėra sluoksniai: Chloros jas praleidžia importuojant. Žr. [Išvesties vaizdo formatai](../output-image-formats.md#clamp-masks).
 
 ### Indekso, LUT ir „sandbox“ sluoksniai
 
@@ -124,87 +96,41 @@ Padidinimas ir perėjimas taip pat taikomi visose nuotraukose, todėl to paties 
 
 | Sluoksnis | Rodomas vienetas | Pastabos |
 | --- | --- | --- |
-| Bazinis (JPG / PNG
-
-/ TIFF
-
-peržiūra) | DN, 0–255 | Ekrano reikšmės, koreguotos pagal RGB
-
-gama. Tik vizualiam patikrinimui |
+| Bazinis (JPG / PNG / TIFF peržiūra) | DN, 0–255 | Ekrano reikšmės, koreguotos pagal RGB gama. Tik vizualiam patikrinimui |
 | RAW (originalas) | DN | Neapdoroti skaitmeniniai jutiklio duomenys. Histogramos ašis nurodo gylį: 255 (8 bitai), 4095 (12 bitai) arba 65535 (16 bitai) |
 | RAW (be bayerio) | DN | Linijinis, be ekrano ištempimo |
 | RAW (peržiūra) / su baltos spalvos balansu | DN | Ekrano vaizdas — ištemptas arba su gama korekcija. Neskirtas matavimui |
 | RAW (spinduliavimas) | **W/m²/sr/nm** | „Float32“ fizinis spinduliavimas. Nėra DN stulpelio |
 | RAW (atspindys) | DN **ir %** | Procentas apskaičiuotas pagal to failo skalę — žr. žemiau |
-| Indekso / LUT / „sandbox“ eksportai | Indekso vertė arba RGB
-
-komponentai | Vienkanalis indeksinis failas pateikia indekso vertę; spalvų atvaizdavimo LUT failas pateikia Red
-
-/Green
-
-/Blue
-
-komponentus |
+| Indekso / LUT / „sandbox“ eksportai | Indekso vertė arba RGB komponentai | Vienkanalis indeksinis failas pateikia indekso vertę; spalvų atvaizdavimo LUT failas pateikia Red /Green /Blue komponentus |
 
 ### Atspindžio koeficientas: skalė nustatoma kiekvienam failui atskirai
 
 {% hint style="warning" %}
-**„Padalinti iš 65 535“ teisinga tik Survey3
-
-atveju.** „LATTICE“ atspindžio koeficientas saugomas kitokiu masteliu, o šių dviejų daliklių sumaišymas yra dažniausias būdas gauti atspindžio koeficiento vertes, kurios yra lygiai pusė to, kokios turėtų būti.
+**„Padalinti iš 65 535“ teisinga tik Survey3 atveju.** „LATTICE“ atspindžio koeficientas saugomas kitokiu masteliu, o šių dviejų daliklių sumaišymas yra dažniausias būdas gauti atspindžio koeficiento vertes, kurios yra lygiai pusė to, kokios turėtų būti.
 {% endhint %}
 
 | Šaltinis | DN, lygus atspindžio koeficientui 1,0 | Identifikuojamas pagal |
 | --- | --- | --- |
 | **LATTICE**(M3C / M3M) |**32768** | XMP žymė „`Chloros:PixelScale=32768`“, įrašyta į kiekvieną eksportuojamą „LATTICE“ atspindžio duomenų rinkinį. Dvigubas rezervas reiškia, kad ρ, didesnis nei 1,0, gali būti atvaizduojamas, o ne apkarpomas |
-| **Survey3**| **65535** | Nėra Chloros
+| **Survey3**| **65535** | Nėra Chloros XMP mastelio žymės — Survey3 kalibravimas įrašo ρ × dtype-max ir apkarpo vertę ties 1,0 |
 
-XMP mastelio žymės — Survey3
-
-kalibravimas įrašo ρ × dtype-max ir apkarpo vertę ties 1,0 |
-
-GIS ir skriptams: iš failo nuskaitykite `Chloros:PixelScale` ir padalinkite iš jo. Jei žymės nėra, failas yra Survey3
-
-masto (65535). Peržiūros programa, indekso/LUT bandymo aplinka ir indekso eksportas visos nustato mastelį tuo pačiu būdu, todėl skaičius, kurį matote prie žymeklio, yra tas pats skaičius, kurį naudojo indekso skaičiavimai.
+GIS ir skriptams: iš failo nuskaitykite `Chloros:PixelScale` ir padalinkite iš jo. Jei žymės nėra, failas yra Survey3 masto (65535). Peržiūros programa, indekso/LUT bandymo aplinka ir indekso eksportas visos nustato mastelį tuo pačiu būdu, todėl skaičius, kurį matote prie žymeklio, yra tas pats skaičius, kurį naudojo indekso skaičiavimai.
 
 Be to, atsižvelgiant į formatą, duomenys saugomi taip:
 
-* **TIFF
-
-(32 bitai, procentais)** saugo DN / 65535 kaip plūduriuojančiojo kablelio skaičių
-* **PNG
-
-(8 bitai)**ir**„JPG“ (8 bitai)** saugo DN × 255 / 65535
+* **TIFF (32 bitai, procentais)** saugo DN / 65535 kaip plūduriuojančiojo kablelio skaičių
+* **PNG (8 bitai)**ir**„JPG“ (8 bitai)** saugo DN × 255 / 65535
 * **8 bitų DN, gautas iš 8 bitų įrašo**, arba atspindžio failas, sukurtas iki versijos 1.3.0, apribojamas iki 0–255 ir neturi mastelio žymės. Šiame skydelyje tiems failams rodomas tik DN, be procentų stulpelio
 
 ### Indekso verčių intervalai
 
 | Indeksų grupė | Tipinis intervalas | Rodmenys |
 | --- | --- | --- |
-| Normalizuotas skirtumas (NDVI
-
-, GNDVI
-
-, NDRE
-
-, ENDVI…) | nuo −1 iki +1 | Sveika augmenija paprastai 0,4–0,9; plikas dirvožemis – artimas 0; vanduo – neigiamas |
-| Prisitaikytas prie dirvožemio (SAVI
-
-, OSAVI
-
-, MSAVI2…) | maždaug nuo −1 iki +1,5 | Rodmenys panašūs į NDVI
-
-, bet slopinamas dirvožemio fonas |
-| Santykis (GRVI
-
-, GCI
-
-, MSR, CIRE…) | neribotas virš | Santykiai auga be ribų, kai vardiklio juosta artėja prie nulio |
-| EVI
-
-/ LAI
-
-| nuo 0 iki ~1, nuo 0 iki ~3,5 | Debesys ir kiti prisotinti pikseliai išstumia abu rodiklius už ribų — pirmiausia juos užmaskuokite |
+| Normalizuotas skirtumas (NDVI, GNDVI, NDRE, ENDVI…) | nuo −1 iki +1 | Sveika augmenija paprastai 0,4–0,9; plikas dirvožemis – artimas 0; vanduo – neigiamas |
+| Prisitaikytas prie dirvožemio (SAVI, OSAVI, MSAVI2…) | maždaug nuo −1 iki +1,5 | Rodmenys panašūs į NDVI, bet slopinamas dirvožemio fonas |
+| Santykis (GRVI, GCI, MSR, CIRE…) | neribotas virš | Santykiai auga be ribų, kai vardiklio juosta artėja prie nulio |
+| EVI / LAI | nuo 0 iki ~1, nuo 0 iki ~3,5 | Debesys ir kiti prisotinti pikseliai išstumia abu rodiklius už ribų — pirmiausia juos užmaskuokite |
 
 Tikslias kiekvieno iš anksto nustatyto rodiklio skaičiavimo formules rasite [Daugiaspektrinių indeksų formulėse](../project-settings/multispectral-index-formulas.md).
 
@@ -236,9 +162,7 @@ Tikslias kiekvieno iš anksto nustatyto rodiklio skaičiavimo formules rasite [D
 1. Pasirinkite **RAW (Atspindys)**
 
 2. Perskaitykite stulpelį**%** skydelyje „Cursor Values“ (Kursoriaus reikšmės) — jis jau yra tinkamai pritaikytas tam failui
-3. Patikrinkite, ar reikšmės atitinka žinomų medžiagų savybes kadre: sveika augmenija pasižymi aukštais NIR
-
-ir žemais raudonos spalvos atspindžio rodikliais; kalibravimo taško atspindžio rodiklis turėtų būti artimas paskelbtam
+3. Patikrinkite, ar reikšmės atitinka žinomų medžiagų savybes kadre: sveika augmenija pasižymi aukštais NIR ir žemais raudonos spalvos atspindžio rodikliais; kalibravimo taško atspindžio rodiklis turėtų būti artimas paskelbtam
 
 ***
 
@@ -250,25 +174,19 @@ ir žemais raudonos spalvos atspindžio rodikliais; kalibravimo taško atspindž
 
 * Vaizdas nebuvo apdorotas — yra tik bazinis ir `RAW (Original)` sluoksniai
 * Projekto nustatymuose nepažymėtas produkto eksporto jungiklis
-* Produktas netaikomas tai kamerai (spinduliavimas ir atspindžio koeficientas RGB
-
-pagrindiniame kadre; bet koks indeksas vienos juostos M3M monokamerai)
+* Produktas netaikomas tai kamerai (spinduliavimas ir atspindžio koeficientas RGB pagrindiniame kadre; bet koks indeksas vienos juostos M3M monokamerai)
 * Atspindžio kalibravimui nebuvo su kuo dirbti — trūksta `.daq` žemyn nukreipto spinduliavimo aprėpties ir kokybės užtikrinimo reikalavimus atitinkančio taikinio kadre — todėl kadras grįžo prie „Vignette Corrected“ arba „Sensor Response“
 
 **Ką daryti**
 
-1. Patikrinkite vykdymo žurnalą: Chloros
-
-nurodo, kada nebuvo įmanoma eksportuoti prašomo produkto ir kodėl
+1. Patikrinkite vykdymo žurnalą: Chloros nurodo, kada nebuvo įmanoma eksportuoti prašomo produkto ir kodėl
 2. Patikrinkite kiekvieno produkto eksporto parinktis [Projekto nustatymuose](../project-settings/project-settings.md)
 3. Patikrinkite, ar produkto aplankas yra projekto išvesties medžio struktūroje
 4. Pakartotinai apdorokite, įjungus šį produktą
 
 ### Sluoksnių sąrašas atrodo pasenęs
 
-Chloros
-
-pakartotinai nuskaito projekto produktų aplankus vykstant apdorojimui ir ištaiso trūkstamus sluoksnių registravimus remdamasis tuo, kas iš tikrųjų yra diske, todėl sluoksnis, kurio eksportavimas baigtas, paprastai pats atsiranda apklausos metu. Perėjimas nuo vaizdo į kitą langą ir atgal priverčia atlikti naują apdorojimą.
+Chloros pakartotinai nuskaito projekto produktų aplankus vykstant apdorojimui ir ištaiso trūkstamus sluoksnių registravimus remdamasis tuo, kas iš tikrųjų yra diske, todėl sluoksnis, kurio eksportavimas baigtas, paprastai pats atsiranda apklausos metu. Perėjimas nuo vaizdo į kitą langą ir atgal priverčia atlikti naują apdorojimą.
 
 ### Atspindžio vertės atrodo dvigubai mažesnės nei turėtų būti
 
