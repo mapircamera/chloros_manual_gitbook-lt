@@ -45,7 +45,11 @@ Tai procesoriaus našumui priklausomas skaičiavimo srautas. Vykdant Survey3 arb
 
 ### 3-iasis srautas: Apdorojimas (GPU)
 
-**Tikslas**: Taikyti korekcijas ir apskaičiuoti augmenijos indeksus.**Tai yra skaičiavimais labiausiai apkrautas sriegis.*** **Debayering**: konvertuoja RAW Bayer duomenis į daugiakanalius vaizdus
+**Tikslas**: Taikyti korekcijas ir apskaičiuoti augmenijos indeksus.
+
+**Tai yra skaičiavimais labiausiai apkrautas sriegis.**
+
+* **Debayering**: konvertuoja RAW Bayer duomenis į daugiakanalius vaizdus
   * Standartinis (greitas, vidutinė kokybė) — numatytasis, `--debayer standard`
   * Atsižvelgiantis į tekstūrą (lėtas, aukščiausia kokybė) — tik „Chloros+“, `--debayer texture-aware`, naudoja AI/ML triukšmo šalinimo modelį
   * „LATTICE mono“ (M3M) vaizdai yra vienos juostos: jiems praleidžiami demosaiko ir baltos spalvos balanso etapai (su vienos eilutės žurnalo pranešimu), o bet kokie to paties ciklo M3C/Bayer vaizdai vis tiek juos gauna

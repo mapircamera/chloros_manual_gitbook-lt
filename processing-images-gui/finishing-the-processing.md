@@ -81,7 +81,9 @@ Neskaičiuokite pagal formulę — išvesties skaičius priklauso nuo to, kurie 
 
 ### Peržiūra išorinėse vaizdų peržiūros programose
 
-**Rekomenduojamos peržiūros programos:*** **QGIS** – nemokama GIS programinė įranga (geriausiai tinka georeferencinei multispektrinei analizei)
+**Rekomenduojamos peržiūros programos:**
+
+* **QGIS** – nemokama GIS programinė įranga (geriausiai tinka georeferencinei multispektrinei analizei)
 * **„IrfanView“** – greita, lengva vaizdų peržiūros programa (palaiko TIFF formatą)
 * **„Adobe Photoshop“** – profesionalus redagavimas (palaiko TIFF formatą)
 * **„GIMP“** – nemokama „Photoshop“ alternatyva
@@ -222,7 +224,9 @@ Norėdami problemą nusiųsti tiesiai MAPIR, naudokite klaidos piktogramą (**Pr
 
 ### Problema: NDVI reikšmės atrodo neteisingos
 
-**Numatomi NDVI intervalai:*** **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
+**Numatomi NDVI intervalai:**
+
+* **Vanduo, uolienos, dirvožemis**: nuo -0,1 iki 0,2
 * **Retas/nesveikas augmenijos dangalas**: nuo 0,2 iki 0,4
 * **Vidutinio tankumo augmenijos dangalas**: nuo 0,4 iki 0,6
 * **Sveika, tanki augmenija**: nuo 0,6 iki 0,9**Jei reikšmės neatitinka šių intervalų:**
@@ -276,12 +280,18 @@ Norėdami problemą nusiųsti tiesiai MAPIR, naudokite klaidos piktogramą (**Pr
 
 ### Rekomenduojama atsarginių kopijų strategija
 
-**Ką išsaugoti:*** ✅ **Originalūs RAW/JPG vaizdai arba „LATTICE“ neapdoroti įrašai** – archyvuokite atskirame diske ar debesyje; neapdoroti duomenys yra apdorojimo proceso šaltinis, o viską kitą galima atkurti iš jų
+**Ką išsaugoti:**
+
+* ✅ **Originalūs RAW/JPG vaizdai arba „LATTICE“ neapdoroti įrašai** – archyvuokite atskirame diske ar debesyje; neapdoroti duomenys yra apdorojimo proceso šaltinis, o viską kitą galima atkurti iš jų
 * ✅ **`.daq` / `.csv` šviesos jutiklio failai** – reikalingi, kad vėliau būtų galima iš naujo apskaičiuoti atspindžio koeficientą
 * ✅ **Apdoroti rezultatai** – išsaugokite kalibruotus vaizdus ir indeksus
 * ✅ **Projekto aplankas** (`project.json` ir susiję failai) – jame yra visi nustatymai, reikalingi pakartotiniam apdorojimui, jei prireiktų
 * ✅ **Debug Log** – apdorojimo detalės
-* ✅ **Kalibravimo taikinio vaizdai** – tikrinimui ir pakartotiniam apdorojimui**Rekomendacijos dėl saugojimo:*** **Nedelsiant atlikti atsarginę kopiją**: Išorinis kietasis diskas
+* ✅ **Kalibravimo taikinio vaizdai** – tikrinimui ir pakartotiniam apdorojimui
+
+**Rekomendacijos dėl saugojimo:**
+
+* **Nedelsiant atlikti atsarginę kopiją**: Išorinis kietasis diskas
 * **Ilgalaikis archyvavimas**: Debesis (Google Drive, Dropbox ir pan.)
 * **Svarbūs duomenys**: Laikykite 2–3 kopijas skirtingose vietose***
 

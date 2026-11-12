@@ -78,7 +78,11 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 1. **Aptikimas** (1-asis sriegis) – kalibravimo taškų paieška
 2. **Analizė** (sąlytis Nr. 2) – vaizdo metaduomenų tikrinimas ir kalibravimo skaičiavimas
 3. **Kalibravimas** (sąlytis Nr. 3) – „debayering“, vinjetės korekcija, kalibravimas, indekso skaičiavimas
-4. **Eksportavimas** (sąlytis Nr. 4) – apdorotų vaizdų ir indeksų išsaugojimas**Veiksmai su pažangos juosta:*** **Užveskite pelę** ant juostos, kad pamatytumėte išsamų 4 etapų išskleidžiamąjį skydelį
+4. **Eksportavimas** (sąlytis Nr. 4) – apdorotų vaizdų ir indeksų išsaugojimas
+
+**Veiksmai su pažangos juosta:**
+
+* **Užveskite pelę** ant juostos, kad pamatytumėte išsamų 4 etapų išskleidžiamąjį skydelį
 * **Spustelėkite** pažangos juostą, kad išskleidžiamasis skydelis liktų fiksuotas
 * **Spustelėkite dar kartą**, kad atšaldytumėte ir paslėptumėte skydelį**Apdorojimo trukmė:**
 
@@ -116,7 +120,9 @@ Chloros veikia dviem skirtingais apdorojimo režimais, priklausomai nuo jūsų l
 
 ### 3 etapas: Kalibravimas
 
-**Ką atlieka „Chloros“:*** **Vignette korekcija**: Pašalina objektyvo tamsėjimą kraštuose
+**Ką atlieka „Chloros“:**
+
+* **Vignette korekcija**: Pašalina objektyvo tamsėjimą kraštuose
 * **Atspindžio kalibravimas**: normalizuoja naudojant tikslinės atspindžio reikšmes ir (arba) DAQ duomenis apie žemyn nukreiptą spinduliavimą
 * Taiko korekcijas visose juostose/kanaluose
 * Naudoja tinkamą kalibravimo etaloną kiekvienam vaizdui, remiantis laiko žyma

@@ -44,7 +44,9 @@ Projekto nustatymų skydelis suskirstytas į toliau nurodytus skyrius. Du papild
 
 Nustato, kaip Chloros atpažįsta kalibravimo tikslus jūsų vaizduose.
 
-**Pagrindiniai nustatymai:*** **Mažiausias kalibravimo mėginio plotas (px)**: Dydžio riba tikslo aptikimui (numatyta:**25**, diapazonas 0–10000)
+**Pagrindiniai nustatymai:**
+
+* **Mažiausias kalibravimo mėginio plotas (px)**: Dydžio riba tikslo aptikimui (numatyta:**25**, diapazonas 0–10000)
 * **Minimalus tikslų grupuojimo koeficientas (0–100)**: panašumo riba, reikalinga tikslų sričių grupavimui (numatyta reikšmė:**60**)**Kada reguliuoti:**
 
 * Padidinkite mėginio plotą, jei gaunami klaidingi aptikimai
@@ -59,19 +61,26 @@ Nustato, kaip Chloros atpažįsta kalibravimo tikslus jūsų vaizduose.
 
 Pagrindiniai vaizdo apdorojimo ir kalibravimo parametrai.
 
-**Pagrindiniai nustatymai:*** **Vignette korekcija**: Kompensuoja objektyvo tamsėjimą kraštuose ✅ Rekomenduojama
+**Pagrindiniai nustatymai:**
+
+* **Vignette korekcija**: Kompensuoja objektyvo tamsėjimą kraštuose ✅ Rekomenduojama
 * **Atspindžio kalibravimas / baltos spalvos balansas**: Kalibruoja vaizdus naudojant aptiktus taikinius (Survey3) ir (arba) DAQ šviesos jutiklio duomenis („LATTICE“) ✅ Rekomenduojama
 * **„Debayer“ metodas**: algoritmas, skirtas RAW failų konvertavimui į 3 kanalų multispektrinius
 * **Minimalus pakartotinio kalibravimo intervalas**: minimalus laikas sekundėmis tarp kalibravimo taškų naudojimo (numatyta reikšmė:**0** = naudoti visus, diapazonas 0–3600)**Nekalibruoti atsarginiai produktai:**Kai kadro atspindžio kalibravimas neįmanomas (nėra taikinio arba kalibravimas išjungtas), jis eksportuojamas kaip vienas iš dviejų atsarginių produktų —**kiekvienam vykdymo ciklui egzistuoja tik vienas iš šios poros**, pasirinktas pagal „Vignette“ korekcijos jungiklį:
 
-* **Eksportuoti jutiklio atsaką**: įrašo `Sensor_Response_Images` — naudojama, kai „Vignette“ korekcija yra**išjungta*** **Eksportuoti su vignette korekcija**: įrašo `Vignette_Corrected_Images` — naudojama, kai vignette korekcija yra**įjungta**Neaktyvus žymimasis langelis yra išblukintas. Pašalinus žymę iš aktyviojo langelio, tas failas iš viso nebus įrašomas.**LATTICE eksporto produktai** (rodomi kiekvienam projektui; jie taikomi LATTICE užfiksuotiems vaizdams):
+* **Eksportuoti jutiklio atsaką**: įrašo `Sensor_Response_Images` — naudojama, kai „Vignette“ korekcija yra**išjungta**
+* **Eksportuoti su vignette korekcija**: įrašo `Vignette_Corrected_Images` — naudojama, kai vignette korekcija yra**įjungta**Neaktyvus žymimasis langelis yra išblukintas. Pašalinus žymę iš aktyviojo langelio, tas failas iš viso nebus įrašomas.**LATTICE eksporto produktai** (rodomi kiekvienam projektui; jie taikomi LATTICE užfiksuotiems vaizdams):
 
 * **Eksportuoti be „debayeringo“**: linijinis vaizdas be mozaikos (`Debayered_Images`): pašalintas kalibravimo paketo tamsos poslinkis, tada pašalinta mozaika, be plokščio lauko ar atskyrimo — tas pats failas, kurį įrašas išsaugo be mozaikos lygiu — jutiklio natūralioje orientacijoje. Taikoma RGB ir multispektriniams moduliams.
 * **Eksportuoti peržiūrą**: ekrano peržiūra (`Preview_Images`). RGB = baltos spalvos balansas (DAQ šviesos šaltinis, jei yra, kitaip – „gray-world“) + gama; multispektrinis = dirbtinių spalvų išplėtimas.
 * **Eksportuoti spinduliavimą**: „float32“ spektrinis spinduliavimas (`Radiance_Images`, W/m²/sr/nm). Tik daugiaspektriniams moduliams — netaikoma RGB pagrindiniams failams.
 * **Eksportuoti atspindžio koeficientą**: „uint16“ atspindžio koeficientas (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0), kai kadrą dengia „`.daq`“ žemyn nukreiptas matavimas arba kadre esantis taikinys. Tik daugiaspektriniai moduliai.
 
-Visi keturi yra **įjungti pagal numatytuosius nustatymus**— vienas importuotas „LATTICE“ neapdorotas kadras vienu apdorojimo etapu išskirstomas į visus įjungtus ir taikytinus produktus. Žymės langelis**Eksportuoti atspindžio koeficientą** yra išblukęs, kai atspindžio kalibravimas yra išjungtas. Nustatymai, kurių įjungimas neįmanomas dėl viršesnio lygio jungiklio, visada yra išblukinti, o šalia jų rodomas įrankio patarimas, nurodantis, kurį jungiklį reikia pakeisti.**Išplėstiniai nustatymai:*** **Šviesos jutiklio laiko juostos poslinkis**: Valandos nuo UTC, skirtos šviesos jutiklio laiko suderinimui (pagal numatytuosius nustatymus: 0, diapazonas nuo −12 iki +12)
+Visi keturi yra **įjungti pagal numatytuosius nustatymus**— vienas importuotas „LATTICE“ neapdorotas kadras vienu apdorojimo etapu išskirstomas į visus įjungtus ir taikytinus produktus. Žymės langelis**Eksportuoti atspindžio koeficientą** yra išblukęs, kai atspindžio kalibravimas yra išjungtas. Nustatymai, kurių įjungimas neįmanomas dėl viršesnio lygio jungiklio, visada yra išblukinti, o šalia jų rodomas įrankio patarimas, nurodantis, kurį jungiklį reikia pakeisti.
+
+**Išplėstiniai nustatymai:**
+
+* **Šviesos jutiklio laiko juostos poslinkis**: Valandos nuo UTC, skirtos šviesos jutiklio laiko suderinimui (pagal numatytuosius nustatymus: 0, diapazonas nuo −12 iki +12)
 * **Taikyti PPK pataisas**: Naudoja GPS/ekspozicijos kontaktų duomenis iš `.daq` failų (numatyta: išjungta)
 * **Ekspozicijos kontaktas 1/2**: Priskiria kameras ekspozicijos kontaktams dviejų kamerų konfigūracijose
 
@@ -105,7 +114,9 @@ Nustatykite, kokius augmenijos indeksus skaičiuoti ir eksportuoti. Grafinės va
 3. Nustatykite vizualizavimo parametrus (LUT spalvas, verčių intervalus)
 4. Prireikus pridėkite kelis indeksus
 
-**Populiarūs indeksai:*** **NDVI**: Bendra augmenijos būklė (dažniausiai naudojamas)
+**Populiarūs indeksai:**
+
+* **NDVI**: Bendra augmenijos būklė (dažniausiai naudojamas)
 * **NDRE**: Ankstyvas streso nustatymas naudojant RedEdge
 * **GNDVI**: jautrus chlorofilo koncentracijai
 * **OSAVI**: gerai veikia, kai dirvožemis matomas
@@ -218,7 +229,11 @@ Jei naudojate MAPIR DAQ įrašymo įrenginius su GPS tiksliai geografinei vietai
 3. Jei reikia, nustatykite**„Šviesos jutiklio laiko juostos nuokrypį“** (numatyta reikšmė: 0, atitinkanti UTC)
 4. Priskirkite kameras ekspozicijos kontaktams:
    * **Viena kamera**: automatiškai priskiriama 1 kontaktui
-   * **Dvi kameros**: kiekvieną kamerą rankiniu būdu priskirkite atitinkamam kontaktui**Ekspozicijos kontaktų priskyrimas:*** **Ekspozicijos kontaktas 1**: išskleidžiamajame meniu pasirinkite kameros modelį
+   * **Dvi kameros**: kiekvieną kamerą rankiniu būdu priskirkite atitinkamam kontaktui
+
+**Ekspozicijos kontaktų priskyrimas:**
+
+* **Ekspozicijos kontaktas 1**: išskleidžiamajame meniu pasirinkite kameros modelį
 * **Ekspozicijos kontaktas 2**: pasirinkite antrą kamerą arba „Nenaudoti“
 * Viena ir ta pati kamera negali būti priskirta abiem kontaktams
 

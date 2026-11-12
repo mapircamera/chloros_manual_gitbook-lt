@@ -255,10 +255,15 @@ Chloros tikrina, ar yra atnaujinimų, praneša, kai pasirodo nauja versija, ir p
 
 **Išleidimo data: 2026 m. vasario 10 d.**
 
-**Naujos funkcijos*** **„Texture Aware“ debayerio metodas \[tik „Chloros+“] —** „Texture Aware“ naudoja aukštos kokybės, kraštus atpažįstantį debayerį, derinamą su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
-* **T4P kalibravimo taikiniai dabar palaikomi*** **Spartesnis „Chloros+“ apdorojimas GPU, geresnis atminties valdymas**
+**Naujos funkcijos**
 
-**Klaidų taisymai*** Visiškai nauja vartotojo sąsaja (GUI), dabar turėtų veikti visuose Windows kompiuteriuose.
+* **„Texture Aware“ debayerio metodas \[tik „Chloros+“] —** „Texture Aware“ naudoja aukštos kokybės, kraštus atpažįstantį debayerį, derinamą su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
+* **T4P kalibravimo taikiniai dabar palaikomi**
+* **Spartesnis „Chloros+“ apdorojimas GPU, geresnis atminties valdymas**
+
+**Klaidų taisymai**
+
+* Visiškai nauja vartotojo sąsaja (GUI), dabar turėtų veikti visuose Windows kompiuteriuose.
 
 </details>
 
@@ -268,14 +273,18 @@ Chloros tikrina, ar yra atnaujinimų, praneša, kai pasirodo nauja versija, ir p
 
 **Išleidimo data: 2026 m. sausio 5 d.**
 
-**Naujos funkcijos*** **Vaizdo/metaduomenų perjungimas**: Failų naršyklėje pridėtas perjungiklis, leidžiantis peržiūrėti pasirinktų vaizdų metaduomenis lentelėje, o ne vaizdų tinklelyje
+**Naujos funkcijos**
+
+* **Vaizdo/metaduomenų perjungimas**: Failų naršyklėje pridėtas perjungiklis, leidžiantis peržiūrėti pasirinktų vaizdų metaduomenis lentelėje, o ne vaizdų tinklelyje
 * **Vaizdų tinklelio mastelio slankiklis**: Naujas vartotojo sąsajos slankiklis, skirtas miniatiūrų dydžiui reguliuoti (taip pat palaiko „CTRL“ + pelės ratuką)
 * **Vaizdų tinklelio eksporto mygtukai**: viršutinėje eilutėje esantys mygtukai, skirti perjungti miniatiūras iš JPG į apdorotus eksportus („Targets“, „Reflectance“, „Index“, „LUT“)
 * **Skirtukas „Žemėlapis“**: naujas interaktyvus 2D žemėlapis, rodantis vaizdų GPS vietos žymes
   * Palaiko „Google Maps“ ir ESRI žemėlapių plyteles (automatiškai pasirenka geriausią plytelių paslaugą, atsižvelgiant į mastelio lygio prieinamumą)
   * Užvedus pelę ant žemėlapio žymių, rodomas miniatiūrų peržiūros langas
 
-**Klaidų taisymai*** Pagerintas Chloros diegimo palaikymas kompiuteriuose, kuriuose naudojama ne anglų kalba
+**Klaidų taisymai**
+
+* Pagerintas Chloros diegimo palaikymas kompiuteriuose, kuriuose naudojama ne anglų kalba
 
 </details>
 
@@ -285,13 +294,21 @@ Chloros tikrina, ar yra atnaujinimų, praneša, kai pasirodo nauja versija, ir p
 
 **Išleidimo data: 2025 m. gruodžio 20 d.**
 
-**Naujos funkcijos*** Pirmasis paleidimas
+**Naujos funkcijos**
 
-**Patobulinimai*** Pirmasis paleidimas
+* Pirmasis paleidimas
 
-**Klaidų taisymai*** Pirmasis paleidimas
+**Patobulinimai**
 
-**Žinomos problemos*** Pirmasis paleidimas
+* Pirmasis paleidimas
+
+**Klaidų taisymai**
+
+* Pirmasis paleidimas
+
+**Žinomos problemos**
+
+* Pirmasis paleidimas
 
 </details>
 

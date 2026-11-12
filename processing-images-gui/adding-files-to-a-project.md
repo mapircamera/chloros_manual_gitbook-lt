@@ -57,7 +57,11 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**Nurodykite aplanką, esantį „captures“ šakninėje aplankoje** (žr. aukščiau esantį `output/`). Jei pasirinktame aplanke pačiame nėra vaizdų, bet yra pakatalogiai, Chloros automatiškai juos peržiūri — visų lygių pakatalogiai ir šakninis katalogas „`.daq`“ surenkami vienu kartu.**Kaip importuojami įrašai:*** Kiekvienas įrašas importuojamas kaip **vienas vaizdas**, sugrupuotas pagal įrašą (ne po vieną įrašą kiekviename lygyje). Kiti to paties įrašo lygiai rodomi kaip to vieno vaizdo peržiūros režimai.
+**Nurodykite aplanką, esantį „captures“ šakninėje aplankoje** (žr. aukščiau esantį `output/`). Jei pasirinktame aplanke pačiame nėra vaizdų, bet yra pakatalogiai, Chloros automatiškai juos peržiūri — visų lygių pakatalogiai ir šakninis katalogas „`.daq`“ surenkami vienu kartu.
+
+**Kaip importuojami įrašai:**
+
+* Kiekvienas įrašas importuojamas kaip **vienas vaizdas**, sugrupuotas pagal įrašą (ne po vieną įrašą kiekviename lygyje). Kiti to paties įrašo lygiai rodomi kaip to vieno vaizdo peržiūros režimai.
 * **Apdorojimas visada prasideda nuo neapdoroto kadro.** Kiti lygiai yra peržiūrimi, tačiau per apdorojimo grandinę perduodamas tik „`raw`“ — pakartotinis jau apdoroto produkto apdorojimas dvigubai pritaikytų korekcijas, todėl Chloros to atsisako. Pakartotinai importuotas eksportas niekada negali užimti kadrų neapdorotų duomenų vietos.
 * Kadrų aplankas, išsaugotas **be** neapdorotų duomenų, importuojamas ir rodomas įprastai, tačiau apdorojimas jį praleidžia ir apie tai praneša žurnale. (CLI žymė `--input-level` gali priversti nustatyti įėjimo tašką šiuo atveju — žr. [CLI žinyną](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Nuo 1.3.0 versijos užfiksuotų vaizdų aplankas taip pat gali turėti `clamp_masks/` aplanką (pikselių lygio kaukės spinduliavimo ir atspindžio lygiams — žr. [Išvesties vaizdų formatai](../output-image-formats.md#clamp-masks)). Kaukės nėra scenos vaizdai, todėl Chloros jas ignoruoja importuojant, nesvarbu, kur jos būtų.

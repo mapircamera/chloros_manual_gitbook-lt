@@ -204,7 +204,7 @@ Viskas šiame skyriuje yra **tik ekrano pusėje**— tai keičia tai, ką matote
 * **„Linear“** — tamsusis signalas + plokščias laukas + baltos spalvos balansas; be spalvų matricos, be gama.
 * **Natūralus** *(numatyta)* — linijinis plius išmatuota spalvų korekcijos matrica ir prie scenos prisitaikanti tonų kreivė.
 * **Patobulintas**— „Natūralus“ plius sodrumas ir CLAHE vietinis kontrastas. Papildomos išlaidos taikomos**tik tiesioginiam peržiūros režimui** — išsaugoti kadrai visada gauna pilną apdailą, nepriklausomai nuo profilio.
-* ****Pasirinktinė temperatūra** — „Natūralus“ su baltos spalvos balansu, nustatytu pagal jūsų pasirinktą Kelvino vertę.
+* **Pasirinktinė temperatūra** — „Natūralus“ su baltos spalvos balansu, nustatytu pagal jūsų pasirinktą Kelvino vertę.
 
 {% hint style="warning" %}
 Rinkus „Natūralus“, „Patobulintas“ ir „Pasirinktinė temperatūra“, lange rodomas tonų įspėjimas: kadrai pašviesinami atsižvelgiant į jų sceną, todėl išsaugoti *ekrano* vaizdai nėra palyginami kadrų atžvilgiu. **Eksportuokite spinduliavimą arba atspindį matavimams.**
@@ -228,7 +228,7 @@ Jos veikia tik vartotojo sąsajoje — piešiamos ant vaizdo, niekada neliesdamo
 ### Taškinis matuoklis
 
 * **Spustelėkite, kad paimtumėte mėginį**žymės langelis: spustelėkite tiesioginį vaizdą, kad paimtumėte vieno pikselio mėginį (jį pažymi kryžminis tinklelis), arba spustelėkite ir vilkite sritį, kad gautumėte pikselių vidurkį.**Išvalyti**ištrina mėginį ir tinklelį. Ši funkcija nesuderinama su AE-ROI**Nukreipimo** režimu.
-* ****Rodyti**išskleidžiamasis meniu:**Neapdoroti duomenys (bitų gylis)**— natūralūs skaitmeniniai skaičiai, atitinkantys jutiklio bitų gylį (pvz., 12 bitų → 0..4095) — arba**Ekranas (8 bitai)** (numatyta reikšmė). Kai aktyvus tiesioginis indeksas, „Display“ vietoj to rodo apskaičiuotą indekso vertę (pvz., NDVI).
+* **Rodyti** išskleidžiamasis meniu:**Neapdoroti duomenys (bitų gylis)**— natūralūs skaitmeniniai skaičiai, atitinkantys jutiklio bitų gylį (pvz., 12 bitų → 0..4095) — arba**Ekranas (8 bitai)** (numatyta reikšmė). Kai aktyvus tiesioginis indeksas, „Display“ vietoj to rodo apskaičiuotą indekso vertę (pvz., NDVI).
 * Rodymo skydelyje pateikiamos pikselių koordinatės, kadro dydis, pikselių formatas, bitų gylis ir kanalų lentelė (Chan / Value / %) su juostų pavadinimais ir bangų ilgiais; „Bayer“ žalios poros yra vidurkinamos; regionų mėginiai rodomi kaip „N px avg“.
 
 Taškinio matuoklio būsena galioja tik sesijos metu.
@@ -401,7 +401,7 @@ Trumpas vadovas, kur kas yra, kai kamera yra masyvo narys:
 Kiti bendri elgesio ypatumai:
 
 * **Kombinuotas vs atskiras rodymas** pasirenkamas jungiant masyvą: kombinuotas = viena suderinta sudėtinė plytele (elementai perduoda vaizdą tik per „Split View“); atskiras = kiekvienas elementas atkuria savo sinchronizuotą plytele. Kamera niekada nerodo ir atskiro vaizdo, ir masyvo plytelės.
-* ****Automatinis pakartotinis prisijungimas**: atidarius išsaugotą projektą atkuriamos jo kameros ir masyvai, o prieš atnaujinant srautus visi išsaugoti nustatymai iš naujo pritaikomi serveriui.
+* **Automatinis pakartotinis prisijungimas**: atidarius išsaugotą projektą atkuriamos jo kameros ir masyvai, o prieš atnaujinant srautus visi išsaugoti nustatymai iš naujo pritaikomi serveriui.
 * **Įrašymo filtravimas**: paslėptos arba pristabdytos kameros neįtraukiamos į „Capture All“; masyvas visiškai blokuojamas tik tada, kai VISI nariai yra paslėpti arba pristabdyti. Žr. [Įrašymo nustatymai ir režimai](capture.md).
 
 ## Kaip išsaugomi nustatymai

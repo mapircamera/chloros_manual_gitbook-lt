@@ -32,7 +32,9 @@ Jei **nėra** pažymėta nė viena nuotrauka, „Chloros“ grįžta prie visų 
 
 Peržiūrėkite importuotus vaizdus failų naršyklėje ir nustatykite, kuriuose vaizduose yra kalibravimo tikslai.
 
-**Dažni atvejai:*** **Tikslas prieš fotografavimą**: užfiksuotas prieš pradedant sesiją
+**Dažni atvejai:**
+
+* **Tikslas prieš fotografavimą**: užfiksuotas prieš pradedant sesiją
 * **Tikslas po fotografavimo**: užfiksuotas baigus sesiją
 * **Tikslai lauke**: tikslai, esantys fotografavimo zonoje
 * **Keli tikslai**: 2–3 tikslų vaizdai per sesiją (rekomenduojama)
@@ -142,9 +144,17 @@ Naudokite šią skiltį, kad patikrintumėte, ar savo projekte pažymėjote tiks
 
 ### Aptikimo jautrumo reguliavimas
 
-Jei „Chloros“ netinkamai aptinka jūsų tikslus, pakoreguokite šiuos nustatymus [Projekto nustatymuose](adjusting-project-settings.md):**Mažiausias kalibravimo mėginio plotas (px):*** **Numatytasis**: 25 pikseliai
+Jei „Chloros“ netinkamai aptinka jūsų tikslus, pakoreguokite šiuos nustatymus [Projekto nustatymuose](adjusting-project-settings.md):
+
+**Mažiausias kalibravimo mėginio plotas (px):**
+
+* **Numatytasis**: 25 pikseliai
 * **Padidinkite**, jei gaunami klaidingi aptikimai dėl smulkių artefaktų
-* **Sumažinkite**, jei tikslai neaptinkami**Minimalus tikslų sugrupavimas (0–100):*** **Numatytasis**: 60
+* **Sumažinkite**, jei tikslai neaptinkami
+
+**Minimalus tikslų sugrupavimas (0–100):**
+
+* **Numatytasis**: 60
 * **Padidinkite**, jei tikslai suskaidomi į kelis aptikimus
 * **Sumažinkite**, jei tikslai su spalvų variacijomis nėra visiškai aptinkami
 

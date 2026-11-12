@@ -28,7 +28,11 @@ Vartotojams, turintiems „Chloros+“ licenciją:
 1.**Aptikimas** – kalibravimo taškų paieška
 2. **Analizė** – vaizdų tyrimas ir apdorojimo proceso paruošimas
 3. **Kalibravimas** – vinjetės ir atspindžio korekcijų taikymas
-4. **Eksportavimas** – apdorotų failų išsaugojimas**Interaktyvios funkcijos:*** **Užveskite pelę** ant pažangos juostos, kad pamatytumėte išplėstą 4 etapų skydelį
+4. **Eksportavimas** – apdorotų failų išsaugojimas
+
+**Interaktyvios funkcijos:**
+
+* **Užveskite pelę** ant pažangos juostos, kad pamatytumėte išplėstą 4 etapų skydelį
 * **Spustelėkite** pažangos juostą, kad užfiksuotumėte išplėstą skydelį
 * **Spustelėkite dar kartą**, kad atšaldytumėte ir kad skydelis automatiškai pasislėptų, kai nuimsite pelę
 * Kiekviename etape rodoma atskira pažanga (0–100 %)
@@ -92,7 +96,9 @@ Vartotojams, turintiems „Chloros+“ licenciją:
 
 ### 3 etapas: Kalibravimas
 
-**Kas vyksta:*** **Debayering**: RAW Bayer modelio konvertavimas į 3 kanalus (praleidžiama „LATTICE“ mono moduliams, su pastaba)
+**Kas vyksta:**
+
+* **Debayering**: RAW Bayer modelio konvertavimas į 3 kanalus (praleidžiama „LATTICE“ mono moduliams, su pastaba)
 * **Vignette korekcija**: objektyvo kraštų patamsėjimo pašalinimas
 * **Atspindžio kalibravimas**: normalizavimas pagal tikslinės reikšmes ir (arba) DAQ duomenų srautą
 * **Indekso skaičiavimas**: multispektrinių indeksų apskaičiavimas
@@ -104,7 +110,9 @@ Vartotojams, turintiems „Chloros+“ licenciją:
 * Šiuo metu apdorojamas vaizdas
 * Apdoroti vaizdai / Visi vaizdai
 
-**Apdorojimo režimai:*** **Laisvasis režimas**: Apdoroja po vieną vaizdą paeiliui
+**Apdorojimo režimai:**
+
+* **Laisvasis režimas**: Apdoroja po vieną vaizdą paeiliui
 * **„Chloros+“ režimas**: Naudoja prie aparatinės įrangos prisitaikantį darbininkų pulką — 1–4 vienu metu veikiančius darbininkus GPU sistemose (priklausomai nuo VRAM), po vieną darbininką kiekvienam fiziniam branduoliui (atėmus vieną) sistemose, turinčiose tik CPU. Žr. [Dinaminis skaičiavimo pritaikymas](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU pagreitinimas**: Žymiai pagreitina šį etapą**Į ką reikia atkreipti dėmesį:**
 
