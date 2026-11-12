@@ -10,7 +10,9 @@ Naudokite dešinėje viršuje esantį mastelio slankiklį, kad nustatytumėte va
 * **Ctrl + `+`**/**Ctrl + `=`**ir**Ctrl + `−`** kiekvienu paspaudimu keičia dydį 4 px žingsniu. Klaviatūros nustatymų diapazonas prasideda nuo 64 px mažiausio dydžio ir baigiasi didžiausiu dydžiu, kuris tiksliai talpina po dvi miniatiūras vienoje eilutėje dabartiniame lange.
 * Pasirinktas dydis išsaugomas kartu su projektu (`UI → Grid thumbnail size` į `project.json`, numatytasis `160`), todėl vėl atidarius projektą jis atkuriama.
 
-<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>Miniatiūrų *skiriamoji geba* yra atskiras nustatymas, skirtingas nuo miniatiūrų *dydžio*: žr. **Ekranas → Vaizdo miniatiūrų skiriamoji geba** [Projekto nustatymuose](../project-settings/project-settings.md) (numatyta 512 pikselių ilgiausiuoju kraštu). Dydis rodo, kokio dydžio yra piešiamas langelis; skiriamoji geba rodo, kiek detalių yra paimama jam užpildyti.***
+<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>Miniatiūrų *skiriamoji geba* yra atskiras nustatymas, skirtingas nuo miniatiūrų *dydžio*: žr. **Ekranas → Vaizdo miniatiūrų skiriamoji geba** [Projekto nustatymuose](../project-settings/project-settings.md) (numatyta 512 pikselių ilgiausiuoju kraštu). Dydis rodo, kokio dydžio yra piešiamas langelis; skiriamoji geba rodo, kiek detalių yra paimama jam užpildyti.
+
+***
 
 ## Tinklelio įrankių juosta
 

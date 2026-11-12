@@ -110,7 +110,9 @@ Atspindžio koeficientas saugomas kaip sveikasis skaičius DN, o **DN, reiškian
 | LATTICE (M3C/M3M) | **32768** (rezervas iki ρ 2,0) | Failui priskirta XMP žyma `Chloros:PixelScale=32768` |
 | Survey3          | **65535** (apribota iki ρ 1,0)     | Nėra žymės `Chloros:PixelScale` — jos nebuvimas yra ženklas (Survey3 produktai turi kitas apdorojimo žymes, pvz., `Chloros:*`) |
 
-**Perskaitykite `Chloros:PixelScale` žymą ir padalinkite iš jos**, o ne laikykitės vienodo 65535 dydžio — padalijus LATTICE atspindžio koeficientą iš 65535, kiekviena reikšmė tyliai sumažinama perpus. Atspindžio failas, sukurtas iki versijos 1.3.0 ir užrašytas kaip 8 bitų, buvo apkarpytas, o ne perskalintas, ir neturi mastelio žymės: vietoj dalijimo jį eksportuokite iš naujo kaip 16 bitų arba 32 bitų. Išsamią informaciją rasite skyriuje [Išvesties vaizdo formatai](../output-image-formats.md).***
+**Perskaitykite `Chloros:PixelScale` žymą ir padalinkite iš jos**, o ne laikykitės vienodo 65535 dydžio — padalijus LATTICE atspindžio koeficientą iš 65535, kiekviena reikšmė tyliai sumažinama perpus. Atspindžio failas, sukurtas iki versijos 1.3.0 ir užrašytas kaip 8 bitų, buvo apkarpytas, o ne perskalintas, ir neturi mastelio žymės: vietoj dalijimo jį eksportuokite iš naujo kaip 16 bitų arba 32 bitų. Išsamią informaciją rasite skyriuje [Išvesties vaizdo formatai](../output-image-formats.md).
+
+***
 
 ## Į eksportuojamus failus perkeliami metaduomenys
 
@@ -166,7 +168,9 @@ Norėdami išsaugoti apdorojimo įrašą arba nusiųsti jį MAPIR techninės pag
 3. Pridėkite prie projekto dokumentacijos
 4. Jei iškilo problemų, nusiųskite jį MAPIR techninės pagalbos tarnybai
 
-Norėdami problemą nusiųsti tiesiai MAPIR, naudokite klaidos piktogramą (**Pranešti apie klaidą**) skirtuko „Debug Log“ viršuje — žr. [Pranešimas apie klaidą iš skirtuko „Log“](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Norėdami problemą nusiųsti tiesiai MAPIR, naudokite klaidos piktogramą (**Pranešti apie klaidą**) skirtuko „Debug Log“ viršuje — žr. [Pranešimas apie klaidą iš skirtuko „Log“](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+
+***
 
 ## Dažnos išvesties problemos ir jų sprendimai
 

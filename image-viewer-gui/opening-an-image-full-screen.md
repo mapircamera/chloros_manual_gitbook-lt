@@ -57,7 +57,9 @@ Kai faktinis didinimas viršija **60×**, Chloros nubrėžia paryškinimo langel
 | **←**                           | Visas ekranas | Ankstesnis vaizdas                      |
 | **Ctrl + R**                    | Visas ekranas | Atstatyti indekso/LUT smėlio dėžę         |
 | **Ctrl + `+`**/**Ctrl + `=`** | Tinklelis        | Didesnės miniatiūros (4 pikseliai per paspaudimą)  |
-| **Ctrl + `−`**                  | Tinklelis        | Mažesnės miniatiūros (4 pikseliai už kiekvieną paspaudimą) |***
+| **Ctrl + `−`**                  | Tinklelis        | Mažesnės miniatiūros (4 pikseliai už kiekvieną paspaudimą) |
+
+***
 
 ## Kursoriaus reikšmės
 
@@ -100,7 +102,9 @@ Peržiūros programa, indeksų/LUT bandymo aplinka ir indeksų eksportas mastel�
 Dvi pasekmės, kurias verta žinoti:
 
 * **32 bitų procentinis**TIFF saugo DN/65535 kaip plūduriuojančiojo kablelio skaičių, o**8 bitų** PNG/JPG eksportas saugo DN × 255/65535 — peržiūros programa abu verčia atgal prieš išspausdindama procentinę vertę.
-* Vieno atvejo atkurti neįmanoma: **8-bitis TIFF eksportas iš 8-bitio šaltinio užfiksuoto vaizdo** yra apribojamas iki 0–255, o ne perskaičiuojamas, ir sąmoningai neturi mastelio žymės. Šių failų atveju skydelyje spausdinamas tik DN, be procentų stulpelio. Tai yra teisingas atsakymas, o ne klaida.***
+* Vieno atvejo atkurti neįmanoma: **8-bitis TIFF eksportas iš 8-bitio šaltinio užfiksuoto vaizdo** yra apribojamas iki 0–255, o ne perskaičiuojamas, ir sąmoningai neturi mastelio žymės. Šių failų atveju skydelyje spausdinamas tik DN, be procentų stulpelio. Tai yra teisingas atsakymas, o ne klaida.
+
+***
 
 ## Sluoksnio histograma
 
@@ -126,7 +130,9 @@ Virš histogramos yra trys mygtukai:
 | **INDEX**| Įjungta      | Rodoma tik tada, kai indeksas yra aktyvus. Perjungia histogramą iš šaltinio juostų į**indekso reikšmių pasiskirstymą**, kur dvi apribojimo ribos nubrėžiamos kaip oranžinės punktyrinės linijos, o žymeklio indekso reikšmė – kaip balta linija                                                          |
 | **RGB**| Išjungta     | Perjungia iš sujungtos kreivės į atskiras kiekvieno kanalo kreives. Naudojant monokromatinį jutiklį, šis mygtukas rodo užrašą**MONO** ir yra išjungtas — rodyti galima tik vieną kanalą                                                                                                                                  |
 
-Histograma skaičiuojama pagal **matomus blokus**, o ne pagal už jų esančius šaltinio pikselius: pakeitus GSD bloko dydį, pasiskirstymas perskaičiuojamas, todėl histograma, žymeklio žymė ir rodomas vaizdas visada sutampa.***
+Histograma skaičiuojama pagal **matomus blokus**, o ne pagal už jų esančius šaltinio pikselius: pakeitus GSD bloko dydį, pasiskirstymas perskaičiuojamas, todėl histograma, žymeklio žymė ir rodomas vaizdas visada sutampa.
+
+***
 
 ## GSD bloko dydis
 
@@ -185,7 +191,9 @@ Taikykite daugiaspektrinius indeksus ir spalvų paieškos lenteles (LUT) iš šo
 
 3. Pasirinkite savo kameros filtrą ir indekso formulę, tada vilkite kanalų apskritimus į formulės langelius
 4. Pridėkite LUT ir pasirinkite gradientą, slenksčius bei apkarpymo režimą
-5. Peržiūrėkite vertes prie žymeklio ir išsaugokite rezultatą pasirinkdami **Eksportuoti/Išsaugoti vaizdus**Visą instrukciją rasite [Indeksų/LUT bandymų srityje](index-lut-sandbox.md) rasite išsamų vadovą.***
+5. Peržiūrėkite vertes prie žymeklio ir išsaugokite rezultatą pasirinkdami **Eksportuoti/Išsaugoti vaizdus**Visą instrukciją rasite [Indeksų/LUT bandymų srityje](index-lut-sandbox.md) rasite išsamų vadovą.
+
+***
 
 ## Problemų sprendimas
 

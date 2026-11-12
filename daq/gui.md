@@ -196,7 +196,9 @@ Norint gauti kiekybinius spinduliavimo stiprio rodiklius, reikia apskaičiuoti b
 
 * Sujunkite kelis jutiklius viename grafike (bendros ašys), išlaikykite atskirus grafikus (automatinis tinklelio išdėstymas), perkelkite jutiklius iš vieno grafiko į kitą, vilkdami pertvarkykite eiles/plyteles ir paslėpkite atskirus jutiklius naudodami akies mygtuką.
 * Kiekvienam projektui Chloros išsaugo: įrenginių pavadinimus, grafikų spalvas, diagramos dydį, peržiūros režimą ir kiekvieno jutiklio nustatymus (integravimo laiką, kadrų vidurkavimą, AE būseną, dangtelio pasirinkimą).
-* **Atidarius projektą iš naujo, jo jutikliai automatiškai vėl prisijungia** pagal adresą – COM prievadą „DAQ-U“ atveju, BLE įrenginį „DAQ-M“ atveju, mDNS hosto vardą DAQ-E atveju (nustatomas net jei įrenginio IP adresas pasikeitė) — ir vėl pritaiko kiekvieno jutiklio išsaugotą „cap“ profilį, kadrų vidurkavimą, AE būseną ir rankinį integracijos laiką.***
+* **Atidarius projektą iš naujo, jo jutikliai automatiškai vėl prisijungia** pagal adresą – COM prievadą „DAQ-U“ atveju, BLE įrenginį „DAQ-M“ atveju, mDNS hosto vardą DAQ-E atveju (nustatomas net jei įrenginio IP adresas pasikeitė) — ir vėl pritaiko kiekvieno jutiklio išsaugotą „cap“ profilį, kadrų vidurkavimą, AE būseną ir rankinį integracijos laiką.
+
+***
 
 ## Kameros suporavimas (DLS)
 

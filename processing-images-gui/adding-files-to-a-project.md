@@ -62,7 +62,9 @@ output/
 * Kadrų aplankas, išsaugotas **be** neapdorotų duomenų, importuojamas ir rodomas įprastai, tačiau apdorojimas jį praleidžia ir apie tai praneša žurnale. (CLI žymė `--input-level` gali priversti nustatyti įėjimo tašką šiuo atveju — žr. [CLI žinyną](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Nuo 1.3.0 versijos užfiksuotų vaizdų aplankas taip pat gali turėti `clamp_masks/` aplanką (pikselių lygio kaukės spinduliavimo ir atspindžio lygiams — žr. [Išvesties vaizdų formatai](../output-image-formats.md#clamp-masks)). Kaukės nėra scenos vaizdai, todėl Chloros jas ignoruoja importuojant, nesvarbu, kur jos būtų.
 
-**„LATTICE hub“ sesijos** importuojamos taip pat: spustelėkite „Add Folder“ (Pridėti aplanką) ir nurodykite iš „hub“ nukopijuotą sesijos aplanką (jame yra „`raw/`“ ir „`previews/`“), kartu su bet kokiu DAQ-M „`.csv`“ žemyn nukreipto spinduliavimo žurnalu. Jei kameros ar DAQ kalibravimo duomenys dar nėra išsaugoti jūsų kompiuterio talpykloje, Chloros juos importuojant automatiškai atsisiunčia pagal serijos numerį (reikia vienkartinio prisijungimo prie interneto).***
+**„LATTICE hub“ sesijos** importuojamos taip pat: spustelėkite „Add Folder“ (Pridėti aplanką) ir nurodykite iš „hub“ nukopijuotą sesijos aplanką (jame yra „`raw/`“ ir „`previews/`“), kartu su bet kokiu DAQ-M „`.csv`“ žemyn nukreipto spinduliavimo žurnalu. Jei kameros ar DAQ kalibravimo duomenys dar nėra išsaugoti jūsų kompiuterio talpykloje, Chloros juos importuojant automatiškai atsisiunčia pagal serijos numerį (reikia vienkartinio prisijungimo prie interneto).
+
+***
 
 ## Failų naršyklės lentelės supratimas
 
@@ -104,7 +106,9 @@ Paspaudus perjungimo mygtuką viršutiniame dešiniajame kampe virš lentelės, 
 
 * Failai „`.daq`“ ir „`.csv`“ rodomi failų naršyklės sąraše, tačiau jų negalima paspausti kaip vaizdų — jie pateikia žemyn nukreiptą spinduliavimo intensyvumą atspindžio kalibravimui.
 * Kiekvienas importuotas `.daq`/`.csv` failas yra išvardytas skyriuje **Projekto nustatymai → DAQ šviesos jutiklis**, kur galite peržiūrėti kiekvienam failui taikomą difuzoriaus dangtelio korekciją. Žr. [Projekto nustatymų koregavimas](adjusting-project-settings.md).
-* Įrašai, kuriuos atliekate skirtuke **Šviesos jutikliai**, automatiškai pridedami prie atidaryto projekto — rankinis importavimas nereikalingas.***
+* Įrašai, kuriuos atliekate skirtuke **Šviesos jutikliai**, automatiškai pridedami prie atidaryto projekto — rankinis importavimas nereikalingas.
+
+***
 
 ## Failų tvarkymas projekte
 
@@ -221,7 +225,9 @@ Jei jūsų projekte yra vaizdų, padarytų naudojant kelias MAPIR kameras:
 
 ### Vėl atidarytas projektas praneša apie trūkstamus failus
 
-Jei šaltinio failai buvo perkelti arba ištrinti nuo paskutinio projekto atidarymo, Chloros praneš, **kurie**failai dingo, o ne atidarys tuščią tinklelį. Jei buvo perkelta pati projekto aplankas, Chloros nukreipia šaltinio kelius į aplanką, kuriame dabar yra „`project.json`“, ir išsaugo atsarginę kopiją („`project.json.before-relink-<date>-<time>`“). Jei failų nerandama, lange**„Šaltinio failai nerasti“**siūloma pasinaudoti funkcija**„Naršyti“**, kad surastumėte naują vietą, o tada pasirinkti „Naujas projektas“ arba „Ištrinti projektą“. Naudodami CLI, naudokite `chloros-cli project open PATH --relink FOLDER`; naudodami SDK – `open_project(path, relink=...)`.***
+Jei šaltinio failai buvo perkelti arba ištrinti nuo paskutinio projekto atidarymo, Chloros praneš, **kurie**failai dingo, o ne atidarys tuščią tinklelį. Jei buvo perkelta pati projekto aplankas, Chloros nukreipia šaltinio kelius į aplanką, kuriame dabar yra „`project.json`“, ir išsaugo atsarginę kopiją („`project.json.before-relink-<date>-<time>`“). Jei failų nerandama, lange**„Šaltinio failai nerasti“**siūloma pasinaudoti funkcija**„Naršyti“**, kad surastumėte naują vietą, o tada pasirinkti „Naujas projektas“ arba „Ištrinti projektą“. Naudodami CLI, naudokite `chloros-cli project open PATH --relink FOLDER`; naudodami SDK – `open_project(path, relink=...)`.
+
+***
 
 ## Tolimesni veiksmai
 

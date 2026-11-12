@@ -192,7 +192,9 @@ Atrakinkite išplėstines funkcijas su „Chloros+“ prenumerata:
 * **🐻 Išplėstinis tekstūrą atpažįstantis debayerio metodas** – aukštos kokybės, kraštus atpažįstantis debayeris, derinamas su AI/ML triukšmo šalinimo modeliu, kuris pašalina beveik visą debayerio triukšmą.
 * 🧮 **Pasirinktinės formulės** – kurkite pasirinktinius multispektrinius indeksus
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėkite „Chloros+“ planus ir kainas</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Peržiūrėkite „Chloros+“ planus ir kainas</a></p>
+
+***
 
 ## Pagalba diegiant
 
@@ -233,7 +235,9 @@ Reikia pagalbos diegiant ar konfigūruojant?
 * 📧 **El. paštas**: info@mapir.camera
 * 🌐 **Svetainė**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Dokumentacija**: [Pradžios vadovas](./)
-* ❓ **DUK**: [Dažnai užduodami klausimai](faq.md)***
+* ❓ **DUK**: [Dažnai užduodami klausimai](faq.md)
+
+***
 
 ## Programinės įrangos atnaujinimai
 

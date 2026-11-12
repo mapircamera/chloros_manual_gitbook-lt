@@ -17,7 +17,9 @@ MAPIR“ **DAQ** šviesos jutikliai matuoja aplinkos šviesą kaip radiometrišk
 | --- | --- | --- |
 | **DAQ-U** | USB (serijinis) | nuskaitymas per serijinį prievadą |
 | **DAQ-M** | „Bluetooth Low Energy“ | BLE nuskaitymas pagal pavadinimą |
-| **DAQ-E** | „Ethernet“ (IPv4, maitinimas per PoE) | mDNS `_daq-e._tcp` (pagrindinio kompiuterio vardas `daq-e-<id>.local`) |**DAQ-E-S (nauja versija 1.3.0).** DAQ-E su nuolatiniu difuzoriumi ir pakreipimo jutikliu. Chloros jį nurodo kaip `DAQ-E-S` ir valdo lygiai taip pat kaip DAQ-E, išskyrus tai, kad nereikia atlikti viršutinės ribos korekcijos, o kiekvienas rodmuo atspindi prietaiso pakreipimą, pasvirimą ir polinkį. Žr. [DAQ-E-S: fiksuotas difuzorius ir pasvirimas](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
+| **DAQ-E** | „Ethernet“ (IPv4, maitinimas per PoE) | mDNS `_daq-e._tcp` (pagrindinio kompiuterio vardas `daq-e-<id>.local`) |
+
+**DAQ-E-S (nauja versija 1.3.0).** DAQ-E su nuolatiniu difuzoriumi ir pakreipimo jutikliu. Chloros jį nurodo kaip `DAQ-E-S` ir valdo lygiai taip pat kaip DAQ-E, išskyrus tai, kad nereikia atlikti viršutinės ribos korekcijos, o kiekvienas rodmuo atspindi prietaiso pakreipimą, pasvirimą ir polinkį. Žr. [DAQ-E-S: fiksuotas difuzorius ir pasvirimas](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
 
 Visi trys prietaisai naudoja tą patį duomenų perdavimo protokolą ir pateikia identiškus duomenis:
 

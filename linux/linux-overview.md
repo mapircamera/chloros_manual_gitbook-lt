@@ -10,7 +10,8 @@ Chloros 1.3.0 versija užtikrina natyvią Linux paramą **CLI**ir**Python SDK** 
 
 ## Platformų palaikymo lentelė
 
-| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/ --- | --- | --- | --- |
+| Funkcija | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/SDK) | Linux arm64 / Jetson (CLI/SDK) |
+| --- | --- | --- | --- | --- |
 | **Darbalaukio GUI** | Taip | Netaikoma | Ne | Ne |
 | **Vartotojo sąsaja CLI** (`chloros-cli`) | Taip | Taip | Taip | Taip |
 | **Python SDK** (`chloros-sdk`) | Taip | Taip | Taip | Taip |
@@ -22,7 +23,9 @@ Chloros 1.3.0 versija užtikrina natyvią Linux paramą **CLI**ir**Python SDK** 
 | **„Texture Aware“ debayer** (reikalingas CUDA GPU) | Taip („Chloros+“) | Taip („Chloros+“) | Taip („Chloros+“) | Taip („Chloros+“) |
 | **Dinaminis skaičiavimo pritaikymas** | Taip | Taip | Taip | Taip |
 | **Backend kaip sistemos paslauga** (`chloros-backend@<user>.service`) | Ne | Ne | Taip (pasirenkama) | Taip (pasirenkama) |
-| **Atnaujinimas vietoje** (`chloros-cli update`) | Ne (paleiskite diegimo programą) | Ne (paleiskite diegimo programą) | Taip | Taip |***
+| **Atnaujinimas vietoje** (`chloros-cli update`) | Ne (paleiskite diegimo programą) | Ne (paleiskite diegimo programą) | Taip | Taip |
+
+***
 
 ## Palaikomos architektūros
 
@@ -35,7 +38,9 @@ Chloros 1.3.0 versija užtikrina natyvią Linux paramą **CLI**ir**Python SDK** 
 
 * **„Ubuntu 22.04 LTS“ arba naujesnė** (amd64)
 * **„Debian 12“ arba naujesnė** (amd64)
-* **NVIDIA JetPack 6** (arm64 — „Jetson Orin“ platformos)***
+* **NVIDIA JetPack 6** (arm64 — „Jetson Orin“ platformos)
+
+***
 
 ## Ką gauna Linux vartotojai
 
@@ -54,7 +59,9 @@ Chloros 1.3.0 versija užtikrina natyvią Linux paramą **CLI**ir**Python SDK** 
 
 * **Darbalaukio GUI** — nėra grafinės sąsajos; visa sąveika vyksta per CLI arba Python SDK
 * **Vaizdų peržiūros programa** — nėra interaktyvios vaizdų peržiūros programos, tinklelinio vaizdo ar žemėlapio žymių
-* **Vizualus projektų valdymas** — projektai kuriami ir valdomi naudojant CLI komandas ir SDK iškvietimus (pati įranga — kameros, jutikliai, duomenų surinkimas — lieka visiškai valdoma iš terminalo)***
+* **Vizualus projektų valdymas** — projektai kuriami ir valdomi naudojant CLI komandas ir SDK iškvietimus (pati įranga — kameros, jutikliai, duomenų surinkimas — lieka visiškai valdoma iš terminalo)
+
+***
 
 ## Licencijos reikalavimai
 

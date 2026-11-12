@@ -71,7 +71,9 @@ Išsamią formulių žinyną — visus tris iš anksto nustatytų sąrašų ir i
 
 ### Pažymėjus „Indeksas“, bet nenaudojant LUT
 
-Vaizdas atvaizduojamas **pilkosios skalės** spalvomis, ištemptas tarp dviejų slenksčių verčių. Tai daroma sąmoningai: indekso vaizdas yra skaliariniai duomenys, o pilkosios skalės atvaizdavimas yra tikriausias jo atvaizdavimas. Jei norite spalvų, pridėkite LUT.***
+Vaizdas atvaizduojamas **pilkosios skalės** spalvomis, ištemptas tarp dviejų slenksčių verčių. Tai daroma sąmoningai: indekso vaizdas yra skaliariniai duomenys, o pilkosios skalės atvaizdavimas yra tikriausias jo atvaizdavimas. Jei norite spalvų, pridėkite LUT.
+
+***
 
 ## Darbas su LUT (paieškos lentelėmis)**Paieškos lentelė** susieja indekso vertes su spalvomis: įvesties NDVI 0,65 atveju išvesties spalva yra tam tikra žalia. Ji nekeičia duomenų — ji keičia tai, kaip juos interpretuojate.
 
@@ -133,7 +135,9 @@ Pavyzdinis „NDVI“ langas:
 | Tik sveika augmenija                 | 0,5  | 0,9 |
 | Pabrėžti stresą                        | 0,2  | 0,5 |
 
-Siaurinant langą padidinamas kontrastas tiriamoje srityje, o visa kita išstumiama už ribų — ten, kur **apkarpymo režimas** nusprendžia, kas su tuo nutiks.***
+Siaurinant langą padidinamas kontrastas tiriamoje srityje, o visa kita išstumiama už ribų — ten, kur **apkarpymo režimas** nusprendžia, kas su tuo nutiks.
+
+***
 
 ## Apkarpymo režimai
 

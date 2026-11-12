@@ -15,7 +15,9 @@ Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: P
 
 Kiekvienas vaizdas paeiliui praeina per visus keturis sriegius. Naudojant „Chloros+“ daugiasiūlį apdorojimą, keli vaizdai vienu metu užima skirtingus sriegius — kol 3-iasis sriegis apdoroja vieną vaizdą, 1-asis sriegis gali aptikti kitą, 2-asis sriegis kalibruoti dar vieną, o 4-asis sriegis įrašyti baigtą vaizdą į diską.
 
-Apdorojimo pažanga pateikiama pagal kiekvieną srautą ir perduodama per „Server-Sent Events“ (užkulisinė sistema juos skelbia `/api/events`). Komandinės eilutės sąsajos (CLI) tiesioginiame pažangos rodinyje keturi etapai pažymėti kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.***
+Apdorojimo pažanga pateikiama pagal kiekvieną srautą ir perduodama per „Server-Sent Events“ (užkulisinė sistema juos skelbia `/api/events`). Komandinės eilutės sąsajos (CLI) tiesioginiame pažangos rodinyje keturi etapai pažymėti kaip **Aptikimas, Analizė, Apdorojimas, Eksportavimas**.
+
+***
 
 ## Sriegių detalės
 

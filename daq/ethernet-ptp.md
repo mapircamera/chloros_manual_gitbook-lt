@@ -102,4 +102,4 @@ Išsami informacija vartotojams, kuriems reikalingas griežtas suderinimas:
 | Transliacijos domenas | Kompiuteris ir jutiklis yra tame pačiame L2 segmente; mDNS nenukreipia srauto |
 | Užkarda | Windows: diegimo programos taisyklė **„Chloros Backend (UDP-In)“** leidžia DAQ-E srautą (UDP 5002), mDNS (5353) ir PTP (319/320) praeiti; trečiosios šalies užkarda turi būti sukonfigūruota taip pat. Linux: „`.deb`“ atidaro šiuos prievadus „`ufw`“ / „`firewalld`“ tik tuo atveju, jei ugniasienė buvo aktyvi diegimo metu — vėliau įjungus ugniasienę, juos reikia leisti patys |
 | Kompiuteris su keliais tinklo adapteriais | Atradimo funkcija naršo mDNS su ARP atsargine galimybe; `--eth-host <ip-or-hostname>` praleidžia atradimo etapą ir prisijungia tiesiogiai |
-| Pakartotinis nuskaitymas per GUI | Atradimo funkcija veikia tik tol, kol atidarytas prisijungimo dialogas; naudokite „Atnaujinti“ |</version>
+| Pakartotinis nuskaitymas per GUI | Atradimo funkcija veikia tik tol, kol atidarytas prisijungimo dialogas; naudokite „Atnaujinti“ |

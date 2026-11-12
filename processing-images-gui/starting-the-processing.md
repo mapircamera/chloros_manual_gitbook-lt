@@ -180,7 +180,9 @@ Pradėjus veikti, visas procesas vyksta automatiškai:
 * Sustabdytas apdorojimas tiksliai praneša, ką pavyko užbaigti (žr. žurnalo eilutes „`[RUN-SUMMARY]`“)
 * Naujas apdorojimo ciklas pradeda procesą nuo pradžių
 
-**Planavimo patarimas:** Vykdant labai didelius projektus, apsvarstykite galimybę apdoroti duomenis partijomis arba naudoti komandinės eilutės sąsają (CLI), kad galėtumėte geriau kontroliuoti procesą.***
+**Planavimo patarimas:** Vykdant labai didelius projektus, apsvarstykite galimybę apdoroti duomenis partijomis arba naudoti komandinės eilutės sąsają (CLI), kad galėtumėte geriau kontroliuoti procesą.
+
+***
 
 ## Apdorojimo stebėjimas
 

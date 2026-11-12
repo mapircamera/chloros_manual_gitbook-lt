@@ -64,7 +64,9 @@ Išsamus vadovas: [Chloros naudojimas su AI asistentais](ai-assistants.md).
 * **Aiški klaidų semantika.** „`chloros-cli process`“ vykdymas, kuris paprašė produktų, bet neišrašė nė vieno, dabar aiškiai rodo klaidą ir baigiasi nulinės vertės kodu; sėkmingi vykdymai praneša, kiek vaizdo produktų buvo išrašyta.
 * **Naujas išvesties išdėstymas.** Produktai patenka į `<project>/<camera>/<format>/<Product>_Images/` aplankus ir išlaiko šaltinio failo pavadinimą — produktą identifikuoja aplankas, o ne failo pavadinimo priesaga. Žr. [Išvesties vaizdų formatai](output-image-formats.md).
 * **Daugiau įvesties šaltinių, planų ir kalbų.** Įvesties palaikymas iš `.dng`; visos 38 sąsajos kalbos visiškai užpildytos; aparatūros apribojimai pagal planą, leidžiantys nemokamai (be prisijungimo) naudoti iki 4 kamerų ir 2 šviesos jutiklių.
-* **Patikimumas.** Funkcija „Stop Processing“ (Apdorojimo sustabdymas) sklandžiai užbaigia procesą, pateikdama išsamią vykdymo santrauką; daugiakameriniai projektai eksportuoja kiekvienos kameros duomenis, o diegimo programos atnaujinimai nebepriverčia jus atsijungti.***
+* **Patikimumas.** Funkcija „Stop Processing“ (Apdorojimo sustabdymas) sklandžiai užbaigia procesą, pateikdama išsamią vykdymo santrauką; daugiakameriniai projektai eksportuoja kiekvienos kameros duomenis, o diegimo programos atnaujinimai nebepriverčia jus atsijungti.
+
+***
 
 Chloros yra prieinama 3 programinės įrangos platformose:
 

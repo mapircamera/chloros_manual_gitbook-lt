@@ -196,7 +196,9 @@ Viskas šiame skyriuje yra **tik ekrano pusėje**— tai keičia tai, ką matote
 | **Sotumas** | 0–200 (100 = neutralus) | 100 | Tik RGB | HSV sotumas tiesioginiame peržiūros ekrane. |
 | **Kontrastas** | 0–200 (100 = neutralus) | 100 | Tik RGB | Tiesinis kontrastas aplink vidutinę pilką spalvą tiesioginiame peržiūros lange. |
 | **Veidrodinis H / Veidrodinis V** | Žymimieji langeliai | Išjungta | Visi | Apsukti peržiūrą horizontaliai / vertikaliai. |
-| **Pasukimas**| 0° / 90° / 180° / 270° | 0° | Visi | Pasukti peržiūrą. Orientavimas taikomas peržiūros grandinės pabaigoje.**Išsaugoti kadrai (1.3.0):**atskiro fotoaparato „Peržiūra“, „Spinduliavimas“, „Atspindys“ ir „Indeksas“ produktai pasukami naudojant „Veidrodinis atspindys“ / „Pasukimas“, o**„Raw“ ir „Debayered“ išlieka kameros natūralioje orientacijoje**; kiekviename užfiksuotame faile šis nustatymas įrašomas į XMP, todėl vėliau apdorojant „raw“ failą jis taikomas taip pat.**Masyvo narių failai išlieka natūralūs** (nustatymas įrašomas, bet netaikomas), o masyvo sudėtiniai vaizdai jo ignoruoja. |**Spalvų profilio semantika** (RGB kameros):
+| **Pasukimas**| 0° / 90° / 180° / 270° | 0° | Visi | Pasukti peržiūrą. Orientavimas taikomas peržiūros grandinės pabaigoje.**Išsaugoti kadrai (1.3.0):**atskiro fotoaparato „Peržiūra“, „Spinduliavimas“, „Atspindys“ ir „Indeksas“ produktai pasukami naudojant „Veidrodinis atspindys“ / „Pasukimas“, o**„Raw“ ir „Debayered“ išlieka kameros natūralioje orientacijoje**; kiekviename užfiksuotame faile šis nustatymas įrašomas į XMP, todėl vėliau apdorojant „raw“ failą jis taikomas taip pat.**Masyvo narių failai išlieka natūralūs** (nustatymas įrašomas, bet netaikomas), o masyvo sudėtiniai vaizdai jo ignoruoja. |
+
+**Spalvų profilio semantika** (RGB kameros):
 
 * **„Raw“** — visiškai apeina apdorojimo grandinę.
 * **„Linear“** — tamsusis signalas + plokščias laukas + baltos spalvos balansas; be spalvų matricos, be gama.

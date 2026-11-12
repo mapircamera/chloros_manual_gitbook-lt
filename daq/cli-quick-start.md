@@ -170,7 +170,9 @@ chloros-cli daq pool-reboot --sensor-id daq-e-def330
 chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 ```
 
-`pool-info` rodo jutiklio programinę įrangą (ir ar ši Chloros versija turi naujesnę), jo adresą ir kaip jis jį gavo, išsaugotus tinklo nustatymus, jei jie skiriasi nuo dabartinių, įjungimo srautą ir PTP. `pool-set-network` iš naujo paleidžia jutiklį, kad pakeitimai įsigaliotų, ir vėl prijungia jį su ankstesniais nustatymais; `--no-reboot` tik išsaugo nustatymus. Statinis adresas turi būti šio kompiuterio tinkle, kitaip Chloros jo nepriims; „`--force`“ tai ignoruoja, tačiau tik kompiuteriui, kuriam bus priskirtas naujas adresas arba kuris bus nukreiptas į jį. Perkrovimas neleidžiamas, kol jutiklis atlieka įrašymą. `pool-update-firmware` yra GUI komandos **„Update to \<version\>**“ atitikmuo komandinėje eilutėje ir būdas atnaujinti DAQ-E Linux sistemoje, kurioje nėra GUI. Nauja funkcija versijoje 1.3.0.***
+`pool-info` rodo jutiklio programinę įrangą (ir ar ši Chloros versija turi naujesnę), jo adresą ir kaip jis jį gavo, išsaugotus tinklo nustatymus, jei jie skiriasi nuo dabartinių, įjungimo srautą ir PTP. `pool-set-network` iš naujo paleidžia jutiklį, kad pakeitimai įsigaliotų, ir vėl prijungia jį su ankstesniais nustatymais; `--no-reboot` tik išsaugo nustatymus. Statinis adresas turi būti šio kompiuterio tinkle, kitaip Chloros jo nepriims; „`--force`“ tai ignoruoja, tačiau tik kompiuteriui, kuriam bus priskirtas naujas adresas arba kuris bus nukreiptas į jį. Perkrovimas neleidžiamas, kol jutiklis atlieka įrašymą. `pool-update-firmware` yra GUI komandos **„Update to \<version\>**“ atitikmuo komandinėje eilutėje ir būdas atnaujinti DAQ-E Linux sistemoje, kurioje nėra GUI. Nauja funkcija versijoje 1.3.0.
+
+***
 
 ## Komandų santrauka
 

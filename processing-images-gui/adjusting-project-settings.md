@@ -154,7 +154,9 @@ Išvesties failai įrašomi projekto aplanke, sugrupuoti pagal kamerą ir format
 
 * **Taikyti masyvo suderinimą** (numatyta: įjungta): kiekvieną apdorotą produktą (debayering / peržiūra / spinduliavimas / atspindys / indeksas) iškraipyti pagal bendrą masyvo etaloninę geometriją. Išjungta = eksportuoti pagal natūralią jutiklio geometriją.
 * **Apkarpyti iki bendro persidengimo** (numatyta: įjungta): apkarpykite suderintus eksportus iki srities, kurią dalijasi visi moduliai, kad kiekviena juosta turėtų tą patį užimamą plotą. Išjungus išlaikomas visas jutiklio vaizdas (juodas užpildymas už šaltinio ribų).
-* **Perimatuavimas**:**Bilinearinis (lygus, numatytasis)**,**Artimiausias (išsaugo tikslias vertes)**— be pikselių tarpusavio maišymo, skirta griežtai radiometrinei analizei — arba**Kubinis (aštriausias)**.***
+* **Perimatuavimas**:**Bilinearinis (lygus, numatytasis)**,**Artimiausias (išsaugo tikslias vertes)**— be pikselių tarpusavio maišymo, skirta griežtai radiometrinei analizei — arba**Kubinis (aštriausias)**.
+
+***
 
 ## Nustatymų išsaugojimas ir įkėlimas
 

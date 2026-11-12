@@ -78,7 +78,9 @@ Kiekvienas vaizdas su GPS duomenimis gauna žymeklį jo koordinatėse.
 | Tiekėjas        | Pastabos                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **„Google Maps“** | Platus pasaulinis aprėptis; palaiko visus keturis plytelių tipus                                                                                                            |
-| **„Esri ArcGIS“**| Tam tikruose regionuose dažnai siūlo didesnės skiriamosios gebos aerofotografijas. „Esri“ nepasiūlo**„Terrain“** plytelių tipo, todėl, kai pasirinkta „Esri“, šio tipo mygtukas yra neaktyvus |***
+| **„Esri ArcGIS“**| Tam tikruose regionuose dažnai siūlo didesnės skiriamosios gebos aerofotografijas. „Esri“ nepasiūlo**„Terrain“** plytelių tipo, todėl, kai pasirinkta „Esri“, šio tipo mygtukas yra neaktyvus |
+
+***
 
 ## Žemėlapio plytelių tipai
 
@@ -93,7 +95,9 @@ Pasirinkite žemėlapio sluoksnio tipą naudodami mygtukus (iš kairės į deši
 | **Palydovinis**        | Išsamūs palydoviniai vaizdai be užrašų — variantas, reikalaujantis didžiausio duomenų srauto |
 | **Hibridinis** (numatyta) | Palydoviniai vaizdai su ant jų nubrėžtais keliais ir užrašais                |
 
-Atidarius skirtuką „Žemėlapis“, pasirenkamas variantas **Hibridinis**. Jūsų pasirinkimas taikomas ir keičiant paslaugų teikėją, jei šis tai palaiko.***
+Atidarius skirtuką „Žemėlapis“, pasirenkamas variantas **Hibridinis**. Jūsų pasirinkimas taikomas ir keičiant paslaugų teikėją, jei šis tai palaiko.
+
+***
 
 ## Navigacija žemėlapyje
 
@@ -141,7 +145,9 @@ Atidarius skirtuką „Žemėlapis“, pasirenkamas variantas **Hibridinis**. J�
 
 ### Žemėlapis tuščias arba plytelės nebeįkeliamos
 
-Plytelių teikėjai yra internetinės paslaugos. Jei plytelės nustoja atsisiųsti, patikrinkite kompiuterio tinklo ryšį, tada pabandykite pakeisti teikėją. Jei buvote labai priartinę vaizdą, paspauskite **×** atstatymo mygtuką, kad grįžtumėte į įprastą priartinimo lygį, ir leiskite žemėlapiui iš naujo paprašyti plytelių.***
+Plytelių teikėjai yra internetinės paslaugos. Jei plytelės nustoja atsisiųsti, patikrinkite kompiuterio tinklo ryšį, tada pabandykite pakeisti teikėją. Jei buvote labai priartinę vaizdą, paspauskite **×** atstatymo mygtuką, kad grįžtumėte į įprastą priartinimo lygį, ir leiskite žemėlapiui iš naujo paprašyti plytelių.
+
+***
 
 ## Susiję puslapiai
 

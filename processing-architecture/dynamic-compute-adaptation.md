@@ -136,7 +136,9 @@ Chloros naudoja [4 sriegių apdorojimo grandinę](processing-pipeline.md):
 * Sriegiui, kuris yra **vienintelis** aktyvus, skiriamas jo profilio maksimalus paskirstymas.
 * Kai aktyvi yra daugiau nei viena *didelės apkrovos* GPU užduotis, kiekvienos didelės apkrovos užduoties bazinis paskirstymas padalijamas tarp jų (niekada nesumažinant žemiau nustatyto minimumo).
 
-Vykdymo metu faktiškai naudojama vertė yra **mažesnė** iš platformos profilio paskirstymo ir GPU atminties monitoriaus realaus laiko rekomendacijos, taigi užimta plokštė visada laimi prieš optimistinį profilį.***
+Vykdymo metu faktiškai naudojama vertė yra **mažesnė** iš platformos profilio paskirstymo ir GPU atminties monitoriaus realaus laiko rekomendacijos, taigi užimta plokštė visada laimi prieš optimistinį profilį.
+
+***
 
 ## Tekstūrą atpažįstantis apdorojimas
 

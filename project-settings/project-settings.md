@@ -34,7 +34,9 @@ Norėdami patekti į projekto nustatymus:
 * **Parinktys**: `Default (512 px)`, `1024 px`, `2048 px`, `Full resolution`
 * **Numatytasis**: Numatytasis (512 pikselių)
 * **Aprašymas**: Skiriamoji geba (ilgiausias kraštas, pikseliais), kuria atvaizduojamos vaizdų tinklelio miniatiūros. Didesnės reikšmės atrodo ryškiau, kai vaizdas padidinamas, tačiau įkeliama lėčiau ir sunaudoja daugiau atminties. Pilna skiriamoji geba atitinka originalaus vaizdo dydį.
-* **Pastaba**: Tik rodymui — tai niekada neturi įtakos apdorojimui ar eksportuojamiems failams.***
+* **Pastaba**: Tik rodymui — tai niekada neturi įtakos apdorojimui ar eksportuojamiems failams.
+
+***
 
 ## Taikinio aptikimas
 
@@ -184,7 +186,9 @@ Išsaugota reikšmė atitinkama neatsižvelgiant į didžiųjų ir mažųjų rai
   * Viena kamera + vienas kontaktas: 2-asis kontaktas automatiškai nustatomas į „Nenaudoti“
   * Viena kamera + du kontaktai: 2-asis kontaktas automatiškai nustatomas į „Nenaudoti“
   * Kelios kameros: Reikalingas rankinis pasirinkimas
-* **Pastaba**: tos pačios kameros negalima priskirti vienu metu ir 1-ajai, ir 2-ajai jungčiai.***
+* **Pastaba**: tos pačios kameros negalima priskirti vienu metu ir 1-ajai, ir 2-ajai jungčiai.
+
+***
 
 ## DAQ šviesos jutiklis
 
@@ -205,7 +209,9 @@ Kiekvienoje eilutėje nurodytas failas, jutiklio modelis ir tam failui faktiška
 * **Aprašymas**: `Auto` naudoja kiekviename faile užregistruotą dangtelį (jei nieko neužregistruota, daroma prielaida, kad tai „Sunshine“ dangtelis, tačiau DAQ-U, DAQ-M ir DAQ-E tiekiami be dangtelio, o Chloros negali matyti, kas yra uždėta, todėl apdorojimo metu rodomas įspėjimas dėl numanomo dangtelio: pasirinkite tą dangtelį, kuris buvo uždėtas). Pasirinkus konkretų dangtelį, jis pakeičia **visus** projekte esančius žemyn nukreiptus failus, išskyrus DAQ-E-S failus, kurių difuzorius yra kalibravimo dalis; projekte, kuriame yra tik DAQ-E-S, išskleidžiamasis meniu nerodomas: neapdoroti įrašai koreguojami naudojant jį, o įrašams, kuriuose jau yra taikytas dangtelis, nustatoma nauja atskaita (įrašyta korekcija atšaukiama ir pritaikoma pasirinktoji).
 * **Svarbu**: Pasirinktas dangtelis turi atitikti tą, kuris buvo fiziškai uždėtas įrašymo metu. Nei jutiklis, nei programinė įranga negali aptikti fizinio dangtelio — netinkamas dangtelio ID klaidingai koreguoja spektrus.
 
-Sąmoningai numatytas **vienas** visam projektui bendras nustatymas, o ne atskiri išskleidžiamieji meniu kiekvienam failui: šis nustatymas taikomas kiekvienam žemyn nukreiptam šaltiniui projekte.***
+Sąmoningai numatytas **vienas** visam projektui bendras nustatymas, o ne atskiri išskleidžiamieji meniu kiekvienam failui: šis nustatymas taikomas kiekvienam žemyn nukreiptam šaltiniui projekte.
+
+***
 
 ## Masyvo suderinimas
 
