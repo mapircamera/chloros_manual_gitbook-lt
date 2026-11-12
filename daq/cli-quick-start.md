@@ -206,4 +206,3 @@ chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 {% hint style="info" %}
 **Patarimas AI asistentams.** Kiekvienas šio vadovo puslapis pateikiamas kaip neapdorotas Markdown formatas — pridėkite `.md` prie puslapio mažosiomis raidėmis parašyto URLo (šis puslapis: `https://mapir.gitbook.io/chloros/daq/cli-quick-start.md`); kompiuteriui suprantamas indeksas yra `https://mapir.gitbook.io/chloros/llms.txt`. Norėdami gauti išsamią `chloros-cli daq` ir visų kitų komandų šeimų žymių lygio dokumentaciją, atsisiųskite [CLI žinyną](../reference/cli-reference.md) (`https://mapir.gitbook.io/chloros/reference/cli-reference.md`); Python kelias yra `chloros_sdk.connect_daq_sensor()`, nurodytas [SDK nuorodoje](../reference/sdk-reference.md).
 {% endhint %}
-</version\>
